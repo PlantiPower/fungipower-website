@@ -24,38 +24,13 @@ const emailStyles = {
 export async function POST(request: Request) {
   try {
     const { name, company, email, phone, address, city, crop, comments } = await request.json();
-    // Jouw eigen foto die we zojuist hebben klaargezet in het project
     const headerImage = 'https://plantipower-new.vercel.app/images/email/header.jpg';
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) return NextResponse.json({ error: 'API_KEY missing' }, { status: 500 });
     const resend = new Resend(apiKey);
 
-    // 1. HQ Notification
-    await resend.emails.send({
-      from: 'PlantiPower HQ <info@mail.plantipower.com>',
-      to: 'info@plantipower.com',
-      replyTo: email,
-      subject: `PROEFPAKKET AANVRAAG: ${company}`,
-      html: `
-        <div style="background-color: #011410; color: #ffffff; font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05);">
-          <div style="text-align: center; margin-bottom: 40px;">
-            <img src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png" alt="PlantiPower" style="height: 40px;" />
-          </div>
-          <div style="background: rgba(13, 43, 36, 0.5); padding: 30px; border-radius: 24px;">
-            <p><strong>Contact:</strong> ${name}</p>
-            <p><strong>Bedrijf:</strong> ${company}</p>
-            <p><strong>E-mail:</strong> ${email}</p>
-            <p><strong>Telefoon:</strong> ${phone}</p>
-            <p><strong>Adres:</strong> ${address}, ${city}</p>
-            <p><strong>Gewas:</strong> ${crop}</p>
-            <p><strong>Opmerkingen:</strong> ${comments || '-'}</p>
-          </div>
-        </div>
-      `
-    });
-
-    // 2. Customer Confirmation
+    // 2. Customer Confirmation with TRACKER
     await resend.emails.send({
       from: 'PlantiPower <info@mail.plantipower.com>',
       to: email,
@@ -80,12 +55,11 @@ export async function POST(request: Request) {
                 <div style="${emailStyles.quoteText}">"De perfecte oogst begint bij een gezonde bodem."</div>
               </div>
 
-              <div style="${emailStyles.bodyArea}">
+              <div style="${emailStyles.bodyArea}; padding-bottom: 10px;">
                 <div style="${emailStyles.greeting}">Beste teler,</div>
                 <div style="${emailStyles.bodyText}">
                   Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
-                  Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt, onder jouw omstandigheden. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
-                  Ons product doet wat het belooft. Daarom laten we het liever spreken in de kas dan in een brochure. Een duurzame samenwerking draait om vertrouwen. Jij neemt nu de stap om te testen – wij zorgen dat we dat vertrouwen waarmaken, met een product waar we volledig achter staan en begeleiding waar nodig.<br /><br />
+                  Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                   We zijn benieuwd naar de resultaten in jouw gewas.
                 </div>
 
@@ -94,10 +68,55 @@ export async function POST(request: Request) {
                   <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" style="${emailStyles.signatureImg}" />
                   <div style="${emailStyles.signatureName}">John Geenen</div>
                 </div>
+              </div>
 
+              <!-- TRACKER SECTION -->
+              <div style="background-color: #011d17; padding: 50px 40px; border-top: 1px solid rgba(255,255,255,0.05);">
+                <div style="text-align: center; margin-bottom: 40px;">
+                  <h3 style="font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #84cc16; margin: 0;">Package Tracker</h3>
+                  <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 5px;">Volg de reis van je proefpakket</p>
+                </div>
+
+                <div style="position: relative; padding: 0 10px;">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="25%" align="center">
+                        <div style="width: 30px; height: 30px; border-radius: 15px; background-color: #84cc16; display: inline-block; line-height: 30px; text-align: center;">
+                           <img src="https://img.icons8.com/material-rounded/24/011410/checkmark--v1.png" style="width: 16px; margin-top: 7px;" />
+                        </div>
+                        <div style="font-size: 9px; font-weight: 900; text-transform: uppercase; color: #84cc16; margin-top: 8px;">Aanvraag</div>
+                      </td>
+                      <td width="25%" align="center">
+                        <div style="width: 30px; height: 30px; border-radius: 15px; background-color: #84cc16; display: inline-block; line-height: 30px; text-align: center; box-shadow: 0 0 15px rgba(132, 204, 22, 0.4);">
+                           <div style="width: 10px; height: 10px; border-radius: 5px; background-color: #011410; display: inline-block; margin-top: 10px;"></div>
+                        </div>
+                        <div style="font-size: 9px; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-top: 8px;">Klaarmaken</div>
+                      </td>
+                      <td width="25%" align="center">
+                        <div style="width: 30px; height: 30px; border-radius: 15px; background-color: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.05); display: inline-block;"></div>
+                        <div style="font-size: 9px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 8px;">Onderweg</div>
+                      </td>
+                      <td width="25%" align="center">
+                        <div style="width: 30px; height: 30px; border-radius: 15px; background-color: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.05); display: inline-block;"></div>
+                        <div style="font-size: 9px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 8px;">Afgeleverd</div>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <!-- VAN SVG/INDICATOR -->
+                  <div style="text-align: center; margin-top: 20px;">
+                    <div style="background-color: #012b24; padding: 10px 18px; border-radius: 12px; border: 1px solid rgba(132, 204, 22, 0.3); display: inline-block;">
+                      <span style="font-size: 20px;">🚐</span>
+                      <span style="font-size: 10px; font-weight: 900; color: #84cc16; margin-left: 8px; letter-spacing: 1px;">PLANTIPOWER EXPRESS</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="${emailStyles.bodyArea}">
                 <span style="${emailStyles.sectionTitle}">Je proefpakket <span style="color:#84cc16;">bestaat uit:</span></span>
 
-                <!-- ALL12 - GREEN -->
+                <!-- ALL12 -->
                 <div style="${emailStyles.productCard}; border: 1px solid rgba(132, 204, 22, 0.2);">
                   <div style="display: flex; align-items: center; padding: 20px;">
                     <div style="flex: 1.5;">
@@ -109,7 +128,7 @@ export async function POST(request: Request) {
                   </div>
                 </div>
 
-                <!-- SHIELD - BLUE -->
+                <!-- SHIELD -->
                 <div style="${emailStyles.productCard}; border: 1px solid rgba(56, 189, 248, 0.2);">
                   <div style="display: flex; align-items: center; padding: 20px;">
                     <div style="flex: 1.5;">
@@ -121,20 +140,11 @@ export async function POST(request: Request) {
                   </div>
                 </div>
 
-                <span style="${emailStyles.sectionTitle}">Ervaring van <span style="color:#84cc16;">kwekers:</span></span>
-                <div style="${emailStyles.reviewCard}">
-                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Egalere wortels en betere opname."</div>
-                </div>
-                <div style="${emailStyles.reviewCard}; border-left-color: #38bdf8;">
-                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Absoluut minder gewasstress."</div>
-                </div>
-
                 <div style="padding: 25px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 24px; text-align: center; margin-top: 40px;">
                   <div style="color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6;">
                     In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
                   </div>
                 </div>
-
               </div>
 
               <div style="background: #000; padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
