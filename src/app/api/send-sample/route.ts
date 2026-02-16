@@ -14,7 +14,7 @@ const emailStyles = {
   quoteBar: 'width: 6px; height: 40px; background-color: #84cc16; border-radius: 2px;',
   quoteText: 'font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1.2; flex: 1;',
   bodyArea: 'padding: 0 40px 60px 40px;',
-  greeting: 'font-size: 18px; font-weight: 800; margin-bottom: 30px; color: #ffffff;',
+  greeting: 'font-size: 16px; font-weight: 400; line-height: 1.8; margin-bottom: 20px; color: rgba(255,255,255,0.7);',
   bodyText: 'color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.8; margin-bottom: 30px;',
   sectionTitle: 'display: block; font-size: 12px; font-weight: 900; color: #84cc16; text-transform: uppercase; letter-spacing: 3px; margin: 60px 0 30px 0;',
   productCard: 'background: linear-gradient(135deg, rgba(13, 43, 36, 0.8) 0%, rgba(1, 20, 16, 1) 100%); border-radius: 24px; border: 1px solid rgba(132, 204, 22, 0.1); margin-bottom: 24px; overflow: hidden;',
@@ -116,10 +116,10 @@ export async function POST(request: Request) {
                 <div style="${emailStyles.logoSquare}">
                   <img src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png" style="width: 100%;" />
                 </div>
-                <img src="${headerImage}" style="width: 100%; height: 100%; object-fit: cover;" />
+                <img src="https://images.unsplash.com/photo-1449300079323-02e209d9d02d?auto=format&fit=crop&q=80&w=800" style="width: 100%; height: 100%; object-fit: cover;" />
                 <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, #011410 0%, transparent 100%); padding: 40px;">
                   <div style="${emailStyles.tag}">Product Update</div>
-                  <div style="${emailStyles.heroTitle}">Wij veranderen<br/>niets. <span style="${emailStyles.heroAccent}">Jij optimali-<br/>seert alles.</span></div>
+                  <div style="${emailStyles.heroTitle}">Wij gaan je<br/>proefpakket <span style="${emailStyles.heroAccent}">klaarmaken.</span></div>
                 </div>
               </div>
 
@@ -135,8 +135,8 @@ export async function POST(request: Request) {
                 <div style="${emailStyles.greeting}">Beste partner in groei,</div>
                 
                 <div style="${emailStyles.bodyText}">
-                  Bij PlantiPower geloven we dat elke kweker een eigen verhaal heeft. Een verhaal van passie, doorzettingsvermogen en de constante zoektocht naar die extra procenten aan efficiëntie en kwaliteit.<br/><br/>
-                  In deze eerste nieuwsbrief nemen we je mee achter de schermen van onze labs in Nederland, waar we werken aan de biostimulanten van de toekomst. Geen magie, maar pure plantfysiologie.<br/><br/>
+                  Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br/><br/>
+                  Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt, onder jouw omstandigheden. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie binnen de sierteelt.<br/><br/>
                   Wij veranderen niets aan jouw vakmanschap, wij geven je enkel de tools om het nog beter te laten renderen.
                 </div>
 
@@ -148,23 +148,23 @@ export async function POST(request: Request) {
                 </div>
 
                 <!-- Product Extras -->
-                <span style="${emailStyles.sectionTitle}">De Krachtbronnen</span>
+                <span style="${emailStyles.sectionTitle}">Je proefpakket bestaat uit:</span>
 
                 <!-- ALL12 -->
                 <div style="${emailStyles.productCard}">
                   <div style="${emailStyles.productContent}">
-                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Biostimulant</div>
+                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Kern Systeem</div>
                     <div style="font-size:28px; font-weight:900; margin-bottom:10px;">ALL12</div>
-                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">De ultieme formule voor maximale groei en weerbaarheid.</div>
+                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">De ultieme biostimulant die het transport van alle 12 essentiële nutriënten naar de wortel optimaliseert voor maximale groei.</div>
                   </div>
                 </div>
 
                 <!-- SHIELD -->
                 <div style="${emailStyles.productCard}">
                   <div style="${emailStyles.productContent}">
-                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Protection</div>
+                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Weerbaarheid</div>
                     <div style="font-size:28px; font-weight:900; margin-bottom:10px;">SHIELD</div>
-                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">Versterkt de natuurlijke weerstand tegen biotische stress.</div>
+                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">Hoogwaardige bladvoeding die de natuurlijke weerbaarheid van het gewas versterkt tegen stress en invloeden van buitenaf.</div>
                   </div>
                 </div>
 
