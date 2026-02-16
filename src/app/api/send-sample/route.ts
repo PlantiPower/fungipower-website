@@ -45,7 +45,24 @@ export async function POST(request: Request) {
       to: 'info@plantipower.com',
       replyTo: email,
       subject: `PROEFPAKKET AANVRAAG: ${company}`,
-      html: `<div>Nieuwe aanvraag van ${name} (${company}) voor ${crop}</div>`
+      html: `
+        <div style="font-family: sans-serif; padding: 20px;">
+          <h2>Nieuwe proefpakket aanvraag</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Naam:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Bedrijf:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${company}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>E-mail:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Telefoon:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${phone}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Adres:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${address}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Stad:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${city}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Teelt:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${crop}</td></tr>
+          </table>
+          <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+            <strong>Opmerkingen:</strong><br/>
+            ${comments || 'Geen opmerkingen'}
+          </div>
+        </div>
+      `
     });
 
     // 2. ULTIMATE DESIGNER CONFIRMATION
