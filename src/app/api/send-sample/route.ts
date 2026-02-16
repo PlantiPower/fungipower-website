@@ -79,7 +79,7 @@ export async function POST(request: Request) {
               <div style="${emailStyles.bodyArea}; padding-bottom: 0;">
                 <div style="${emailStyles.greeting}">Beste teler,</div>
                 <div style="${emailStyles.bodyText}">
-                  Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
+                  Bedankt dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
                   Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                   We zijn benieuwd naar de resultaten in jouw gewas.
                 </div>
@@ -132,7 +132,7 @@ export async function POST(request: Request) {
                 </div>
 
                 <div style="position: relative; padding: 20px 0;">
-                  <div style="absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
+                  <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
                   <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
                     <tr>
                       <td align="center">

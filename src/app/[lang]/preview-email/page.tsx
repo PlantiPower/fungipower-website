@@ -71,7 +71,7 @@ export default function PreviewEmailPage() {
                 <div style={{ padding: '40px 40px 10px 40px' }}>
                     <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '10px', fontWeight: 300 }}>Beste teler,</div>
                     <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '20px', fontWeight: 300 }}>
-                        Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
+                        Bedankt dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
                         Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                         We zijn benieuwd naar de resultaten in jouw gewas.
                     </div>
