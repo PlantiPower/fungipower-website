@@ -147,24 +147,34 @@ export async function POST(request: Request) {
                   <div style="${emailStyles.signatureName}">John Geenen</div>
                 </div>
 
-                <!-- Product Extras -->
+                <!-- Product Extras - COMPACT -->
                 <span style="${emailStyles.sectionTitle}">Je proefpakket bestaat uit:</span>
 
                 <!-- ALL12 -->
                 <div style="${emailStyles.productCard}">
-                  <div style="${emailStyles.productContent}">
-                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Kern Systeem</div>
-                    <div style="font-size:28px; font-weight:900; margin-bottom:10px;">ALL12</div>
-                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">De ultieme biostimulant die het transport van alle 12 essentiële nutriënten naar de wortel optimaliseert voor maximale groei.</div>
+                  <div style="display: flex; align-items: center; padding: 25px;">
+                    <div style="flex: 1.5; padding-right: 20px;">
+                      <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:8px; text-transform:uppercase;">Kern Systeem</div>
+                      <div style="font-size:24px; font-weight:900; margin-bottom:8px;">ALL12</div>
+                      <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.5;">Optimaliseert het transport van alle 12 essentiële nutriënten naar de wortel voor maximale groei.</div>
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                      <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" style="width: 80px; height: auto;" />
+                    </div>
                   </div>
                 </div>
 
                 <!-- SHIELD -->
                 <div style="${emailStyles.productCard}">
-                  <div style="${emailStyles.productContent}">
-                    <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:10px; text-transform:uppercase;">Weerbaarheid</div>
-                    <div style="font-size:28px; font-weight:900; margin-bottom:10px;">SHIELD</div>
-                    <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.6;">Hoogwaardige bladvoeding die de natuurlijke weerbaarheid van het gewas versterkt tegen stress en invloeden van buitenaf.</div>
+                  <div style="display: flex; align-items: center; padding: 25px;">
+                    <div style="flex: 1.5; padding-right: 20px;">
+                      <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:8px; text-transform:uppercase;">Weerbaarheid</div>
+                      <div style="font-size:24px; font-weight:900; margin-bottom:8px;">SHIELD</div>
+                      <div style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.5;">Versterkt de natuurlijke weerstand tegen stress en invloeden van buitenaf.</div>
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                      <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" style="width: 80px; height: auto;" />
+                    </div>
                   </div>
                 </div>
 
