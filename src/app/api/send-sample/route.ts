@@ -60,7 +60,7 @@ export async function POST(request: Request) {
                 </div>
                 
                 <div style="margin-top: 30px;">
-                  <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" style="height: 60px; margin-bottom: 5px;" />
+                  <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" style="height: 85px; margin-bottom: 5px;" />
                   <div style="font-size: 16px; font-weight: 900; color: #ffffff; text-transform: uppercase;">John Geenen</div>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
                 </div>
               </div>
 
-              <!-- TECH TRACKER - PIXEL PERFECT CONTINUOUS -->
+              <!-- TECH TRACKER -->
               <div style="background-color: #011d17; padding: 60px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
                 <div style="text-align: center; margin-bottom: 40px;">
                   <h3 style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: #84cc16; margin-bottom: 10px;">PACKAGE JOURNEY</h3>
@@ -121,7 +121,6 @@ export async function POST(request: Request) {
                 </div>
 
                 <div style="position: relative; padding: 20px 0;">
-                  <!-- Background Line (Continuous through centers) -->
                   <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
                   
                   <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
@@ -140,19 +139,19 @@ export async function POST(request: Request) {
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Ingepakt</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Vervoeren</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Afleveren</div>
                       </td>

@@ -52,9 +52,9 @@ export default function PreviewEmailPage() {
                         We zijn benieuwd naar de resultaten in jouw gewas.
                     </div>
 
-                    <div>
+                    <div style={{ marginTop: '20px' }}>
                         <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', fontWeight: 300 }}>Met vriendelijke groet,</div>
-                        <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" alt="Signature" style={{ height: '60px', margin: '5px 0' }} />
+                        <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" alt="Signature" style={{ height: '85px', margin: '15px 0' }} />
                         <div style={{ fontSize: '16px', fontWeight: 900, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '1px' }}>John Geenen</div>
                     </div>
                 </div>
@@ -109,31 +109,31 @@ export default function PreviewEmailPage() {
                     </div>
                 </div>
 
-                {/* TRACKER - PIXEL PERFECT CONTINUOUS LINE */}
-                <div style={{ backgroundColor: '#011d17', padding: '70px 40px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                {/* PERFECT CONTINUOUS TRACKER */}
+                <div style={{ backgroundColor: '#011d17', padding: '60px 40px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                     <div style={{ textAlign: 'center', marginBottom: '45px' }}>
                         <h3 style={{ fontSize: '11px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '3px', color: '#84cc16', marginBottom: '10px' }}>PACKAGE JOURNEY</h3>
                         <div style={{ fontSize: '20px', fontWeight: 900, color: '#ffffff' }}>Status: <span style={{ color: '#84cc16' }}>Klaarmaken</span></div>
                     </div>
 
                     <div style={{ position: 'relative', height: '80px', margin: '0 40px' }}>
-                        {/* THE BAR: Continuous and centered through all icons */}
+                        {/* Static Line: Perfectly centered and continuous */}
                         <div style={{ position: 'absolute', top: '16px', left: '0', right: '0', height: '2px', backgroundColor: 'rgba(255,255,255,0.08)', zIndex: 1 }}></div>
 
-                        {/* PROGRESS: Connected from start to dot 2 center */}
+                        {/* Progress Line: Flows to step 2 (25% of total width) */}
                         <div style={{ position: 'absolute', top: '16px', left: '0', width: '25%', height: '2px', backgroundColor: '#84cc16', zIndex: 2 }}></div>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 10 }}>
                             {/* Step 1 */}
                             <div style={{ textAlign: 'center', width: '32px', marginLeft: '-16px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '5px solid #011d17' }}>
+                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17' }}>
                                     <svg viewBox="0 0 24 24" width="14" height="14" stroke="#011410" strokeWidth="4" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
                                 <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16', marginTop: '12px' }}>Ontvangen</div>
                             </div>
                             {/* Step 2 */}
                             <div style={{ textAlign: 'center', width: '32px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '5px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
+                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
                                     <div style={{ width: '8px', height: '8px', borderRadius: '4px', backgroundColor: '#011410' }}></div>
                                 </div>
                                 <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', marginTop: '12px' }}>Klaarmaken</div>
@@ -150,20 +150,20 @@ export default function PreviewEmailPage() {
                                 <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#011d17', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)' }}>
                                     <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
                                 </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Onderweg</div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Vervoeren</div>
                             </div>
                             {/* Step 5 */}
                             <div style={{ textAlign: 'center', width: '32px', marginRight: '-16px' }}>
                                 <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#011d17', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)' }}>
                                     <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
                                 </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Afgeleverd</div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Afleveren</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Footer Section - FULL VERSION */}
+                {/* Footer Section */}
                 <div style={{ padding: '0 40px 40px 40px', backgroundColor: '#011410' }}>
                     <div style={{ padding: '25px', border: '1px dashed rgba(255,255,255,0.1)', borderRadius: '24px', textAlign: 'center' }}>
                         <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.6' }}>
