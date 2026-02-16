@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     if (!apiKey) return NextResponse.json({ error: 'API_KEY missing' }, { status: 500 });
     const resend = new Resend(apiKey);
 
-    // Customer Confirmation
+    // Customer Confirmation with FLOWING TRACKER
     await resend.emails.send({
       from: 'PlantiPower <info@mail.plantipower.com>',
       to: email,
@@ -101,39 +101,48 @@ export async function POST(request: Request) {
                 </div>
               </div>
 
-              <!-- TRACKER SECTION - MOVED BELOW PRODUCTS & REFINED -->
-              <div style="background-color: #011d17; padding: 50px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
+              <!-- REFINED PACKAGE JOURNEY (NO BREAKS) -->
+              <div style="background-color: #011d17; padding: 60px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
                 <div style="text-align: center; margin-bottom: 40px;">
-                  <h3 style="font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; margin: 0;">Package Journey</h3>
-                  <div style="width: 30px; height: 1.5px; background: #84cc16; margin: 10px auto 0;"></div>
+                  <h3 style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: #84cc16; margin-bottom: 10px;">PACKAGE JOURNEY</h3>
+                  <div style="font-size: 18px; font-weight: 900; color: #ffffff;">Live status: <span style="color: #84cc16;">In voorbereiding</span></div>
                 </div>
 
-                <div style="position: relative;">
-                  <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed;">
+                <div style="position: relative; padding: 20px 0;">
+                  <!-- Technical Background Line (Full length) -->
+                  <div style="position: absolute; top: 34px; left: 10%; right: 10%; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
+                  
+                  <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
                     <tr>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block;">
                            <img src="https://img.icons8.com/material-rounded/24/011410/checkmark--v1.png" style="width: 14px; margin-top: 7px;" />
                         </div>
-                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #84cc16; margin-top: 8px; letter-spacing: 0.5px;">Aanvraag</div>
+                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #84cc16; margin-top: 10px; letter-spacing: 0.5px;">Aanvraag</div>
                       </td>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block; border: 3px solid #011d17; box-shadow: 0 0 10px rgba(132, 204, 22, 0.3);">
-                           <div style="width: 6px; height: 6px; border-radius: 3px; background-color: #011410; display: inline-block; margin-top: 8px;"></div>
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011410; display: inline-block; border: 1px solid #84cc16; box-shadow: 0 0 15px rgba(132, 204, 22, 0.3);">
+                           <div style="width: 6px; height: 6px; border-radius: 3px; background-color: #84cc16; display: inline-block; margin-top: 11px;"></div>
                         </div>
-                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-top: 8px; letter-spacing: 0.5px;">Klaarmaken</div>
+                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-top: 10px; letter-spacing: 0.5px;">Klaarmaken</div>
                       </td>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: rgba(255,255,255,0.05); display: inline-block;"></div>
-                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 8px; letter-spacing: 0.5px;">Ingepakt</div>
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                        </div>
+                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Ingepakt</div>
                       </td>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: rgba(255,255,255,0.05); display: inline-block;"></div>
-                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 8px; letter-spacing: 0.5px;">Vervoeren</div>
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                        </div>
+                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Vervoeren</div>
                       </td>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: rgba(255,255,255,0.05); display: inline-block;"></div>
-                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 8px; letter-spacing: 0.5px;">Afleveren</div>
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                        </div>
+                        <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Afleveren</div>
                       </td>
                     </tr>
                   </table>
