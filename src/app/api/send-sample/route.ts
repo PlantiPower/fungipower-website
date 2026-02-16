@@ -27,7 +27,6 @@ export async function POST(request: Request) {
     if (!apiKey) return NextResponse.json({ error: 'API_KEY missing' }, { status: 500 });
     const resend = new Resend(apiKey);
 
-    // FULL VERSION EMAIL
     await resend.emails.send({
       from: 'PlantiPower <info@mail.plantipower.com>',
       to: email,
@@ -56,7 +55,7 @@ export async function POST(request: Request) {
                 <div style="${emailStyles.greeting}">Beste teler,</div>
                 <div style="${emailStyles.bodyText}">
                   Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
-                  Wij vinden dat een samenwerking begint bij resultaat. Eert zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
+                  Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                   We zijn benieuwd naar de resultaten in jouw gewas.
                 </div>
                 
@@ -141,26 +140,25 @@ export async function POST(request: Request) {
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Ingepakt</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Vervoeren</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Afleveren</div>
                       </td>
                     </tr>
                   </table>
-                  <!-- Connected Green Line (starting exactly at center) -->
-                  <div style="position: absolute; top: 34px; left: 45px; width: 25%; height: 1px; background-color: #84cc16; zIndex: 3;"></div>
+                  <div style="position: absolute; top: 34px; left: 45px; width: 25%; height: 1px; background-color: #84cc16; z-index: 3;"></div>
                 </div>
               </div>
 
