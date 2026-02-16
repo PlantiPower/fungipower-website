@@ -39,6 +39,13 @@ export async function POST(request: Request) {
               
               <div style="position: relative; width: 100%; height: 480px; background-color: #011410; overflow: hidden;">
                 <img src="${headerImage}" style="width: 100%; height: 100%; object-fit: cover;" />
+                
+                <!-- Status Badge -->
+                <div style="position: absolute; top: 30px; right: 40px; text-align: right;">
+                    <div style="font-size: 10px; font-weight: 900; color: #84cc16; text-transform: uppercase; letter-spacing: 2px;">Phase 01</div>
+                    <div style="font-size: 13px; font-weight: 300; color: #ffffff; opacity: 0.5;">Mail 1 van 3</div>
+                </div>
+
                 <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
                   <div style="${emailStyles.tag}">Welcome Partner</div>
                   <div style="${emailStyles.heroTitle}">WIJ GAAN JE <br /><span style="${emailStyles.heroAccent}">PROEFPAKKET</span> KLAARMAKEN.</div>
@@ -67,11 +74,7 @@ export async function POST(request: Request) {
 
               <div style="${emailStyles.bodyArea}">
                 <span style="${emailStyles.sectionTitle}">Je proefpakket <span style="color:#84cc16;">bestaat uit:</span></span>
-
-                <!-- PRODUCT GRID WRAPPER -->
                 <div style="text-align: center; font-size: 0;">
-                  
-                  <!-- ALL12 CARD -->
                   <div style="display: inline-block; width: 250px; vertical-align: top; margin-bottom: 20px; text-align: left;">
                     <div style="${emailStyles.productCard}; border: 1px solid rgba(132, 204, 22, 0.2); margin-right: 10px;">
                         <div style="color:#ffffff; font-size:10px; font-weight:900; margin-bottom:0px; text-transform:uppercase; line-height: 1;">PlantiPower</div>
@@ -82,8 +85,6 @@ export async function POST(request: Request) {
                         </div>
                     </div>
                   </div>
-
-                  <!-- SHIELD CARD -->
                   <div style="display: inline-block; width: 250px; vertical-align: top; margin-bottom: 20px; text-align: left;">
                     <div style="${emailStyles.productCard}; border: 1px solid rgba(56, 189, 248, 0.2); margin-left: 10px;">
                         <div style="color:#ffffff; font-size:10px; font-weight:900; margin-bottom:0px; text-transform:uppercase; line-height: 1;">PlantiPower</div>
@@ -94,7 +95,6 @@ export async function POST(request: Request) {
                         </div>
                     </div>
                   </div>
-
                 </div>
 
                 <span style="${emailStyles.sectionTitle}">Ervaring van <span style="color:#84cc16;">kwekers:</span></span>
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
                 </div>
               </div>
 
-              <!-- TECH TRACKER -->
+              <!-- TRACKER -->
               <div style="background-color: #011d17; padding: 60px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
                 <div style="text-align: center; margin-bottom: 40px;">
                   <h3 style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: #84cc16; margin-bottom: 10px;">PACKAGE JOURNEY</h3>
@@ -115,7 +115,6 @@ export async function POST(request: Request) {
 
                 <div style="position: relative; padding: 20px 0;">
                   <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
-                  
                   <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
                     <tr>
                       <td align="center">

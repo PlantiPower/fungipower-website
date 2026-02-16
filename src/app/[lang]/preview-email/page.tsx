@@ -23,8 +23,15 @@ export default function PreviewEmailPage() {
                     <img src={headerImage} alt="PlantiPower Greenhouse" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(1,20,16,0) 0%, rgba(1,20,16,1) 95%)', zIndex: 1 }}></div>
 
+                    {/* Logo Tab */}
                     <div style={{ position: 'absolute', top: '0', left: '40px', backgroundColor: '#012b24', padding: '15px 15px 25px 15px', width: '80px', zIndex: 10, borderRadius: '0 0 12px 12px' }}>
                         <img src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png" alt="PlantiPower" style={{ width: '100%' }} />
+                    </div>
+
+                    {/* New Status Badge - TOP RIGHT */}
+                    <div style={{ position: 'absolute', top: '30px', right: '40px', zIndex: 10, textAlign: 'right' }}>
+                        <div style={{ fontSize: '10px', fontWeight: 900, color: '#84cc16', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.8 }}>Phase 01</div>
+                        <div style={{ fontSize: '13px', fontWeight: 300, color: '#ffffff', opacity: 0.5 }}>Mail 1 van 3</div>
                     </div>
 
                     <div style={{ position: 'absolute', bottom: '40px', left: '40px', right: '40px', zIndex: 10 }}>
@@ -59,7 +66,7 @@ export default function PreviewEmailPage() {
                     </div>
                 </div>
 
-                {/* Product Section - SIDE-BY-SIDE GRID */}
+                {/* Product Section - DUO GRID */}
                 <div style={{ backgroundColor: '#011410', padding: '40px 40px' }}>
                     <div style={{ marginBottom: '30px' }}>
                         <h2 style={{ fontSize: '20px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.5px' }}>
@@ -85,9 +92,7 @@ export default function PreviewEmailPage() {
                         }}>
                             <div style={{ color: '#ffffff', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '0px', letterSpacing: '1px', lineHeight: '1' }}>PlantiPower</div>
                             <div style={{ fontSize: '32px', fontWeight: 900, marginBottom: '20px', color: '#84cc16', letterSpacing: '-1.5px', lineHeight: '1' }}>ALL12</div>
-
                             <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" alt="ALL12" style={{ width: '100px', height: 'auto', margin: '10px 0 25px 0' }} />
-
                             <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.6', fontWeight: 400 }}>
                                 Optimaliseert nutriëntenstroom en verbetert opnamecapaciteit voor maximale groei.
                             </div>
@@ -106,9 +111,7 @@ export default function PreviewEmailPage() {
                         }}>
                             <div style={{ color: '#ffffff', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '0px', letterSpacing: '1px', lineHeight: '1' }}>PlantiPower</div>
                             <div style={{ fontSize: '32px', fontWeight: 900, marginBottom: '20px', color: '#38bdf8', letterSpacing: '-1.5px', lineHeight: '1' }}>SHIELD</div>
-
                             <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" alt="SHIELD" style={{ width: '100px', height: 'auto', margin: '10px 0 25px 0' }} />
-
                             <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.6', fontWeight: 400 }}>
                                 Versterkt natuurlijke weerbaarheid en optimaliseert de celstructuur van de plant.
                             </div>
@@ -153,6 +156,7 @@ export default function PreviewEmailPage() {
                                 </div>
                                 <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16', marginTop: '12px' }}>Ontvangen</div>
                             </div>
+                            {/* ... rest of tracker steps ... */}
                             <div style={{ textAlign: 'center', width: '32px' }}>
                                 <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '5px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
                                     <div style={{ width: '8px', height: '8px', borderRadius: '4px', backgroundColor: '#011410' }}></div>
@@ -177,15 +181,6 @@ export default function PreviewEmailPage() {
                                 </div>
                                 <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Afgeleverd</div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Footer Section */}
-                <div style={{ padding: '0 40px 40px 40px', backgroundColor: '#011410' }}>
-                    <div style={{ padding: '25px', border: '1px dashed rgba(255,255,255,0.1)', borderRadius: '24px', textAlign: 'center' }}>
-                        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.6' }}>
-                            In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
                         </div>
                     </div>
                 </div>
