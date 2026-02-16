@@ -44,106 +44,111 @@ export default function PreviewEmailPage() {
                 </div>
 
                 {/* Main Message */}
-                <div style={{ padding: '40px 40px 40px 40px' }}>
+                <div style={{ padding: '40px 40px 20px 40px' }}>
                     <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '10px', fontWeight: 300 }}>Beste teler,</div>
                     <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '20px', fontWeight: 300 }}>
                         Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
-                        Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt, onder jouw omstandigheden. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie binnen de teelt.<br /><br />
-                        Onze producten ALL12 en SHIELD doen wat ze beloven. We laten ze liever spreken in de kas dan in een brochure.<br /><br />
+                        Wij vinden dat een samenwerking begint bij resultaat. Eert zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                         We zijn benieuwd naar de resultaten in jouw gewas.
                     </div>
 
-                    <div>
+                    <div style={{ marginTop: '20px' }}>
                         <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', fontWeight: 300 }}>Met vriendelijke groet,</div>
                         <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" alt="Signature" style={{ height: '60px', margin: '5px 0' }} />
                         <div style={{ fontSize: '16px', fontWeight: 900, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '1px' }}>John Geenen</div>
                     </div>
                 </div>
 
-                {/* Tracker Section - DOMINO'S STYLE */}
-                <div style={{ backgroundColor: '#011d17', padding: '50px 40px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-                        <h3 style={{ fontSize: '18px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px', color: '#84cc16', margin: 0 }}>Package Tracker</h3>
-                        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', marginTop: '5px' }}>Volg de reis van je PlantiPower proefpakket</p>
+                {/* PREMIUM JOURNEY TRACKER */}
+                <div style={{ backgroundColor: '#011d17', padding: '60px 30px', borderTop: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#84cc16', padding: '6px 15px', borderRadius: '100px', marginBottom: '10px' }}>
+                            <span style={{ color: '#011410', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px' }}>Status: In behandeling</span>
+                        </div>
+                        <h3 style={{ fontSize: '24px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px', color: '#ffffff', margin: 0 }}>De reis naar jouw kas</h3>
                     </div>
 
-                    <div style={{ position: 'relative', padding: '0 20px' }}>
-                        {/* Connecting Line */}
-                        <div style={{ position: 'absolute', top: '15px', left: '40px', right: '40px', height: '2px', backgroundColor: 'rgba(255,255,255,0.1)', zIndex: 1 }}></div>
-                        <div style={{ position: 'absolute', top: '15px', left: '40px', width: '33%', height: '2px', backgroundColor: '#84cc16', zIndex: 2 }}></div>
+                    <div style={{ position: 'relative', height: '100px' }}>
+                        {/* Static Track Line */}
+                        <div style={{ position: 'absolute', top: '15px', left: '10%', right: '10%', height: '4px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}></div>
 
-                        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 3 }}>
-                            {/* Step 1: Received */}
-                            <div style={{ textAlign: 'center', width: '80px' }}>
-                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="3" fill="none" style={{ color: '#011410' }}><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        {/* Progress Line */}
+                        <div style={{ position: 'absolute', top: '15px', left: '10%', width: '25%', height: '4px', background: 'linear-gradient(90deg, #84cc16 0%, #a3e635 100%)', borderRadius: '2px', boxShadow: '0 0 15px rgba(132, 204, 22, 0.4)' }}></div>
+
+                        {/* Steps */}
+                        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 5 }}>
+                            {/* Step 1: Request (Done) */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17' }}>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="#011410" strokeWidth="4" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
-                                <div style={{ fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16' }}>Aanvraag</div>
+                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16' }}>Aanvraag</div>
                             </div>
 
-                            {/* Step 2: Preparing (ACTIVE) */}
-                            <div style={{ textAlign: 'center', width: '80px' }}>
-                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
+                            {/* Step 2: Preparing (Active) */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.6)' }}>
                                     <div style={{ width: '10px', height: '10px', borderRadius: '5px', backgroundColor: '#011410' }}></div>
                                 </div>
-                                <div style={{ fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff' }}>Klaarmaken</div>
+                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff' }}>Klaarmaken</div>
                             </div>
 
-                            {/* Step 3: Transport (The Van) */}
-                            <div style={{ textAlign: 'center', width: '80px' }}>
-                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.05)', margin: '0 auto 10px' }}></div>
-                                <div style={{ fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Onderweg</div>
-                                {/* Bus Graphic Placeholder/Indicator */}
-                                <div style={{ position: 'absolute', top: '-45px', left: '60%', transform: 'translateX(-50%)', opacity: 0.5 }}>
-                                    <div style={{ backgroundColor: '#012b24', padding: '8px 12px', borderRadius: '8px', border: '1px solid rgba(132, 204, 22, 0.3)', whiteSpace: 'nowrap' }}>
-                                        <span style={{ fontSize: '16px' }}>🚐</span>
-                                        <span style={{ fontSize: '8px', fontWeight: 900, color: '#84cc16', marginLeft: '5px' }}>PLANTIPOWER</span>
+                            {/* Step 3: Packed */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Ingepakt</div>
+                            </div>
+
+                            {/* Step 4: Transport (The Van Location) */}
+                            <div style={{ textAlign: 'center', width: '20%', position: 'relative' }}>
+                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Vervoeren</div>
+
+                                {/* BUS BADGE - VETTER UITGEWERKT */}
+                                <div style={{ position: 'absolute', top: '45px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+                                    <div style={{ backgroundColor: '#012b24', border: '1.5px solid #84cc16', borderRadius: '12px', padding: '10px 15px', color: '#84cc16', display: 'flex', alignItems: 'center', gap: '10px', whiteSpace: 'nowrap', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+                                        <div style={{ fontSize: '24px' }}>🚐</div>
+                                        <div style={{ textAlign: 'left' }}>
+                                            <div style={{ fontSize: '8px', fontWeight: 900, color: '#ffffff', opacity: 0.5, textTransform: 'uppercase' }}>Express</div>
+                                            <div style={{ fontSize: '10px', fontWeight: 900, letterSpacing: '1px' }}>PLANTIPOWER</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Step 4: Delivered */}
-                            <div style={{ textAlign: 'center', width: '80px' }}>
-                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.05)', margin: '0 auto 10px' }}></div>
-                                <div style={{ fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Afgeleverd</div>
+                            {/* Step 5: Delivered */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Afleveren</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Product Section */}
-                <div style={{ backgroundColor: '#011410', padding: '40px 40px' }}>
+                <div style={{ backgroundColor: '#011410', padding: '60px 40px 40px 40px' }}>
                     <div style={{ marginBottom: '25px' }}>
                         <h2 style={{ fontSize: '20px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.5px' }}>
                             Je proefpakket <span style={{ color: '#84cc16' }}>bestaat uit:</span>
                         </h2>
                     </div>
 
-                    <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(132, 204, 22, 0.2)', marginBottom: '12px', padding: '20px', display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '24px', border: '1px solid rgba(132, 204, 22, 0.2)', marginBottom: '15px', padding: '25px', display: 'flex', alignItems: 'center', gap: '30px' }}>
                         <div style={{ flex: 1 }}>
-                            <div style={{ color: '#84cc16', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '4px', letterSpacing: '1px' }}>PlantiPower</div>
-                            <div style={{ fontSize: '26px', fontWeight: 900, marginBottom: '4px', color: '#84cc16' }}>ALL12</div>
-                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.4' }}>Optimaliseert transport naar de wortel.</div>
+                            <div style={{ color: '#84cc16', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '6px', letterSpacing: '1px' }}>PlantiPower</div>
+                            <div style={{ fontSize: '30px', fontWeight: 900, marginBottom: '6px', color: '#84cc16', letterSpacing: '-1px' }}>ALL12</div>
+                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.5' }}>Optimaliseert transport naar de wortel.</div>
                         </div>
-                        <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" alt="ALL12" style={{ width: '60px', height: 'auto' }} />
+                        <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" alt="ALL12" style={{ width: '70px', height: 'auto' }} />
                     </div>
 
-                    <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '20px', display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '24px', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '25px', display: 'flex', alignItems: 'center', gap: '30px' }}>
                         <div style={{ flex: 1 }}>
-                            <div style={{ color: '#38bdf8', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '4px', letterSpacing: '1px' }}>PlantiPower</div>
-                            <div style={{ fontSize: '26px', fontWeight: 900, marginBottom: '4px', color: '#38bdf8' }}>SHIELD</div>
-                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.4' }}>Versterkt natuurlijke weerbaarheid.</div>
+                            <div style={{ color: '#38bdf8', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '6px', letterSpacing: '1px' }}>PlantiPower</div>
+                            <div style={{ fontSize: '30px', fontWeight: 900, marginBottom: '6px', color: '#38bdf8', letterSpacing: '-1px' }}>SHIELD</div>
+                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.5' }}>Versterkt natuurlijke weerbaarheid.</div>
                         </div>
-                        <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" alt="SHIELD" style={{ width: '60px', height: 'auto' }} />
-                    </div>
-                </div>
-
-                {/* NEXT UPDATE */}
-                <div style={{ padding: '0 40px 40px 40px', backgroundColor: '#011410' }}>
-                    <div style={{ padding: '25px', border: '1px dashed rgba(255,255,255,0.1)', borderRadius: '24px', textAlign: 'center' }}>
-                        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.6' }}>
-                            In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
-                        </div>
+                        <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" alt="SHIELD" style={{ width: '70px', height: 'auto' }} />
                     </div>
                 </div>
 
