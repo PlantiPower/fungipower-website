@@ -59,74 +59,8 @@ export default function PreviewEmailPage() {
                     </div>
                 </div>
 
-                {/* PREMIUM JOURNEY TRACKER */}
-                <div style={{ backgroundColor: '#011d17', padding: '60px 30px', borderTop: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#84cc16', padding: '6px 15px', borderRadius: '100px', marginBottom: '10px' }}>
-                            <span style={{ color: '#011410', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px' }}>Status: In behandeling</span>
-                        </div>
-                        <h3 style={{ fontSize: '24px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px', color: '#ffffff', margin: 0 }}>De reis naar jouw kas</h3>
-                    </div>
-
-                    <div style={{ position: 'relative', height: '100px' }}>
-                        {/* Static Track Line */}
-                        <div style={{ position: 'absolute', top: '15px', left: '10%', right: '10%', height: '4px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}></div>
-
-                        {/* Progress Line */}
-                        <div style={{ position: 'absolute', top: '15px', left: '10%', width: '25%', height: '4px', background: 'linear-gradient(90deg, #84cc16 0%, #a3e635 100%)', borderRadius: '2px', boxShadow: '0 0 15px rgba(132, 204, 22, 0.4)' }}></div>
-
-                        {/* Steps */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 5 }}>
-                            {/* Step 1: Request (Done) */}
-                            <div style={{ textAlign: 'center', width: '20%' }}>
-                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17' }}>
-                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="#011410" strokeWidth="4" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </div>
-                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16' }}>Aanvraag</div>
-                            </div>
-
-                            {/* Step 2: Preparing (Active) */}
-                            <div style={{ textAlign: 'center', width: '20%' }}>
-                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.6)' }}>
-                                    <div style={{ width: '10px', height: '10px', borderRadius: '5px', backgroundColor: '#011410' }}></div>
-                                </div>
-                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff' }}>Klaarmaken</div>
-                            </div>
-
-                            {/* Step 3: Packed */}
-                            <div style={{ textAlign: 'center', width: '20%' }}>
-                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
-                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Ingepakt</div>
-                            </div>
-
-                            {/* Step 4: Transport (The Van Location) */}
-                            <div style={{ textAlign: 'center', width: '20%', position: 'relative' }}>
-                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
-                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Vervoeren</div>
-
-                                {/* BUS BADGE - VETTER UITGEWERKT */}
-                                <div style={{ position: 'absolute', top: '45px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
-                                    <div style={{ backgroundColor: '#012b24', border: '1.5px solid #84cc16', borderRadius: '12px', padding: '10px 15px', color: '#84cc16', display: 'flex', alignItems: 'center', gap: '10px', whiteSpace: 'nowrap', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-                                        <div style={{ fontSize: '24px' }}>🚐</div>
-                                        <div style={{ textAlign: 'left' }}>
-                                            <div style={{ fontSize: '8px', fontWeight: 900, color: '#ffffff', opacity: 0.5, textTransform: 'uppercase' }}>Express</div>
-                                            <div style={{ fontSize: '10px', fontWeight: 900, letterSpacing: '1px' }}>PLANTIPOWER</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Step 5: Delivered */}
-                            <div style={{ textAlign: 'center', width: '20%' }}>
-                                <div style={{ width: '34px', height: '34px', borderRadius: '17px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
-                                <div style={{ fontSize: '9px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)' }}>Afleveren</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {/* Product Section */}
-                <div style={{ backgroundColor: '#011410', padding: '60px 40px 40px 40px' }}>
+                <div style={{ backgroundColor: '#011410', padding: '40px 40px' }}>
                     <div style={{ marginBottom: '25px' }}>
                         <h2 style={{ fontSize: '20px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.5px' }}>
                             Je proefpakket <span style={{ color: '#84cc16' }}>bestaat uit:</span>
@@ -149,6 +83,59 @@ export default function PreviewEmailPage() {
                             <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.5' }}>Versterkt natuurlijke weerbaarheid.</div>
                         </div>
                         <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" alt="SHIELD" style={{ width: '70px', height: 'auto' }} />
+                    </div>
+                </div>
+
+                {/* TRACKER SECTION - MOVED DOWN & REFINED */}
+                <div style={{ backgroundColor: '#011d17', padding: '50px 30px', borderTop: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                        <h3 style={{ fontSize: '18px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px', color: '#ffffff', margin: 0 }}>Package Journey</h3>
+                        <div style={{ width: '40px', height: '2px', background: '#84cc16', margin: '15px auto 0' }}></div>
+                    </div>
+
+                    <div style={{ position: 'relative', height: '70px' }}>
+                        {/* Static Track Line */}
+                        <div style={{ position: 'absolute', top: '15px', left: '10%', right: '10%', height: '2px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '1px' }}></div>
+
+                        {/* Progress Line */}
+                        <div style={{ position: 'absolute', top: '15px', left: '10%', width: '25%', height: '2px', background: '#84cc16', borderRadius: '1px' }}></div>
+
+                        {/* Steps */}
+                        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 5 }}>
+                            {/* Step 1: Request */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17' }}>
+                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="#011410" strokeWidth="4" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16', letterSpacing: '0.5px' }}>Aanvraag</div>
+                            </div>
+
+                            {/* Step 2: Preparing */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: '#84cc16', margin: '0 auto 10px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '4px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
+                                    <div style={{ width: '8px', height: '8px', borderRadius: '4px', backgroundColor: '#011410' }}></div>
+                                </div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '0.5px' }}>Klaarmaken</div>
+                            </div>
+
+                            {/* Step 3: Packed */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', letterSpacing: '0.5px' }}>Ingepakt</div>
+                            </div>
+
+                            {/* Step 4: Transport */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', letterSpacing: '0.5px' }}>Vervoeren</div>
+                            </div>
+
+                            {/* Step 5: Delivered */}
+                            <div style={{ textAlign: 'center', width: '20%' }}>
+                                <div style={{ width: '30px', height: '30px', borderRadius: '15px', backgroundColor: 'rgba(255,255,255,0.05)', margin: '0 auto 10px', border: '4px solid #011d17' }}></div>
+                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', letterSpacing: '0.5px' }}>Afleveren</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
