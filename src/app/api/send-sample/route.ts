@@ -7,7 +7,7 @@ const emailStyles = {
   heroTitle: 'font-size: 42px; font-weight: 900; line-height: 0.95; margin-bottom: 0; text-transform: uppercase; letter-spacing: -2px;',
   heroAccent: 'color: #84cc16;',
   profileSection: 'padding: 60px 40px; background-color: #011410; border-bottom: 1px solid rgba(255,255,255,0.05);',
-  profilePic: 'width: 100px; height: 120px; border-radius: 16px; object-fit: cover;',
+  profilePic: 'width: 85px; height: 85px; border-radius: 50%; object-fit: cover;',
   quoteText: 'font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; line-height: 1.3; color: #ffffff; margin-bottom: 12px;',
   founderLabel: 'font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #84cc16;',
   bodyArea: 'padding: 40px 40px; background-color: #011410;',
@@ -51,17 +51,16 @@ export async function POST(request: Request) {
                 </div>
               </div>
 
-              <!-- PREMIUM FOUNDER SECTION -->
+              <!-- PREMIUM FOUNDER SECTION - CIRCLE -->
               <div style="${emailStyles.profileSection}">
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="120" valign="top">
-                            <div style="position: relative; width: 100px;">
+                        <td width="85" valign="top">
+                            <div style="width: 85px; height: 85px;">
                                 <img src="https://plantipower.com/images/email/John.jpeg" style="${emailStyles.profilePic}" />
-                                <div style="position: absolute; bottom: -8px; right: -8px; width: 16px; height: 16px; background-color: #84cc16; border-radius: 8px; border: 4px solid #011410;"></div>
                             </div>
                         </td>
-                        <td valign="middle" style="padding-left: 30px;">
+                        <td valign="middle" style="padding-left: 25px;">
                             <div style="font-size: 40px; color: #84cc16; opacity: 0.1; line-height: 1; margin-bottom: -15px; font-family: Georgia, serif;">"</div>
                             <div style="${emailStyles.quoteText}">De perfecte oogst begint bij een gezonde bodem.</div>
                             <table cellpadding="0" cellspacing="0">
@@ -133,7 +132,7 @@ export async function POST(request: Request) {
                 </div>
 
                 <div style="position: relative; padding: 20px 0;">
-                  <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
+                  <div style="absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
                   <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
                     <tr>
                       <td align="center">

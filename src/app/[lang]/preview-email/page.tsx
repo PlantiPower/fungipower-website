@@ -42,26 +42,24 @@ export default function PreviewEmailPage() {
                     </div>
                 </div>
 
-                {/* NEW PREMIUM QUOTE SECTION */}
-                <div style={{ padding: '60px 40px', backgroundColor: '#011410', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                {/* FOUNDER SECTION - CLEAN CIRCLE */}
+                <div style={{ padding: '50px 40px', backgroundColor: '#011410', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <table width="100%" cellPadding="0" cellSpacing="0">
                         <tr>
-                            <td width="120" style={{ verticalAlign: 'top' }}>
-                                <div style={{ position: 'relative', width: '100px', height: '120px' }}>
-                                    <img src="https://plantipower.com/images/email/John.jpeg" alt="John Geenen" style={{ width: '100%', height: '100%', borderRadius: '16px', objectFit: 'cover' }} />
-                                    {/* Subtle decorative dot */}
-                                    <div style={{ position: 'absolute', bottom: '-8px', right: '-8px', width: '20px', height: '20px', backgroundColor: '#84cc16', borderRadius: '10px', border: '4px solid #011410' }}></div>
+                            <td width="85" style={{ verticalAlign: 'top' }}>
+                                <div style={{ width: '85px', height: '85px' }}>
+                                    <img src="https://plantipower.com/images/email/John.jpeg" alt="John Geenen" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
                                 </div>
                             </td>
-                            <td style={{ verticalAlign: 'middle', paddingLeft: '30px' }}>
+                            <td style={{ verticalAlign: 'middle', paddingLeft: '25px' }}>
                                 <div style={{ position: 'relative' }}>
-                                    <div style={{ position: 'absolute', top: '-25px', left: '-10px', fontSize: '60px', color: '#84cc16', opacity: 0.15, fontFamily: 'Outfit, serif', fontWeight: 900 }}>"</div>
-                                    <div style={{ fontSize: '18px', fontWeight: 800, textTransform: 'uppercase', lineHeight: '1.3', color: '#ffffff', marginBottom: '12px', letterSpacing: '-0.2px' }}>
+                                    <div style={{ position: 'absolute', top: '-15px', left: '-10px', fontSize: '50px', color: '#84cc16', opacity: 0.15, fontFamily: 'Outfit, serif', fontWeight: 900 }}>"</div>
+                                    <div style={{ fontSize: '18px', fontWeight: 700, textTransform: 'uppercase', lineHeight: '1.3', color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.2px' }}>
                                         De perfecte oogst begint bij een gezonde bodem.
                                     </div>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                        <div style={{ width: '20px', height: '1px', backgroundColor: '#84cc16' }}></div>
-                                        <div style={{ fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px', color: '#84cc16' }}>John Geenen — Founder</div>
+                                        <div style={{ width: '15px', height: '1px', backgroundColor: '#84cc16' }}></div>
+                                        <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', color: '#84cc16' }}>John Geenen — Founder</div>
                                     </div>
                                 </div>
                             </td>
