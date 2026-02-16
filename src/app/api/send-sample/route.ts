@@ -15,6 +15,7 @@ const emailStyles = {
   bodyText: 'color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.8; margin-bottom: 20px;',
   sectionTitle: 'display: block; font-size: 20px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 25px; margin-top: 40px;',
   productCard: 'background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; overflow: hidden;',
+  reviewCard: 'border-left: 2px solid #84cc16; padding-left: 15px; margin-bottom: 15px;',
 };
 
 export async function POST(request: Request) {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
     if (!apiKey) return NextResponse.json({ error: 'API_KEY missing' }, { status: 500 });
     const resend = new Resend(apiKey);
 
-    // Customer Confirmation with FLOWING TRACKER
+    // FULL VERSION EMAIL
     await resend.emails.send({
       from: 'PlantiPower <info@mail.plantipower.com>',
       to: email,
@@ -55,7 +56,7 @@ export async function POST(request: Request) {
                 <div style="${emailStyles.greeting}">Beste teler,</div>
                 <div style="${emailStyles.bodyText}">
                   Goed dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
-                  Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
+                  Wij vinden dat een samenwerking begint bij resultaat. Eert zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
                   We zijn benieuwd naar de resultaten in jouw gewas.
                 </div>
                 
@@ -75,7 +76,9 @@ export async function POST(request: Request) {
                       <td>
                         <div style="color:#84cc16; font-size:10px; font-weight:900; margin-bottom:4px; text-transform:uppercase;">PlantiPower</div>
                         <div style="font-size:26px; font-weight:900; margin-bottom:4px; color: #84cc16;">ALL12</div>
-                        <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.4;">Optimaliseert transport naar de wortel.</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.4;">
+                            Optimaliseert de nutriëntenstroom en verbetert de opnamecapaciteit van het gewas voor maximale groei.
+                        </div>
                       </td>
                       <td width="70" align="right">
                         <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" style="width: 60px; height: auto;" />
@@ -91,7 +94,9 @@ export async function POST(request: Request) {
                       <td>
                         <div style="color:#38bdf8; font-size:10px; font-weight:900; margin-bottom:4px; text-transform:uppercase;">PlantiPower</div>
                         <div style="font-size:26px; font-weight:900; margin-bottom:4px; color: #38bdf8;">SHIELD</div>
-                        <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.4;">Versterkt natuurlijke weerstand.</div>
+                        <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.4;">
+                            Versterkt de natuurlijke weerbaarheid van de plant tegen abiotische stressfactoren en optimaliseert de celstructuur.
+                        </div>
                       </td>
                       <td width="70" align="right">
                         <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" style="width: 60px; height: auto;" />
@@ -99,9 +104,17 @@ export async function POST(request: Request) {
                     </tr>
                   </table>
                 </div>
+
+                <span style="${emailStyles.sectionTitle}">Ervaring van <span style="color:#84cc16;">kwekers:</span></span>
+                <div style="${emailStyles.reviewCard}">
+                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Egalere wortels en betere opname."</div>
+                </div>
+                <div style="${emailStyles.reviewCard}; border-left-color: #38bdf8;">
+                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Absoluut minder gewasstress."</div>
+                </div>
               </div>
 
-              <!-- REFINED PACKAGE JOURNEY (NO BREAKS) -->
+              <!-- TECH TRACKER - PIXEL PERFECT CONTINUOUS -->
               <div style="background-color: #011d17; padding: 60px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
                 <div style="text-align: center; margin-bottom: 40px;">
                   <h3 style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: #84cc16; margin-bottom: 10px;">PACKAGE JOURNEY</h3>
@@ -109,44 +122,54 @@ export async function POST(request: Request) {
                 </div>
 
                 <div style="position: relative; padding: 20px 0;">
-                  <!-- Technical Background Line (Full length) -->
-                  <div style="position: absolute; top: 34px; left: 10%; right: 10%; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
+                  <!-- Background Line (Continuous through centers) -->
+                  <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
                   
                   <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
                     <tr>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block;">
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block; border: 4px solid #011d17;">
                            <img src="https://img.icons8.com/material-rounded/24/011410/checkmark--v1.png" style="width: 14px; margin-top: 7px;" />
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #84cc16; margin-top: 10px; letter-spacing: 0.5px;">Aanvraag</div>
                       </td>
                       <td align="center">
-                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011410; display: inline-block; border: 1px solid #84cc16; box-shadow: 0 0 15px rgba(132, 204, 22, 0.3);">
-                           <div style="width: 6px; height: 6px; border-radius: 3px; background-color: #84cc16; display: inline-block; margin-top: 11px;"></div>
+                        <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block; border: 4px solid #011d17; box-shadow: 0 0 15px rgba(132, 204, 22, 0.3);">
+                           <div style="width: 6px; height: 6px; border-radius: 3px; background-color: #011410; display: inline-block; margin-top: 11px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-top: 10px; letter-spacing: 0.5px;">Klaarmaken</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Ingepakt</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Vervoeren</div>
                       </td>
                       <td align="center">
                         <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                           <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
+                           <div style="width: 4px; height: 4px; border-radius: 2px; backgroundColor: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
                         </div>
                         <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px; letter-spacing: 0.5px;">Afleveren</div>
                       </td>
                     </tr>
                   </table>
+                  <!-- Connected Green Line (starting exactly at center) -->
+                  <div style="position: absolute; top: 34px; left: 45px; width: 25%; height: 1px; background-color: #84cc16; zIndex: 3;"></div>
                 </div>
+              </div>
+
+              <div style="padding: 0 40px 40px 40px; background-color: #011410;">
+                  <div style="padding: 25px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 24px; text-align: center;">
+                      <div style="color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6;">
+                          In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
+                      </div>
+                  </div>
               </div>
 
               <div style="background: #000; padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
