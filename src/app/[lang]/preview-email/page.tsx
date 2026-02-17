@@ -1,225 +1,26 @@
 import React from 'react';
+import { generateEmailHtml } from '@/lib/email-templates';
 
-export default function PreviewEmailPage() {
-    const headerImage = '/images/email/header.jpg';
+export default async function PreviewEmailPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+    const resolvedParams = await searchParams;
+    const name = typeof resolvedParams.name === 'string' ? resolvedParams.name : 'Jan de Vries';
+    const cropCategory = typeof resolvedParams.category === 'string' ? resolvedParams.category : 'algemeen';
+    const crop = typeof resolvedParams.crop === 'string' ? resolvedParams.crop : 'tomaat';
+    const otherCrop = typeof resolvedParams.other === 'string' ? resolvedParams.other : '';
+
+    const html = generateEmailHtml({
+        name,
+        cropCategory,
+        crop,
+        otherCrop,
+        unsubscribeUrl: '#'
+    });
 
     return (
-        <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: '0px' }}>
-            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800;900&display=swap" rel="stylesheet" />
-
-            <div style={{
-                backgroundColor: '#011410',
-                color: '#ffffff',
-                maxWidth: '600px',
-                margin: '0 auto',
-                borderRadius: '0',
-                overflow: 'hidden',
-                fontFamily: '"Outfit", sans-serif',
-                boxShadow: '0 60px 120px rgba(0,0,0,0.9)'
-            }}>
-
-                {/* Hero Section */}
-                <div style={{ position: 'relative', width: '100%', height: '480px', backgroundColor: '#011410' }}>
-                    <img src={headerImage} alt="PlantiPower Greenhouse" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(1,20,16,0) 0%, rgba(1,20,16,1) 95%)', zIndex: 1 }}></div>
-
-                    {/* Logo Tab */}
-                    <div style={{ position: 'absolute', top: '0', left: '40px', backgroundColor: '#012b24', padding: '15px 15px 25px 15px', width: '80px', zIndex: 10, borderRadius: '0 0 12px 12px' }}>
-                        <img src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png" alt="PlantiPower" style={{ width: '100%' }} />
-                    </div>
-
-                    {/* Status Badge */}
-                    <div style={{ position: 'absolute', top: '30px', right: '40px', zIndex: 10, textAlign: 'right' }}>
-                        <div style={{ fontSize: '10px', fontWeight: 900, color: '#84cc16', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.8 }}>Phase 01</div>
-                        <div style={{ fontSize: '13px', fontWeight: 300, color: '#ffffff', opacity: 0.5 }}>Mail 1 van 3</div>
-                    </div>
-
-                    <div style={{ position: 'absolute', bottom: '40px', left: '40px', right: '40px', zIndex: 10 }}>
-                        <div style={{ display: 'inline-block', color: '#84cc16', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '2px' }}>Welcome Partner</div>
-                        <div style={{ fontSize: '42px', fontWeight: 900, lineHeight: '0.95', textTransform: 'uppercase', letterSpacing: '-2px' }}>
-                            WIJ GAAN JE <br /><span style={{ color: '#84cc16' }}>PROEFPAKKET</span> KLAARMAKEN.
-                        </div>
-                    </div>
-                </div>
-
-                {/* FOUNDER SECTION - CLEAN CIRCLE */}
-                <div style={{ padding: '50px 40px', backgroundColor: '#011410', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <table width="100%" cellPadding="0" cellSpacing="0">
-                        <tr>
-                            <td width="85" style={{ verticalAlign: 'top' }}>
-                                <div style={{ width: '85px', height: '85px' }}>
-                                    <img src="https://plantipower.com/images/email/John.jpeg" alt="John Geenen" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
-                                </div>
-                            </td>
-                            <td style={{ verticalAlign: 'middle', paddingLeft: '25px' }}>
-                                <div style={{ position: 'relative' }}>
-                                    <div style={{ position: 'absolute', top: '-15px', left: '-10px', fontSize: '50px', color: '#84cc16', opacity: 0.15, fontFamily: 'Outfit, serif', fontWeight: 900 }}>"</div>
-                                    <div style={{ fontSize: '18px', fontWeight: 700, textTransform: 'uppercase', lineHeight: '1.3', color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.2px' }}>
-                                        De perfecte oogst begint bij een gezonde bodem.
-                                    </div>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                        <div style={{ width: '15px', height: '1px', backgroundColor: '#84cc16' }}></div>
-                                        <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', color: '#84cc16' }}>John Geenen — Founder</div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                {/* Main Message */}
-                <div style={{ padding: '40px 40px 10px 40px' }}>
-                    <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '10px', fontWeight: 300 }}>Beste teler,</div>
-                    <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', marginBottom: '20px', fontWeight: 300 }}>
-                        Bedankt dat je ervoor kiest om PlantiPower zelf te ervaren.<br /><br />
-                        Wij vinden dat een samenwerking begint bij resultaat. Eerst zien wat het doet in jouw teelt. Geen verkooppraat, maar meetbaar verschil in wortelontwikkeling, opname en gewasreactie.<br /><br />
-                        We zijn benieuwd naar de resultaten in jouw gewas.
-                    </div>
-
-                    <div style={{ marginTop: '20px' }}>
-                        <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.8', fontWeight: 300 }}>Met vriendelijke groet,</div>
-                        <img src="https://plantipower.com/images/email/handtekening_john_scribble_white.png" alt="Signature" style={{ height: '85px', margin: '15px 0' }} />
-                        <div style={{ fontSize: '16px', fontWeight: 900, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '1px' }}>John Geenen</div>
-                    </div>
-                </div>
-
-                {/* Product Section - DUO GRID */}
-                <div style={{ backgroundColor: '#011d17', padding: '60px 40px' }}>
-                    <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '20px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.5px' }}>
-                            Je proefpakket <span style={{ color: '#84cc16' }}>bestaat uit:</span>
-                        </h2>
-                    </div>
-
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                        gap: '20px'
-                    }}>
-                        {/* ALL12 CARD */}
-                        <div style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                            borderRadius: '32px',
-                            border: '1px solid rgba(132, 204, 22, 0.2)',
-                            padding: '30px',
-                            textAlign: 'center',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center'
-                        }}>
-                            <div style={{ color: '#ffffff', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '0px', letterSpacing: '1px', lineHeight: '1' }}>PlantiPower</div>
-                            <div style={{ fontSize: '32px', fontWeight: 900, marginBottom: '20px', color: '#84cc16', letterSpacing: '-1.5px', lineHeight: '1' }}>ALL12</div>
-                            <img src="https://plantipower.com/images/products/plantipower-all12-transparant.png" alt="ALL12" style={{ width: '100px', height: 'auto', margin: '10px 0 25px 0' }} />
-                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.6', fontWeight: 400 }}>
-                                Optimaliseert nutriëntenstroom en verbetert opnamecapaciteit voor maximale groei.
-                            </div>
-                        </div>
-
-                        {/* SHIELD CARD */}
-                        <div style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                            borderRadius: '32px',
-                            border: '1px solid rgba(56, 189, 248, 0.2)',
-                            padding: '30px',
-                            textAlign: 'center',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center'
-                        }}>
-                            <div style={{ color: '#ffffff', fontSize: '10px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '0px', letterSpacing: '1px', lineHeight: '1' }}>PlantiPower</div>
-                            <div style={{ fontSize: '32px', fontWeight: 900, marginBottom: '20px', color: '#38bdf8', letterSpacing: '-1.5px', lineHeight: '1' }}>SHIELD</div>
-                            <img src="https://plantipower.com/images/products/plantipower-shield-transparant.png" alt="SHIELD" style={{ width: '100px', height: 'auto', margin: '10px 0 25px 0' }} />
-                            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', lineHeight: '1.6', fontWeight: 400 }}>
-                                Versterkt natuurlijke weerbaarheid en optimaliseert de celstructuur van de plant.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Testimonials */}
-                <div style={{ padding: '60px 40px', backgroundColor: '#011410' }}>
-                    <div style={{ marginBottom: '35px', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '20px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.5px' }}>
-                            Ervaring van <span style={{ color: '#84cc16' }}>kwekers:</span>
-                        </h2>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
-                        <div style={{ borderLeft: '1px solid rgba(132, 204, 22, 0.3)', paddingLeft: '20px' }}>
-                            <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', fontStyle: 'italic', lineHeight: '1.6' }}>"Egalere wortels en betere opname."</div>
-                            <div style={{ fontSize: '11px', fontWeight: 900, marginTop: '10px', color: '#84cc16', textTransform: 'uppercase', letterSpacing: '1px' }}>Sierteelt Kweker</div>
-                        </div>
-                        <div style={{ borderLeft: '1px solid rgba(56, 189, 248, 0.3)', paddingLeft: '20px' }}>
-                            <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', fontStyle: 'italic', lineHeight: '1.6' }}>"Absoluut minder gewasstress."</div>
-                            <div style={{ fontSize: '11px', fontWeight: 900, marginTop: '10px', color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '1px' }}>Glasgroente Specialist</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* TRACKER */}
-                <div style={{ backgroundColor: '#011d17', padding: '60px 40px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-                        <h3 style={{ fontSize: '11px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '3px', color: '#84cc16', marginBottom: '10px' }}>PACKAGE JOURNEY</h3>
-                        <div style={{ fontSize: '20px', fontWeight: 900, color: '#ffffff' }}>Status: <span style={{ color: '#84cc16' }}>Klaarmaken</span></div>
-                    </div>
-
-                    <div style={{ position: 'relative', height: '80px', margin: '0 40px' }}>
-                        <div style={{ position: 'absolute', top: '16px', left: '0', right: '0', height: '2px', backgroundColor: 'rgba(255,255,255,0.08)', zIndex: 1 }}></div>
-                        <div style={{ position: 'absolute', top: '16px', left: '0', width: '25%', height: '2px', backgroundColor: '#84cc16', zIndex: 2 }}></div>
-
-                        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', zIndex: 10 }}>
-                            <div style={{ textAlign: 'center', width: '32px', marginLeft: '-16px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '5px solid #011d17' }}>
-                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="#011410" strokeWidth="4" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#84cc16', marginTop: '12px' }}>Ontvangen</div>
-                            </div>
-                            <div style={{ textAlign: 'center', width: '32px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#84cc16', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '5px solid #011d17', boxShadow: '0 0 20px rgba(132, 204, 22, 0.4)' }}>
-                                    <div style={{ width: '8px', height: '8px', borderRadius: '4px', backgroundColor: '#011410' }}></div>
-                                </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: '#ffffff', marginTop: '12px' }}>Klaarmaken</div>
-                            </div>
-                            <div style={{ textAlign: 'center', width: '32px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#011d17', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                    <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
-                                </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Ingepakt</div>
-                            </div>
-                            <div style={{ textAlign: 'center', width: '32px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#011d17', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                    <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
-                                </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Onderweg</div>
-                            </div>
-                            <div style={{ textAlign: 'center', width: '32px', marginRight: '-16px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '16px', backgroundColor: '#011d17', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                    <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
-                                </div>
-                                <div style={{ fontSize: '8px', fontWeight: 900, textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginTop: '12px' }}>Afgeleverd</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Footer Section */}
-                <div style={{ padding: '0 40px 40px 40px', backgroundColor: '#011410' }}>
-                    <div style={{ padding: '25px', border: '1px dashed rgba(255,255,255,0.1)', borderRadius: '24px', textAlign: 'center' }}>
-                        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.6' }}>
-                            In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
-                        </div>
-                    </div>
-                </div>
-
-                <div style={{ background: '#000', padding: '40px 40px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '9px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '20px' }}>
-                        Venlo, Nederland  |  PLANTIPOWER.COM
-                    </div>
-                    <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px', lineHeight: '1.6' }}>
-                        Liever geen updates van ons ontvangen?<br />
-                        <a href="#" style={{ color: '#84cc16', textDecoration: 'underline' }}>Klik hier om je af te melden.</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
     );
 }

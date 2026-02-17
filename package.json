@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.1",
+    "@stripe/stripe-js": "^8.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.0",
     "lucide-react": "^0.563.0",
@@ -20,6 +21,7 @@
     "react-turnstile": "^1.1.5",
     "resend": "^6.9.2",
     "server-only": "^0.0.1",
+    "stripe": "^20.3.1",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

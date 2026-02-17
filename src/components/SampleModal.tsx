@@ -33,6 +33,18 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('success') === 'true') {
+        setIsSuccess(true);
+        // Clean up URL
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+  }, []);
+
   const categories = isNL ? [
     { id: 'groente', label: 'Groenten' },
     { id: 'fruit', label: 'Fruit' },
@@ -114,8 +126,8 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose }) => {
     labelComments: isNL ? "OPMERKINGEN OF SPECIFIEKE VRAGEN" : "COMMENTS OR SPECIFIC QUESTIONS",
     placeholderComments: isNL ? "Heb je specifieke uitdagingen?" : "Do you have specific challenges?",
 
-    btnSubmit: isNL ? "Aanvragen" : "Request",
-    footerNote: isNL ? "Factuur volgt na levering. Levertijd 1-2 werkdagen." : "Invoice follows delivery. Delivery 1-2 working days.",
+    btnSubmit: isNL ? "Bestellen & Betalen" : "Order & Pay",
+    footerNote: isNL ? "Veilige betaling via Stripe. Levertijd 1-2 werkdagen." : "Secure payment via Stripe. Delivery 1-2 working days.",
     thankYou: isNL ? "Bedankt!" : "Thank You!",
     successMsg: isNL ? "Je aanvraag is succesvol verzonden." : "Your request has been successfully sent."
   };
@@ -129,40 +141,27 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send-sample', {
+      // 1. First we still do the turnstile check if needed, 
+      // but we'll bundle it into the checkout session creation or do it here.
+      // Current send-sample did it in the route. We'll do the same in create-checkout if we want.
+
+      const response = await fetch('/api/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, captchaToken }),
+        body: JSON.stringify({ ...formData, captchaToken, locale: isNL ? 'nl' : 'en' }),
       });
 
-      if (response.ok) {
-        setIsSuccess(true);
-        setTimeout(() => {
-          onClose();
-          setIsSuccess(false);
-          setFormData({
-            ...formData,
-            company: '',
-            name: '',
-            email: '',
-            phone: '',
-            address: '',
-            city: '',
-            cropCategory: '',
-            crop: '',
-            otherCrop: '',
-            comments: '',
-            website_url: ''
-          });
-          setCaptchaToken(null);
-        }, 3000);
+      const data = await response.json();
+
+      if (response.ok && data.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
       } else {
-        const errorData = await response.json();
-        alert(isNL ? `Er is iets misgegaan: ${errorData.error}` : `Something went wrong: ${errorData.error}`);
+        alert(isNL ? `Er is iets misgegaan: ${data.error}` : `Something went wrong: ${data.error}`);
       }
     } catch (error) {
       console.error('Submission error:', error);
-      alert(isNL ? 'Er is een fout opgetreden bij het verzenden.' : 'An error occurred while sending.');
+      alert(isNL ? 'Er is een fout opgetreden bij het starten van de betaling.' : 'An error occurred while starting the payment.');
     } finally {
       setIsSubmitting(false);
     }
