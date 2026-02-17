@@ -3,11 +3,10 @@ import Stripe from 'stripe';
 import { Resend } from 'resend';
 import { generateEmailHtml } from '@/lib/email-templates';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: '2025-01-27' as any,
-});
-
 export async function POST(request: Request) {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+        apiVersion: '2025-01-27' as any,
+    });
     const apiKey = process.env.RESEND_API_KEY;
     const resend = new Resend(apiKey);
 
