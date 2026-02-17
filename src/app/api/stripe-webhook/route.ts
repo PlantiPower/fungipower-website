@@ -46,6 +46,7 @@ export async function POST(request: Request) {
                 });
 
                 if (resend && email) {
+                    // 1. Send Welcome Email to Customer
                     await resend.emails.send({
                         from: 'PlantiPower <info@mail.plantipower.com>',
                         to: email,
@@ -53,7 +54,31 @@ export async function POST(request: Request) {
                         subject: 'Welkom bij PlantiPower - Je aanvraag is ontvangen',
                         html: emailHtml
                     });
-                    console.log(`Email sent successfully to ${email} after payment.`);
+                    console.log(`Email sent successfully to customer: ${email}`);
+
+                    // 2. Send Notification to Internal Team
+                    await resend.emails.send({
+                        from: 'PlantiPower Orders <info@mail.plantipower.com>',
+                        to: 'info@plantipower.com',
+                        replyTo: email,
+                        subject: `🎉 Nieuwe Proefpakket Bestelling: ${metadata.company || metadata.name}`,
+                        html: `
+                            <h2>Nieuwe bestelling ontvangen!</h2>
+                            <p><strong>Naam:</strong> ${metadata.name}</p>
+                            <p><strong>Bedrijf:</strong> ${metadata.company || 'N/A'}</p>
+                            <p><strong>Email:</strong> ${metadata.email}</p>
+                            <p><strong>Telefoon:</strong> ${metadata.phone}</p>
+                            <p><strong>Adres:</strong> ${metadata.address}, ${metadata.city}</p>
+                            <hr />
+                            <p><strong>Categorie:</strong> ${metadata.cropCategory}</p>
+                            <p><strong>Gewas:</strong> ${metadata.crop} ${metadata.otherCrop ? `(${metadata.otherCrop})` : ''}</p>
+                            <p><strong>Opmerkingen:</strong> ${metadata.comments || 'Geen'}</p>
+                            <p><strong>Taal:</strong> ${metadata.locale}</p>
+                            <hr />
+                            <p>Deze bestelling is succesvol betaald via Stripe.</p>
+                        `
+                    });
+                    console.log(`Notification sent successfully to info@plantipower.com`);
                 } else {
                     console.log('Skipping email send: Resend not initialized or email missing.', { hasResend: !!resend, email });
                 }
