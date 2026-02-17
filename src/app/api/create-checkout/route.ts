@@ -34,7 +34,7 @@ export async function POST(request: Request) {
                                 ? '1x 1L All12 + 1x 60ml Shield (incl. verzendkosten)'
                                 : '1x 1L All12 + 1x 60ml Shield (incl. shipping)',
                         },
-                        unit_amount: 2995, // €29.95
+                        unit_amount: 100, // €1.00 for testing
                     },
                     quantity: 1,
                 },
