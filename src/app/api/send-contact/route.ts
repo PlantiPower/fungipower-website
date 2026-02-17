@@ -1,127 +1,29 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const emailStyles = {
-  container: 'background-color: #011410; color: #ffffff; font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05);',
-  header: 'margin-bottom: 40px; text-align: center;',
-  title: 'color: #84cc16; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;',
-  card: 'background: rgba(13, 43, 36, 0.5); padding: 30px; border-radius: 24px; border: 1px solid rgba(132, 204, 22, 0.2); margin-top: 30px;',
-  label: 'color: #84cc16; font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;',
-  value: 'color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 20px;',
-  footer: 'margin-top: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;',
-  footerText: 'color: rgba(255,255,255,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;'
-};
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
   try {
-    const { name, company, email, message, website_url, captchaToken } = await request.json();
+    const { name, company, email, message, website_url } = await request.json();
 
-    // 0. Bot checks
-    if (website_url) {
-      // Honeypot triggered
-      return NextResponse.json({ error: 'Bot detected' }, { status: 400 });
-    }
-
-    if (!captchaToken) {
-      return NextResponse.json({ error: 'Captcha missing' }, { status: 400 });
-    }
-
-    // Verify Turnstile
-    const turnstileResult = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET_KEY,
-        response: captchaToken,
-      }),
-    });
-
-    const turnstileData = await turnstileResult.json();
-    if (!turnstileData.success && process.env.NODE_ENV === 'production') {
-      return NextResponse.json({ error: 'Captcha verification failed' }, { status: 400 });
-    }
+    if (website_url) return NextResponse.json({ error: 'Bot detected' }, { status: 400 });
 
     const apiKey = process.env.RESEND_API_KEY;
+    const resend = apiKey ? new Resend(apiKey) : null;
 
-    if (!apiKey || apiKey === 're_123') {
-      return NextResponse.json({
-        error: 'Configuratie fout: RESEND_API_KEY is niet ingesteld in Vercel. Controleer je Environment Variables.'
-      }, { status: 500 });
+    if (resend) {
+      await resend.emails.send({
+        from: 'PlantiPower HQ <info@mail.plantipower.com>',
+        to: 'info@plantipower.com',
+        replyTo: email,
+        subject: `Nieuw Contactbericht: ${company || name}`,
+        html: `<h3>Bericht van ${name}</h3><p>${message}</p>`
+      });
     }
-
-    const resend = new Resend(apiKey);
-
-    // 1. Send to HQ (info@plantipower.com)
-    // IMPORTANT: Use the verified domain mail.plantipower.com
-    const hqResult = await resend.emails.send({
-      from: 'PlantiPower HQ <info@mail.plantipower.com>',
-      to: 'info@plantipower.com',
-      replyTo: email,
-      subject: `Nieuw Contactbericht: ${company || name}`,
-      html: `
-        <div style="${emailStyles.container}">
-          <div style="${emailStyles.header}">
-             <div style="${emailStyles.title}">Contact Bericht</div>
-             <div style="color: rgba(255,255,255,0.6);">Nieuw bericht ontvangen via de website</div>
-          </div>
-          
-          <div style="${emailStyles.card}">
-            <div style="${emailStyles.label}">Van</div>
-            <div style="${emailStyles.value}">${name} ${company ? `(${company})` : ''}</div>
-            
-            <div style="${emailStyles.label}">E-mail</div>
-            <div style="${emailStyles.value}">${email}</div>
-            
-            <div style="${emailStyles.label}">Bericht</div>
-            <div style="${emailStyles.value}; font-weight: 400; line-height: 1.6;">${message}</div>
-          </div>
-        </div>
-      `
-    });
-
-    if (hqResult.error) {
-      console.error('Resend Error:', hqResult.error);
-      return NextResponse.json({ error: `Resend Fout: ${hqResult.error.message}` }, { status: 400 });
-    }
-
-    // 2. Confirmation to User
-    await resend.emails.send({
-      from: 'PlantiPower <info@mail.plantipower.com>',
-      to: email,
-      replyTo: 'info@plantipower.com',
-      subject: 'We hebben je bericht ontvangen - PlantiPower',
-      html: `
-        <div style="${emailStyles.container}">
-          <div style="text-align: center; margin-bottom: 40px;">
-            <img src="https://plantipower.com/logo-white.png" alt="PlantiPower" style="height: 40px;" />
-          </div>
-
-          <div style="${emailStyles.header}">
-             <div style="${emailStyles.title}">Bedankt voor je bericht</div>
-             <div style="font-size: 18px; color: #ffffff; margin-top: 10px;">Beste ${name}, we nemen zo snel mogelijk contact met je op.</div>
-          </div>
-
-          <div style="${emailStyles.card}">
-            <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6;">
-              Bedankt voor je aanvraag bij PlantiPower. Onze experts zullen deze zo snel mogelijk in behandeling nemen.<br/><br/>
-              Groet,<br/>
-              Team PlantiPower
-            </p>
-          </div>
-
-          <div style="${emailStyles.footer}">
-            <div style="${emailStyles.footerText}">
-              PlantiPower BV  |  Venlo, Nederland<br/>
-              <a href="https://plantipower.com" style="color: #84cc16; text-decoration: none;">plantipower.com</a>
-            </div>
-          </div>
-        </div>
-      `
-    });
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('API Error:', error);
-    return NextResponse.json({ error: `Server Fout: ${error instanceof Error ? error.message : 'Onbekend'}` }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

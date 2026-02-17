@@ -3,12 +3,17 @@ import Stripe from 'stripe';
 import { Resend } from 'resend';
 import { generateEmailHtml } from '@/lib/email-templates';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    // Initialize inside handler to avoid build-time errors
+    const stripeSecret = process.env.STRIPE_SECRET_KEY;
+    const stripe = new Stripe(stripeSecret || '', {
         apiVersion: '2025-01-27' as any,
     });
+
     const apiKey = process.env.RESEND_API_KEY;
-    const resend = new Resend(apiKey);
+    const resend = apiKey ? new Resend(apiKey) : null;
 
     const body = await request.text();
     const sig = request.headers.get('stripe-signature')!;
@@ -16,16 +21,10 @@ export async function POST(request: Request) {
     let event: Stripe.Event;
 
     try {
-        // Note: To verify the signature, you need a STRIPE_WEBHOOK_SECRET.
-        // For now, if the user hasn't provided it, we might skip full verification 
-        // OR tell them to add it. But for a quick "live" setup, they usually need it.
-        // I will try to use the secret if available, otherwise log a warning.
         const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-        if (webhookSecret) {
+        if (webhookSecret && sig) {
             event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
         } else {
-            // Fallback for development/quick setup - proceed with caution
             event = JSON.parse(body);
         }
     } catch (err: any) {
@@ -43,20 +42,23 @@ export async function POST(request: Request) {
 
                 const emailHtml = generateEmailHtml({
                     name,
-                    crop,
-                    otherCrop,
-                    cropCategory,
+                    crop: crop || '',
+                    otherCrop: otherCrop || '',
+                    cropCategory: cropCategory || 'algemeen',
                 });
 
-                await resend.emails.send({
-                    from: 'PlantiPower <info@mail.plantipower.com>',
-                    to: email,
-                    replyTo: 'info@plantipower.com',
-                    subject: 'Welkom bij PlantiPower - Je aanvraag is ontvangen',
-                    html: emailHtml
-                });
-
-                console.log(`Email sent successfully to ${email} after payment.`);
+                if (resend && email) {
+                    await resend.emails.send({
+                        from: 'PlantiPower <info@mail.plantipower.com>',
+                        to: email,
+                        replyTo: 'info@plantipower.com',
+                        subject: 'Welkom bij PlantiPower - Je aanvraag is ontvangen',
+                        html: emailHtml
+                    });
+                    console.log(`Email sent successfully to ${email} after payment.`);
+                } else {
+                    console.log('Skipping email send: Resend not initialized or email missing.', { hasResend: !!resend, email });
+                }
             } catch (error) {
                 console.error('Error sending email after webhook:', error);
             }

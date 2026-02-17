@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
     try {
         const data = await request.json();
@@ -32,7 +34,7 @@ export async function POST(request: Request) {
 
         const stripeSecret = process.env.STRIPE_SECRET_KEY;
         if (!stripeSecret) {
-            console.error('STRIPE_SECRET_KEY is missing from environment variables');
+            console.error('STRIPE_SECRET_KEY is missing');
             return NextResponse.json({ error: 'Stripe configuration missing' }, { status: 500 });
         }
 
@@ -41,8 +43,6 @@ export async function POST(request: Request) {
         });
 
         const origin = request.headers.get('origin') || 'https://www.plantipower.com';
-
-        console.log('Creating Stripe session for:', email);
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card', 'ideal'],
