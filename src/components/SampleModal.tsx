@@ -100,7 +100,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose }) => {
     bundleTitle: isNL ? "GESELECTEERDE TEST" : "SELECTED TEST",
     bundleSub: isNL ? "2X PRODUCTEN (ALL12 + SHIELD)" : "2X PRODUCTS (ALL12 + SHIELD)",
     price: "€29,95",
-    shipping: isNL ? "INCL. VERZENDKOSTEN | EXCL. BTW" : "INCL. SHIPPING | EXCL. VAT",
+    shipping: isNL ? "INCL. VERZENDING | EXCL. BTW" : "INCL. SHIPPING | EXCL. VAT",
 
     labelCompany: isNL ? "BEDRIJFSNAAM" : "COMPANY NAME",
     placeholderCompany: isNL ? "Je Kwekerij" : "Your Nursery",
