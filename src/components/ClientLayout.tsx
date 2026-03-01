@@ -8,6 +8,8 @@ import SampleModal from './SampleModal'
 import Footer from './Footer'
 
 import { ModalProvider, useModals } from '../context/ModalContext'
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 function LayoutContent({
     children,
@@ -65,6 +67,8 @@ function LayoutContent({
                     onClose={closeSampleModal}
                 />
             </div>
+            <SpeedInsights />
+            <Analytics />
         </>
     )
 }
