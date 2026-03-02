@@ -1,5 +1,9 @@
 import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
+
+export async function generateStaticParams() {
+    return [{ lang: 'en' }, { lang: 'nl' }, { lang: 'de' }]
+}
 import ClientLayout from '@/components/ClientLayout'
 import FAQ from '@/components/FAQ'
 import { Metadata, ResolvingMetadata } from 'next'

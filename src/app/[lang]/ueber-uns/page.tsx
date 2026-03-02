@@ -44,6 +44,10 @@ export async function generateMetadata(
     }
 }
 
+export async function generateStaticParams() {
+    return [{ lang: 'de' }]
+}
+
 export default async function AboutPage({
     params,
 }: {

@@ -16,6 +16,10 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { getDictionary } from '@/get-dictionary';
 import { Locale } from '@/i18n-config';
 
+export async function generateStaticParams() {
+    return [{ lang: 'en' }, { lang: 'nl' }, { lang: 'de' }]
+}
+
 export async function generateMetadata(
     props: { params: Promise<{ lang: Locale }> },
     parent: ResolvingMetadata

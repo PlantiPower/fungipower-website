@@ -1,6 +1,10 @@
 import React from 'react';
 import { generateEmailHtml } from '@/lib/email-templates';
 
+export async function generateStaticParams() {
+    return [{ lang: 'en' }, { lang: 'nl' }, { lang: 'de' }]
+}
+
 export default async function PreviewEmailPage({
     searchParams,
 }: {

@@ -1,6 +1,10 @@
 "use client";
 
 import React from 'react';
+
+export async function generateStaticParams() {
+    return [{ lang: 'en' }, { lang: 'nl' }, { lang: 'de' }]
+}
 import { Mail, ArrowRight, Settings, CheckCircle2, User, Sprout, Send, Database, FileText, Layers, Target, Zap } from 'lucide-react';
 
 export default function AutomationOverviewPage() {
