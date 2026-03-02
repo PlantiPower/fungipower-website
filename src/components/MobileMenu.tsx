@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight, HelpCircle, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { getLocalizedPath, getPath } from '../utils/navigation';
-import { FlagEN, FlagNL, FlagDE } from './Flags';
 
 interface MobileMenuProps {
     open: boolean;
@@ -119,18 +118,12 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onClose, onOpenSample, dict, la
                 <div className="mt-auto flex flex-col gap-6 pt-6 border-t border-white/5 pb-8">
                     <div className="flex items-center justify-between">
                         <span className="text-white/30 text-[10px] font-black uppercase tracking-widest">Language</span>
-                        <div className="flex gap-4">
-                            <div className="flex gap-6 items-center">
-                                <Link href={getLocalizedPath(pathname, 'en')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'en' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-sm' : 'opacity-40'}`}>
-                                    <FlagEN className="w-10 h-6" />
-                                </Link>
-                                <Link href={getLocalizedPath(pathname, 'nl')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'nl' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-sm' : 'opacity-40'}`}>
-                                    <FlagNL className="w-10 h-6" />
-                                </Link>
-                                <Link href={getLocalizedPath(pathname, 'de')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'de' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-sm' : 'opacity-40'}`}>
-                                    <FlagDE className="w-10 h-6" />
-                                </Link>
-                            </div>
+                        <div className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-emerald-100/40 uppercase bg-white/5 px-5 py-3.5 rounded-xl border border-white/10">
+                            <Link href={getLocalizedPath(pathname, 'en')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'en' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>EN</Link>
+                            <span className="opacity-30">|</span>
+                            <Link href={getLocalizedPath(pathname, 'nl')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'nl' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>NL</Link>
+                            <span className="opacity-30">|</span>
+                            <Link href={getLocalizedPath(pathname, 'de')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'de' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>DE</Link>
                         </div>
                     </div>
                     <button

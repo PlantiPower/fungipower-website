@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getLocalizedPath, getPath } from '../utils/navigation';
-import { FlagEN, FlagNL, FlagDE } from './Flags';
 
 interface HeaderProps {
   onOpenSample: () => void;
@@ -18,10 +17,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
   const isNL = lang === 'nl'; // Gebruik lang prop ipv pathname
 
   const isActive = (path: string) => {
-    // Simple active check. Kan uitgebreider.
-    // Als path '/nl' is, moet exact match of startWith '/nl' en geen andere karakters?
-    if (path === '/nl' || path === '/') {
-      return pathname === path;
+    // Simple active check.
+    if (path === '/nl' || path === '/' || path === '/en' || path === '/de') {
+      return pathname === path || pathname === path + '/';
     }
     return pathname.startsWith(path);
   };
@@ -33,19 +31,22 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
       <div className="site-header-content">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
 
-          <Link href={`/${lang}`} className="flex items-center group cursor-pointer relative z-10">
-            {/* Gebruik absolute path of import voor img als die in public staat */}
-            <img
-              src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png"
-              alt="PlantiPower"
-              className="h-20"
-            />
-          </Link>
+          {/* LEFT: LOGO */}
+          <div className="flex-1 flex justify-start relative z-10">
+            <Link href={`/${lang}`} className="flex items-center group cursor-pointer">
+              <img
+                src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png"
+                alt="PlantiPower"
+                className="h-20"
+              />
+            </Link>
+          </div>
 
-          <div className="hidden md:flex items-center gap-8 lg:gap-10 text-[12px] font-bold uppercase tracking-[0.4em] text-white relative z-10">
-            <Link href={`/${lang}`} className={`hover:text-lime-400 transition-all relative group ${pathname === `/${lang}` ? 'text-lime-400' : ''}`}>
+          {/* CENTER: NAV LINKS */}
+          <div className="hidden lg:flex flex-shrink-0 justify-center items-center gap-8 xl:gap-10 text-[12px] font-bold uppercase tracking-[0.4em] text-white relative z-10 transition-all">
+            <Link href={`/${lang}`} className={`hover:text-lime-400 transition-all relative group ${isActive(`/${lang}`) ? 'text-lime-400' : ''}`}>
               {t.home}
-              <span className={`absolute -bottom-1 left-0 h-px bg-lime-500 transition-all duration-300 ${pathname === `/${lang}` ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              <span className={`absolute -bottom-1 left-0 h-px bg-lime-500 transition-all duration-300 ${isActive(`/${lang}`) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
             <Link href={getPath('about', lang)} className={`hover:text-lime-400 transition-all relative group ${isActive(getPath('about', lang)) ? 'text-lime-400' : ''}`}>
@@ -53,9 +54,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
               <span className={`absolute -bottom-1 left-0 h-px bg-lime-500 transition-all duration-300 ${isActive(getPath('about', lang)) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            {/* Products Dropdown */}
             <div className="relative group/dropdown py-4">
-              <button className={`flex items-center gap-2 hover:text-lime-400 transition-all uppercase tracking-[0.4em] ${pathname.includes('products') || pathname.includes('plantipower-') ? 'text-lime-400' : ''}`}>
+              <button className={`flex items-center gap-2 hover:text-lime-400 transition-all tracking-[0.4em] ${pathname.includes('products') || pathname.includes('plantipower-') ? 'text-lime-400' : ''}`}>
                 {t.products}
                 <svg className="w-3 h-3 translate-y-[1px] transition-transform duration-300 group-hover/dropdown:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
@@ -64,17 +64,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
 
               <div className="absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 pt-4 w-72 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 transform scale-95 group-hover/dropdown:scale-100 pointer-events-none group-hover/dropdown:pointer-events-auto">
                 <div className="bg-emerald-950/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-2">
-                  {/* Links gestandaardiseerd naar /products/all12 en /products/shield ? User zei: /nl/plantipower-all12.
-                                        Laten we consistent routing patroon gebruiken: /[lang]/products/all12 ofzo.
-                                        Maar user wil specifieke urls zoals /nl/plantipower-all12?
-                                        De middleware regelt localized routing. Maar Next.js app router verwacht mapnaam.
-                                        Mapnaam zou 'products' kunnen zijn en daarin page.tsx.
-                                        Ik zal de routing structuur simpel houden: /[lang]/products/all12 en /[lang]/products/shield.
-                                        Of ik moet re-writes doen.
-                                        Voor nu: gebruik de paths zoals in mapstructuur verwacht.
-                                        In dicts kan ik paths zetten of hardcoden.
-                                        Ik kies voor /products/all12 mapnaam. Dus href is /[lang]/products/all12.
-                                    */}
                   <Link href={getPath('products/all12', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/all12', lang)) ? 'bg-white/5' : ''}`}>
                     <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/all12', lang)) ? 'text-lime-400' : 'text-white group-hover/item:text-lime-400'}`}>{t.all12}</span>
                     <span className="text-[10px] tracking-widest text-emerald-100/40 mt-1 uppercase font-medium">{t.all12Desc}</span>
@@ -99,41 +88,36 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
             </Link>
           </div>
 
-          <div className="relative z-10 flex items-center gap-3 md:gap-6">
-            {/* Language Switcher - Use standard Next.js Link without localized logic as Middleware handles it?
-                            No, switch lang needs to replace first segment.
-                            Ik maak simpele links naar /en en /nl.
-                         */}
-            <div className="hidden md:flex items-center gap-3">
-              <Link href={getLocalizedPath(pathname, 'en')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'en' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-sm' : 'opacity-40 hover:opacity-100'}`}>
-                <FlagEN className="w-6 h-4" />
-              </Link>
-              <Link href={getLocalizedPath(pathname, 'nl')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'nl' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-sm' : 'opacity-40 hover:opacity-100'}`}>
-                <FlagNL className="w-6 h-4" />
-              </Link>
-              <Link href={getLocalizedPath(pathname, 'de')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'de' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-sm' : 'opacity-40 hover:opacity-100'}`}>
-                <FlagDE className="w-6 h-4" />
-              </Link>
-            </div>
-
+          {/* RIGHT: CTA & LANG SWITCHER */}
+          <div className="flex-1 flex justify-end items-center gap-4 relative z-10 w-full min-w-0">
             <button
               onClick={onOpenSample}
-              className="bg-lime-500 text-emerald-950 hover:bg-white font-bold py-2 px-5 rounded-xl transition-all text-xs uppercase tracking-[0.2em]"
+              className="bg-lime-500 text-emerald-950 hover:bg-white font-bold py-2.5 px-6 rounded-xl transition-all text-xs uppercase tracking-[0.2em] hidden sm:block whitespace-nowrap overflow-hidden text-ellipsis shadow-[0_0_20px_rgba(132,204,22,0.2)] hover:shadow-[0_0_30px_rgba(132,204,22,0.4)]"
             >
               {t.cta}
             </button>
+
+            {/* Premium Language Switcher Text */}
+            <div className="hidden md:flex items-center gap-2.5 text-[10px] font-bold tracking-[0.2em] text-emerald-100/40 uppercase bg-white/5 px-4 py-3 rounded-xl border border-white/10 backdrop-blur-md whitespace-nowrap">
+              <Link href={getLocalizedPath(pathname, 'en')} className={`transition-all hover:text-white ${lang === 'en' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>EN</Link>
+              <span className="opacity-30">|</span>
+              <Link href={getLocalizedPath(pathname, 'nl')} className={`transition-all hover:text-white ${lang === 'nl' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>NL</Link>
+              <span className="opacity-30">|</span>
+              <Link href={getLocalizedPath(pathname, 'de')} className={`transition-all hover:text-white ${lang === 'de' ? 'text-lime-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>DE</Link>
+            </div>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={onOpenMenu}
               aria-label="Toggle Menu"
-              className="relative z-50 md:hidden w-12 h-12 flex items-center justify-center -mr-2 text-white hover:text-lime-400 active:scale-90 transition-all bg-white/5 rounded-full border border-white/10"
+              className="relative z-50 lg:hidden w-12 h-12 flex items-center justify-center text-white hover:text-lime-400 active:scale-90 transition-all bg-white/5 rounded-full border border-white/10"
             >
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
+
         </div>
       </div>
     </nav>
