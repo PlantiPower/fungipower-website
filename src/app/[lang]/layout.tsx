@@ -43,6 +43,7 @@ export async function generateMetadata(
       languages: {
         'nl-NL': '/nl',
         'en-US': '/en',
+        'de-DE': '/de',
       },
     },
     icons: {
