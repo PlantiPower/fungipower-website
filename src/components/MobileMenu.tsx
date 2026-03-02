@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight, HelpCircle, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { getLocalizedPath, getPath } from '../utils/navigation';
+import { FlagEN, FlagNL, FlagDE } from './Flags';
 
 interface MobileMenuProps {
     open: boolean;
@@ -119,11 +120,17 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onClose, onOpenSample, dict, la
                     <div className="flex items-center justify-between">
                         <span className="text-white/30 text-[10px] font-black uppercase tracking-widest">Language</span>
                         <div className="flex gap-4">
-                            <Link href={getLocalizedPath(pathname, 'en')} onClick={onClose} className={`text-sm font-bold ${lang === 'en' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40 hover:text-white'}`}>EN</Link>
-                            <span className="text-white/10">|</span>
-                            <Link href={getLocalizedPath(pathname, 'nl')} onClick={onClose} className={`text-sm font-bold ${lang === 'nl' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40 hover:text-white'}`}>NL</Link>
-                            <span className="text-white/10">|</span>
-                            <Link href={getLocalizedPath(pathname, 'de')} onClick={onClose} className={`text-sm font-bold ${lang === 'de' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40 hover:text-white'}`}>DE</Link>
+                            <div className="flex gap-6 items-center">
+                                <Link href={getLocalizedPath(pathname, 'en')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'en' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-full' : 'opacity-40'}`}>
+                                    <FlagEN className="w-8 h-8" />
+                                </Link>
+                                <Link href={getLocalizedPath(pathname, 'nl')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'nl' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-full' : 'opacity-40'}`}>
+                                    <FlagNL className="w-8 h-8" />
+                                </Link>
+                                <Link href={getLocalizedPath(pathname, 'de')} onClick={onClose} className={`transition-all duration-300 transform active:scale-95 ${lang === 'de' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-4 ring-offset-[#01140f] rounded-full' : 'opacity-40'}`}>
+                                    <FlagDE className="w-8 h-8" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <button

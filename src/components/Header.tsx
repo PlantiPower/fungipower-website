@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getLocalizedPath, getPath } from '../utils/navigation';
+import { FlagEN, FlagNL, FlagDE } from './Flags';
 
 interface HeaderProps {
   onOpenSample: () => void;
@@ -103,12 +104,16 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
                             No, switch lang needs to replace first segment.
                             Ik maak simpele links naar /en en /nl.
                          */}
-            <div className="hidden md:flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest">
-              <Link href={getLocalizedPath(pathname, 'en')} className={`hover:text-lime-400 transition-colors ${lang === 'en' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40'}`}>EN</Link>
-              <span className="text-white/10">|</span>
-              <Link href={getLocalizedPath(pathname, 'nl')} className={`hover:text-lime-400 transition-colors ${lang === 'nl' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40'}`}>NL</Link>
-              <span className="text-white/10">|</span>
-              <Link href={getLocalizedPath(pathname, 'de')} className={`hover:text-lime-400 transition-colors ${lang === 'de' ? 'text-lime-400 underline underline-offset-4 decoration-lime-500/50' : 'text-white/40'}`}>DE</Link>
+            <div className="hidden md:flex items-center gap-3">
+              <Link href={getLocalizedPath(pathname, 'en')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'en' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-full' : 'opacity-40 hover:opacity-100'}`}>
+                <FlagEN className="w-5 h-5" />
+              </Link>
+              <Link href={getLocalizedPath(pathname, 'nl')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'nl' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-full' : 'opacity-40 hover:opacity-100'}`}>
+                <FlagNL className="w-5 h-5" />
+              </Link>
+              <Link href={getLocalizedPath(pathname, 'de')} className={`transition-all duration-300 transform hover:scale-110 ${lang === 'de' ? 'opacity-100 ring-2 ring-lime-500 ring-offset-2 ring-offset-[#011410] rounded-full' : 'opacity-40 hover:opacity-100'}`}>
+                <FlagDE className="w-5 h-5" />
+              </Link>
             </div>
 
             <button
