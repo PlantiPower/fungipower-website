@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
 
           {/* LEFT: LOGO */}
-          <div className="flex-1 flex justify-start relative z-10">
+          <div className="flex-1 lg:flex-none lg:w-[150px] xl:w-[200px] flex justify-start relative z-10">
             <Link href={`/${lang}`} className="flex items-center group cursor-pointer">
               <img
                 src="https://irp.cdn-website.com/480e14da/dms3rep/multi/Planti-Power-Logo-.png"
@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
           </div>
 
           {/* CENTER: NAV LINKS */}
-          <div className="hidden lg:flex flex-shrink-0 justify-center items-center gap-8 xl:gap-10 text-[12px] font-bold uppercase tracking-[0.4em] text-white relative z-10 transition-all">
+          <div className="hidden lg:flex flex-1 justify-center items-center gap-5 xl:gap-10 text-[12px] font-bold uppercase tracking-[0.4em] text-white relative z-10 transition-all lg:px-6">
             <Link href={`/${lang}`} className={`hover:text-lime-400 transition-all relative group ${isActive(`/${lang}`) ? 'text-lime-400' : ''}`}>
               {t.home}
               <span className={`absolute -bottom-1 left-0 h-px bg-lime-500 transition-all duration-300 ${isActive(`/${lang}`) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
             </Link>
 
             <div className="relative group/dropdown py-4">
-              <button className={`flex items-center gap-2 hover:text-lime-400 transition-all tracking-[0.4em] ${pathname.includes('products') || pathname.includes('plantipower-') ? 'text-lime-400' : ''}`}>
+              <button className={`flex items-center gap-2 hover:text-lime-400 transition-all tracking-[0.4em] uppercase ${pathname.includes('products') || pathname.includes('plantipower-') ? 'text-lime-400' : ''}`}>
                 {t.products}
                 <ChevronDown className="w-3 h-3 opacity-50 transition-transform duration-300 group-hover/dropdown:rotate-180" />
               </button>
@@ -96,12 +96,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
           </div>
 
           {/* RIGHT: CTA & LANG SWITCHER */}
-          <div className="flex-1 flex justify-end items-center gap-3 relative z-10 w-full min-w-0">
+          <div className="flex-1 lg:flex-none flex justify-end items-center gap-3 relative z-10 min-w-0 lg:pl-4">
             <button
               onClick={onOpenSample}
-              className="bg-lime-500 text-emerald-950 hover:bg-white font-bold py-2.5 px-6 rounded-xl transition-all text-xs uppercase tracking-[0.2em] hidden sm:block whitespace-nowrap overflow-hidden text-ellipsis shadow-[0_0_20px_rgba(132,204,22,0.2)] hover:shadow-[0_0_30px_rgba(132,204,22,0.4)]"
+              className="bg-lime-500 text-emerald-950 hover:bg-white font-bold h-11 rounded-xl transition-all text-[11px] xl:text-xs uppercase tracking-[0.1em] lg:tracking-[0.15em] hidden sm:flex items-center justify-center flex-none w-[190px] xl:w-[220px] shadow-[0_0_20px_rgba(132,204,22,0.2)] hover:shadow-[0_0_30px_rgba(132,204,22,0.4)]"
             >
-              {t.cta}
+              <span className="truncate px-1 block">{t.cta}</span>
             </button>
 
             {/* Premium Dropdown Language Switcher */}

@@ -12,6 +12,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ dict, lang }) => {
   const t = dict.Contact;
 
   const isNL = lang === 'nl';
+  const isDE = lang === 'de';
 
   const [formData, setFormData] = useState({
     name: '',
@@ -83,7 +84,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ dict, lang }) => {
                   <div className="text-emerald-100/70 leading-relaxed font-medium pt-1">
                     L.J. Costerstraat 48<br />
                     5916 PS Venlo<br />
-                    {isNL ? 'Nederland' : 'The Netherlands'}
+                    {isDE ? 'Niederlande' : isNL ? 'Nederland' : 'The Netherlands'}
                   </div>
                 </div>
               </div>

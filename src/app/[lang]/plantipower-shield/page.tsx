@@ -27,13 +27,14 @@ export async function generateMetadata(
     const params = await props.params;
     const lang = params.lang;
     const isNL = lang === 'nl';
+    const isDE = lang === 'de';
 
     return {
-        title: isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Resilience',
-        description: isNL ? 'Verhoog de natuurlijke weerbaarheid van je gewas met PlantiPower Shield. Biologische bescherming zonder residu.' : 'Increase the natural resilience of your crop with PlantiPower Shield. Organic protection without residue.',
+        title: isDE ? 'PlantiPower Shield | Unsichtbare Kraft & Widerstandsfähigkeit' : isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Resilience',
+        description: isDE ? 'Erhöhen Sie die natürliche Widerstandsfähigkeit Ihrer Ernte mit PlantiPower Shield. Biologischer Schutz ohne Rückstände.' : isNL ? 'Verhoog de natuurlijke weerbaarheid van je gewas met PlantiPower Shield. Biologische bescherming zonder residu.' : 'Increase the natural resilience of your crop with PlantiPower Shield. Organic protection without residue.',
         openGraph: {
-            title: isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Resilience',
-            description: isNL ? 'Natuurlijke bladvoeding voor maximale gewasbescherming.' : 'Natural foliar nutrition for maximum crop protection.',
+            title: isDE ? 'PlantiPower Shield | Unsichtbare Kraft & Widerstandsfähigkeit' : isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Resilience',
+            description: isDE ? 'Natürliche Blattdüngung für maximalen Pflanzenschutz.' : isNL ? 'Natuurlijke bladvoeding voor maximale gewasbescherming.' : 'Natural foliar nutrition for maximum crop protection.',
             images: ['/images/products/plantipower-shield-transparant.png'],
         }
     }
@@ -47,78 +48,97 @@ export default async function ProductShield({
     const { lang } = await params;
     const dict = await getDictionary(lang);
     const isNL = lang === 'nl';
+    const isDE = lang === 'de';
 
     const content = {
-        title: isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Natuurlijke Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Natural Resilience',
-        meta: isNL
-            ? 'Verhoog de natuurlijke weerbaarheid van je gewas met PlantiPower Shield. Een geavanceerde barrière voor vitalere planten zonder residu.'
-            : 'Increase the natural resilience of your crop with PlantiPower Shield. An advanced barrier for more vital plants without residue.',
-        heroBadge: isNL ? 'Premium Beschermingssysteem' : 'Premium Protection System',
-        heroTitle: <><span className="text-white">SHIELD</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 whitespace-nowrap">INVISIBLE FORCE</span></>,
-        heroDesc: isNL
-            ? 'Deze hoogwaardige bladvoeding wordt rechtstreeks op bladeren, stengels, bloemen en vruchten aangebracht, waardoor nutriënten snel en efficiënt worden opgenomen precies daar waar de plant ze het hardst nodig heeft.'
-            : 'This high-quality foliar feed is applied directly to leaves, stems, flowers, and fruits, allowing nutrients to be absorbed quickly and efficiently exactly where the plant needs them most.',
-        ctaDiscover: isNL ? 'ONTDEK MEER' : 'DISCOVER MORE',
-        natural: isNL ? '100% NATUURLIJK' : '100% NATURAL',
+        title: isDE ? 'PlantiPower Shield | Unsichtbare Kraft & Natürliche Widerstandsfähigkeit' : isNL ? 'PlantiPower Shield | Onzichtbare Kracht & Natuurlijke Weerbaarheid' : 'PlantiPower Shield | Invisible Force & Natural Resilience',
+        meta: isDE
+            ? 'Erhöhen Sie die natürliche Widerstandsfähigkeit Ihrer Ernte mit PlantiPower Shield. Eine fortschrittliche Barriere für vitalere Pflanzen ohne Rückstände.'
+            : isNL
+                ? 'Verhoog de natuurlijke weerbaarheid van je gewas met PlantiPower Shield. Een geavanceerde barrière voor vitalere planten zonder residu.'
+                : 'Increase the natural resilience of your crop with PlantiPower Shield. An advanced barrier for more vital plants without residue.',
+        heroBadge: isDE ? 'Premium Schutzsystem' : isNL ? 'Premium Beschermingssysteem' : 'Premium Protection System',
+        heroTitle: <><span className="text-white">SHIELD</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 whitespace-nowrap">{isDE ? 'UNSICHTBARE KRAFT' : 'INVISIBLE FORCE'}</span></>,
+        heroDesc: isDE
+            ? 'Diese hochwertige Blattdüngung wird direkt auf Blätter, Stängel, Blüten und Früchte aufgetragen, wodurch Nährstoffe schnell und effizient genau dort aufgenommen werden, wo die Pflanze sie am meisten braucht.'
+            : isNL
+                ? 'Deze hoogwaardige bladvoeding wordt rechtstreeks op bladeren, stengels, bloemen en vruchten aangebracht, waardoor nutriënten snel en efficiënt worden opgenomen precies daar waar de plant ze het hardst nodig heeft.'
+                : 'This high-quality foliar feed is applied directly to leaves, stems, flowers, and fruits, allowing nutrients to be absorbed quickly and efficiently exactly where the plant needs them most.',
+        ctaDiscover: isDE ? 'MEHR ENTDECKEN' : isNL ? 'ONTDEK MEER' : 'DISCOVER MORE',
+        natural: isDE ? '100% NATÜRLICH' : isNL ? '100% NATUURLIJK' : '100% NATURAL',
         coreSystem: dict.Products.coreSystem,
-        protectionTitle: isNL ? <>Ongekende <span className="text-cyan-400">bescherming</span></> : <>Unprecedented <span className="text-cyan-400">protection</span></>,
+        protectionTitle: isDE ? <>Beispielloser <span className="text-cyan-400">Schutz</span></> : isNL ? <>Ongekende <span className="text-cyan-400">bescherming</span></> : <>Unprecedented <span className="text-cyan-400">protection</span></>,
         cards: [
             {
-                title: isNL ? "Natuurlijk beschermend schild" : "Natural protective shield",
-                desc: isNL
-                    ? "Na toepassing vormt zich een natuurlijke beschermlaag die als een onzichtbaar schild fungeert tegen externe stressfactoren."
-                    : "After application, a natural protective layer forms that acts as an invisible shield against external stress factors."
+                title: isDE ? "Natürlicher Schutzschild" : isNL ? "Natuurlijk beschermend schild" : "Natural protective shield",
+                desc: isDE
+                    ? "Nach der Anwendung bildet sich eine natürliche Schutzschicht, die als unsichtbarer Schild gegen externe Stressfaktoren wirkt."
+                    : isNL
+                        ? "Na toepassing vormt zich een natuurlijke beschermlaag die als een onzichtbaar schild fungeert tegen externe stressfactoren."
+                        : "After application, a natural protective layer forms that acts as an invisible shield against external stress factors."
             },
             {
-                title: isNL ? "Geactiveerde groei en bloei" : "Activated growth and flowering",
-                desc: isNL
-                    ? "De plant wordt versterkt terwijl groei en bloei actief worden gestimuleerd voor een optimaal resultaat in elke fase."
-                    : "The plant is strengthened while growth and flowering are actively stimulated for optimal results in every phase."
+                title: isDE ? "Aktiviertes Wachstum und Blüte" : isNL ? "Geactiveerde groei en bloei" : "Activated growth and flowering",
+                desc: isDE
+                    ? "Die Pflanze wird gestärkt, während Wachstum und Blüte für optimale Ergebnisse in jeder Phase aktiv stimuliert werden."
+                    : isNL
+                        ? "De plant wordt versterkt terwijl groei en bloei actief worden gestimuleerd voor een optimaal resultaat in elke fase."
+                        : "The plant is strengthened while growth and flowering are actively stimulated for optimal results in every phase."
             },
             {
-                title: isNL ? "Stressreductie bij hitte" : "Heat stress reduction",
-                desc: isNL
-                    ? "Vermindert direct de impact van extreme hitte en droogte, wat resulteert in weerbare planten mèt behoud van opbrengst."
-                    : "Directly reduces the impact of extreme heat and drought, resulting in resilient plants while maintaining yield."
+                title: isDE ? "Reduzierung von Hitzestress" : isNL ? "Stressreductie bij hitte" : "Heat stress reduction",
+                desc: isDE
+                    ? "Reduziert direkt die Auswirkungen extremer Hitze und Trockenheit, was zu widerstandsfähigen Pflanzen bei gleichbleibendem Ertrag führt."
+                    : isNL
+                        ? "Vermindert direct de impact van extreme hitte en droogte, wat resulteert in weerbare planten mèt behoud van opbrengst."
+                        : "Directly reduces the impact of extreme heat and drought, resulting in resilient plants while maintaining yield."
             }
         ],
         advantageBadge: dict.Products.advantageBadgeShield,
-        advantageTitle: isNL ? <>Kracht van <br /><span className="text-cyan-400">binnenuit</span></> : <>Strength from <br /><span className="text-cyan-400">within</span></>,
-        advantageDesc: isNL
-            ? 'PlantiPower Shield werkt niet door de natuur te forceren, maar door haar eigen systemen te ondersteunen. Het resultaat is een gewas dat zichzelf kan verdedigen en optimaal kan profiteren van de aanwezige nutriënten.'
-            : 'PlantiPower Shield does not work by forcing nature, but by supporting its own systems. The result is a crop that can defend itself and optimally benefit from available nutrients.',
-        usps: isNL
-            ? ["Optimale verdeling over het bladoppervlak", "Naadloze integratie in je voedingsschema's", "3 dagen veiligheidstermijn voor de oogst", "Speciaal ontwikkeld voor de professionele teelt"]
-            : ["Optimal distribution over the leaf surface", "Seamless integration into your feeding schedules", "3-day pre-harvest safety interval", "Specially developed for professional cultivation"],
-        compositionTitle: isNL ? 'Samenstelling' : 'Composition',
-        baseTitle: isNL ? 'Basis' : 'Base',
-        baseDesc: isNL ? 'Emulgator afkomstig van plantaardige olie' : 'Emulsifier derived from vegetable oil',
-        mineralsTitle: isNL ? 'Mineralen' : 'Minerals',
-        mineralsDesc: isNL ? 'Mineralen (>1% Calcium & >1% Magnesium)' : 'Minerals (>1% Calcium & >1% Magnesium)',
-        tags: isNL ? 'MRL-vrij • Niet-toxisch • 100% Natuurlijk' : 'MRL-free • Non-toxic • 100% Natural',
-        guideBadge: isNL ? 'Gebruikershandleiding' : 'User Guide',
-        guideTitle: isNL ? <>Eenvoudige <br /><span className="text-cyan-400">toepassing</span></> : <>Simple <br /><span className="text-cyan-400">application</span></>,
+        advantageTitle: isDE ? <>Kraft von <br /><span className="text-cyan-400">innen</span></> : isNL ? <>Kracht van <br /><span className="text-cyan-400">binnenuit</span></> : <>Strength from <br /><span className="text-cyan-400">within</span></>,
+        advantageDesc: isDE
+            ? 'PlantiPower Shield erzwingt nicht die Natur, sondern unterstützt ihre eigenen Systeme. Das Ergebnis ist eine Ernte, die sich selbst verteidigen und optimal von den verfügbaren Nährstoffen profitieren kann.'
+            : isNL
+                ? 'PlantiPower Shield werkt niet door de natuur te forceren, maar door haar eigen systemen te ondersteunen. Het resultaat is een gewas dat zichzelf kan verdedigen en optimaal kan profiteren van de aanwezige nutriënten.'
+                : 'PlantiPower Shield does not work by forcing nature, but by supporting its own systems. The result is a crop that can defend itself and optimally benefit from available nutrients.',
+        usps: isDE
+            ? ["Optimale Verteilung auf der Blattoberfläche", "Nahtlose Integration in Ihre Düngepläne", "3 Tage Wartezeit vor der Ernte", "Speziell für den professionellen Anbau entwickelt"]
+            : isNL
+                ? ["Optimale verdeling over het bladoppervlak", "Naadloze integratie in je voedingsschema's", "3 dagen veiligheidstermijn voor de oogst", "Speciaal ontwikkeld voor de professionele teelt"]
+                : ["Optimal distribution over the leaf surface", "Seamless integration into your feeding schedules", "3-day pre-harvest safety interval", "Specially developed for professional cultivation"],
+        compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
+        baseTitle: isDE ? 'Basis' : isNL ? 'Basis' : 'Base',
+        baseDesc: isDE ? 'Emulgator aus Pflanzenöl' : isNL ? 'Emulgator afkomstig van plantaardige olie' : 'Emulsifier derived from vegetable oil',
+        mineralsTitle: isDE ? 'Mineralien' : isNL ? 'Mineralen' : 'Minerals',
+        mineralsDesc: isDE ? 'Mineralien (>1% Calcium & >1% Magnesium)' : isNL ? 'Mineralen (>1% Calcium & >1% Magnesium)' : 'Minerals (>1% Calcium & >1% Magnesium)',
+        tags: isDE ? 'MRL-frei • Ungiftig • 100% Natürlich' : isNL ? 'MRL-vrij • Niet-toxisch • 100% Natuurlijk' : 'MRL-free • Non-toxic • 100% Natural',
+        guideBadge: isDE ? 'Benutzerhandbuch' : isNL ? 'Gebruikershandleiding' : 'User Guide',
+        guideTitle: isDE ? <>Einfache <br /><span className="text-cyan-400">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-cyan-400">toepassing</span></> : <>Simple <br /><span className="text-cyan-400">application</span></>,
         steps: [
-            { step: "01", title: isNL ? "Goed schudden" : "Shake well", desc: isNL ? "Schud de fles gedurende 30 seconden voor gebruik om de mineralen optimaal te mengen." : "Shake the bottle for 30 seconds before use to mix the minerals optimally." },
-            { step: "02", title: isNL ? "Juiste dosering" : "Correct dosage", desc: isNL ? "Doseer 15 ml PlantiPower Shield per 1 liter water voor een standaard mengverhouding." : "Dose 15 ml PlantiPower Shield per 1 liter of water for a standard mixing ratio." },
-            { step: "03", title: isNL ? "Volledige bedekking" : "Full coverage", desc: isNL ? "Bespuit de volledige plant, inclusief de onderzijde van het blad voor maximale bescherming." : "Spray the entire plant, including the underside of the leaves, for maximum protection." }
+            { step: "01", title: isDE ? "Gut schütteln" : isNL ? "Goed schudden" : "Shake well", desc: isDE ? "Die Flasche vor Gebrauch 30 Sekunden schütteln, um die Mineralien optimal zu mischen." : isNL ? "Schud de fles gedurende 30 seconden voor gebruik om de mineralen optimaal te mengen." : "Shake the bottle for 30 seconds before use to mix the minerals optimally." },
+            { step: "02", title: isDE ? "Richtige Dosierung" : isNL ? "Juiste dosering" : "Correct dosage", desc: isDE ? "Dosieren Sie 15 ml PlantiPower Shield pro 1 Liter Wasser für ein standardmäßiges Mischungsverhältnis." : isNL ? "Doseer 15 ml PlantiPower Shield per 1 liter water voor een standaard mengverhouding." : "Dose 15 ml PlantiPower Shield per 1 liter of water for a standard mixing ratio." },
+            { step: "03", title: isDE ? "Vollständige Abdeckung" : isNL ? "Volledige bedekking" : "Full coverage", desc: isDE ? "Sprühen Sie die gesamte Pflanze ein, einschließlich der Blattunterseite, für maximalen Schutz." : isNL ? "Bespuit de volledige plant, inclusief de onderzijde van het blad voor maximale bescherming." : "Spray the entire plant, including the underside of the leaves, for maximum protection." }
         ],
         expertTitle: dict.Products.importantInstructions,
         expertItems: [
-            { label: isNL ? 'Frequentie' : 'Frequency', text: isNL ? 'Gebruik Shield maximaal éénmaal per week voor een optimaal resultaat.' : 'Use Shield at most once a week for optimal results.' },
-            { label: isNL ? 'Oogstfase' : 'Harvest phase', text: isNL ? 'Tot uiterlijk 3 dagen vóór de oogst toepassen.' : 'Apply no later than 3 days before harvest.' }
+            { label: isDE ? 'Häufigkeit' : isNL ? 'Frequentie' : 'Frequency', text: isDE ? 'Verwenden Sie Shield maximal einmal pro Woche für optimale Ergebnisse.' : isNL ? 'Gebruik Shield maximaal éénmaal per week voor een optimaal resultaat.' : 'Use Shield at most once a week for optimal results.' },
+            { label: isDE ? 'Erntephase' : isNL ? 'Oogstfase' : 'Harvest phase', text: isDE ? 'Bis spätestens 3 Tage vor der Ernte anwenden.' : isNL ? 'Tot uiterlijk 3 dagen vóór de oogst toepassen.' : 'Apply no later than 3 days before harvest.' }
         ],
-        disclaimer: isNL
-            ? "Shield is veilig voor mens en milieu. Bewaar het product op een donkere plaats bij kamertemperatuur voor behoud van de actieve componenten."
-            : "Shield is safe for humans and the environment. Store the product in a dark place at room temperature to preserve active components.",
+        disclaimer: isDE
+            ? "Shield ist für Mensch und Umwelt sicher. Bewahren Sie das Produkt an einem dunklen Ort bei Raumtemperatur auf, um die aktiven Komponenten zu erhalten."
+            : isNL
+                ? "Shield is veilig voor mens en milieu. Bewaar het product op een donkere plaats bij kamertemperatuur voor behoud van de actieve componenten."
+                : "Shield is safe for humans and the environment. Store the product in a dark place at room temperature to preserve active components.",
         technicalTitle: dict.Products.technicalData,
-        technicalDesc: isNL
-            ? 'Toegang tot de officiële documentatie en specificaties van PlantiPower Shield.'
-            : 'Access to the official documentation and specifications of PlantiPower Shield.',
-        sdsLabel: isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
-        sdsMeta: isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
-        sdsLink: isNL ? '/docs/PlantiPower%20Shield%20SDS%20NL.pdf' : '/images/products/sds-shield.pdf',
-        labelTitle: isNL ? 'Het Officiële Etiket' : 'Official Label',
+        technicalDesc: isDE
+            ? 'Zugang zur offiziellen Dokumentation und den Spezifikationen von PlantiPower Shield.'
+            : isNL
+                ? 'Toegang tot de officiële documentatie en specificaties van PlantiPower Shield.'
+                : 'Access to the official documentation and specifications of PlantiPower Shield.',
+        sdsLabel: isDE ? 'Sicherheitsdatenblatt' : isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
+        sdsMeta: isDE ? 'SDS DE • pdf' : isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
+        sdsLink: isDE ? '/images/products/sds-shield.pdf' : isNL ? '/docs/PlantiPower%20Shield%20SDS%20NL.pdf' : '/images/products/sds-shield.pdf',
+        labelTitle: isDE ? 'Das offizielle Etikett' : isNL ? 'Het Officiële Etiket' : 'Official Label',
         labelImage: '/images/products/label-shield-nl.png',
         heroImage: '/images/products/plantipower-shield-transparant.png'
     };
@@ -334,7 +354,7 @@ export default async function ProductShield({
                 </div>
 
                 {/* LABEL SPOTLIGHT */}
-                {isNL && (
+                {(isNL || isDE) && (
                     <div className="py-24 bg-[#010816] relative overflow-hidden">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
                         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -343,7 +363,9 @@ export default async function ProductShield({
                                     {content.labelTitle}
                                 </h2>
                                 <p className="text-slate-400 text-lg font-light leading-relaxed">
-                                    Onze etiketten staan voor onzichtbare kracht, maximale weerbaarheid en 100% natuurlijke bescherming.
+                                    {isDE
+                                        ? 'Unsere Etiketten stehen für unsichtbare Kraft, maximale Widerstandsfähigkeit und 100% natürlichen Schutz.'
+                                        : 'Onze etiketten staan voor onzichtbare kracht, maximale weerbaarheid en 100% natuurlijke bescherming.'}
                                 </p>
                             </div>
 
@@ -352,7 +374,7 @@ export default async function ProductShield({
                                 <div className="relative glass-panel rounded-[2.5rem] p-4 bg-white/5 border-white/10 shadow-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-700">
                                     <img
                                         src={content.labelImage}
-                                        alt="PlantiPower Shield NL Etiket"
+                                        alt={isDE ? "PlantiPower Shield DE Etikett" : "PlantiPower Shield NL Etiket"}
                                         className="w-full h-auto rounded-[1.5rem] shadow-inner"
                                     />
                                 </div>

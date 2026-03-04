@@ -29,13 +29,14 @@ export async function generateMetadata(
     const params = await props.params;
     const lang = params.lang;
     const isNL = lang === 'nl';
+    const isDE = lang === 'de';
 
     return {
-        title: isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
-        description: isNL ? 'Ontdek PlantiPower All12 - de ultieme nutriënt transport technologie voor professionele kwekers.' : 'Discover PlantiPower All12 - the ultimate nutrient transport technology for professional growers.',
+        title: isDE ? 'PlantiPower All12 | Professioneller Nährstoff-Transport' : isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
+        description: isDE ? 'Entdecken Sie PlantiPower All12 - die ultimative Nährstoff-Transport-Technologie für professionelle Erzeuger.' : isNL ? 'Ontdek PlantiPower All12 - de ultieme nutriënt transport technologie voor professionele kwekers.' : 'Discover PlantiPower All12 - the ultimate nutrient transport technology for professional growers.',
         openGraph: {
-            title: isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
-            description: isNL ? 'Maximale opname van alle 12 essentiële elementen.' : 'Maximum uptake of all 12 essential elements.',
+            title: isDE ? 'PlantiPower All12 | Professioneller Nährstoff-Transport' : isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
+            description: isDE ? 'Maximale Aufnahme aller 12 essentiellen Elemente.' : isNL ? 'Maximale opname van alle 12 essentiële elementen.' : 'Maximum uptake of all 12 essential elements.',
             images: ['/images/products/plantipower-all12-transparant.png'],
         }
     }
@@ -49,88 +50,110 @@ export default async function ProductAll12({
     const { lang } = await params;
     const dict = await getDictionary(lang);
     const isNL = lang === 'nl';
+    const isDE = lang === 'de';
 
     const content = {
-        title: isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
-        meta: isNL ? 'Ontdek PlantiPower All12 - de ultieme nutriënt transport technologie.' : 'Discover PlantiPower All12 - the ultimate nutrient transport technology.',
-        heroBadge: isNL ? 'Biologische Innovatie' : 'Biological Innovation',
-        heroTitle: isNL
-            ? <><span className="text-white">ALL12</span><br /><span className="text-white">NUTRIËNTEN</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">TRANSPORTEUR</span></>
-            : <><span className="text-white">ALL12</span><br /><span className="text-white">NUTRIENT</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">TRANSPORTER</span></>,
-        heroDesc: isNL
-            ? 'Doorbraak in passief transport. Waar fulvinezuren normaal stoppen bij 3 nutriënten, transporteert de ALL12 technologie het volledige spectrum.'
-            : 'Breakthrough in passive transport. Where fulvic acids normally stop at 3 nutrients, ALL12 technology transports the full spectrum.',
-        ctaDiscover: isNL ? 'ONTDEK DE KRACHT' : 'DISCOVER THE POWER',
-        validated: isNL ? 'GEVALIDEERD' : 'VALIDATED',
+        title: isDE ? 'PlantiPower All12 | Professioneller Nährstoff-Transport' : isNL ? 'PlantiPower All12 | Professionele Nutriënt Transport' : 'PlantiPower All12 | Professional Nutrient Transport',
+        meta: isDE ? 'Entdecken Sie PlantiPower All12 - die ultimative Nährstoff-Transport-Technologie.' : isNL ? 'Ontdek PlantiPower All12 - de ultieme nutriënt transport technologie.' : 'Discover PlantiPower All12 - the ultimate nutrient transport technology.',
+        heroBadge: isDE ? 'Biologische Innovation' : isNL ? 'Biologische Innovatie' : 'Biological Innovation',
+        heroTitle: isDE
+            ? <><span className="text-white">ALL12</span><br /><span className="text-white">NÄHRSTOFF</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">TRANSPORTEUR</span></>
+            : isNL
+                ? <><span className="text-white">ALL12</span><br /><span className="text-white">NUTRIËNTEN</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">TRANSPORTEUR</span></>
+                : <><span className="text-white">ALL12</span><br /><span className="text-white">NUTRIENT</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">TRANSPORTER</span></>,
+        heroDesc: isDE
+            ? 'Durchbruch im passiven Transport. Wo Fulvinsäuren normalerweise bei 3 Nährstoffen aufhören, transportiert die ALL12-Technologie das volle Spektrum.'
+            : isNL
+                ? 'Doorbraak in passief transport. Waar fulvinezuren normaal stoppen bij 3 nutriënten, transporteert de ALL12 technologie het volledige spectrum.'
+                : 'Breakthrough in passive transport. Where fulvic acids normally stop at 3 nutrients, ALL12 technology transports the full spectrum.',
+        ctaDiscover: isDE ? 'KRAFT ENTDECKEN' : isNL ? 'ONTDEK DE KRACHT' : 'DISCOVER THE POWER',
+        validated: isDE ? 'VALIDIERT' : isNL ? 'GEVALIDEERD' : 'VALIDATED',
         coreSystem: dict.Products.coreSystem,
-        efficiencyTitle: isNL ? <>Maximale <span className="text-lime-400">efficiëntie</span></> : <>Maximum <span className="text-lime-400">efficiency</span></>,
+        efficiencyTitle: isDE ? <>Maximale <span className="text-lime-400">Effizienz</span></> : isNL ? <>Maximale <span className="text-lime-400">efficiëntie</span></> : <>Maximum <span className="text-lime-400">efficiency</span></>,
         cards: [
             {
-                title: isNL ? "Passief Transport" : "Passive Transport",
-                desc: isNL
-                    ? "PlantiPower maakt gebruik van organische nanotubes die zich hechten aan voedingsstoffen voor passieve opname zonder energieverlies."
-                    : "PlantiPower uses organic nanotubes that attach to nutrients for passive uptake without energy loss."
+                title: isDE ? "Passiver Transport" : isNL ? "Passief Transport" : "Passive Transport",
+                desc: isDE
+                    ? "PlantiPower nutzt organische Nanotubes, die sich an Nährstoffe binden, für eine passive Aufnahme ohne Energieverlust."
+                    : isNL
+                        ? "PlantiPower maakt gebruik van organische nanotubes die zich hechten aan voedingsstoffen voor passieve opname zonder energieverlies."
+                        : "PlantiPower uses organic nanotubes that attach to nutrients for passive uptake without energy loss."
             },
             {
-                title: isNL ? "Moleculaire Precisie" : "Molecular Precision",
-                desc: isNL
-                    ? "Waar traditionele voeding faalt, houdt ALL12 de elementen stabiel en mobiel, ongeacht de pH-waarde of het substraat."
-                    : "Where traditional nutrition fails, ALL12 keeps elements stable and mobile, regardless of pH value or substrate."
+                title: isDE ? "Molekulare Präzision" : isNL ? "Moleculaire Precisie" : "Molecular Precision",
+                desc: isDE
+                    ? "Wo traditionelle Ernährung versagt, hält ALL12 die Elemente stabil und mobil, unabhängig vom pH-Wert oder Substrat."
+                    : isNL
+                        ? "Waar traditionele voeding faalt, houdt ALL12 de elementen stabiel en mobiel, ongeacht de pH-waarde of het substraat."
+                        : "Where traditional nutrition fails, ALL12 keeps elements stable and mobile, regardless of pH value or substrate."
             },
             {
-                title: isNL ? "Nul Verspilling" : "Zero Waste",
-                desc: isNL
-                    ? "Haal meer rendement uit elke druppel. Door de verbeterde opname-efficiëntie wordt verspilling tot een minimum beperkt."
-                    : "Get more yield from every drop. Improved uptake efficiency minimizes waste."
+                title: isDE ? "Null Verschwendung" : isNL ? "Nul Verspilling" : "Zero Waste",
+                desc: isDE
+                    ? "Holen Sie mehr Rendite aus jedem Tropfen. Durch die verbesserte Aufnahmeeffizienz wird Verschwendung auf ein Minimum reduziert."
+                    : isNL
+                        ? "Haal meer rendement uit elke druppel. Door de verbeterde opname-efficiëntie wordt verspilling tot een minimum beperkt."
+                        : "Get more yield from every drop. Improved uptake efficiency minimizes waste."
             }
         ],
         spectrumBadge: dict.Products.spectrumBadge,
-        spectrumTitle: isNL ? <>De kracht van <br /><span className="text-lime-500">twaalf elementen</span></> : <>The power of <br /><span className="text-lime-500">twelve elements</span></>,
-        spectrumDesc: isNL
-            ? 'ALL12 technologie zorgt ervoor dat niet alleen de basis, maar ook de meest kritische sporenelementen effectief worden gebonden en getransporteerd.'
-            : 'ALL12 technology ensures that not only the basics, but also the most critical trace elements are effectively bound and transported.',
-        elementsTotal: isNL ? 'Elementen Totaal' : 'Total Elements',
+        spectrumTitle: isDE ? <>Die Kraft der <br /><span className="text-lime-500">zwölf Elemente</span></> : isNL ? <>De kracht van <br /><span className="text-lime-500">twaalf elementen</span></> : <>The power of <br /><span className="text-lime-500">twelve elements</span></>,
+        spectrumDesc: isDE
+            ? 'Die ALL12-Technologie sorgt dafür, dass nicht nur die Basis, sondern auch die kritischsten Spurenelemente effektiv gebunden und transportiert werden.'
+            : isNL
+                ? 'ALL12 technologie zorgt ervoor dat niet alleen de basis, maar ook de meest kritische sporenelementen effectief worden gebonden en getransporteerd.'
+                : 'ALL12 technology ensures that not only the basics, but also the most critical trace elements are effectively bound and transported.',
+        elementsTotal: isDE ? 'Elemente Gesamt' : isNL ? 'Elementen Totaal' : 'Total Elements',
         advantageBadge: dict.Products.advantageBadgeAll12,
-        advantageTitle: isNL ? <>Revolutionair <br /><span className="text-lime-500">transport</span></> : <>Revolutionary <br /><span className="text-lime-500">transport</span></>,
-        advantageDesc: isNL
-            ? 'PlantiPower All12 is niet zomaar een toevoeging; het is de motor achter je voedingsschema. Door gebruik te maken van nano-transport technologie worden blokkades in de bodem opgeheven en bereiken voedingsstoffen de plant sneller dan ooit tevoren.'
-            : 'PlantiPower All12 is not just an additive; it is the engine behind your nutrition schedule. By using nano-transport technology, soil blockages are removed and nutrients reach the plant faster than ever before.',
-        usps: isNL
-            ? ["Maximale opname van alle 12 elementen", "Conditioneert en revitaliseert het substraat", "Verlaagt de EC-druk in de wortelzone", "Volledig biologisch en residu-vrij"]
-            : ["Maximum uptake of all 12 elements", "Conditions and revitalizes the substrate", "Reduces EC pressure in the root zone", "Completely organic and residue-free"],
-        compositionTitle: isNL ? 'Samenstelling' : 'Composition',
-        humus: isNL ? 'Humuszuren' : 'Humic Acids',
-        humusDesc: isNL ? '5% Actief extract' : '5% Active extract',
-        fulvic: isNL ? 'Fulvinezuren' : 'Fulvic Acids',
-        fulvicDesc: isNL ? '3% Geconcentreerd' : '3% Concentrated',
-        tags: isNL ? 'Substraatconditioner • pH-Stabiel • Nano-Tech' : 'Substrate conditioner • pH-Stable • Nano-Tech',
-        guideBadge: isNL ? 'Gebruikershandleiding' : 'User Guide',
-        guideTitle: isNL ? <>Eenvoudige <br /><span className="text-lime-500">toepassing</span></> : <>Simple <br /><span className="text-lime-500">application</span></>,
+        advantageTitle: isDE ? <>Revolutionärer <br /><span className="text-lime-500">Transport</span></> : isNL ? <>Revolutionair <br /><span className="text-lime-500">transport</span></> : <>Revolutionary <br /><span className="text-lime-500">transport</span></>,
+        advantageDesc: isDE
+            ? 'PlantiPower All12 ist nicht nur ein Zusatz; es ist der Motor hinter Ihrem Ernährungsplan. Durch den Einsatz der Nano-Transport-Technologie werden Blockaden im Boden aufgehoben und Nährstoffe erreichen die Pflanze schneller als je zuvor.'
+            : isNL
+                ? 'PlantiPower All12 is niet zomaar een toevoeging; het is de motor achter je voedingsschema. Door gebruik te maken van nano-transport technologie worden blokkades in de bodem opgeheven en bereiken voedingsstoffen de plant sneller dan ooit tevoren.'
+                : 'PlantiPower All12 is not just an additive; it is the engine behind your nutrition schedule. By using nano-transport technology, soil blockages are removed and nutrients reach the plant faster than ever before.',
+        usps: isDE
+            ? ["Maximale Aufnahme aller 12 Elemente", "Konditioniert und revitalisiert das Substrat", "Senkt den EC-Druck in der Wurzelzone", "Vollständig biologisch und rückstandsfrei"]
+            : isNL
+                ? ["Maximale opname van alle 12 elementen", "Conditioneert en revitaliseert het substraat", "Verlaagt de EC-druk in de wortelzone", "Volledig biologisch en residu-vrij"]
+                : ["Maximum uptake of all 12 elements", "Conditions and revitalizes the substrate", "Reduces EC pressure in the root zone", "Completely organic and residue-free"],
+        compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
+        humus: isDE ? 'Huminsäuren' : isNL ? 'Humuszuren' : 'Humic Acids',
+        humusDesc: isDE ? '5% Aktivextrakt' : isNL ? '5% Actief extract' : '5% Active extract',
+        fulvic: isDE ? 'Fulvinsäuren' : isNL ? 'Fulvinezuren' : 'Fulvic Acids',
+        fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
+        tags: isDE ? 'Substratkonditionierer • pH-Stabil • Nano-Tech' : isNL ? 'Substraatconditioner • pH-Stabiel • Nano-Tech' : 'Substrate conditioner • pH-Stable • Nano-Tech',
+        guideBadge: isDE ? 'Benutzerhandbuch' : isNL ? 'Gebruikershandleiding' : 'User Guide',
+        guideTitle: isDE ? <>Einfache <br /><span className="text-lime-500">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-lime-500">toepassing</span></> : <>Simple <br /><span className="text-lime-500">application</span></>,
         steps: [
-            { step: "01", title: isNL ? "Goed schudden" : "Shake well", desc: isNL ? "Zorg voor een homogene menging door de jerrycan voor gebruik krachtig te schudden." : "Ensure homogeneous mixing by shaking the jerrycan vigorously before use." },
-            { step: "02", title: isNL ? "Optimale dosering" : "Optimal dosage", desc: isNL ? "Gebruik 5 ml PlantiPower All12 per 1 liter voedingswater voor een maximaal effect." : "Use 5 ml PlantiPower All12 per 1 liter of nutrient water for maximum effect." },
-            { step: "03", title: isNL ? "Maandelijkse boost" : "Monthly boost", desc: isNL ? "Pas het product éénmaal per maand toe als onderdeel van je reguliere bewateringsschema." : "Apply the product once a month as part of your regular watering schedule." }
+            { step: "01", title: isDE ? "Gut schütteln" : isNL ? "Goed schudden" : "Shake well", desc: isDE ? "Sorgen Sie für eine homogene Mischung, indem Sie den Kanister vor Gebrauch kräftig schütteln." : isNL ? "Zorg voor een homogene menging door de jerrycan voor gebruik krachtig te schudden." : "Ensure homogeneous mixing by shaking the jerrycan vigorously before use." },
+            { step: "02", title: isDE ? "Optimale Dosierung" : isNL ? "Optimale dosering" : "Optimal dosage", desc: isDE ? "Verwenden Sie 5 ml PlantiPower All12 pro 1 Liter Nährstoffwasser für maximale Wirkung." : isNL ? "Gebruik 5 ml PlantiPower All12 per 1 liter voedingswater voor een maximaal effect." : "Use 5 ml PlantiPower All12 per 1 liter of nutrient water for maximum effect." },
+            { step: "03", title: isDE ? "Monatlicher Boost" : isNL ? "Maandelijkse boost" : "Monthly boost", desc: isDE ? "Wenden Sie das Produkt einmal im Monat als Teil Ihres regulären Bewässerungsplans an." : isNL ? "Pas het product éénmaal per maand toe als onderdeel van je reguliere bewateringsschema." : "Apply the product once a month as part of your regular watering schedule." }
         ],
         expertAdvice: dict.Products.expertAdvice,
         expertItems: [
-            { label: isNL ? 'Synergie' : 'Synergy', text: isNL ? 'All12 werkt optimaal samen met zowel minerale als organische voeding.' : 'All12 works optimally with both mineral and organic nutrition.' },
-            { label: 'EC-Check', text: isNL ? 'All12 verhoogt de opname, wat kan leiden tot een lagere benodigde basis-voedingsgift.' : 'All12 increases uptake, which can lead to a lower required base nutrient dose.' },
-            { label: isNL ? 'Bewaaradvies' : 'Storage', text: isNL ? 'Bewaar op een koele plaats buiten direct zonlicht voor behoud van de nano-tubes.' : 'Store in a cool place out of direct sunlight to preserve the nano-tubes.' }
+            { label: isDE ? 'Synergie' : isNL ? 'Synergie' : 'Synergy', text: isDE ? 'All12 arbeitet optimal sowohl mit mineralischer als auch mit organischer Ernährung zusammen.' : isNL ? 'All12 werkt optimaal samen met zowel minerale als organische voeding.' : 'All12 works optimally with both mineral and organic nutrition.' },
+            { label: 'EC-Check', text: isDE ? 'All12 erhöht die Aufnahme, was zu einer geringeren benötigten Basis-Düngergabe führen kann.' : isNL ? 'All12 verhoogt de opname, wat kan leiden tot een lagere benodigde basis-voedingsgift.' : 'All12 increases uptake, which can lead to a lower required base nutrient dose.' },
+            { label: isDE ? 'Aufbewahrung' : isNL ? 'Bewaaradvies' : 'Storage', text: isDE ? 'An einem kühlen Ort ohne direkte Sonneneinstrahlung lagern, um die Nano-Tubes zu erhalten.' : isNL ? 'Bewaar op een koele plaats buiten direct zonlicht voor behoud van de nano-tubes.' : 'Store in a cool place out of direct sunlight to preserve the nano-tubes.' }
         ],
-        disclaimer: isNL
-            ? "PlantiPower All12 is geclassificeerd als niet-gevaarlijk en is 100% veilig bij correct gebruik in professionele kassen en landbouwomgevingen."
-            : "PlantiPower All12 is classified as non-hazardous and is 100% safe when used correctly in professional greenhouses and agricultural environments.",
+        disclaimer: isDE
+            ? "PlantiPower All12 ist als nicht gefährlich eingestuft und bei korrektem Gebrauch in professionellen Gewächshäusern und landwirtschaftlichen Umgebungen zu 100% sicher."
+            : isNL
+                ? "PlantiPower All12 is geclassificeerd als niet-gevaarlijk en is 100% veilig bij correct gebruik in professionele kassen en landbouwomgevingen."
+                : "PlantiPower All12 is classified as non-hazardous and is 100% safe when used correctly in professional greenhouses and agricultural environments.",
         technicalTitle: dict.Products.technicalData,
-        technicalDesc: isNL
-            ? 'Toegang tot de officiële documentatie en specificaties van PlantiPower All12.'
-            : 'Access to official documentation and specifications of PlantiPower All12.',
-        sdsLabel: isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
-        sdsMeta: isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
-        sdsLink: isNL ? '/docs/PlantiPower%20ALL12%20SDS%20NL.pdf' : '/images/products/sds-all12.pdf',
-        labelTitle: isNL ? 'Het Officiële Etiket' : 'Official Label',
-        labelImage: isNL ? '/images/products/all12-nl-trans.svg' : '/images/products/label-all12-nl.png',
-        heroImage: isNL ? '/images/products/all12-nl-trans.svg' : '/images/products/plantipower-all12-transparant.png'
+        technicalDesc: isDE
+            ? 'Zugang zur offiziellen Dokumentation und den Spezifikationen von PlantiPower All12.'
+            : isNL
+                ? 'Toegang tot de officiële documentatie en specificaties van PlantiPower All12.'
+                : 'Access to official documentation and specifications of PlantiPower All12.',
+        sdsLabel: isDE ? 'Sicherheitsdatenblatt' : isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
+        sdsMeta: isDE ? 'SDS DE • pdf' : isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
+        sdsLink: isDE ? '/images/products/sds-all12.pdf' : isNL ? '/docs/PlantiPower%20ALL12%20SDS%20NL.pdf' : '/images/products/sds-all12.pdf',
+        labelTitle: isDE ? 'Das offizielle Etikett' : isNL ? 'Het Officiële Etiket' : 'Official Label',
+        labelImage: '/images/products/label-all12-nl.png',
+        heroImage: isDE ? '/images/products/plantipower-all12-transparant.png' : isNL ? '/images/products/all12-nl-trans.svg' : '/images/products/plantipower-all12-transparant.png'
     };
+
 
     return (
         <ClientLayout dict={dict} lang={lang}>
@@ -360,7 +383,7 @@ export default async function ProductAll12({
                 </div>
 
                 {/* LABEL SPOTLIGHT */}
-                {isNL && (
+                {(isNL || isDE) && (
                     <div className="py-24 bg-[#011a14] relative overflow-hidden">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lime-500/5 blur-[120px] rounded-full pointer-events-none"></div>
                         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -369,7 +392,9 @@ export default async function ProductAll12({
                                     {content.labelTitle}
                                 </h2>
                                 <p className="text-emerald-100/50 text-lg font-light leading-relaxed">
-                                    Onze etiketten weerspiegelen onze belofte: pure kwaliteit, krachtige groei en 100% biologisch.
+                                    {isDE
+                                        ? 'Unsere Etiketten spiegeln unser Versprechen wider: pure Qualität, kraftvolles Wachstum und 100% biologisch.'
+                                        : 'Onze etiketten weerspiegelen onze belofte: pure kwaliteit, krachtige groei en 100% biologisch.'}
                                 </p>
                             </div>
 
@@ -378,7 +403,7 @@ export default async function ProductAll12({
                                 <div className="relative glass-panel rounded-[2.5rem] p-4 bg-white/5 border-white/10 shadow-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-700">
                                     <img
                                         src={content.labelImage}
-                                        alt="PlantiPower All12 NL Etiket"
+                                        alt={isDE ? "PlantiPower All12 DE Etikett" : "PlantiPower All12 NL Etiket"}
                                         className="w-full h-auto rounded-[1.5rem] shadow-inner"
                                     />
                                 </div>

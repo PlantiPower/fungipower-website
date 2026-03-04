@@ -8,19 +8,28 @@ const ProductShowcase = () => {
     const pathname = usePathname();
     const isNL = pathname?.startsWith('/nl');
 
+    const isDE = pathname?.startsWith('/de');
+
     const content = {
-        badge: isNL ? "Opnameversterking" : "Absorption Enhancement",
-        title1: isNL ? "PlantiPower " : "PlantiPower ",
+        badge: isDE ? "Absorptionsverstärkung" : isNL ? "Opnameversterking" : "Absorption Enhancement",
+        title1: "PlantiPower ",
         title1Small: "ALL12",
-        title2: isNL ? " is geen voeding, " : " is not a nutrient, ",
-        title3: isNL ? "maar een " : "but an ",
-        titleAccent: isNL ? "opnameversterker." : "absorption booster.",
-        description: isNL
+        title2: isDE ? " ist kein Nährstoff, " : isNL ? " is geen voeding, " : " is not a nutrient, ",
+        title3: isDE ? "sondern ein " : isNL ? "maar een " : "but an ",
+        titleAccent: isDE ? "Aufnahmeverstärker." : isNL ? "opnameversterker." : "absorption booster.",
+        description: isDE
+            ? "Die ALL12-Technologie sorgt dafür, dass Pflanzen mehr aus den bereits verabreichten Nährstoffen herausholen."
+            : isNL
             ? "ALL12 Technology zorgt ervoor dat planten meer halen uit de voeding die al wordt gegeven."
             : "ALL12 Technology ensures that plants get more out of the nutrients already being applied.",
-        leftCardTitle: isNL ? "Kweken zonder ALL12" : "Growing without ALL12",
-        leftCardDesc: isNL ? "Natuurlijke opnamebeperkingen" : "Natural absorption limits",
-        leftFeatures: isNL ? [
+        leftCardTitle: isDE ? "Anbau ohne ALL12" : isNL ? "Kweken zonder ALL12" : "Growing without ALL12",
+        leftCardDesc: isDE ? "Natürliche Aufnahmegrenzen" : isNL ? "Natuurlijke opnamebeperkingen" : "Natural absorption limits",
+        leftFeatures: isDE ? [
+            { title: "Passive Aufnahme", desc: "Nährstoffe müssen die Wurzel selbstständig erreichen." },
+            { title: "pH-abhängig", desc: "Die Aufnahme variiert je nach Medium und Säuregrad." },
+            { title: "Verlust auf dem Weg", desc: "Ein Teil der Nährstoffe bleibt ungenutzt." },
+            { title: "Höherer Energiebedarf", desc: "Die Pflanze muss für das Wachstum härter arbeiten." }
+        ] : isNL ? [
             { title: "Passieve opname", desc: "Voeding moet zelf de wortel bereiken." },
             { title: "pH-afhankelijk", desc: "Opname varieert per medium en zuurgraad." },
             { title: "Verlies onderweg", desc: "Een deel van de voeding blijft onbenut." },
@@ -31,9 +40,14 @@ const ProductShowcase = () => {
             { title: "Loss in transit", desc: "Part of the nutrients remain unused." },
             { title: "Higher energy demand", desc: "The plant must work harder for growth." }
         ],
-        rightCardTitle: isNL ? "Kweken met PlantiPower ALL12" : "Growing with PlantiPower ALL12",
-        rightCardDesc: isNL ? "Versterkte opname van bestaande voeding" : "Enhanced absorption of existing nutrients",
-        rightFeatures: isNL ? [
+        rightCardTitle: isDE ? "Anbau mit PlantiPower ALL12" : isNL ? "Kweken met PlantiPower ALL12" : "Growing with PlantiPower ALL12",
+        rightCardDesc: isDE ? "Verbesserte Aufnahme bestehender Nährstoffe" : isNL ? "Versterkte opname van bestaande voeding" : "Enhanced absorption of existing nutrients",
+        rightFeatures: isDE ? [
+            { title: "Aktiver Transport", desc: "Nährstoffe werden direkt zur Zelle gebracht." },
+            { title: "pH-unabhängig", desc: "Stabile Aufnahme in jedem Medium." },
+            { title: "Maximale Nutzung", desc: "Mehr Wirkung bei gleicher Nährstoffzufuhr." },
+            { title: "Effizienteres Wachstum", desc: "Weniger Verschwendung, mehr Ergebnisse." }
+        ] : isNL ? [
             { title: "Actief transport", desc: "Voeding wordt richting de cel gebracht." },
             { title: "pH-onafhankelijk", desc: "Stabiele opname in elk medium." },
             { title: "Maximale benutting", desc: "Meer effect uit dezelfde voeding." },
@@ -44,8 +58,8 @@ const ProductShowcase = () => {
             { title: "Maximum utilization", desc: "More effect from the same nutrients." },
             { title: "Efficient growth", desc: "Less waste, more results." }
         ],
-        btnLabel: isNL ? "Volledige ALL12 Specificaties" : "Full ALL12 Specifications",
-        btnPath: isNL ? "/nl/products/all12" : "/en/products/all12"
+        btnLabel: isDE ? "Vollständige ALL12-Spezifikationen" : isNL ? "Volledige ALL12 Specificaties" : "Full ALL12 Specifications",
+        btnPath: isDE ? "/de/products/all12" : isNL ? "/nl/products/all12" : "/en/products/all12"
     };
 
     return (

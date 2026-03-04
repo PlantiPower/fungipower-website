@@ -5,30 +5,31 @@ import { usePathname } from 'next/navigation';
 const NutrientGrid = ({ dict }: { dict: any }) => {
     const pathname = usePathname();
     const isNL = pathname?.startsWith('/nl');
+    const isDE = pathname?.startsWith('/de');
 
     const content = dict.NutrientGrid || {
-        macro: isNL ? "Macro Elementen" : "Macro Nutrients",
-        secondary: isNL ? "Secundaire Elementen" : "Secondary Nutrients",
-        micro: isNL ? "Micro Elementen" : "Micro Nutrients"
+        macro: isDE ? "Makroelemente" : isNL ? "Macro Elementen" : "Macro Nutrients",
+        secondary: isDE ? "Sekundärelemente" : isNL ? "Secundaire Elementen" : "Secondary Nutrients",
+        micro: isDE ? "Mikroelemente" : isNL ? "Micro Elementen" : "Micro Nutrients"
     };
 
     const macro = [
-        { name: isNL ? 'Stikstof' : 'Nitrogen', symbol: 'N' },
-        { name: isNL ? 'Fosfor' : 'Phosphorus', symbol: 'P' },
-        { name: isNL ? 'Kalium' : 'Potassium', symbol: 'K' }
+        { name: isDE ? 'Stickstoff' : isNL ? 'Stikstof' : 'Nitrogen', symbol: 'N' },
+        { name: isDE ? 'Phosphor' : isNL ? 'Fosfor' : 'Phosphorus', symbol: 'P' },
+        { name: isDE ? 'Kalium' : isNL ? 'Kalium' : 'Potassium', symbol: 'K' }
     ];
     const secondary = [
-        { name: isNL ? 'Calcium' : 'Calcium', symbol: 'Ca' },
-        { name: isNL ? 'Magnesium' : 'Magnesium', symbol: 'Mg' },
-        { name: isNL ? 'Zwavel' : 'Sulfur', symbol: 'S' }
+        { name: isDE ? 'Calcium' : isNL ? 'Calcium' : 'Calcium', symbol: 'Ca' },
+        { name: isDE ? 'Magnesium' : isNL ? 'Magnesium' : 'Magnesium', symbol: 'Mg' },
+        { name: isDE ? 'Schwefel' : isNL ? 'Zwavel' : 'Sulfur', symbol: 'S' }
     ];
     const micro = [
-        { name: isNL ? 'IJzer' : 'Iron', symbol: 'Fe' },
-        { name: isNL ? 'Mangaan' : 'Manganese', symbol: 'Mn' },
-        { name: isNL ? 'Zink' : 'Zinc', symbol: 'Zn' },
-        { name: isNL ? 'Koper' : 'Copper', symbol: 'Cu' },
-        { name: isNL ? 'Boor' : 'Boron', symbol: 'B' },
-        { name: isNL ? 'Molybdeen' : 'Molybdenum', symbol: 'Mo' }
+        { name: isDE ? 'Eisen' : isNL ? 'IJzer' : 'Iron', symbol: 'Fe' },
+        { name: isDE ? 'Mangan' : isNL ? 'Mangaan' : 'Manganese', symbol: 'Mn' },
+        { name: isDE ? 'Zink' : isNL ? 'Zink' : 'Zinc', symbol: 'Zn' },
+        { name: isDE ? 'Kupfer' : isNL ? 'Koper' : 'Copper', symbol: 'Cu' },
+        { name: isDE ? 'Bor' : isNL ? 'Boor' : 'Boron', symbol: 'B' },
+        { name: isDE ? 'Molybdän' : isNL ? 'Molybdeen' : 'Molybdenum', symbol: 'Mo' }
     ];
 
     return (

@@ -5,7 +5,13 @@ const BenefitsSection = () => {
     const pathname = usePathname();
     const isNL = pathname?.startsWith('/nl');
 
-    const nutrientCategories = isNL ? [
+    const isDE = pathname?.startsWith('/de');
+
+    const nutrientCategories = isDE ? [
+        { title: "Makroelemente", items: ["Stickstoff (N)", "Phosphor (P)", "Kalium (K)"] },
+        { title: "Sekundärelemente", items: ["Calcium (Ca)", "Magnesium (Mg)", "Schwefel (S)"] },
+        { title: "Mikroelemente", items: ["Eisen (Fe)", "Mangan (Mn)", "Zink (Zn)", "Kupfer (Cu)", "Bor (B)", "Molybdän (Mo)"] }
+    ] : isNL ? [
         { title: "Hoofdelementen", items: ["Stikstof (N)", "Fosfor (P)", "Kalium (K)"] },
         { title: "Secundaire Elementen", items: ["Calcium (Ca)", "Magnesium (Mg)", "Zwavel (S)"] },
         { title: "Sporenelementen", items: ["IJzer (Fe)", "Mangaan (Mn)", "Zink (Zn)", "Koper (Cu)", "Boor (B)", "Molybdeen (Mo)"] }
@@ -16,15 +22,17 @@ const BenefitsSection = () => {
     ];
 
     const content = {
-        badge: isNL ? "Innovatieve Transport Technologie" : "Innovative Transport Technology",
-        title: isNL ? "Van " : "From ",
-        titleAccent: isNL ? "3 naar 12" : "3 to 12",
-        titleSuffix: isNL ? " Nutriënten. De kracht van ALL12." : " Nutrients. The power of ALL12.",
-        desc: isNL
-            ? "Normaal gesproken binden fulvinezuren slechts 3 nutriënten (calcium, magnesium en ijzer). PlantiPower gaat veel verder. Onze technologie transporteert niet alleen deze mineralen, maar bindt en levert een volledig spectrum van 12 essentiële nutriënten direct aan de wortels."
-            : "Normally, fulvic acids bind only 3 nutrients (calcium, magnesium, and iron). PlantiPower goes much further. Our technology not only transports these minerals but binds and delivers a full spectrum of 12 essential nutrients directly to the roots.",
-        labelBadge: isNL ? "Volledig Spectrum" : "Full Spectrum",
-        labelVal: isNL ? "12 Nutriënten" : "12 Nutrients"
+        badge: isDE ? "Innovative Transporttechnologie" : isNL ? "Innovatieve Transport Technologie" : "Innovative Transport Technology",
+        title: isDE ? "Von " : isNL ? "Van " : "From ",
+        titleAccent: isDE ? "3 auf 12" : isNL ? "3 naar 12" : "3 to 12",
+        titleSuffix: isDE ? " Nährstoffe. Die Kraft von ALL12." : isNL ? " Nutriënten. De kracht van ALL12." : " Nutrients. The power of ALL12.",
+        desc: isDE
+            ? "Normalerweise binden Fulvinsäuren nur 3 Nährstoffe (Calcium, Magnesium und Eisen). PlantiPower geht noch viel weiter. Unsere Technologie transportiert nicht nur diese Mineralien, sondern bindet und liefert ein vollständiges Spektrum von 12 essentiellen Nährstoffen direkt an die Wurzeln."
+            : isNL
+                ? "Normaal gesproken binden fulvinezuren slechts 3 nutriënten (calcium, magnesium en ijzer). PlantiPower gaat veel verder. Onze technologie transporteert niet alleen deze mineralen, maar bindt en levert een volledig spectrum van 12 essentiële nutriënten direct aan de wortels."
+                : "Normally, fulvic acids bind only 3 nutrients (calcium, magnesium, and iron). PlantiPower goes much further. Our technology not only transports these minerals but binds and delivers a full spectrum of 12 essential nutrients directly to the roots.",
+        labelBadge: isDE ? "Vollspektrum" : isNL ? "Volledig Spectrum" : "Full Spectrum",
+        labelVal: isDE ? "12 Nährstoffe" : isNL ? "12 Nutriënten" : "12 Nutrients"
     };
 
     return (

@@ -6,6 +6,7 @@ const RootSystemAnimation: React.FC = () => {
     const [step, setStep] = useState(0); // 0: Idle, 1: Glow, 2: Transport, 3: Growth
     const pathname = usePathname();
     const isNL = pathname?.startsWith('/nl');
+    const isDE = pathname?.startsWith('/de');
 
     useEffect(() => {
         const cycle = async () => {
@@ -94,10 +95,10 @@ const RootSystemAnimation: React.FC = () => {
                 )}
 
                 <div className="absolute bottom-6 left-6 font-black text-[10px] text-lime-500/40 uppercase tracking-[0.3em]">
-                    {isNL ? 'WORTELSYSTEEM: ' : 'ROOT SYSTEM: '} {step >= 1 ? (isNL ? 'ACTIEF' : 'ACTIVE') : (isNL ? 'STAND-BY' : 'IDLE')}
+                    {isDE ? 'WURZELSYSTEM: ' : isNL ? 'WORTELSYSTEEM: ' : 'ROOT SYSTEM: '} {step >= 1 ? (isDE ? 'AKTIV' : isNL ? 'ACTIEF' : 'ACTIVE') : (isDE ? 'INAKTIV' : isNL ? 'STAND-BY' : 'IDLE')}
                 </div>
                 <div className="absolute top-6 right-6 font-black text-[10px] text-lime-500/40 uppercase tracking-[0.3em]">
-                    {isNL ? 'GROEI: ' : 'GROWTH: '} {step === 3 ? (isNL ? 'OPTIMAAL' : 'OPTIMIZED') : (isNL ? 'WACHTEN' : 'WAITING')}
+                    {isDE ? 'WACHSTUM: ' : isNL ? 'GROEI: ' : 'GROWTH: '} {step === 3 ? (isDE ? 'OPTIMIERT' : isNL ? 'OPTIMAAL' : 'OPTIMIZED') : (isDE ? 'WARTEN' : isNL ? 'WACHTEN' : 'WAITING')}
                 </div>
             </div>
         </div>
