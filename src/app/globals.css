@@ -85,7 +85,9 @@ body::before {
 }
 
 h1 {
-  @apply font-outfit uppercase tracking-tighter;
+  font-family: var(--font-outfit);
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
 }
 
 h2,
@@ -93,7 +95,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-outfit;
+  font-family: var(--font-outfit);
 }
 
 .section-badge {
