@@ -16,6 +16,10 @@ const nextConfig: any = {
         source: '/:lang/theroadto/_next/:path*',
         destination: '/theroadto/_next/:path*',
       },
+      {
+        source: '/theroadto/_next/:path*',
+        destination: '/theroadto/_next/:path*',
+      }
     ]
   },
 };
