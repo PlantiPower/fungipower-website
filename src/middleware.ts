@@ -49,7 +49,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        // Skip theroadto and internal paths
-        '/((?!api|_next/static|_next/image|theroadto|images|favicon.ico|.*\\..*).*)',
+        '/((?!theroadto|_next|api|favicon.ico).*)',
     ],
 }
