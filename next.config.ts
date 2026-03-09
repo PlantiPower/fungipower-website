@@ -5,6 +5,14 @@ const nextConfig = {
         source: "/theroadto",
         destination: "/theroadto/index.html",
       },
+      {
+        source: "/theroadto/:path*",
+        destination: "/theroadto/:path*",
+      },
+      {
+        source: "/_next/:path*",
+        destination: "/theroadto/_next/:path*",
+      },
     ];
   },
 };
