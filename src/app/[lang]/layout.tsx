@@ -1,15 +1,4 @@
-import { Inter, Outfit } from "next/font/google"
 import "../globals.css"
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap"
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  display: "swap"
-})
 
 export default function RootLayout({
   children
@@ -18,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className={`${inter.className} ${outfit.className}`}>
+      <body>
         {children}
       </body>
     </html>
