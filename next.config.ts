@@ -4,6 +4,7 @@ const nextConfig: any = {
   },
   async rewrites() {
     return [
+      /*
       {
         source: '/:lang/theroadto',
         destination: '/theroadto/index.html',
@@ -20,6 +21,7 @@ const nextConfig: any = {
         source: '/theroadto/_next/:path*',
         destination: '/theroadto/_next/:path*',
       }
+      */
     ]
   },
 };
