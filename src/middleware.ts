@@ -16,7 +16,7 @@ function getLocale(request: NextRequest): string {
 
     try {
         return match(languages, locales, i18n.defaultLocale)
-    } catch (e) {
+    } catch {
         return i18n.defaultLocale
     }
 }
@@ -24,34 +24,22 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
 
-    // Skip the sub-app theroadto and its assets entirely
     if (pathname.startsWith('/theroadto')) {
-        return
-    }
-
-    if (
-        pathname.startsWith('/images') ||
-        pathname.startsWith('/api') ||
-        pathname.startsWith('/public') ||
-        pathname === '/favicon.ico' ||
-        pathname === '/robots.txt' ||
-        pathname === '/sitemap.xml'
-    ) {
-        return
+        return NextResponse.next()
     }
 
     const pathnameHasLocale = i18n.locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     )
+
     if (pathnameHasLocale) return
 
     const locale = getLocale(request)
     request.nextUrl.pathname = `/${locale}${pathname}`
+
     return NextResponse.redirect(request.nextUrl)
 }
 
 export const config = {
-    matcher: [
-        '/((?!theroadto|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|public).*)',
-    ],
+    matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 }
