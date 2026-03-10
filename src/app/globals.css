@@ -24,7 +24,6 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
   background-color: var(--emerald-deep);
   font-size: 14px;
 }
@@ -43,7 +42,6 @@ body {
     linear-gradient(180deg, #02211b 0%, #04332a 50%, #01140f 100%);
   background-attachment: fixed;
   color: #ffffff;
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -326,12 +324,14 @@ h6 {
   transform-origin: left;
 }
 
-/* iOS Safari Body Scroll Lock Fix */
-html.no-scroll,
-body.no-scroll {
-  overflow: hidden !important;
-  position: relative;
-  height: 100%;
+/* FINAL SCROLL FIX */
+html,
+body {
+  overflow-x: visible !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  overscroll-behavior: auto !important;
 }
 
 /* Fixed Containers & Momentum Scrolling (Flickering) */
