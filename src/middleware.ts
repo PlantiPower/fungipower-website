@@ -24,7 +24,16 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
 
-    if (pathname.startsWith('/theroadto')) {
+    // Skip redirection for static files, public assets, and specific routes
+    if (
+        pathname.includes('.') ||
+        pathname.startsWith('/theroadto') ||
+        pathname.startsWith('/images/') ||
+        pathname.startsWith('/docs/') ||
+        pathname === '/favicon.ico' ||
+        pathname === '/robots.txt' ||
+        pathname === '/sitemap.xml'
+    ) {
         return NextResponse.next()
     }
 
@@ -41,5 +50,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+    matcher: ['/((?!api|_next/static|_next/image).*)'],
 }
