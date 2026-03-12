@@ -47,7 +47,7 @@ export default async function CucumberPage({
 
     return (
         <ClientLayout dict={dict} lang={lang}>
-            <main className="bg-[#011410] relative min-h-screen scroll-smooth h-screen overflow-y-auto snap-y snap-mandatory">
+            <main className="bg-[#011410] relative min-h-screen snap-y snap-mandatory overflow-x-hidden">
 
                 {/* HERO SECTION - Now with Interactive Infographic */}
                 <section className="relative pt-32 md:pt-40 pb-12 md:pb-20 overflow-hidden min-h-screen flex flex-col justify-center snap-start snap-always">
