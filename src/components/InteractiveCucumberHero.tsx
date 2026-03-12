@@ -107,24 +107,33 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                     {(isInView || activeHotspot === spot.id) && (
                                         <div className={`
                                             absolute top-1/2 -translate-y-1/2 
-                                            ${spot.align === 'left' ? 'right-[16px] md:right-[24px] flex-row-reverse' : 'left-[16px] md:left-[24px]'} 
+                                            ${spot.align === 'left' ? 'right-[24px] md:right-[32px] flex-row-reverse' : 'left-[24px] md:left-[32px]'} 
                                             flex items-center pointer-events-none
                                         `}>
-                                            {/* Line Drawing from Central Axis to Margin */}
-                                            <svg 
-                                                className="overflow-visible hidden md:block"
-                                                width="120" height="2" viewBox="0 0 120 2"
-                                            >
-                                                <motion.path
-                                                    d={spot.align === 'left' ? "M 120 1 L 0 1" : "M 0 1 L 120 1"}
-                                                    fill="transparent"
-                                                    stroke="rgba(163,230,21,0.8)"
-                                                    strokeWidth="2.5"
-                                                    initial={{ pathLength: 0 }}
-                                                    animate={{ pathLength: 1 }}
-                                                    transition={{ delay: spot.delay + 0.4, duration: 0.6 }}
-                                                />
-                                            </svg>
+                                            
+                                            {/* Line Drawing with Fade-out toward the plant */}
+                                            <div className="relative w-[120px] h-[2px] hidden md:block">
+                                                <svg 
+                                                    className="overflow-visible"
+                                                    width="100%" height="2" viewBox="0 0 120 2"
+                                                >
+                                                    <defs>
+                                                        <linearGradient id={`gradient-${spot.id}`} x1={spot.align === 'left' ? "0%" : "100%"} y1="0%" x2={spot.align === 'left' ? "100%" : "0%"} y2="0%">
+                                                            <stop offset="0%" stopColor="rgba(163,230,21,1)" />
+                                                            <stop offset="100%" stopColor="rgba(163,230,21,0)" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <motion.path
+                                                        d={spot.align === 'left' ? "M 120 1 L 0 1" : "M 0 1 L 120 1"}
+                                                        fill="transparent"
+                                                        stroke={`url(#gradient-${spot.id})`}
+                                                        strokeWidth="2.5"
+                                                        initial={{ pathLength: 0 }}
+                                                        animate={{ pathLength: 1 }}
+                                                        transition={{ delay: spot.delay + 0.4, duration: 0.8 }}
+                                                    />
+                                                </svg>
+                                            </div>
 
                                             <motion.div
                                                 initial={{ opacity: 0, x: spot.align === 'left' ? -30 : 30 }}
