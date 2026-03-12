@@ -37,13 +37,13 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                     image: "/cucumber-plant-provided.png",
                     hotspots: [],
                     maxWidth: "max-w-[700px]",
-                    imgStyle: { marginBottom: '-5%' }
+                    imgStyle: { marginBottom: '-20%' },
                 };
             case 'plant':
                 return {
                     image: "/cucumber-plant-provided.png",
                     maxWidth: "max-w-[700px]",
-                    imgStyle: { marginBottom: '-5%' },
+                    imgStyle: { marginBottom: '-20%' },
                     hotspots: [
                         { id: 'silicon', x: 45, y: 30, label: sectionData?.nodes?.silicon?.label, desc: sectionData?.nodes?.silicon?.desc, align: 'left', delay: 0.8 },
                         { id: 'siliconLeaf', x: 55, y: 40, label: sectionData?.nodes?.siliconLeaf?.label, desc: sectionData?.nodes?.siliconLeaf?.desc, align: 'right', delay: 1.5 },
