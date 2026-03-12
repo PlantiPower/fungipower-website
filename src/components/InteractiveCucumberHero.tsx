@@ -31,7 +31,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                     image: "/cucumber-plant-provided.png",
                     hotspots: [],
                     maxWidth: "max-w-[700px]",
-                    imgStyle: { marginBottom: '-20%' },
+                    imgStyle: { marginBottom: '-45%', marginTop: '-10%' },
                 };
             case 'plant':
                 return {
@@ -78,7 +78,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
     return (
         <div 
             ref={containerRef} 
-            className="relative w-full min-h-[700px] md:min-h-[900px] flex flex-col items-center justify-start overflow-visible select-none bg-black"
+            className="relative w-full h-full flex flex-col items-center justify-center overflow-visible select-none bg-black"
         >
             <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -91,7 +91,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                     <img 
                         src={assets.image} 
                         alt="Technical Analysis" 
-                        className="w-full h-auto object-contain drop-shadow-[0_0_50px_rgba(132,204,22,0.15)]"
+                        className="w-full h-auto object-contain"
                     />
 
                     {/* Hotspots */}
@@ -115,7 +115,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                             {/* Connecting Line */}
                             <motion.div 
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: spot.align === 'left' ? 50 : 50 } : {}}
+                                animate={isInView ? { width: spot.align === 'left' ? 300 : 300 } : {}}
                                 transition={{ delay: spot.delay + 0.3, duration: 0.8 }}
                                 className={`
                                     absolute top-1/2 h-[1px] bg-gradient-to-r from-white to-lime-400
@@ -132,7 +132,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                                     transition={{ delay: spot.delay + 0.6, duration: 0.6 }}
                                     className={`
                                         absolute top-0 -translate-y-1/2 pointer-events-auto
-                                        ${spot.align === 'left' ? 'right-[50px] md:right-[150px] lg:right-[200px]' : 'left-[50px] md:left-[150px] lg:left-[200px]'}
+                                        ${spot.align === 'left' ? 'right-[310px] md:right-[310px] lg:right-[310px]' : 'left-[310px] md:left-[310px] lg:left-[310px]'}
                                         glass-panel px-4 py-3 md:px-6 md:py-5 rounded-2xl bg-black/90 backdrop-blur-xl border border-lime-500/40 shadow-[0_30px_60px_rgba(0,0,0,0.8)]
                                         min-w-[200px] md:min-w-[240px] lg:min-w-[320px]
                                     `}

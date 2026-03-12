@@ -47,8 +47,8 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 2: PLANT (NODES) */}
-                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
-                    <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black">
+                    <div className="w-full h-full relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
                     {/* Background label */}
@@ -58,8 +58,8 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 3: ROOTS (NODES) */}
-                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
-                    <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black">
+                    <div className="w-full h-full relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
                     </div>
                     {/* Background label */}
@@ -69,8 +69,8 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 4: CUCUMBER (NODES) */}
-                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
-                    <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black">
+                    <div className="w-full h-full relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="cucumber" sectionData={t.sections?.s4} />
                     </div>
                     {/* Background label */}
