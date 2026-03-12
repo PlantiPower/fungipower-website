@@ -160,7 +160,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                     className={`
                                         absolute top-0 -translate-y-1/2 pointer-events-auto
                                         ${spot.align === 'left' ? 'right-[70px] md:right-[170px] lg:right-[240px]' : 'left-[70px] md:left-[170px] lg:left-[240px]'}
-                                        glass-panel px-6 py-5 md:px-8 md:py-6 rounded-3xl bg-[#011410]/95 backdrop-blur-2xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)]
+                                        glass-panel px-6 py-5 md:px-8 md:py-6 rounded-3xl bg-black/95 backdrop-blur-2xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)]
                                         min-w-[240px] md:min-w-[280px] lg:min-w-[400px]
                                         hover:border-lime-500/40 transition-all duration-300
                                     `}
