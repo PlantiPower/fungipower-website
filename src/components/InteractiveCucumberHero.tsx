@@ -51,9 +51,9 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                     maxWidth: "max-w-[600px]",
                     imgStyle: { marginBottom: '0%' },
                     hotspots: [
-                        { id: 'iron', x: 35, y: 50, label: sectionData?.nodes?.iron?.label, desc: sectionData?.nodes?.iron?.desc, align: 'left', delay: 0.8 },
-                        { id: 'zincRoots', x: 65, y: 60, label: sectionData?.nodes?.zincRoots?.label, desc: sectionData?.nodes?.zincRoots?.desc, align: 'right', delay: 1.5 },
-                        { id: 'mobilization', x: 50, y: 85, label: sectionData?.nodes?.mobilization?.label, desc: sectionData?.nodes?.mobilization?.desc, align: 'right', delay: 2.2 }
+                        { id: 'iron', x: 42, y: 50, label: sectionData?.nodes?.iron?.label, desc: sectionData?.nodes?.iron?.desc, align: 'left', delay: 0.8 },
+                        { id: 'zincRoots', x: 60, y: 55, label: sectionData?.nodes?.zincRoots?.label, desc: sectionData?.nodes?.zincRoots?.desc, align: 'right', delay: 1.5 },
+                        { id: 'mobilization', x: 50, y: 65, label: sectionData?.nodes?.mobilization?.label, desc: sectionData?.nodes?.mobilization?.desc, align: 'right', delay: 2.2 }
                     ]
                 };
             case 'cucumber':
@@ -62,10 +62,10 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                     maxWidth: "max-w-[800px]",
                     imgStyle: { marginBottom: '0%' },
                     hotspots: [
-                        { id: 'brix', x: 25, y: 35, label: sectionData?.nodes?.brix?.label, desc: sectionData?.nodes?.brix?.desc, align: 'left', delay: 0.8 },
-                        { id: 'exclusion', x: 75, y: 45, label: sectionData?.nodes?.exclusion?.label, desc: sectionData?.nodes?.exclusion?.desc, align: 'right', delay: 1.5 },
-                        { id: 'zincOld', x: 35, y: 70, label: sectionData?.nodes?.zincOld?.label, desc: sectionData?.nodes?.zincOld?.desc, align: 'left', delay: 2.2 },
-                        { id: 'molyOld', x: 65, y: 75, label: sectionData?.nodes?.molyOld?.label, desc: sectionData?.nodes?.molyOld?.desc, align: 'right', delay: 2.9 }
+                        { id: 'brix', x: 38, y: 46, label: sectionData?.nodes?.brix?.label, desc: sectionData?.nodes?.brix?.desc, align: 'left', delay: 0.8 },
+                        { id: 'exclusion', x: 70, y: 42, label: sectionData?.nodes?.exclusion?.label, desc: sectionData?.nodes?.exclusion?.desc, align: 'right', delay: 1.5 },
+                        { id: 'zincOld', x: 42, y: 68, label: sectionData?.nodes?.zincOld?.label, desc: sectionData?.nodes?.zincOld?.desc, align: 'left', delay: 2.2 },
+                        { id: 'molyOld', x: 62, y: 72, label: sectionData?.nodes?.molyOld?.label, desc: sectionData?.nodes?.molyOld?.desc, align: 'right', delay: 2.9 }
                     ]
                 };
             default:
@@ -92,6 +92,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                         src={assets.image} 
                         alt="Technical Analysis" 
                         className="w-full h-auto object-contain"
+                        style={{ maskImage: 'radial-gradient(circle at center, black 60%, transparent 95%)', WebkitMaskImage: 'radial-gradient(circle at center, black 60%, transparent 95%)' }}
                     />
 
                     {/* Hotspots */}
