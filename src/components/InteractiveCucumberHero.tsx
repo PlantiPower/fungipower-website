@@ -13,7 +13,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
     const containerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(containerRef, { once: true, amount: 0.3 });
     
-    // For 3D Tilt effect - subtle to keep the axial layout steady
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
     const rotateX = useSpring(useTransform(mouseY, [-400, 400], [3, -3]), { stiffness: 100, damping: 30 });
@@ -45,10 +44,9 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
 
     if (!isMounted) return <div ref={containerRef} className="min-h-[800px] w-full" />;
 
-    // Aligned to a central vertical axis with balanced Zig-Zag panels
     const hotspots = [
-        { id: 'leaves', x: 52, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
-        { id: 'fruit', x: 48, y: 42, label: t.fruit, align: 'right', delay: 0.6 }, // Fruit (+2 komkommers) on the Right
+        { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
+        { id: 'fruit', x: 48, y: 42, label: t.fruit, align: 'right', delay: 0.6 },
         { id: 'uptake', x: 51, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
         { id: 'roots', x: 52, y: 86, label: t.roots, align: 'right', delay: 1.2 },
     ];
@@ -59,17 +57,14 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             onMouseMove={handleMouseMove}
             className="relative w-full min-h-[900px] md:min-h-[1400px] flex items-center justify-center overflow-visible py-20 lg:py-40 select-none"
         >
-            {/* Background Atmosphere */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] aspect-square bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.12)_0%,transparent_70%)] pointer-events-none blur-[150px] opacity-40"></div>
 
             <motion.div
                 className="relative w-full max-w-[800px] px-4"
                 style={{ scale, opacity, rotateX, rotateY, perspective: 1500 }}
             >
-                {/* Visual Axis Layer */}
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-white/5 z-0 pointer-events-none hidden md:block"></div>
 
-                {/* The Plant (Central Axis) */}
                 <div className="relative z-10 w-full flex justify-center">
                     <motion.div 
                         initial={{ opacity: 0, y: 40 }}
@@ -85,7 +80,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                         />
                     </motion.div>
 
-                    {/* Highly Structured Axial Overlay */}
                     <div className="absolute inset-0 z-30">
                         {hotspots.map((spot) => (
                             <div
@@ -93,7 +87,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                 className="absolute"
                                 style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                             >
-                                {/* Central Node on Stem */}
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -105,24 +98,21 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                     </div>
                                 </motion.div>
 
-                                {/* Connector and Axial Panel */}
                                 <AnimatePresence>
                                     {(isInView || activeHotspot === spot.id) && (
                                         <div className={`
                                             absolute top-1/2 -translate-y-1/2 
-                                            ${spot.align === 'left' ? 'right-[40px] md:right-[60px] flex-row-reverse' : 'left-[40px] md:left-[60px]'} 
+                                            ${spot.align === 'left' ? 'right-[4px] md:right-[8px] flex-row-reverse' : 'left-[4px] md:left-[8px]'} 
                                             flex items-center pointer-events-none
                                         `}>
-                                            
-                                            {/* Line Drawing from Central Axis to Margin */}
                                             <svg 
                                                 className="overflow-visible hidden md:block"
-                                                width="160" height="2" viewBox="0 0 160 2"
+                                                width="120" height="2" viewBox="0 0 120 2"
                                             >
                                                 <motion.path
-                                                    d={spot.align === 'left' ? "M 160 1 L 0 1" : "M 0 1 L 160 1"}
+                                                    d={spot.align === 'left' ? "M 120 1 L 0 1" : "M 0 1 L 120 1"}
                                                     fill="transparent"
-                                                    stroke="rgba(163,230,21,0.5)"
+                                                    stroke="rgba(163,230,21,0.6)"
                                                     strokeWidth="2"
                                                     initial={{ pathLength: 0 }}
                                                     animate={{ pathLength: 1 }}
@@ -130,17 +120,16 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                                 />
                                             </svg>
 
-                                            {/* Symmetrical Panel Box as requested */}
                                             <motion.div
                                                 initial={{ opacity: 0, x: spot.align === 'left' ? -30 : 30 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: spot.delay + 0.9, duration: 0.5 }}
                                                 className={`
-                                                    relative glass-panel px-6 py-6 md:px-8 md:py-8 rounded-[2.5rem] bg-[#011410]/90 backdrop-blur-3xl border border-white/20 shadow-[0_50px_100px_rgba(0,0,0,0.8)]
+                                                    relative glass-panel px-6 py-5 md:px-8 md:py-6 rounded-[2rem] bg-[#011410]/90 backdrop-blur-3xl border border-white/20 shadow-[0_50px_100px_rgba(0,0,0,0.8)]
                                                     min-w-[280px] lg:min-w-[380px]
                                                 `}
                                             >
-                                                <div className="flex items-center gap-2 mb-3">
+                                                <div className="flex items-center gap-2 mb-2">
                                                     <div className="w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,21,1)]"></div>
                                                     <div className="text-lime-400 text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] font-outfit">Validated Node</div>
                                                 </div>
@@ -148,7 +137,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                                     {spot.label}
                                                 </div>
                                                 
-                                                {/* Directional Indicator (Arrow to Plant) */}
                                                 <div className={`
                                                     absolute top-1/2 -translate-y-1/2 
                                                     ${spot.align === 'right' ? '-left-3' : '-right-3'} 
