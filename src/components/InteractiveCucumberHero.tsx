@@ -64,7 +64,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                 };
             case 'cucumber':
                 return {
-                    image: "/images/cucumbers-premium.png",
+                    image: "/komkommer los.png",
                     maxWidth: "max-w-[800px]",
                     imgStyle: { marginBottom: '0%' },
                     hotspots: [
