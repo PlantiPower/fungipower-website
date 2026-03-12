@@ -17,10 +17,10 @@ export default function CucumberClientPage({
 }) {
     return (
         <ClientLayout dict={dict} lang={lang}>
-            <main className="bg-black relative min-h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden">
+            <main className="bg-black relative min-h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden h-screen">
 
                 {/* SECTION 1: HEADER (CLEAN PLANT) */}
-                <section className="relative min-h-screen flex flex-col items-center justify-start snap-start snap-always pt-24 md:pt-32" style={{ background: 'linear-gradient(to bottom, #080a0a 0%, #000000 100%)' }}>
+                <section className="relative h-screen flex flex-col items-center justify-start snap-start snap-always pt-24 md:pt-32" style={{ background: 'linear-gradient(to bottom, #080a0a 0%, #000000 100%)' }}>
                     <div className="max-w-4xl mx-auto px-6 relative z-20 text-center mb-0">
                         <div className="animate-reveal">
                             <div className="section-badge mb-6 mx-auto">{t.sections?.s1?.badge}</div>
@@ -47,7 +47,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 2: PLANT (NODES) */}
-                <section className="relative min-h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
                     <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
@@ -58,7 +58,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 3: ROOTS (NODES) */}
-                <section className="relative min-h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
                     <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
                     </div>
@@ -69,7 +69,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 4: CUCUMBER (NODES) */}
-                <section className="relative min-h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-20 bg-black">
                     <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="cucumber" sectionData={t.sections?.s4} />
                     </div>
@@ -79,8 +79,8 @@ export default function CucumberClientPage({
                     </div>
                 </section>
 
-                {/* SECTION 5: ALL12 TECHNOLOGY */}
-                <section className="relative min-h-screen flex flex-col items-center justify-center snap-start snap-always py-32 bg-black overflow-hidden house-roots-bg">
+                {/* SECTION 5: ALL12® TECHNOLOGY */}
+                <section className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-32 bg-black overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.05)_0%,transparent_70%)] opacity-50"></div>
                     
                     <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
