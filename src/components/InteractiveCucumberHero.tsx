@@ -73,41 +73,19 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             ref={containerRef} 
             className="relative w-full min-h-[900px] md:min-h-[1200px] flex flex-col items-center justify-start overflow-visible select-none"
         >
-            {/* Atmosphere & Lighting */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] aspect-square bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15)_0%,transparent_70%)] pointer-events-none blur-[120px] opacity-60"></div>
-
             <motion.div
                 className="relative w-full max-w-[1000px] px-4 pt-0 -mt-32 md:-mt-60"
                 style={{ scale, opacity }}
             >
-                {/* Partner Logos Row */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4, duration: 1 }}
-                    className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-12 opacity-60 hover:opacity-100 transition-opacity duration-500"
-                >
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-emerald-100/40 font-bold w-full text-center mb-2">Onderzoekspartners</div>
-                    <img src="/images/vangog-logo.png" alt="Van Gog Kwekerijen" className="h-8 md:h-10 w-auto brightness-0 invert opacity-70" />
-                    <img src="/logo-eurofins-agro.jpg" alt="Eurofins Agro" className="h-8 md:h-10 w-auto rounded-sm" />
-                </motion.div>
-
-                {/* 1. The Plant (Fades in softly) */}
+                {/* 1. The Plant - 100% NAKED (NO OVERLAYS, NO MASKS, NO GLOWS) */}
                 <div className="relative z-10 w-full flex justify-center">
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 2, ease: "easeOut" }}
                         className="relative w-full max-w-[850px] flex justify-center overflow-hidden"
-                        style={{
-                            maskImage: 'radial-gradient(ellipse at 50% 50%, black 40%, transparent 95%)',
-                            WebkitMaskImage: 'radial-gradient(ellipse at 50% 50%, black 40%, transparent 95%)',
-                        }}
                     >
-                        {/* Shadow/Base Glow */}
-                        <div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 w-full h-40 bg-lime-500/5 blur-[150px] rounded-full opacity-20"></div>
-                        
-                        {/* THE NEW PROVIDED PLANT IMAGE - 100% ORIGINAL COLORS */}
+                        {/* THE NEW PROVIDED PLANT IMAGE - 100% RAW FILE */}
                         <img
                             src="/cucumber-plant-provided.png"
                             alt="PlantiPower"

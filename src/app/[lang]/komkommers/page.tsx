@@ -50,8 +50,8 @@ export default async function CucumberPage({
             <main className="bg-[#011410] relative min-h-screen snap-y snap-mandatory overflow-x-hidden">
 
                 {/* HERO SECTION - Now with Interactive Infographic */}
-                <section className="relative pt-32 md:pt-40 pb-0 overflow-hidden min-h-screen flex flex-col items-center justify-start snap-start snap-always">
-                    <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-4">
+                <section className="relative pt-24 md:pt-28 pb-0 overflow-hidden min-h-screen flex flex-col items-center justify-start snap-start snap-always">
+                    <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-0">
                         <div className="animate-reveal">
                             <div className="section-badge mb-6 mx-auto">{t.heroBadge}</div>
                             <h1 className="font-outfit font-black uppercase text-[42px] md:text-[60px] lg:text-[72px] tracking-[0.02em] leading-[0.95] text-white mb-6">
@@ -60,25 +60,14 @@ export default async function CucumberPage({
                                     {t.heroTitleAccent}
                                 </span>
                             </h1>
-                            <p className="text-lg md:text-xl text-emerald-100/70 leading-relaxed font-medium max-w-3xl mx-auto mb-10">
+                            <p className="text-lg md:text-xl text-emerald-100/70 leading-relaxed font-medium max-w-3xl mx-auto mb-2">
                                 {t.heroDesc}
                             </p>
-
-                            {/* PARTNER LOGOS */}
-                            <div className="flex flex-col items-center gap-6 animate-reveal [animation-delay:400ms]">
-                                <span className="text-emerald-100/40 text-xs font-bold uppercase tracking-[0.2em]">Onderzoek uitgevoerd door:</span>
-                                <div className="flex items-center justify-center gap-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                                    <img src="/images/vangog-logo.png" alt="Van Gog Kwekerijen" className="h-10 md:h-12 w-auto object-contain" />
-                                    <img src="/images/logo-gog.png" alt="Van Gog" className="h-8 md:h-10 w-auto object-contain hidden" /> {/* Backup if specific is needed */}
-                                    <div className="h-8 w-px bg-white/10"></div>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Eurofins_Scientific_logo.svg/1200px-Eurofins_Scientific_logo.svg.png" alt="Eurofins Agro" className="h-6 md:h-8 w-auto object-contain invert" />
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     {/* INTERACTIVE INFOGRAPHIC - AGGRESSIVE OFFSET */}
-                    <div className="w-full relative animate-reveal [animation-delay:600ms] -mt-16 md:-mt-32">
+                    <div className="w-full relative animate-reveal [animation-delay:600ms] -mt-24 md:-mt-48">
                         <InteractiveCucumberHero dict={dict} />
                     </div>
                 </section>
