@@ -46,9 +46,9 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
 
     const hotspots = [
         { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
-        { id: 'fruit', x: 48, y: 42, label: t.fruit, align: 'right', delay: 0.6 },
-        { id: 'uptake', x: 51, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
-        { id: 'roots', x: 52, y: 86, label: t.roots, align: 'right', delay: 1.2 },
+        { id: 'fruit', x: 49.5, y: 42, label: t.fruit, align: 'right', delay: 0.6 },
+        { id: 'uptake', x: 50, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
+        { id: 'roots', x: 50.5, y: 86, label: t.roots, align: 'right', delay: 1.2 },
     ];
 
     return (
