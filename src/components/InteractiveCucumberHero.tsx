@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence, useMotionValue, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, useInView } from 'framer-motion';
 
 interface InteractiveCucumberHeroProps {
     dict: any;
@@ -9,9 +9,8 @@ interface InteractiveCucumberHeroProps {
 
 const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict }) => {
     const [isMounted, setIsMounted] = useState(false);
-    const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+    const isInView = useInView(containerRef, { once: true, amount: 0.2 });
     
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -43,12 +42,14 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
     };
 
     if (!isMounted) return <div ref={containerRef} className="min-h-[800px] w-full" />;
-    // Perfectly aligned to the central vertical axis (the stem)
+
+    // Perfectly aligned coordinates on the vertical stem axis
+    // Timing:baseDelay triggers Dot -> baseDelay+0.3 triggers Line -> baseDelay+1.1 triggers Card
     const hotspots = [
-        { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
-        { id: 'fruit', x: 50, y: 42, label: t.fruit, align: 'right', delay: 0.6 }, 
-        { id: 'uptake', x: 50, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
-        { id: 'roots', x: 50, y: 86, label: t.roots, align: 'right', delay: 1.2 },
+        { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', baseDelay: 0 },
+        { id: 'fruit', x: 50, y: 42, label: t.fruit, align: 'right', baseDelay: 1.2 }, 
+        { id: 'uptake', x: 50, y: 65, label: t.uptake, align: 'left', baseDelay: 2.4 },
+        { id: 'roots', x: 50, y: 86, label: t.roots, align: 'right', baseDelay: 3.6 },
     ];
 
     return (
@@ -57,7 +58,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             onMouseMove={handleMouseMove}
             className="relative w-full min-h-[900px] md:min-h-[1400px] flex items-center justify-center overflow-visible py-20 lg:py-40 select-none"
         >
-            {/* Background Atmosphere */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] aspect-square bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.12)_0%,transparent_70%)] pointer-events-none blur-[150px] opacity-40"></div>
 
             <motion.div
@@ -66,7 +66,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             >
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-white/5 z-0 pointer-events-none hidden md:block"></div>
 
-                {/* The Plant (Central Axis) */}
                 <div className="relative z-10 w-full flex justify-center">
                     <motion.div 
                         initial={{ opacity: 0, y: 40 }}
@@ -82,7 +81,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                         />
                     </motion.div>
 
-                    {/* Highly Structured Axial Overlay */}
                     <div className="absolute inset-0 z-30">
                         {hotspots.map((spot) => (
                             <div
@@ -90,11 +88,11 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                 className="absolute"
                                 style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                             >
-                                {/* Central Node on Stem */}
+                                {/* Step 1: Central Node (Stipje) */}
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0 }}
-                                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                    transition={{ delay: spot.delay, type: "spring", stiffness: 200 }}
+                                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                                    transition={{ delay: spot.baseDelay, type: "spring", stiffness: 200 }}
                                 >
                                     <div className="relative flex items-center justify-center w-8 h-8 md:w-12 md:h-12 pointer-events-none">
                                         <div className="absolute inset-0 rounded-full bg-lime-400/50 animate-ping opacity-40"></div>
@@ -102,81 +100,78 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                     </div>
                                 </motion.div>
 
-                                {/* Connector and Axial Panel */}
-                                <AnimatePresence>
-                                    {(isInView || activeHotspot === spot.id) && (
+                                {/* Step 2 & 3: Connector Line and Panel */}
+                                <div className={`
+                                    absolute top-1/2 -translate-y-1/2 
+                                    ${spot.align === 'left' ? 'right-[20px] md:right-[32px] flex-row-reverse' : 'left-[20px] md:left-[32px]'} 
+                                    flex items-center pointer-events-none
+                                `}>
+                                    
+                                    {/* Line Drawing with Fade-out toward the plant */}
+                                    <div className="relative w-[140px] h-[2px] hidden md:block overflow-visible">
+                                        <svg 
+                                            className="overflow-visible"
+                                            width="100%" height="2" viewBox="0 0 140 2"
+                                        >
+                                            <defs>
+                                                <filter id={`glow-${spot.id}`} x="-50%" y="-50%" width="200%" height="200%">
+                                                    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"></feGaussianBlur>
+                                                    <feMerge>
+                                                        <feMergeNode in="blur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                    </feMerge>
+                                                </filter>
+                                                <linearGradient id={`gradient-${spot.id}`} x1={spot.align === 'left' ? "0%" : "100%"} y1="0%" x2={spot.align === 'left' ? "100%" : "0%"} y2="0%">
+                                                    <stop offset="0%" stopColor="rgba(163,230,21,1)" />
+                                                    <stop offset="70%" stopColor="rgba(163,230,21,0.6)" />
+                                                    <stop offset="100%" stopColor="rgba(163,230,21,0)" />
+                                                </linearGradient>
+                                            </defs>
+                                            <motion.path
+                                                d={spot.align === 'left' ? "M 140 1 L 0 1" : "M 0 1 L 140 1"}
+                                                fill="transparent"
+                                                stroke={`url(#gradient-${spot.id})`}
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                filter={`url(#glow-${spot.id})`}
+                                                initial={{ pathLength: 0 }}
+                                                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                                                transition={{ delay: spot.baseDelay + 0.3, duration: 0.8, ease: "easeInOut" }}
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    {/* Step 3: The Information Panel (Vlakje) */}
+                                    <motion.div
+                                        initial={{ opacity: 0, x: spot.align === 'left' ? -20 : 20 }}
+                                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: spot.align === 'left' ? -20 : 20 }}
+                                        transition={{ delay: spot.baseDelay + 1.1, duration: 0.5 }}
+                                        className={`
+                                            relative glass-panel px-6 py-5 md:px-8 md:py-6 rounded-[2rem] bg-[#011410]/95 backdrop-blur-3xl border border-white/20 shadow-[0_50px_100px_rgba(0,0,0,0.8)]
+                                            min-w-[280px] lg:min-w-[380px]
+                                        `}
+                                    >
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,21,1)]"></div>
+                                            <div className="text-lime-400 text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] font-outfit">Validated Node</div>
+                                        </div>
+                                        <div className="text-white text-xl md:text-2xl lg:text-3xl font-black leading-[1.1] uppercase tracking-tighter font-outfit">
+                                            {spot.label}
+                                        </div>
+                                        
                                         <div className={`
                                             absolute top-1/2 -translate-y-1/2 
-                                            ${spot.align === 'left' ? 'right-[20px] md:right-[32px] flex-row-reverse' : 'left-[20px] md:left-[32px]'} 
-                                            flex items-center pointer-events-none
+                                            ${spot.align === 'right' ? '-left-3' : '-right-3'} 
+                                            text-lime-400 flex items-center
                                         `}>
-                                            
-                                            {/* Line Drawing with Fade-out toward the plant */}
-                                            <div className="relative w-[140px] h-[2px] hidden md:block overflow-visible">
-                                                <svg 
-                                                    className="overflow-visible"
-                                                    width="100%" height="2" viewBox="0 0 140 2"
-                                                >
-                                                    <defs>
-                                                        <filter id={`glow-${spot.id}`} x="-50%" y="-50%" width="200%" height="200%">
-                                                            <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"></feGaussianBlur>
-                                                            <feMerge>
-                                                                <feMergeNode in="blur"></feMergeNode>
-                                                                <feMergeNode in="SourceGraphic"></feMergeNode>
-                                                            </feMerge>
-                                                        </filter>
-                                                        <linearGradient id={`gradient-${spot.id}`} x1={spot.align === 'left' ? "0%" : "100%"} y1="0%" x2={spot.align === 'left' ? "100%" : "0%"} y2="0%">
-                                                            <stop offset="0%" stopColor="rgba(163,230,21,1)" />
-                                                            <stop offset="70%" stopColor="rgba(163,230,21,0.5)" />
-                                                            <stop offset="100%" stopColor="rgba(163,230,21,0)" />
-                                                        </linearGradient>
-                                                    </defs>
-                                                    <motion.path
-                                                        d={spot.align === 'left' ? "M 140 1 L 0 1" : "M 0 1 L 140 1"}
-                                                        fill="transparent"
-                                                        stroke={`url(#gradient-${spot.id})`}
-                                                        strokeWidth="2.5"
-                                                        strokeLinecap="round"
-                                                        filter={`url(#glow-${spot.id})`}
-                                                        initial={{ pathLength: 0 }}
-                                                        animate={{ pathLength: 1 }}
-                                                        transition={{ delay: spot.delay + 0.4, duration: 1 }}
-                                                    />
-                                                </svg>
-                                            </div>
-
-                                            <motion.div
-                                                initial={{ opacity: 0, x: spot.align === 'left' ? -30 : 30 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: spot.delay + 0.9, duration: 0.5 }}
-                                                className={`
-                                                    relative glass-panel px-6 py-5 md:px-8 md:py-6 rounded-[2rem] bg-[#011410]/90 backdrop-blur-3xl border border-white/20 shadow-[0_50px_100px_rgba(0,0,0,0.8)]
-                                                    min-w-[280px] lg:min-w-[380px]
-                                                `}
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                                                className={spot.align === 'right' ? 'rotate-0' : 'rotate-180'}
                                             >
-                                                <div className="flex items-center gap-2 mb-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,21,1)]"></div>
-                                                    <div className="text-lime-400 text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] font-outfit">Validated Node</div>
-                                                </div>
-                                                <div className="text-white text-xl md:text-2xl lg:text-3xl font-black leading-[1.1] uppercase tracking-tighter font-outfit">
-                                                    {spot.label}
-                                                </div>
-                                                
-                                                <div className={`
-                                                    absolute top-1/2 -translate-y-1/2 
-                                                    ${spot.align === 'right' ? '-left-3' : '-right-3'} 
-                                                    text-lime-400 flex items-center
-                                                `}>
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                                        className={spot.align === 'right' ? 'rotate-0' : 'rotate-180'}
-                                                    >
-                                                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    </svg>
-                                                </div>
-                                            </motion.div>
+                                                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
                                         </div>
-                                    )}
-                                </AnimatePresence>
+                                    </motion.div>
+                                </div>
                             </div>
                         ))}
                     </div>
