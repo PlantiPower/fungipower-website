@@ -113,13 +113,13 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                                 <div className="absolute w-4 h-4 rounded-full bg-white shadow-[0_0_15px_white]"></div>
                             </motion.div>
 
-                            {/* Connecting Line */}
+                            {/* Connecting Line - HIDDEN ON MOBILE */}
                             <motion.div 
                                 initial={{ width: 0 }}
                                 animate={isInView ? { width: spot.align === 'left' ? 300 : 300 } : {}}
                                 transition={{ delay: spot.delay + 0.3, duration: 0.8 }}
                                 className={`
-                                    absolute top-1/2 h-[1px] bg-gradient-to-r from-white to-lime-400
+                                    hidden md:block absolute top-1/2 h-[1px] bg-gradient-to-r from-white to-lime-400
                                     ${spot.align === 'left' ? 'right-full' : 'left-full'}
                                 `}
                             ></motion.div>
@@ -128,19 +128,20 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                             <div className="absolute">
                                 {/* Card */}
                                 <motion.div
-                                    initial={{ opacity: 0, x: spot.align === 'left' ? -20 : 20 }}
-                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={isInView ? { opacity: 1, y: -20 } : {}}
                                     transition={{ delay: spot.delay + 0.6, duration: 0.6 }}
                                     className={`
-                                        absolute top-0 -translate-y-1/2 pointer-events-auto
-                                        ${spot.align === 'left' ? 'right-[310px] md:right-[310px] lg:right-[310px]' : 'left-[310px] md:left-[310px] lg:left-[310px]'}
-                                        glass-panel px-4 py-3 md:px-6 md:py-5 rounded-2xl bg-black/90 backdrop-blur-xl border border-lime-500/40 shadow-[0_30px_60px_rgba(0,0,0,0.8)]
-                                        min-w-[200px] md:min-w-[240px] lg:min-w-[320px]
+                                        fixed md:absolute bottom-10 md:bottom-auto left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:top-0 md:-translate-y-1/2 pointer-events-auto
+                                        ${spot.align === 'left' ? 'md:right-[310px]' : 'md:left-[310px]'}
+                                        glass-panel px-4 py-3 md:px-6 md:py-5 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 shadow-[0_30px_60px_rgba(0,0,0,0.8)]
+                                        w-[90vw] md:w-auto min-w-[280px] md:min-w-[320px]
+                                        z-50
                                     `}
                                 >
                                     <div className="flex items-center gap-2 mb-1">
                                         <div className="w-1.5 h-1.5 rounded-full bg-lime-400"></div>
-                                        <div className="text-lime-400 text-[9px] font-black uppercase tracking-[0.2em] font-outfit">Validated Node</div>
+                                        <div className="text-lime-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] font-outfit">Validated Node</div>
                                     </div>
                                     <div className="text-white text-base md:text-lg lg:text-xl font-black leading-tight uppercase tracking-tight font-outfit">
                                         {spot.label}
@@ -149,7 +150,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict,
                                         {spot.desc}
                                     </div>
                                     
-                                    <div className={`absolute top-1/2 -translate-y-1/2 ${spot.align === 'right' ? '-left-3' : '-right-3'} text-lime-400`}>
+                                    <div className={`hidden md:flex absolute top-1/2 -translate-y-1/2 ${spot.align === 'right' ? '-left-3' : '-right-3'} text-lime-400`}>
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={spot.align === 'right' ? '' : 'rotate-180'}>
                                             <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>

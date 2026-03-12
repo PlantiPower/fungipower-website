@@ -24,7 +24,7 @@ export default function CucumberClientPage({
                     <div className="max-w-4xl mx-auto px-6 relative z-20 text-center mb-0">
                         <div className="animate-reveal">
                             <div className="section-badge mb-6 mx-auto">{t.sections?.s1?.badge}</div>
-                            <h1 className="font-outfit font-black uppercase text-[42px] md:text-[64px] lg:text-[86px] tracking-tight leading-[0.9] text-white mb-6">
+                            <h1 className="font-outfit font-black uppercase text-[36px] md:text-[52px] lg:text-[62px] tracking-tight leading-[0.95] text-white mb-6">
                                 {t.sections?.s1?.title}<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">
                                     {t.sections?.s1?.titleAccent}
