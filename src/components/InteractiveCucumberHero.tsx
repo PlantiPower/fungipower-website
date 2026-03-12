@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 
 interface InteractiveCucumberHeroProps {
     dict: any;
@@ -9,14 +9,10 @@ interface InteractiveCucumberHeroProps {
 
 const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict }) => {
     const [isMounted, setIsMounted] = useState(false);
+    const [hoveredHotspot, setHoveredHotspot] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(containerRef, { once: true, amount: 0.1 });
     
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const rotateX = useSpring(useTransform(mouseY, [-400, 400], [3, -3]), { stiffness: 100, damping: 30 });
-    const rotateY = useSpring(useTransform(mouseX, [-400, 400], [-3, 3]), { stiffness: 100, damping: 30 });
-
     const t = dict.Cucumbers.infographic;
 
     const { scrollYProgress } = useScroll({
@@ -25,60 +21,85 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
     });
 
     const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-    const scale = useTransform(smoothProgress, [0, 0.5, 1], [0.95, 1, 1.05]);
+    const scale = useTransform(smoothProgress, [0, 0.5, 1], [0.98, 1, 1.02]);
     const opacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        mouseX.set(x * 0.4);
-        mouseY.set(y * 0.4);
-    };
-
     if (!isMounted) return <div ref={containerRef} className="min-h-[800px] w-full" />;
 
-    // perfectly axial coordinates on the stem
+    // Design-matched hotspots based on screenshot
     const hotspots = [
-        { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', baseDelay: 0 },
-        { id: 'fruit', x: 50, y: 42, label: t.fruit, align: 'right', baseDelay: 1.2 }, 
-        { id: 'uptake', x: 50, y: 65, label: t.uptake, align: 'left', baseDelay: 2.4 },
-        { id: 'roots', x: 50.5, y: 86, label: t.roots, align: 'right', baseDelay: 3.6 },
+        { 
+            id: 'uptake', 
+            x: 46.5, y: 56, // Stem mid
+            label: t.uptake, 
+            align: 'left', 
+            delayNode: 0.8, 
+            delayLine: 1.2, 
+            delayCard: 1.8 
+        },
+        { 
+            id: 'fruit', 
+            x: 53.5, y: 45, // Fruit area
+            label: t.fruit, 
+            align: 'right', 
+            delayNode: 2.2, 
+            delayLine: 2.6, 
+            delayCard: 3.2 
+        }, 
+        { 
+            id: 'roots', 
+            x: 51.5, y: 88, // Root area
+            label: t.roots, 
+            align: 'right', 
+            delayNode: 3.6, 
+            delayLine: 4.0, 
+            delayCard: 4.6 
+        },
     ];
+
+    const scrollToResults = () => {
+        const target = document.getElementById('results-section');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <div 
             ref={containerRef} 
-            onMouseMove={handleMouseMove}
-            className="relative w-full min-h-[1000px] md:min-h-[1400px] flex items-center justify-center overflow-visible py-20 lg:py-40 select-none"
+            className="relative w-full min-h-[900px] md:min-h-[1200px] flex flex-col items-center justify-start overflow-visible select-none"
         >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] aspect-square bg-[radial-gradient(circle_at_center,rgba(163,230,21,0.15)_0%,transparent_70%)] pointer-events-none blur-[150px] opacity-40"></div>
+            {/* Atmosphere & Lighting */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] aspect-square bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15)_0%,transparent_70%)] pointer-events-none blur-[120px] opacity-60"></div>
 
             <motion.div
-                className="relative w-full max-w-[900px] px-4"
-                style={{ scale, opacity, rotateX, rotateY, perspective: 1500 }}
+                className="relative w-full max-w-[1000px] px-4 pt-10"
+                style={{ scale, opacity }}
             >
-                {/* The Plant (Central Axis) */}
+                {/* 1. The Plant (Fades in softly) */}
                 <div className="relative z-10 w-full flex justify-center">
                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="relative w-full max-w-[500px]"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 2, ease: "easeOut" }}
+                        className="relative w-full max-w-[650px]"
                     >
+                        {/* Shadow/Base Glow */}
+                        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-3/4 h-32 bg-lime-500/20 blur-[100px] rounded-full opacity-40"></div>
+                        
+                        {/* Soil & Plant Combined Visualization */}
                         <img
-                            src="/images/cucumber-plant-new.png"
-                            alt="Premium Cucumber Plant"
-                            className="w-full h-auto max-h-[90vh] object-contain relative z-10 drop-shadow-[0_80px_150px_rgba(0,0,0,0.95)]"
+                            src="/images/plant_base_clean.png"
+                            alt="PlantiPower Performance Plant"
+                            className="w-full h-auto object-contain relative z-10 drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
                         />
                     </motion.div>
 
-                    {/* Highly Structured Axial Overlay */}
+                    {/* 2. Interactive Axial Overlay (Nodes, Lines, Cards) */}
                     <div className="absolute inset-0 z-30 pointer-events-none">
                         {hotspots.map((spot) => (
                             <div
@@ -86,83 +107,134 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                 className="absolute"
                                 style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                             >
-                                {/* Dot (Stipje) */}
+                                {/* Glowing Node (appears after plant) */}
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0 }}
-                                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                    transition={{ delay: spot.baseDelay, type: "spring", stiffness: 200 }}
-                                    className="relative z-50 pointer-events-none"
+                                    animate={isInView ? { opacity: 1, scale: hoveredHotspot === spot.id ? 1.5 : 1 } : {}}
+                                    transition={{ 
+                                        delay: spot.delayNode, 
+                                        type: "spring", 
+                                        stiffness: 200,
+                                        scale: { duration: 0.3 }
+                                    }}
+                                    className="relative z-50 flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
                                 >
-                                    <div className="flex items-center justify-center w-8 h-8 md:w-12 md:h-12">
-                                        <div className="absolute inset-0 rounded-full bg-lime-400/50 animate-ping opacity-40"></div>
-                                        <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-white shadow-[0_0_20px_rgba(163,230,21,1)]"></div>
-                                    </div>
+                                    <div className={`
+                                        absolute inset-0 rounded-full animate-ping opacity-40
+                                        ${hoveredHotspot === spot.id ? 'bg-lime-400' : 'bg-lime-400/50'}
+                                    `}></div>
+                                    <div className={`
+                                        w-3 h-3 md:w-4 md:h-4 rounded-full bg-white shadow-[0_0_20px_rgba(163,230,21,1)]
+                                        transition-shadow duration-300
+                                        ${hoveredHotspot === spot.id ? 'shadow-[0_0_30px_rgba(163,230,21,1),0_0_60px_rgba(163,230,21,0.5)]' : ''}
+                                    `}></div>
                                 </motion.div>
 
-                                {/* Connector and Axial Panel */}
+                                {/* Connector Line (animates outward) */}
                                 <div className={`
-                                    absolute top-1/2 -translate-y-1/2 
-                                    ${spot.align === 'left' ? 'right-[12px] md:right-[20px] flex-row-reverse' : 'left-[12px] md:left-[20px]'} 
-                                    flex items-center
+                                    absolute top-0
+                                    ${spot.align === 'left' ? 'right-[12px] md:right-[20px]' : 'left-[12px] md:left-[20px]'}
+                                    h-[2px] w-[60px] md:w-[150px] lg:w-[220px] hidden md:block
                                 `}>
+                                    <svg className="w-full h-full overflow-visible">
+                                        <motion.path
+                                            d={spot.align === 'left' ? "M 220 0 L 0 0" : "M 0 0 L 220 0"}
+                                            stroke="#A3E615"
+                                            strokeWidth="2"
+                                            fill="transparent"
+                                            strokeDasharray="220"
+                                            strokeDashoffset="220"
+                                            animate={isInView ? { strokeDashoffset: 0 } : {}}
+                                            transition={{ delay: spot.delayLine, duration: 0.8, ease: "easeOut" }}
+                                            className="opacity-80"
+                                            style={{ filter: hoveredHotspot === spot.id ? 'drop-shadow(0 0 8px rgba(163,230,21,1))' : 'none' }}
+                                        />
+                                    </svg>
+                                </div>
+
+                                {/* Information Card (fades in) */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: spot.align === 'left' ? -30 : 30 }}
+                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{ delay: spot.delayCard, duration: 0.8 }}
+                                    onMouseEnter={() => setHoveredHotspot(spot.id)}
+                                    onMouseLeave={() => setHoveredHotspot(null)}
+                                    className={`
+                                        absolute top-0 -translate-y-1/2 pointer-events-auto
+                                        ${spot.align === 'left' ? 'right-[70px] md:right-[170px] lg:right-[240px]' : 'left-[70px] md:left-[170px] lg:left-[240px]'}
+                                        glass-panel px-6 py-5 md:px-8 md:py-6 rounded-3xl bg-[#011410]/95 backdrop-blur-2xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)]
+                                        min-w-[240px] md:min-w-[280px] lg:min-w-[400px]
+                                        hover:border-lime-500/40 transition-all duration-300
+                                    `}
+                                >
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-lime-400"></div>
+                                        <div className="text-lime-400 text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] font-outfit">Validated Node</div>
+                                    </div>
+                                    <div className="text-white text-lg md:text-xl lg:text-2xl font-black leading-tight uppercase tracking-tight font-outfit">
+                                        {spot.label}
+                                    </div>
                                     
-                                    {/* Line with Fade Out - Fixed visibility and positioning */}
-                                    <div className="relative w-[120px] md:w-[200px] h-[30px] hidden md:flex items-center justify-center overflow-visible">
-                                        <svg className="w-full h-full overflow-visible">
-                                            <defs>
-                                                <linearGradient id={`line-fade-${spot.id}`} x1={spot.align === 'left' ? "100%" : "0%"} y1="0%" x2={spot.align === 'left' ? "0%" : "100%"} y2="0%">
-                                                    <stop offset="0%" stopColor="#A3E615" stopOpacity="0" />
-                                                    <stop offset="30%" stopColor="#A3E615" stopOpacity="0.8" />
-                                                    <stop offset="100%" stopColor="#A3E615" stopOpacity="1" />
-                                                </linearGradient>
-                                            </defs>
-                                            <motion.path
-                                                d={spot.align === 'left' ? "M 200 15 L 0 15" : "M 0 15 L 200 15"} // Length matching container
-                                                stroke={`url(#line-fade-${spot.id})`}
-                                                strokeWidth="2.5"
-                                                fill="transparent"
-                                                strokeDasharray="200"
-                                                strokeDashoffset="200"
-                                                animate={isInView ? { strokeDashoffset: 0 } : {}}
-                                                transition={{ delay: spot.baseDelay + 0.3, duration: 1, ease: "easeOut" }}
-                                            />
+                                    {/* Small arrow indicator */}
+                                    <div className={`
+                                        absolute top-1/2 -translate-y-1/2 
+                                        ${spot.align === 'right' ? '-left-3' : '-right-3'} 
+                                        text-lime-400
+                                    `}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={spot.align === 'right' ? '' : 'rotate-180'}>
+                                            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </div>
-
-                                    {/* Info Card */}
-                                    <motion.div
-                                        initial={{ opacity: 0, x: spot.align === 'left' ? -30 : 30 }}
-                                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                                        transition={{ delay: spot.baseDelay + 1.2, duration: 0.6 }}
-                                        className={`
-                                            relative glass-panel px-6 py-6 md:px-8 md:py-8 rounded-[2.5rem] bg-[#011410]/95 backdrop-blur-3xl border border-white/20 shadow-[0_50px_100px_rgba(0,0,0,0.85)]
-                                            min-w-[280px] lg:min-w-[420px] pointer-events-auto
-                                        `}
-                                    >
-                                        <div className="flex items-center gap-2 mb-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,21,1)]"></div>
-                                            <div className="text-lime-400 text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] font-outfit">Validated Node</div>
-                                        </div>
-                                        <div className="text-white text-xl md:text-2xl lg:text-3xl font-black leading-[1.1] uppercase tracking-tighter font-outfit">
-                                            {spot.label}
-                                        </div>
-                                        
-                                        <div className={`
-                                            absolute top-1/2 -translate-y-1/2 
-                                            ${spot.align === 'right' ? '-left-3' : '-right-3'} 
-                                            text-lime-400
-                                        `}>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={spot.align === 'right' ? '' : 'rotate-180'}>
-                                                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                        </div>
-                                    </motion.div>
-                                </div>
+                                </motion.div>
                             </div>
                         ))}
                     </div>
                 </div>
+
+                {/* 3. "Bekijk de resultaten" Button */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 5.5, duration: 1 }}
+                    className="relative z-40 w-full flex justify-center mt-12 mb-10"
+                >
+                    <button
+                        onClick={scrollToResults}
+                        className="group relative flex items-center gap-4 px-12 py-5 rounded-full bg-[#011410]/80 backdrop-blur-xl border border-white/10 text-white font-outfit text-xl font-bold hover:bg-white/5 hover:border-lime-500/50 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                    >
+                        {/* Button Glow Shadow */}
+                        <div className="absolute inset-0 rounded-full bg-lime-500/10 blur-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div className="relative flex items-center justify-center w-8 h-8 rounded-full border border-white/20 group-hover:border-lime-400 group-hover:bg-lime-400/10 transition-all">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-lime-400 rotate-180">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </div>
+                        <span className="relative z-10 tracking-wide">Bekijk de resultaten</span>
+                    </button>
+                </motion.div>
             </motion.div>
+
+            {/* Mobile Cards Stack (Responsive Logic) */}
+            <div className="block md:hidden w-full px-6 space-y-4 mt-8 pb-20">
+                {hotspots.map((spot, idx) => (
+                    <motion.div
+                        key={`mobile-${spot.id}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: 0.5 + idx * 0.2 }}
+                        className="glass-panel p-6 rounded-2xl bg-[#011410]/95 border border-white/10"
+                    >
+                        <div className="flex items-center gap-2 mb-2">
+                             <div className="w-1.5 h-1.5 rounded-full bg-lime-400"></div>
+                             <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
+                        </div>
+                        <div className="text-white text-lg font-bold uppercase tracking-tight font-outfit leading-tight">
+                            {spot.label}
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
         </div>
     );
 };

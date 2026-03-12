@@ -73,7 +73,7 @@ export default async function CucumberPage({
                 </section>
 
                 {/* RESULTS STATS SECTION */}
-                <section className="py-24 relative min-h-screen flex items-center snap-start snap-always">
+                <section id="results-section" className="py-24 relative min-h-screen flex items-center snap-start snap-always">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="text-center mb-20">
                             <h2 className="section-title text-white">
