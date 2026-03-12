@@ -43,12 +43,12 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
     };
 
     if (!isMounted) return <div ref={containerRef} className="min-h-[800px] w-full" />;
-
+    // Aligned to a central vertical axis with balanced Zig-Zag panels
     const hotspots = [
-        { id: 'leaves', x: 50, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
-        { id: 'fruit', x: 49.5, y: 42, label: t.fruit, align: 'right', delay: 0.6 },
-        { id: 'uptake', x: 50, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
-        { id: 'roots', x: 50.5, y: 86, label: t.roots, align: 'right', delay: 1.2 },
+        { id: 'leaves', x: 49, y: 15, label: t.leaves, align: 'left', delay: 0.3 },
+        { id: 'fruit', x: 48.5, y: 42, label: t.fruit, align: 'right', delay: 0.6 }, 
+        { id: 'uptake', x: 49.2, y: 65, label: t.uptake, align: 'left', delay: 0.9 },
+        { id: 'roots', x: 49.5, y: 86, label: t.roots, align: 'right', delay: 1.2 },
     ];
 
     return (
@@ -57,6 +57,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             onMouseMove={handleMouseMove}
             className="relative w-full min-h-[900px] md:min-h-[1400px] flex items-center justify-center overflow-visible py-20 lg:py-40 select-none"
         >
+            {/* Background Atmosphere */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1600px] aspect-square bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.12)_0%,transparent_70%)] pointer-events-none blur-[150px] opacity-40"></div>
 
             <motion.div
@@ -65,6 +66,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             >
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-white/5 z-0 pointer-events-none hidden md:block"></div>
 
+                {/* The Plant (Central Axis) */}
                 <div className="relative z-10 w-full flex justify-center">
                     <motion.div 
                         initial={{ opacity: 0, y: 40 }}
@@ -80,6 +82,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                         />
                     </motion.div>
 
+                    {/* Highly Structured Axial Overlay */}
                     <div className="absolute inset-0 z-30">
                         {hotspots.map((spot) => (
                             <div
@@ -87,6 +90,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                 className="absolute"
                                 style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                             >
+                                {/* Central Node on Stem */}
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -98,13 +102,15 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                     </div>
                                 </motion.div>
 
+                                {/* Connector and Axial Panel */}
                                 <AnimatePresence>
                                     {(isInView || activeHotspot === spot.id) && (
                                         <div className={`
                                             absolute top-1/2 -translate-y-1/2 
-                                            ${spot.align === 'left' ? 'right-[4px] md:right-[8px] flex-row-reverse' : 'left-[4px] md:left-[8px]'} 
+                                            ${spot.align === 'left' ? 'right-[16px] md:right-[24px] flex-row-reverse' : 'left-[16px] md:left-[24px]'} 
                                             flex items-center pointer-events-none
                                         `}>
+                                            {/* Line Drawing from Central Axis to Margin */}
                                             <svg 
                                                 className="overflow-visible hidden md:block"
                                                 width="120" height="2" viewBox="0 0 120 2"
@@ -112,8 +118,8 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                                                 <motion.path
                                                     d={spot.align === 'left' ? "M 120 1 L 0 1" : "M 0 1 L 120 1"}
                                                     fill="transparent"
-                                                    stroke="rgba(163,230,21,0.6)"
-                                                    strokeWidth="2"
+                                                    stroke="rgba(163,230,21,0.8)"
+                                                    strokeWidth="2.5"
                                                     initial={{ pathLength: 0 }}
                                                     animate={{ pathLength: 1 }}
                                                     transition={{ delay: spot.delay + 0.4, duration: 0.6 }}
