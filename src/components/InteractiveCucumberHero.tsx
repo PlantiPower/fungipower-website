@@ -77,7 +77,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] aspect-square bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15)_0%,transparent_70%)] pointer-events-none blur-[120px] opacity-60"></div>
 
             <motion.div
-                className="relative w-full max-w-[1000px] px-4 pt-10"
+                className="relative w-full max-w-[1000px] px-4 pt-0 -mt-20 md:-mt-40"
                 style={{ scale, opacity }}
             >
                 {/* 1. The Plant (Fades in softly) */}
@@ -86,16 +86,21 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 2, ease: "easeOut" }}
-                        className="relative w-full max-w-[750px]"
+                        className="relative w-full max-w-[800px] flex justify-center overflow-hidden"
+                        style={{
+                            maskImage: 'radial-gradient(circle at center, white 5%, transparent 65%)',
+                            WebkitMaskImage: 'radial-gradient(circle at center, white 5%, transparent 65%)',
+                            mixBlendMode: 'lighten',
+                        }}
                     >
                         {/* Shadow/Base Glow */}
-                        <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-3/4 h-32 bg-lime-500/20 blur-[100px] rounded-full opacity-40"></div>
+                        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-full h-44 bg-lime-500/5 blur-[140px] rounded-full opacity-20"></div>
                         
                         {/* THE NEW PROVIDED PLANT IMAGE */}
                         <img
                             src="/cucumber-plant-provided.png"
-                            alt="PlantiPower Performance Plant"
-                            className="w-full h-auto object-contain relative z-10 drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
+                            alt="PlantiPower"
+                            className="w-full h-auto object-contain relative z-10"
                         />
                     </motion.div>
 

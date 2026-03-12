@@ -50,11 +50,11 @@ export default async function CucumberPage({
             <main className="bg-[#011410] relative min-h-screen snap-y snap-mandatory overflow-x-hidden">
 
                 {/* HERO SECTION - Now with Interactive Infographic */}
-                <section className="relative pt-32 md:pt-40 pb-12 md:pb-20 overflow-hidden min-h-screen flex flex-col justify-center snap-start snap-always">
-                    <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-16">
+                <section className="relative pt-32 md:pt-40 pb-0 overflow-hidden min-h-screen flex flex-col items-center justify-start snap-start snap-always">
+                    <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-8">
                         <div className="animate-reveal">
-                            <div className="section-badge mb-8 mx-auto">{t.heroBadge}</div>
-                            <h1 className="font-outfit font-black uppercase text-[42px] md:text-[64px] lg:text-[80px] tracking-[0.02em] leading-[0.95] text-white mb-8">
+                            <div className="section-badge mb-6 mx-auto">{t.heroBadge}</div>
+                            <h1 className="font-outfit font-black uppercase text-[42px] md:text-[64px] lg:text-[80px] tracking-[0.02em] leading-[0.95] text-white mb-6">
                                 {t.heroTitle}<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">
                                     {t.heroTitleAccent}
@@ -67,7 +67,7 @@ export default async function CucumberPage({
                     </div>
 
                     {/* INTERACTIVE INFOGRAPHIC */}
-                    <div className="relative animate-reveal [animation-delay:200ms]">
+                    <div className="w-full relative animate-reveal [animation-delay:200ms] -mt-10 md:-mt-20">
                         <InteractiveCucumberHero dict={dict} />
                     </div>
                 </section>
