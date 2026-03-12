@@ -30,12 +30,12 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
 
     if (!isMounted) return <div ref={containerRef} className="min-h-[800px] w-full" />;
 
-    // Design-matched hotspots based on screenshot
+    // Design-matched hotspots based on the NEW provided plant image
     const hotspots = [
         { 
-            id: 'uptake', 
-            x: 46.5, y: 56, // Stem mid
-            label: t.uptake, 
+            id: 'leaves', 
+            x: 46, y: 31, // Top Leaves area
+            label: t.leaves, 
             align: 'left', 
             delayNode: 0.8, 
             delayLine: 1.2, 
@@ -43,7 +43,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
         },
         { 
             id: 'fruit', 
-            x: 53.5, y: 45, // Fruit area
+            x: 53.5, y: 45, // Main Cucumber area
             label: t.fruit, 
             align: 'right', 
             delayNode: 2.2, 
@@ -52,7 +52,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
         }, 
         { 
             id: 'roots', 
-            x: 51.5, y: 88, // Root area
+            x: 50, y: 82, // Base/Root area near soil mound
             label: t.roots, 
             align: 'right', 
             delayNode: 3.6, 
@@ -86,14 +86,14 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ dict 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 2, ease: "easeOut" }}
-                        className="relative w-full max-w-[650px]"
+                        className="relative w-full max-w-[750px]"
                     >
                         {/* Shadow/Base Glow */}
-                        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-3/4 h-32 bg-lime-500/20 blur-[100px] rounded-full opacity-40"></div>
+                        <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-3/4 h-32 bg-lime-500/20 blur-[100px] rounded-full opacity-40"></div>
                         
-                        {/* Soil & Plant Combined Visualization */}
+                        {/* THE NEW PROVIDED PLANT IMAGE */}
                         <img
-                            src="/images/plant_base_clean.png"
+                            src="/images/cucumber-plant-provided.png"
                             alt="PlantiPower Performance Plant"
                             className="w-full h-auto object-contain relative z-10 drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]"
                         />
