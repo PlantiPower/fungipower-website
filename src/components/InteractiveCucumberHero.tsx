@@ -130,10 +130,10 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 transition={{ delay: 0.5 + i * 0.12, duration: 0.5 }}
                 className="px-3 py-2.5 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 flex flex-col"
             >
-                {/* Connector line pointing toward image (top of bottom cards) */}
+                {/* Connector line toward image */}
                 {fromBottom && (
-                    <div className="flex justify-center mb-1.5">
-                        <div className="w-[1px] h-2.5 bg-gradient-to-b from-transparent to-lime-400/40"></div>
+                    <div className="flex justify-center mb-2">
+                        <div className="w-[2px] h-4 rounded-full bg-lime-400/60"></div>
                     </div>
                 )}
                 <div className="flex items-center gap-1.5 mb-1.5">
@@ -146,17 +146,17 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 <div className="text-white/65 text-[10px] leading-relaxed">
                     {spot.desc}
                 </div>
-                {/* Connector line pointing toward image (bottom of top cards) */}
+                {/* Connector line toward image */}
                 {!fromBottom && (
-                    <div className="flex justify-center mt-1.5">
-                        <div className="w-[1px] h-2.5 bg-gradient-to-b from-lime-400/40 to-transparent"></div>
+                    <div className="flex justify-center mt-2">
+                        <div className="w-[2px] h-4 rounded-full bg-lime-400/60"></div>
                     </div>
                 )}
             </motion.div>
         );
 
         return (
-            <div ref={containerRef} className="relative w-full flex flex-col overflow-hidden" style={{ height: 'calc(100vh - 7rem)' }}>
+            <div ref={containerRef} className="relative w-full flex flex-col overflow-hidden" style={{ height: 'calc(100svh - 7rem)' }}>
 
                 {/* Top 2 cards */}
                 <div className="flex-none px-3 pt-3 pb-1 grid grid-cols-2 gap-2">
@@ -176,11 +176,8 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                             src={assets.image}
                             alt="Technical Analysis"
                             style={{
-                                maxHeight: '100%',
-                                maxWidth: '100%',
-                                height: 'auto',
+                                height: '100%',
                                 width: 'auto',
-                                objectFit: 'contain',
                                 maskImage: assets.mask,
                                 WebkitMaskImage: assets.mask,
                                 mixBlendMode: 'screen' as const,
