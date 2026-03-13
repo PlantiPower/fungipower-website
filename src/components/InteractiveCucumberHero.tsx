@@ -104,25 +104,41 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
 
     const assets = getSectionAssets();
 
-    if (!mounted) return (
-        <div className={`relative w-full ${mode === 'header' ? 'h-auto py-8' : 'h-full'} flex items-center justify-center`}>
-            <img
-                src={assets.image}
-                alt=""
-                className="w-full object-contain mx-auto"
-                style={{
-                    maskImage: assets.mask,
-                    WebkitMaskImage: assets.mask,
-                    height: assets.imgHeight,
-                    mixBlendMode: 'screen',
-                }}
-            />
-        </div>
-    );
+    if (!mounted) return null;
+
+    // ─── HEADER MODE — absolute fill, no height chain issues ─────────────────────
+    if (mode === 'header') {
+        return (
+            <motion.div
+                ref={containerRef}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 overflow-hidden"
+            >
+                <img
+                    src={assets.image}
+                    alt="Komkommer hero"
+                    className="w-full h-full"
+                    style={{
+                        objectFit: 'cover',
+                        maskImage: assets.mask,
+                        WebkitMaskImage: assets.mask,
+                        mixBlendMode: 'screen',
+                    }}
+                />
+                {/* Edge fade overlays */}
+                <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-black to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-black to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 top-0 h-[18%] bg-gradient-to-b from-black to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-black to-transparent pointer-events-none" />
+            </motion.div>
+        );
+    }
 
     // ─── MOBILE LAYOUT ───────────────────────────────────────────────────────────
     // 2 cards top + image (flex-1) + 2 cards bottom — sandwich layout
-    if (isMobile && mode !== 'header' && assets.hotspots.length > 0) {
+    if (isMobile && assets.hotspots.length > 0) {
         const topSpots = assets.hotspots.slice(0, 2);
         const bottomSpots = assets.hotspots.slice(2, 4);
 
@@ -218,28 +234,26 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
         );
     }
 
-    // ─── DESKTOP / HEADER LAYOUT ─────────────────────────────────────────────────
+    // ─── DESKTOP LAYOUT (plant / roots / cucumber) ───────────────────────────────
     return (
         <div
             ref={containerRef}
-            className={`relative w-full h-full flex flex-col items-center justify-center overflow-visible select-none ${mode === 'header' ? 'self-stretch' : ''}`}
+            className="relative w-full h-full flex flex-col items-center justify-center overflow-visible select-none"
         >
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={true ?{ opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative z-10 w-full ${assets.maxWidth} ${mode === 'header' ? 'self-stretch' : ''}`}
+                className={`relative z-10 w-full ${assets.maxWidth}`}
             >
                 {/* Outer div = positioning context for hotspots */}
                 <div
-                    className={mode === 'header' ? 'relative h-full' : 'relative'}
+                    className="relative"
                     style={mode === 'plant' ? { height: '100vh' } : {}}
                 >
                     {/* Image container */}
                     <div style={mode === 'plant'
                         ? { position: 'absolute', inset: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }
-                        : mode === 'header'
-                        ? { position: 'absolute', inset: 0, overflow: 'hidden' }
                         : { position: 'relative' }
                     }>
                         <img
