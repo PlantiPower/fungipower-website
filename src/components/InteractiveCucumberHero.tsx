@@ -36,11 +36,15 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
         switch (mode) {
             case 'header':
                 return {
-                    image: "/cucumber-plant-provided.png",
+                    image: "/images/komkommer_hero2.png",
                     hotspots: [] as Hotspot[],
-                    maxWidth: "max-w-[900px]",
+                    maxWidth: "max-w-[1400px]",
                     imgHeight: '100%',
-                    mask: 'radial-gradient(ellipse 80% 90% at center 60%, black 40%, transparent 100%)',
+                    objectFit: 'cover' as const,
+                    // Strong fade on all edges — image blends into black background
+                    mask: 'radial-gradient(ellipse 80% 78% at center 45%, black 20%, transparent 100%)',
+                    gradientTop: '18%',
+                    gradientBottom: '22%',
                 };
             case 'plant':
                 return {
@@ -224,23 +228,26 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={true ?{ opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative z-10 w-full ${assets.maxWidth}`}
+                className={`relative z-10 w-full ${assets.maxWidth} ${mode === 'header' ? 'h-full' : ''}`}
             >
-                {/* Outer div = positioning context for hotspots (overflow visible) */}
+                {/* Outer div = positioning context for hotspots */}
                 <div
                     className="relative"
-                    style={mode === 'plant' ? { height: '100vh' } : {}}
+                    style={mode === 'plant' ? { height: '100vh' } : mode === 'header' ? { height: '100%' } : {}}
                 >
-                    {/* Image container — clipped for plant so it crops top/bottom */}
+                    {/* Image container */}
                     <div style={mode === 'plant'
                         ? { position: 'absolute', inset: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }
+                        : mode === 'header'
+                        ? { position: 'absolute', inset: 0, overflow: 'hidden' }
                         : { position: 'relative' }
                     }>
                         <img
                             src={assets.image}
                             alt="Technical Analysis"
-                            className="w-full object-contain mx-auto"
+                            className="w-full mx-auto"
                             style={{
+                                objectFit: (assets as any).objectFit ?? 'contain',
                                 maskImage: assets.mask,
                                 WebkitMaskImage: assets.mask,
                                 height: assets.imgHeight,
