@@ -156,7 +156,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
         );
 
         return (
-            <div ref={containerRef} className="relative w-full h-full flex flex-col overflow-hidden">
+            <div ref={containerRef} className="relative w-full flex flex-col overflow-hidden" style={{ height: 'calc(100vh - 7rem)' }}>
 
                 {/* Top 2 cards */}
                 <div className="flex-none px-3 pt-3 pb-1 grid grid-cols-2 gap-2">
@@ -168,40 +168,45 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative flex-1 flex items-center justify-center w-full min-h-0"
+                    className="relative flex-1 min-h-0 w-full"
                 >
-                    <img
-                        src={assets.image}
-                        alt="Technical Analysis"
-                        style={{
-                            height: '100%',
-                            width: 'auto',
-                            objectFit: 'contain',
-                            maskImage: assets.mask,
-                            WebkitMaskImage: assets.mask,
-                        }}
-                    />
-                    {(assets as any).overlay && (
-                        <div
-                            className="absolute inset-x-0 bottom-0 h-[30%] pointer-events-none z-20"
-                            style={{ background: 'linear-gradient(to top, #0c0f0f 0%, transparent 100%)' }}
+                    {/* Absolute fill — img + overlay + dots all share the same coordinate space */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <img
+                            src={assets.image}
+                            alt="Technical Analysis"
+                            style={{
+                                maxHeight: '100%',
+                                maxWidth: '100%',
+                                height: 'auto',
+                                width: 'auto',
+                                objectFit: 'contain',
+                                maskImage: assets.mask,
+                                WebkitMaskImage: assets.mask,
+                                mixBlendMode: 'screen' as const,
+                            }}
                         />
-                    )}
-
-                    {/* Dots on image */}
-                    {assets.hotspots.map((spot) => (
-                        <motion.div
-                            key={spot.id}
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: spot.delay, duration: 0.4 }}
-                            className="absolute z-20"
-                            style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                        >
-                            <div className="absolute w-5 h-5 rounded-full bg-white/25 animate-ping -translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="absolute w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_white] -translate-x-1/2 -translate-y-1/2"></div>
-                        </motion.div>
-                    ))}
+                        {(assets as any).overlay && (
+                            <div
+                                className="absolute inset-x-0 bottom-0 h-[30%] pointer-events-none z-20"
+                                style={{ background: 'linear-gradient(to top, #0c0f0f 0%, transparent 100%)' }}
+                            />
+                        )}
+                        {/* Dots */}
+                        {assets.hotspots.map((spot) => (
+                            <motion.div
+                                key={spot.id}
+                                initial={{ scale: 0, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: spot.delay, duration: 0.4 }}
+                                className="absolute z-20"
+                                style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
+                            >
+                                <div className="absolute w-5 h-5 rounded-full bg-white/25 animate-ping -translate-x-1/2 -translate-y-1/2"></div>
+                                <div className="absolute w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_white] -translate-x-1/2 -translate-y-1/2"></div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
 
                 {/* Bottom 2 cards */}
