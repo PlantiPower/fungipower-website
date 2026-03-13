@@ -222,18 +222,18 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
     return (
         <div
             ref={containerRef}
-            className={`relative w-full ${mode === 'header' ? 'h-full' : 'h-full'} flex flex-col items-center justify-center overflow-visible select-none`}
+            className={`relative w-full h-full flex flex-col items-center justify-center overflow-visible select-none ${mode === 'header' ? 'self-stretch' : ''}`}
         >
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={true ?{ opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative z-10 w-full ${assets.maxWidth} ${mode === 'header' ? 'h-full' : ''}`}
+                className={`relative z-10 w-full ${assets.maxWidth} ${mode === 'header' ? 'self-stretch' : ''}`}
             >
                 {/* Outer div = positioning context for hotspots */}
                 <div
-                    className="relative"
-                    style={mode === 'plant' ? { height: '100vh' } : mode === 'header' ? { height: '100%' } : {}}
+                    className={mode === 'header' ? 'relative h-full' : 'relative'}
+                    style={mode === 'plant' ? { height: '100vh' } : {}}
                 >
                     {/* Image container */}
                     <div style={mode === 'plant'
