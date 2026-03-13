@@ -117,18 +117,58 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
     );
 
     // ─── MOBILE LAYOUT ───────────────────────────────────────────────────────────
-    // Image (top ~45vh) + cards grid (bottom ~50vh) — fits within 100vh snap section
+    // 2 cards top + image (flex-1) + 2 cards bottom — sandwich layout
     if (isMobile && mode !== 'header' && assets.hotspots.length > 0) {
-        return (
-            <div ref={containerRef} className="relative w-full h-full flex flex-col items-center overflow-hidden">
+        const topSpots = assets.hotspots.slice(0, 2);
+        const bottomSpots = assets.hotspots.slice(2, 4);
 
-                {/* Image */}
+        const renderCard = (spot: Hotspot, i: number, fromBottom: boolean) => (
+            <motion.div
+                key={spot.id}
+                initial={{ opacity: 0, y: fromBottom ? 12 : -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.12, duration: 0.5 }}
+                className="px-3 py-2.5 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 flex flex-col"
+            >
+                {/* Connector line pointing toward image (top of bottom cards) */}
+                {fromBottom && (
+                    <div className="flex justify-center mb-1.5">
+                        <div className="w-[1px] h-2.5 bg-gradient-to-b from-transparent to-lime-400/40"></div>
+                    </div>
+                )}
+                <div className="flex items-center gap-1.5 mb-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-lime-400 flex-none"></div>
+                    <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
+                </div>
+                <div className="text-white text-[12px] font-black leading-tight uppercase tracking-tight font-outfit mb-1">
+                    {spot.label}
+                </div>
+                <div className="text-white/65 text-[10px] leading-relaxed">
+                    {spot.desc}
+                </div>
+                {/* Connector line pointing toward image (bottom of top cards) */}
+                {!fromBottom && (
+                    <div className="flex justify-center mt-1.5">
+                        <div className="w-[1px] h-2.5 bg-gradient-to-b from-lime-400/40 to-transparent"></div>
+                    </div>
+                )}
+            </motion.div>
+        );
+
+        return (
+            <div ref={containerRef} className="relative w-full h-full flex flex-col overflow-hidden">
+
+                {/* Top 2 cards */}
+                <div className="flex-none px-3 pt-3 pb-1 grid grid-cols-2 gap-2">
+                    {topSpots.map((spot, i) => renderCard(spot, i, false))}
+                </div>
+
+                {/* Image — fills remaining space */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
-                    animate={true ?{ opacity: 1, scale: 1 } : {}}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative flex-none flex items-center justify-center w-full"
-                    style={{ height: '40vh' }}
+                    className="relative flex-1 flex items-center justify-center w-full min-h-0"
                 >
                     <img
                         src={assets.image}
@@ -148,12 +188,12 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                         />
                     )}
 
-                    {/* Dots only on mobile image */}
+                    {/* Dots on image */}
                     {assets.hotspots.map((spot) => (
                         <motion.div
                             key={spot.id}
                             initial={{ scale: 0, opacity: 0 }}
-                            animate={true ?{ scale: 1, opacity: 1 } : {}}
+                            animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: spot.delay, duration: 0.4 }}
                             className="absolute z-20"
                             style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
@@ -164,28 +204,9 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                     ))}
                 </motion.div>
 
-                {/* Cards grid */}
-                <div className="flex-none w-full px-3 pt-3 pb-4 grid grid-cols-2 gap-2 content-start">
-                    {assets.hotspots.map((spot, i) => (
-                        <motion.div
-                            key={spot.id}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={true ?{ opacity: 1, y: 0 } : {}}
-                            transition={{ delay: 0.6 + i * 0.12, duration: 0.5 }}
-                            className="px-3 py-2.5 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 flex flex-col"
-                        >
-                            <div className="flex items-center gap-1.5 mb-1.5">
-                                <div className="w-1.5 h-1.5 rounded-full bg-lime-400 flex-none"></div>
-                                <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
-                            </div>
-                            <div className="text-white text-[12px] font-black leading-tight uppercase tracking-tight font-outfit mb-1">
-                                {spot.label}
-                            </div>
-                            <div className="text-white/65 text-[10px] leading-relaxed">
-                                {spot.desc}
-                            </div>
-                        </motion.div>
-                    ))}
+                {/* Bottom 2 cards */}
+                <div className="flex-none px-3 pt-1 pb-3 grid grid-cols-2 gap-2">
+                    {bottomSpots.map((spot, i) => renderCard(spot, i, true))}
                 </div>
             </div>
         );
