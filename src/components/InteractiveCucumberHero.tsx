@@ -128,7 +128,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                     animate={true ?{ opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     className="relative flex-none flex items-center justify-center w-full"
-                    style={{ height: '44vh' }}
+                    style={{ height: '40vh' }}
                 >
                     <img
                         src={assets.image}
@@ -165,23 +165,23 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 </motion.div>
 
                 {/* Cards grid */}
-                <div className="flex-1 w-full px-3 pt-2 pb-3 grid grid-cols-2 gap-2 overflow-hidden">
+                <div className="flex-none w-full px-3 pt-3 pb-4 grid grid-cols-2 gap-2 content-start">
                     {assets.hotspots.map((spot, i) => (
                         <motion.div
                             key={spot.id}
                             initial={{ opacity: 0, y: 12 }}
                             animate={true ?{ opacity: 1, y: 0 } : {}}
                             transition={{ delay: 0.6 + i * 0.12, duration: 0.5 }}
-                            className="px-3 py-3 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 flex flex-col"
+                            className="px-3 py-2.5 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40 flex flex-col"
                         >
                             <div className="flex items-center gap-1.5 mb-1.5">
                                 <div className="w-1.5 h-1.5 rounded-full bg-lime-400 flex-none"></div>
-                                <div className="text-lime-400 text-[8px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
+                                <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
                             </div>
-                            <div className="text-white text-[11px] font-black leading-tight uppercase tracking-tight font-outfit mb-1">
+                            <div className="text-white text-[12px] font-black leading-tight uppercase tracking-tight font-outfit mb-1">
                                 {spot.label}
                             </div>
-                            <div className="text-emerald-100/55 text-[9px] leading-relaxed">
+                            <div className="text-white/65 text-[10px] leading-relaxed">
                                 {spot.desc}
                             </div>
                         </motion.div>
