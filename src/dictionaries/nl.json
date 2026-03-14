@@ -323,13 +323,13 @@
         "title": "WORTELS",
         "nodes": {
           "mobilization": {
-            "label": "Verbeterde wortelopname",
-            "desc": "Silicium versterkt de celwanden van de wortel, wat de selectieve opname van nutriënten bevordert.",
+            "label": "Nutriënten-mobilisatie",
+            "desc": "Gemodificeerde fulvinezuren mobiliseren gebonden nutriënten in het substraat en maken ze beschikbaar voor de wortel.",
             "footer": "PlantiPower_Praktijkresultaten_2026"
           },
           "uptake": {
-            "label": "Nutriënten-mobilisatie",
-            "desc": "Gemodificeerde fulvinezuren mobiliseren gebonden nutriënten in het substraat en maken ze beschikbaar voor de wortel.",
+            "label": "Verbeterde wortelopname",
+            "desc": "Silicium versterkt de celwanden van de wortel, wat de selectieve opname van nutriënten bevordert.",
             "footer": "PlantiPower_Praktijkresultaten_2026"
           },
           "rhizosphere": {

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState, useEffect, useMemo } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 interface Hotspot {
@@ -110,15 +110,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
     };
 
     const assets = getSectionAssets();
-
-    // Depth particles for cucumber mode — deterministic positions (no Math.random to avoid hydration issues)
-    const cucumberParticles = useMemo(() => [
-        { id: 0, x: 11, y: 22, size: 1.2, dur: 9,  delay: 0   },
-        { id: 1, x: 27, y: 68, size: 0.8, dur: 11, delay: 2.3 },
-        { id: 2, x: 74, y: 28, size: 1.0, dur: 8,  delay: 1.1 },
-        { id: 3, x: 84, y: 72, size: 1.3, dur: 13, delay: 3.4 },
-        { id: 4, x: 52, y: 14, size: 0.9, dur: 10, delay: 4.0 },
-    ], []);
 
     if (!mounted) return null;
 
@@ -398,24 +389,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
             ref={containerRef}
             className="relative w-full h-full flex flex-col items-center justify-center overflow-visible select-none"
         >
-            {/* Floating depth particles — cucumber only */}
-            {mode === 'cucumber' && cucumberParticles.map(p => (
-                <motion.div
-                    key={p.id}
-                    className="absolute rounded-full pointer-events-none"
-                    style={{
-                        left: `${p.x}%`,
-                        top: `${p.y}%`,
-                        width: p.size * 2,
-                        height: p.size * 2,
-                        background: 'rgba(163,230,53,0.45)',
-                        boxShadow: `0 0 ${p.size * 6}px rgba(163,230,53,0.18)`,
-                        zIndex: 0,
-                    }}
-                    animate={{ y: [0, -24, 0], opacity: [0, 0.6, 0] }}
-                    transition={{ duration: p.dur, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-                />
-            ))}
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
