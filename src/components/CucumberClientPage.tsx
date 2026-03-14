@@ -62,7 +62,7 @@ export default function CucumberClientPage({
                     />
 
                     {/* Tekst zweeft bovenop — neemt nooit plantruimte af */}
-                    <div className="relative z-20 flex flex-col items-center text-center w-full max-w-5xl mx-auto px-6 pt-[8vh] md:pt-[18vh]">
+                    <div className="relative z-20 flex flex-col items-center text-center w-full max-w-5xl mx-auto px-6 pt-[8vh] md:pt-[10vh]">
                         {/* Validatie strip */}
                         <div className="inline-flex items-center gap-3 md:gap-5 px-4 md:px-7 py-1 bg-white/5 border border-white/15 rounded-sm mb-4 md:mb-6">
                             <img src="/images/eurofins_WHITE_nobg.png" alt="Eurofins Agro"
