@@ -201,46 +201,138 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
 
     // ─── MOBILE LAYOUT ───────────────────────────────────────────────────────────
     if (isMobile && assets.hotspots.length > 0) {
+        // Split hotspots: top half vs bottom half of image, sorted left-to-right
+        const topSpots = assets.hotspots.filter(s => s.y < 50).sort((a, b) => a.x - b.x)
+        const bottomSpots = assets.hotspots.filter(s => s.y >= 50).sort((a, b) => a.x - b.x)
+
+        const renderCard = (spot: Hotspot, dir: 'down' | 'up', i: number) => (
+            <motion.div
+                key={spot.id}
+                initial={{ opacity: 0, y: dir === 'down' ? -8 : 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 + i * 0.08, duration: 0.45 }}
+                className="flex-1 relative px-2.5 py-2 rounded-xl bg-black/95 border border-lime-500/40"
+                style={{ minWidth: 0 }}
+            >
+                <div className="flex items-center gap-1 mb-0.5">
+                    <div className="w-1 h-1 rounded-full bg-lime-400 flex-none" />
+                    <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
+                </div>
+                <div className="text-white text-[10px] font-black leading-snug uppercase tracking-tight font-outfit mb-0.5 line-clamp-2">
+                    {spot.label}
+                </div>
+                <div className="text-white/55 text-[9px] leading-relaxed line-clamp-2">
+                    {spot.desc}
+                </div>
+                {/* Chevron pointing toward plant */}
+                <div
+                    className="absolute left-1/2 -translate-x-1/2 text-lime-400/60"
+                    style={{ [dir === 'down' ? 'bottom' : 'top']: '-14px' }}
+                >
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                        style={{ transform: dir === 'up' ? 'rotate(180deg)' : undefined }}>
+                        <path d="M1 1L6 7L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </div>
+            </motion.div>
+        )
+
         return (
-            <div ref={containerRef} className="w-full flex flex-col items-center pb-8">
-                {/* Image */}
-                <div className="w-full flex items-center justify-center">
-                    <img
-                        src={assets.image}
-                        alt="Technical Analysis"
-                        style={{ maxHeight: '50vh', width: 'auto', objectFit: 'contain' }}
-                    />
-                </div>
+            <div ref={containerRef} className="w-full h-full flex flex-col overflow-hidden select-none">
 
-                {/* Cards stacked below — full width, no dots/lines */}
-                <div className="w-full px-4 flex flex-col gap-3 mt-4">
-                    {assets.hotspots.map((spot, i) => (
-                        <motion.div
-                            key={spot.id}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                            className="w-full px-4 py-3 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40"
-                        >
+                {/* TOP CARDS */}
+                {topSpots.length > 0 && (
+                    <div className="flex gap-1.5 px-3 pt-3 flex-none">
+                        {topSpots.map((spot, i) => renderCard(spot, 'down', i))}
+                    </div>
+                )}
 
-                            <div className="flex items-center gap-1.5 mb-1.5">
-                                <div className="w-1.5 h-1.5 rounded-full bg-lime-400 flex-none" />
-                                <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
+                {/* CONNECTOR: top cards → plant */}
+                {topSpots.length > 0 && (
+                    <div className="flex gap-1.5 px-3 flex-none h-5">
+                        {topSpots.map(spot => (
+                            <div key={spot.id} className="flex-1 flex justify-center items-stretch">
+                                <div style={{ width: '1px', background: 'rgba(163,230,53,0.35)' }} />
                             </div>
-                            <div className="text-white text-sm font-black leading-tight uppercase tracking-tight font-outfit mb-1">
-                                {spot.label}
-                            </div>
-                            <div className="text-white/65 text-xs leading-relaxed">
-                                {spot.desc}
-                            </div>
-                        </motion.div>
-                    ))}
-                    {assets.captionText && (
-                        <p className="text-center text-xs text-emerald-100/45 leading-relaxed italic px-2 mt-2">
-                            {assets.captionText}
-                        </p>
+                        ))}
+                    </div>
+                )}
+
+                {/* PLANT IMAGE with hotspot dots */}
+                <div className="flex-1 relative flex items-center justify-center min-h-0 overflow-hidden">
+                    {(mode === 'plant' || mode === 'roots') && (
+                        <div className="absolute inset-0 pointer-events-none" style={{
+                            background: 'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(100,220,80,0.09) 0%, transparent 70%)',
+                        }} />
                     )}
+                    <div className="relative h-full flex items-center">
+                        <img
+                            src={assets.image}
+                            alt="Technical Analysis"
+                            style={{
+                                height: '100%',
+                                width: 'auto',
+                                maxWidth: '100vw',
+                                objectFit: 'contain',
+                                maskImage: assets.mask,
+                                WebkitMaskImage: assets.mask,
+                            }}
+                        />
+                        {/* Hotspot dots on plant */}
+                        {assets.hotspots.map(spot => (
+                            <div
+                                key={`dot-${spot.id}`}
+                                className="absolute z-10"
+                                style={{
+                                    left: `${spot.x}%`,
+                                    top: `${spot.y}%`,
+                                    transform: 'translate(-50%, -50%)',
+                                }}
+                            >
+                                <div style={{
+                                    position: 'absolute',
+                                    width: 20, height: 20,
+                                    borderRadius: '50%',
+                                    background: 'rgba(255,255,255,0.18)',
+                                    top: '50%', left: '50%',
+                                    transform: 'translate(-50%,-50%)',
+                                    animation: 'ping 1.5s cubic-bezier(0,0,0.2,1) infinite',
+                                }} />
+                                <div style={{
+                                    width: 10, height: 10,
+                                    borderRadius: '50%',
+                                    background: 'white',
+                                    boxShadow: '0 0 8px 2px rgba(255,255,255,0.55)',
+                                    position: 'relative', zIndex: 1,
+                                }} />
+                            </div>
+                        ))}
+                        {/* Bottom gradient */}
+                        {assets.gradientBottom && assets.gradientBottom !== '0%' && (
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black to-transparent pointer-events-none"
+                                style={{ height: assets.gradientBottom }} />
+                        )}
+                    </div>
                 </div>
+
+                {/* CONNECTOR: plant → bottom cards */}
+                {bottomSpots.length > 0 && (
+                    <div className="flex gap-1.5 px-3 flex-none h-5">
+                        {bottomSpots.map(spot => (
+                            <div key={spot.id} className="flex-1 flex justify-center items-stretch">
+                                <div style={{ width: '1px', background: 'rgba(163,230,53,0.35)' }} />
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* BOTTOM CARDS */}
+                {bottomSpots.length > 0 && (
+                    <div className="flex gap-1.5 px-3 pb-3 flex-none">
+                        {bottomSpots.map((spot, i) => renderCard(spot, 'up', i))}
+                    </div>
+                )}
+
             </div>
         );
     }
