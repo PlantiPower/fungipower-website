@@ -12,7 +12,10 @@ function ScrollButton({ targetId, bottom = 'bottom-[50px]' }: { targetId: string
     return (
         <button
             onClick={() => {
-                document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
+                const el = document.getElementById(targetId)
+                if (!el) return
+                const container = el.parentElement
+                container?.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
             }}
             className={`absolute ${bottom} left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity z-50 group cursor-pointer`}
             aria-label="Volgende sectie"
