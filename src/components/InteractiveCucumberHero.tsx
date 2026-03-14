@@ -266,7 +266,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                                     ${spot.align === 'left' ? 'right-full mr-6' : 'left-full ml-6'}
                                     px-5 py-4 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40
                                     shadow-[0_20px_50px_rgba(0,0,0,0.8)]
-                                    w-[300px] xl:w-[360px] z-30
+                                    w-[200px] xl:w-[240px] z-30
                                 `}
                             >
                                 <div className="flex items-center gap-2 mb-1.5">
