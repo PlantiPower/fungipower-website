@@ -558,7 +558,7 @@ export default function CucumberClientPage({
                     <div className="absolute inset-0 pointer-events-none" style={{
                         background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(132,204,22,0.04) 0%, transparent 70%)'
                     }} />
-                    <div className="relative z-10 w-full max-w-3xl mx-auto px-6 md:px-10">
+                    <div className="relative z-10 w-full max-w-5xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
