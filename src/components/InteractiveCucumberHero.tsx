@@ -48,14 +48,13 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 };
             case 'plant':
                 return {
-                    image: "/cucumber-plant-provided.png",
+                    image: "/images/komkommers10_nobg.png",
                     maxWidth: "max-w-[1600px]",
-                    imgHeight: '107vh',
+                    imgHeight: 'calc(100dvh - 120px)',
                     // Wide ellipse — edges fade softly into black
-                    mask: 'radial-gradient(ellipse 85% 90% at center, black 55%, transparent 100%)',
-                    // Smaller top/bottom gradients so top leaf stays visible after crop
-                    gradientTop: '8%',
-                    gradientBottom: '18%',
+                    mask: 'none',
+                    gradientTop: '0%',
+                    gradientBottom: '0%',
                     hotspots: [
                         // Bovenste blad → silicium in celwand van blad
                         { id: 'silicon', x: 46, y: 8, label: sectionData?.nodes?.silicon?.label, desc: sectionData?.nodes?.silicon?.desc, align: 'left' as const, delay: 0.8 },
@@ -69,11 +68,12 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 };
             case 'roots':
                 return {
-                    image: "/wortels1.png",
-                    maxWidth: "max-w-[950px]",
-                    imgHeight: '75vh',
-                    mask: 'radial-gradient(ellipse 80% 75% at center, black 50%, transparent 100%)',
-                    overlay: true,
+                    image: "/images/komkommers10_roots.png",
+                    maxWidth: "max-w-[700px]",
+                    imgHeight: 'calc(50vh - 40px)',
+                    mask: 'linear-gradient(to bottom, transparent 0%, black 25%, black 85%, transparent 100%)',
+                    gradientTop: '0%',
+                    gradientBottom: '0%',
                     hotspots: [
                         { id: 'iron', x: 40, y: 42, label: sectionData?.nodes?.iron?.label, desc: sectionData?.nodes?.iron?.desc, align: 'left' as const, delay: 0.8 },
                         { id: 'zinc', x: 62, y: 52, label: sectionData?.nodes?.zinc?.label, desc: sectionData?.nodes?.zinc?.desc, align: 'right' as const, delay: 1.5 },
@@ -84,8 +84,10 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 return {
                     image: "/komkommer los.png",
                     maxWidth: "max-w-[900px]",
-                    imgHeight: '62vh',
+                    imgHeight: 'calc(80dvh - 80px)',
                     mask: 'radial-gradient(ellipse 80% 70% at center 40%, black 50%, transparent 100%)',
+                    gradientTop: '0%',
+                    gradientBottom: '0%',
                     hotspots: [
                         // Brix — links bovenaan (kwaliteit vrucht, tip komkommer)
                         { id: 'brix',      x: 34, y: 22, label: sectionData?.nodes?.brix?.label,      desc: sectionData?.nodes?.brix?.desc,      align: 'left' as const,  delay: 0.8 },
@@ -249,13 +251,36 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 {/* Outer div = positioning context for hotspots */}
                 <div
                     className="relative"
-                    style={mode === 'plant' ? { height: '100vh' } : {}}
+                    style={mode === 'plant' ? { height: '100dvh' } : {}}
                 >
                     {/* Image container */}
                     <div style={mode === 'plant'
-                        ? { position: 'absolute', inset: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }
+                        ? { position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '80px' }
                         : { position: 'relative' }
                     }>
+                        {/* Spotlight — plant & roots: groene glow / cucumber: product halo */}
+                        {(mode === 'plant' || mode === 'roots') && (
+                            <div className="absolute inset-0 pointer-events-none" style={{
+                                background: 'radial-gradient(ellipse 55% 70% at 50% 45%, rgba(120,220,80,0.12) 0%, rgba(60,180,60,0.06) 40%, transparent 70%)',
+                            }} />
+                        )}
+                        {mode === 'cucumber' && (
+                            <>
+                                {/* Bodem-reflectie — alsof het product op een glanzend oppervlak staat */}
+                                <div className="absolute inset-0 pointer-events-none" style={{
+                                    background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(163,230,53,0.18) 0%, rgba(74,222,128,0.08) 50%, transparent 70%)',
+                                }} />
+                                {/* Top-spot — dramatisch licht van boven */}
+                                <div className="absolute inset-0 pointer-events-none" style={{
+                                    background: 'radial-gradient(ellipse 40% 50% at 50% 0%, rgba(200,255,150,0.10) 0%, transparent 60%)',
+                                }} />
+                                {/* Zachte vloer-schaduw */}
+                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[20px] pointer-events-none" style={{
+                                    background: 'radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.6) 0%, transparent 100%)',
+                                    filter: 'blur(8px)',
+                                }} />
+                            </>
+                        )}
                         <img
                             src={assets.image}
                             alt="Technical Analysis"
@@ -265,7 +290,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                                 maskImage: assets.mask,
                                 WebkitMaskImage: assets.mask,
                                 height: assets.imgHeight,
-                                mixBlendMode: 'screen',
+                                mixBlendMode: (mode === 'plant' || mode === 'roots' || mode === 'cucumber') ? 'normal' : 'screen',
                             }}
                         />
                         {/* Gradient overlays — hide photo edges on all sides */}

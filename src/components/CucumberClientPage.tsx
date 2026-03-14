@@ -41,13 +41,21 @@ export default function CucumberClientPage({
 }) {
     return (
         <ClientLayout dict={dict} lang={lang}>
-            <main className="bg-black relative min-h-screen scroll-smooth snap-y snap-mandatory overflow-y-auto overflow-x-hidden h-screen">
+            <main className="bg-black relative min-h-[100dvh] scroll-smooth snap-y snap-mandatory overflow-y-auto overflow-x-hidden h-[100dvh]">
 
                 {/* SECTION 1: HEADER */}
-                <section id="s1" className="relative h-screen flex flex-col items-center snap-start snap-always overflow-hidden bg-black" style={{ background: 'linear-gradient(to bottom, #080a0a 0%, #000000 100%)' }}>
+                <section id="s1" className="relative h-[100dvh] flex flex-col items-center snap-start snap-always overflow-hidden bg-black" style={{ background: 'linear-gradient(to bottom, #080a0a 0%, #000000 100%)' }}>
                     {/* Tekst bovenaan */}
                     <div className="z-20 flex flex-col items-center text-center w-full max-w-5xl px-6 pt-10 pb-2 flex-none">
-                        <div className="section-badge mb-5 mx-auto">{t.sections?.s1?.badge}</div>
+                        <div className="mb-5 mx-auto flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                            <img src="/images/eurofins_WHITE_nobg.png" alt="Eurofins Agro"
+                                className="h-5 w-auto object-contain opacity-70" />
+                            <div className="w-px h-4 bg-white/20" />
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">65 onafh. laboratoriummetingen</span>
+                            <div className="w-px h-4 bg-white/20" />
+                            <img src="/images/vangog-logo.png" alt="Van Gog Kwekerijen"
+                                className="h-5 w-auto object-contain brightness-0 invert opacity-50" />
+                        </div>
                         <h1 className="font-outfit font-black uppercase text-[32px] md:text-[48px] lg:text-[58px] tracking-tight leading-[0.95] text-white mb-4">
                             {t.sections?.s1?.title}<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">
@@ -57,16 +65,18 @@ export default function CucumberClientPage({
                         <p className="text-base md:text-lg text-emerald-100/70 leading-relaxed font-medium max-w-2xl mx-auto italic">
                             {t.sections?.s1?.desc}
                         </p>
+
                     </div>
                     {/* Plant afbeelding — absolute fill van de sectie zodat mask over volle breedte werkt */}
-                    <div className="absolute inset-0 z-10">
+                    <div className="absolute inset-0 bottom-[72px] z-10">
                         <InteractiveCucumberHero dict={dict} mode="header" />
                     </div>
+
                     <ScrollButton targetId="s2" />
                 </section>
 
                 {/* SECTION 2: PLANT (NODES) */}
-                <section id="s2" className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black">
+                <section id="s2" className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-black">
                     <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
@@ -77,7 +87,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 3: ROOTS (NODES) */}
-                <section id="s3" className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black select-none">
+                <section id="s3" className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-black select-none">
                     <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none"></div>
                     <div className="w-full h-full relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
@@ -89,7 +99,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 4: CUCUMBER (NODES) */}
-                <section id="s4" className="relative h-screen flex flex-col items-center justify-center snap-start snap-always bg-black select-none">
+                <section id="s4" className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-black select-none">
                     <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="cucumber" sectionData={t.sections?.s4} />
                     </div>
@@ -100,7 +110,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 5: ALL12® TECHNOLOGY */}
-                <section id="s5" className="relative h-screen flex flex-col items-center justify-center snap-start snap-always py-12 bg-black overflow-hidden">
+                <section id="s5" className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always py-12 bg-black overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(52,255,122,0.05)_0%,transparent_70%)] opacity-50"></div>
 
                     <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
@@ -150,75 +160,63 @@ export default function CucumberClientPage({
                     <ScrollButton targetId="s6" />
                 </section>
 
-                {/* SECTION 6: PRODUCT CTA — Apple-stijl met zijlicht */}
-                <section id="s6" className="relative h-screen flex flex-col md:flex-row items-center justify-center snap-start snap-always bg-black overflow-hidden">
+                {/* SECTION 6: PRODUCT CTA — gecentreerd */}
+                <section id="s6" className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-black overflow-hidden">
 
-                    {/* Spotlight van links — lime groen zijlicht */}
+                    {/* Spotlight centered */}
                     <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute left-0 top-0 w-2/3 h-full bg-[radial-gradient(ellipse_at_left_center,rgba(132,204,22,0.18)_0%,transparent_65%)]" />
-                        <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(132,204,22,0.10)_0%,transparent_70%)] blur-2xl" />
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(132,204,22,0.10)_0%,transparent_70%)]" />
                     </div>
 
-                    {/* Linker kolom — jerrycan */}
-                    <div className="relative z-20 flex-1 flex items-center justify-center md:justify-end pr-0 md:pr-12">
+                    {/* Jerrycan */}
+                    <div className="relative z-20 flex items-center justify-center mb-8">
                         <div className="relative">
-                            {/* Vloer reflectie */}
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-20 bg-lime-400/10 blur-2xl rounded-full" />
-
-                            {/* Jerrycan met floating animatie */}
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-16 bg-lime-400/10 blur-2xl rounded-full" />
                             <motion.div
-                                animate={{ y: [0, -12, 0] }}
+                                animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                                 className="relative"
                             >
                                 <img
-                                    src="/images/all12-transparent.png"
+                                    src="/images/all12-jerrycan-nl-nobg.png"
                                     alt="PlantiPower ALL12"
-                                    className="h-[280px] md:h-[420px] lg:h-[500px] w-auto object-contain drop-shadow-[0_0_60px_rgba(132,204,22,0.25)]"
-                                />
-                                {/* Reflectie eronder */}
-                                <img
-                                    src="/images/all12-transparent.png"
-                                    alt=""
-                                    aria-hidden
-                                    className="h-[280px] md:h-[420px] lg:h-[500px] w-auto object-contain absolute top-full left-0 opacity-10 scale-y-[-1] blur-sm"
+                                    className="h-[220px] md:h-[300px] w-auto object-contain drop-shadow-[0_0_60px_rgba(132,204,22,0.3)]"
                                 />
                             </motion.div>
                         </div>
                     </div>
 
-                    {/* Rechter kolom — tekst */}
-                    <div className="relative z-20 flex-1 flex flex-col items-center md:items-start justify-center px-8 md:pl-12 text-center md:text-left max-w-xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <div className="text-lime-400/60 text-[10px] uppercase tracking-[0.3em] font-bold mb-4">PlantiPower ALL12®</div>
-                            <h2 className="font-outfit font-black uppercase text-[38px] md:text-[52px] lg:text-[62px] tracking-tight leading-none text-white mb-4">
-                                {t.sections?.s6?.title}<br />
-                                <span className="text-lime-400 italic">{t.sections?.s6?.titleAccent}</span>
-                            </h2>
-                            <p className="text-base md:text-lg text-emerald-100/55 leading-relaxed font-light max-w-lg mb-10">
-                                {t.sections?.s6?.desc}
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
-                                <a
-                                    href={`/${lang}/plantipower-all12`}
-                                    className="px-9 py-4 bg-lime-400 text-black font-black uppercase tracking-widest text-sm rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105"
-                                >
-                                    {t.sections?.s6?.btnProduct}
-                                </a>
-                                <a
-                                    href={`/${lang}/contact`}
-                                    className="px-9 py-4 bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm rounded-full hover:border-lime-400 hover:text-lime-400 transition-all duration-300 transform hover:scale-105"
-                                >
-                                    {t.sections?.s6?.btnSample}
-                                </a>
-                            </div>
-                        </motion.div>
-                    </div>
+                    {/* Tekst gecentreerd */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative z-20 flex flex-col items-center text-center px-6 max-w-2xl"
+                    >
+                        <div className="text-lime-400/60 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">PlantiPower ALL12®</div>
+                        <h2 className="font-outfit font-black uppercase text-[36px] md:text-[52px] tracking-tight leading-none text-white mb-4">
+                            {t.sections?.s6?.title}<br />
+                            <span className="text-lime-400 italic">{t.sections?.s6?.titleAccent}</span>
+                        </h2>
+                        <p className="text-base text-emerald-100/55 leading-relaxed font-light mb-8">
+                            {t.sections?.s6?.desc}
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                            <a
+                                href={`/${lang}/plantipower-all12`}
+                                className="px-9 py-4 bg-lime-400 text-black font-black uppercase tracking-widest text-sm rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105"
+                            >
+                                {t.sections?.s6?.btnProduct}
+                            </a>
+                            <a
+                                href={`/${lang}/contact`}
+                                className="px-9 py-4 bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm rounded-full hover:border-lime-400 hover:text-lime-400 transition-all duration-300 transform hover:scale-105"
+                            >
+                                {t.sections?.s6?.btnSample}
+                            </a>
+                        </div>
+                    </motion.div>
                 </section>
 
                 <ContactForm dict={dict} lang={lang} />
