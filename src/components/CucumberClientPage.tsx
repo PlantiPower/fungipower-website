@@ -55,14 +55,14 @@ export default function CucumberClientPage({
                         </h1>
 
                         {/* Validatie strip — zelfde stijl als section-badge maar wit */}
-                        <div className="inline-flex items-center gap-5 px-8 py-3 bg-white/5 border border-white/20 rounded-sm mb-5">
+                        <div className="inline-flex items-center gap-7 px-12 py-4 bg-white/5 border border-white/20 rounded-sm mb-5">
                             <img src="/images/eurofins_WHITE_nobg.png" alt="Eurofins Agro"
-                                className="h-7 w-auto object-contain brightness-0 invert opacity-90" />
-                            <div className="w-px h-6 bg-white/25" />
+                                className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
+                            <div className="w-px h-8 bg-white/25" />
                             <span className="text-xs font-bold tracking-[0.3em] text-white/80 uppercase">65 laboratoriummetingen</span>
-                            <div className="w-px h-6 bg-white/25" />
+                            <div className="w-px h-8 bg-white/25" />
                             <img src="/images/vangog-logo.png" alt="Van Gog Kwekerijen"
-                                className="h-7 w-auto object-contain brightness-0 invert opacity-80" />
+                                className="h-9 w-auto object-contain brightness-0 invert opacity-80" />
                         </div>
 
                         <p className="text-base md:text-lg text-emerald-100/70 leading-relaxed font-medium max-w-2xl mx-auto italic">
