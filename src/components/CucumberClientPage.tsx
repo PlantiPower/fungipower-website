@@ -47,7 +47,6 @@ export default function CucumberClientPage({
                 <section id="s1" className="relative h-[100dvh] flex flex-col items-center snap-start snap-always overflow-hidden bg-black" style={{ background: 'linear-gradient(to bottom, #080a0a 0%, #000000 100%)' }}>
                     {/* Tekst bovenaan */}
                     <div className="z-20 flex flex-col items-center text-center w-full max-w-5xl px-6 pt-10 pb-2 flex-none">
-                        <div className="section-badge mb-5 mx-auto">{t.sections?.s1?.badge}</div>
                         <h1 className="font-outfit font-black uppercase text-[32px] md:text-[48px] lg:text-[58px] tracking-tight leading-[0.95] text-white mb-6">
                             {t.sections?.s1?.title}<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">
