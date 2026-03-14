@@ -122,6 +122,23 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 <div className="absolute inset-0 pointer-events-none"
                     style={{ background: 'radial-gradient(ellipse 40% 40% at 50% 90%, rgba(140,255,80,0.15) 0%, transparent 60%)' }}
                 />
+                {/* Grondreflectie / schaduw */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+                    style={{
+                        width: '60%',
+                        height: '80px',
+                        background: 'radial-gradient(ellipse at 50% 100%, rgba(80,200,40,0.18) 0%, rgba(40,120,20,0.08) 50%, transparent 100%)',
+                        filter: 'blur(12px)',
+                    }}
+                />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+                    style={{
+                        width: '35%',
+                        height: '30px',
+                        background: 'radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.7) 0%, transparent 100%)',
+                        filter: 'blur(8px)',
+                    }}
+                />
                 <img
                     src={assets.image}
                     alt="Komkommer hero"
@@ -129,6 +146,8 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                         height: '100%',
                         width: 'auto',
                         objectFit: 'contain',
+                        position: 'relative',
+                        zIndex: 1,
                     }}
                 />
             </div>
