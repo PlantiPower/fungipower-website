@@ -109,8 +109,8 @@ export default function CucumberClientPage({
                 <section id="s2" className="relative h-[calc(100dvh-7rem)] snap-start snap-always overflow-hidden" style={{ background: 'linear-gradient(160deg, #040d06 0%, #010e03 100%)' }}>
                     <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
-                    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
-                    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
+                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none hidden md:block" />
+                    <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none hidden md:block" />
                     <div className="w-full h-full relative z-10 flex flex-col items-center justify-center pt-16">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
@@ -124,8 +124,8 @@ export default function CucumberClientPage({
                 <section id="s3" className="relative h-[calc(100dvh-7rem)] snap-start snap-always overflow-hidden select-none" style={{ background: 'linear-gradient(160deg, #000000 0%, #03080a 60%)' }}>
                     <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
-                    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
-                    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
+                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none hidden md:block" />
+                    <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none hidden md:block" />
                     <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
                     </div>
@@ -166,7 +166,7 @@ export default function CucumberClientPage({
                         <div className="md:hidden w-full flex flex-col items-center gap-2 px-3">
                             {/* Iron card — boven */}
                             <div
-                                className="w-full px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
+                                className="w-1/2 px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
                                 onClick={() => setExpandedDrainCard('iron')}
                             >
                                 <div className="flex items-center gap-1 mb-0.5">
@@ -206,7 +206,7 @@ export default function CucumberClientPage({
 
                             {/* Zinc card — onder */}
                             <div
-                                className="w-full px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
+                                className="w-1/2 px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
                                 onClick={() => setExpandedDrainCard('zinc')}
                             >
                                 <div className="flex items-center gap-1 mb-0.5">
@@ -425,7 +425,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION RAPPORT: VELDONDERZOEK SAMENVATTING */}
-                <section id="s-rapport" className="relative h-[calc(100dvh-7rem)] snap-start snap-always flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden" style={{ background: 'linear-gradient(160deg, #020608 0%, #000000 60%)' }}>
+                <section id="s-rapport" className="relative h-[calc(100dvh-7rem)] snap-start snap-always flex flex-col items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(160deg, #020608 0%, #000000 60%)' }}>
                     {/* Subtle grid background */}
                     <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{
                         backgroundImage: 'linear-gradient(rgba(132,204,22,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(132,204,22,0.8) 1px, transparent 1px)',
