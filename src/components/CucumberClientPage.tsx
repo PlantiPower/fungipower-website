@@ -40,6 +40,7 @@ export default function CucumberClientPage({
     lang: Locale,
     t: any
 }) {
+    const [expandedDrainCard, setExpandedDrainCard] = useState<string | null>(null)
     const drainContainerRef = useRef<HTMLDivElement>(null)
     const ironCardRef = useRef<HTMLDivElement>(null)
     const zincCardRef = useRef<HTMLDivElement>(null)
@@ -202,8 +203,71 @@ export default function CucumberClientPage({
                             }} />
                         </div>
 
-                        {/* Gecentreerd beeld + nodes */}
-                        <div className="relative flex items-center justify-center">
+                        {/* MOBILE DRAIN: [ijzer kaart] [afbeelding] [zink kaart] */}
+                        <div className="md:hidden flex items-center gap-2 px-3 w-full">
+                            {/* Iron card */}
+                            <div
+                                className="flex-1 min-w-0 px-3 py-3 rounded-xl bg-black/95 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
+                                onClick={() => setExpandedDrainCard('iron')}
+                            >
+                                <div className="flex items-center gap-1.5 mb-1">
+                                    <div className="w-1 h-1 rounded-full bg-lime-400 flex-shrink-0" />
+                                    <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
+                                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none" className="ml-auto text-lime-400/40 flex-shrink-0">
+                                        <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                                    </svg>
+                                </div>
+                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug line-clamp-2 mb-0.5">
+                                    {t.sections?.s4?.nodes?.iron?.label}
+                                </div>
+                                <div className="text-white/50 text-[9px] leading-relaxed line-clamp-2">
+                                    {t.sections?.s4?.nodes?.iron?.desc}
+                                </div>
+                            </div>
+
+                            {/* Drain image with dots */}
+                            <div className="flex-shrink-0 relative" style={{ width: '40vw' }}>
+                                <img
+                                    src="/images/drain1_nobg.png"
+                                    alt="PlantiPower drainmeting"
+                                    style={{ width: '100%', height: 'auto', maxHeight: '65dvh', objectFit: 'contain',
+                                        filter: 'drop-shadow(0 10px 30px rgba(40,180,80,0.2))' }}
+                                />
+                                {/* Dot 1 */}
+                                <div className="absolute z-10 -translate-x-1/2 -translate-y-1/2" style={{ left: '73%', top: '60%' }}>
+                                    <div style={{ position: 'absolute', width: 16, height: 16, borderRadius: '50%', background: 'rgba(163,230,53,0.15)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', animation: 'drainPulse 3s ease-out infinite' }} />
+                                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#a3e635', boxShadow: '0 0 6px 2px rgba(163,230,53,0.4)', position: 'relative', zIndex: 1 }} />
+                                </div>
+                                {/* Dot 2 */}
+                                <div className="absolute z-10 -translate-x-1/2 -translate-y-1/2" style={{ left: '83%', top: '68%' }}>
+                                    <div style={{ position: 'absolute', width: 16, height: 16, borderRadius: '50%', background: 'rgba(163,230,53,0.15)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', animation: 'drainPulse 3s ease-out 1.5s infinite' }} />
+                                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#a3e635', boxShadow: '0 0 6px 2px rgba(163,230,53,0.4)', position: 'relative', zIndex: 1 }} />
+                                </div>
+                            </div>
+
+                            {/* Zinc card */}
+                            <div
+                                className="flex-1 min-w-0 px-3 py-3 rounded-xl bg-black/95 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
+                                onClick={() => setExpandedDrainCard('zinc')}
+                            >
+                                <div className="flex items-center gap-1.5 mb-1">
+                                    <div className="w-1 h-1 rounded-full bg-lime-400 flex-shrink-0" />
+                                    <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
+                                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none" className="ml-auto text-lime-400/40 flex-shrink-0">
+                                        <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                                    </svg>
+                                </div>
+                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug line-clamp-2 mb-0.5">
+                                    {t.sections?.s4?.nodes?.zinc?.label}
+                                </div>
+                                <div className="text-white/50 text-[9px] leading-relaxed line-clamp-2">
+                                    {t.sections?.s4?.nodes?.zinc?.desc}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* DESKTOP: Gecentreerd beeld + nodes */}
+                        <div className="hidden md:flex relative items-center justify-center">
                             <motion.div
                                 ref={drainContainerRef}
                                 initial={{ opacity: 0, scale: 0.95, y: 0 }}
@@ -411,6 +475,40 @@ export default function CucumberClientPage({
                             </motion.div>
                         </div>
                     </div>
+
+                    {/* DRAIN BOTTOM SHEET (mobiel) */}
+                    {expandedDrainCard && (() => {
+                        const isIron = expandedDrainCard === 'iron'
+                        const label = isIron ? t.sections?.s4?.nodes?.iron?.label : t.sections?.s4?.nodes?.zinc?.label
+                        const desc = isIron ? t.sections?.s4?.nodes?.iron?.desc : t.sections?.s4?.nodes?.zinc?.desc
+                        return (
+                            <div className="fixed inset-0 z-50 flex items-end md:hidden" onClick={() => setExpandedDrainCard(null)}>
+                                <div className="absolute inset-0 bg-black/65" />
+                                <motion.div
+                                    initial={{ y: 40, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative w-full bg-[#090e09] border-t border-lime-500/40 px-6 pt-5 rounded-t-2xl"
+                                    style={{ paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom))' }}
+                                    onClick={e => e.stopPropagation()}
+                                >
+                                    <div className="w-8 h-0.5 bg-white/20 rounded-full mx-auto mb-5" />
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-lime-400" />
+                                        <span className="text-lime-400 text-[9px] font-black uppercase tracking-[0.2em] font-outfit">Validated Node</span>
+                                    </div>
+                                    <div className="text-white text-lg font-black uppercase tracking-tight font-outfit mb-3">{label}</div>
+                                    <div className="text-white/65 text-sm leading-relaxed">{desc}</div>
+                                    <button onClick={() => setExpandedDrainCard(null)} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white/30">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                                        </svg>
+                                    </button>
+                                </motion.div>
+                            </div>
+                        )
+                    })()}
+
                     <ScrollButton targetId="s5" />
                 </section>
 

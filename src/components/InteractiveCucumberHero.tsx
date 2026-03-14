@@ -36,6 +36,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
     useEffect(() => {
         setMounted(true);
@@ -211,8 +212,9 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 initial={{ opacity: 0, y: dir === 'down' ? -8 : 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + i * 0.08, duration: 0.45 }}
-                className="flex-1 relative px-2.5 py-2 rounded-xl bg-black/95 border border-lime-500/40"
+                className="flex-1 relative px-2.5 py-2 rounded-xl bg-black/95 border border-lime-500/40 active:border-lime-400/70 cursor-pointer"
                 style={{ minWidth: 0 }}
+                onClick={() => setExpandedCard(spot.id)}
             >
                 <div className="flex items-center gap-1 mb-0.5">
                     <div className="w-1 h-1 rounded-full bg-lime-400 flex-none" />
@@ -223,6 +225,12 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 </div>
                 <div className="text-white/55 text-[9px] leading-relaxed line-clamp-2">
                     {spot.desc}
+                </div>
+                {/* Tap hint */}
+                <div className="absolute top-1.5 right-2 text-lime-400/40">
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    </svg>
                 </div>
                 {/* Chevron pointing toward plant */}
                 <div
@@ -274,8 +282,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                                 width: 'auto',
                                 maxWidth: '100vw',
                                 objectFit: 'contain',
-                                maskImage: assets.mask,
-                                WebkitMaskImage: assets.mask,
                             }}
                         />
                         {/* Hotspot dots on plant */}
@@ -332,6 +338,48 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                         {bottomSpots.map((spot, i) => renderCard(spot, 'up', i))}
                     </div>
                 )}
+
+                {/* EXPANDED CARD BOTTOM SHEET */}
+                {expandedCard && (() => {
+                    const spot = assets.hotspots.find(s => s.id === expandedCard)
+                    if (!spot) return null
+                    return (
+                        <div
+                            className="fixed inset-0 z-50 flex items-end"
+                            onClick={() => setExpandedCard(null)}
+                        >
+                            <div className="absolute inset-0 bg-black/65" />
+                            <motion.div
+                                initial={{ y: 40, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative w-full bg-[#090e09] border-t border-lime-500/40 px-6 pt-5 rounded-t-2xl"
+                                style={{ paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom))' }}
+                                onClick={e => e.stopPropagation()}
+                            >
+                                <div className="w-8 h-0.5 bg-white/20 rounded-full mx-auto mb-5" />
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-lime-400" />
+                                    <span className="text-lime-400 text-[9px] font-black uppercase tracking-[0.2em] font-outfit">Validated Node</span>
+                                </div>
+                                <div className="text-white text-lg font-black uppercase tracking-tight font-outfit mb-3">
+                                    {spot.label}
+                                </div>
+                                <div className="text-white/65 text-sm leading-relaxed">
+                                    {spot.desc}
+                                </div>
+                                <button
+                                    onClick={() => setExpandedCard(null)}
+                                    className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white/30 active:text-white/70"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                                    </svg>
+                                </button>
+                            </motion.div>
+                        </div>
+                    )
+                })()}
 
             </div>
         );
