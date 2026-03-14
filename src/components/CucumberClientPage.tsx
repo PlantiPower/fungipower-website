@@ -1,33 +1,47 @@
 'use client'
 
 
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import InteractiveCucumberHero from '@/components/InteractiveCucumberHero'
 import ContactForm from '@/components/ContactForm'
 import ClientLayout from '@/components/ClientLayout'
+import PraktijkresultatenAnimation from '@/components/PraktijkresultatenAnimation'
 import { Locale } from '@/i18n-config'
 
 function CountUp({ to, from = 0, suffix = '', prefix = '', duration = 1.8, delay = 0 }: {
     to: number, from?: number, suffix?: string, prefix?: string, duration?: number, delay?: number
 }) {
-    const ref = useRef(null)
-    const inView = useInView(ref, { once: true })
+    const ref = useRef<HTMLSpanElement>(null)
     const [val, setVal] = useState(from)
+    const [played, setPlayed] = useState(false)
     useEffect(() => {
-        if (!inView) return
-        const t = setTimeout(() => {
-            const start = performance.now()
-            const tick = (now: number) => {
-                const p = Math.min((now - start) / (duration * 1000), 1)
-                const eased = 1 - Math.pow(1 - p, 3)
-                setVal(Math.round(from + (to - from) * eased))
-                if (p < 1) requestAnimationFrame(tick)
-            }
-            requestAnimationFrame(tick)
-        }, delay * 1000)
-        return () => clearTimeout(t)
-    }, [inView])
+        const el = ref.current
+        if (!el) return
+        // Use main snap container as root so sections inside overflow-y:auto are detected correctly
+        const root = document.querySelector('main.snap-y') as Element | null
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && !played) {
+                    setPlayed(true)
+                    const t = setTimeout(() => {
+                        const start = performance.now()
+                        const tick = (now: number) => {
+                            const p = Math.min((now - start) / (duration * 1000), 1)
+                            const eased = 1 - Math.pow(1 - p, 3)
+                            setVal(Math.round(from + (to - from) * eased))
+                            if (p < 1) requestAnimationFrame(tick)
+                        }
+                        requestAnimationFrame(tick)
+                    }, delay * 1000)
+                    return () => clearTimeout(t)
+                }
+            },
+            { root, threshold: 0.3 },
+        )
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [played])
     return <span ref={ref}>{prefix}{val}{suffix}</span>
 }
 
@@ -478,74 +492,27 @@ export default function CucumberClientPage({
                                 65 onafhankelijke laboratoriummetingen · september 2025 – februari 2026 · before/after vergelijking (Kas 3, switch 12 december 2025)
                             </p>
 
-                            {/* 6 Kernresultaten */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+                            {/* 6 Kernresultaten — mobile: 2-col CountUp grid */}
+                            <div className="grid grid-cols-2 gap-3 mb-8 md:hidden">
                                 {[
-                                    {
-                                        num: <><CountUp from={0} to={48} suffix="%" delay={0.3} />{ ' → '}<CountUp from={0} to={94} suffix="%" delay={0.3} /></>,
-                                        label: 'Silicium opname verdubbeld',
-                                        sub: 'gietwater stabiel',
-                                        color: 'rgba(132,204,22,0.15)',
-                                        border: 'rgba(132,204,22,0.3)',
-                                        accent: '#84cc16',
-                                    },
-                                    {
-                                        num: <><CountUp from={0} to={11} suffix="%" delay={0.5} />{ ' → '}<CountUp from={0} to={86} suffix="%" delay={0.5} /></>,
-                                        label: 'Fosfor opname',
-                                        sub: 'bij 45% hogere P-gift via gietwater',
-                                        color: 'rgba(52,211,153,0.08)',
-                                        border: 'rgba(52,211,153,0.25)',
-                                        accent: '#34d399',
-                                    },
-                                    {
-                                        num: <CountUp from={0} to={88} prefix="+" suffix="%" delay={0.7} />,
-                                        label: 'Molybdeen in oud plantsap',
-                                        sub: 'direct bewijs ALL12® · bij lagere Mo-gift',
-                                        color: 'rgba(52,211,153,0.08)',
-                                        border: 'rgba(52,211,153,0.25)',
-                                        accent: '#34d399',
-                                    },
-                                    {
-                                        num: <CountUp from={0} to={243} prefix="+" suffix="%" delay={0.9} />,
-                                        label: 'IJzer beschikbaarheid in drain',
-                                        sub: '+17% in jong plantsap',
-                                        color: 'rgba(132,204,22,0.08)',
-                                        border: 'rgba(132,204,22,0.2)',
-                                        accent: '#84cc16',
-                                    },
-                                    {
-                                        num: <CountUp from={0} to={46} prefix="+" suffix="%" delay={1.1} />,
-                                        label: 'Zink beschikbaarheid',
-                                        sub: '+46% in drain · +46% in oud plantsap',
-                                        color: 'rgba(132,204,22,0.08)',
-                                        border: 'rgba(132,204,22,0.2)',
-                                        accent: '#84cc16',
-                                    },
-                                    {
-                                        num: <><CountUp from={0} to={42} prefix="−" suffix="%" delay={1.3} />{ ' / '}<CountUp from={0} to={46} prefix="−" suffix="%" delay={1.3} /></>,
-                                        label: 'Selectieve ionen-exclusie',
-                                        sub: 'Na −42% · Cl −46% in jong blad',
-                                        color: 'rgba(99,102,241,0.08)',
-                                        border: 'rgba(99,102,241,0.25)',
-                                        accent: '#818cf8',
-                                    },
+                                    { num: <><CountUp from={0} to={48} suffix="%" delay={0.2} />{' → '}<CountUp from={0} to={94} suffix="%" delay={0.2} /></>, label: 'Silicium opname verdubbeld', sub: 'gietwater stabiel', color: 'rgba(132,204,22,0.15)', border: 'rgba(132,204,22,0.3)', accent: '#84cc16' },
+                                    { num: <><CountUp from={0} to={11} suffix="%" delay={0.3} />{' → '}<CountUp from={0} to={86} suffix="%" delay={0.3} /></>, label: 'Fosfor opname', sub: 'bij 45% hogere P-gift via gietwater', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
+                                    { num: <CountUp from={0} to={88} prefix="+" suffix="%" delay={0.4} />, label: 'Molybdeen in oud plantsap', sub: 'direct bewijs ALL12® · bij lagere Mo-gift', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
+                                    { num: <CountUp from={0} to={243} prefix="+" suffix="%" delay={0.5} />, label: 'IJzer beschikbaarheid in drain', sub: '+17% in jong plantsap', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
+                                    { num: <CountUp from={0} to={46} prefix="+" suffix="%" delay={0.6} />, label: 'Zink beschikbaarheid', sub: '+46% in drain · +46% in oud plantsap', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
+                                    { num: <><CountUp from={0} to={42} prefix="−" suffix="%" delay={0.7} />{' / '}<CountUp from={0} to={46} prefix="−" suffix="%" delay={0.7} /></>, label: 'Selectieve ionen-exclusie', sub: 'Na −42% · Cl −46% in jong blad', color: 'rgba(99,102,241,0.08)', border: 'rgba(99,102,241,0.25)', accent: '#818cf8' },
                                 ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, y: 24, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 + i * 0.15, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                                        className="rounded-2xl px-5 py-4 flex flex-col gap-1.5"
-                                        style={{ background: item.color, border: `1px solid ${item.border}` }}
-                                    >
-                                        <div className="font-mono font-black text-[22px] md:text-[28px] leading-none" style={{ color: item.accent }}>
-                                            {item.num}
-                                        </div>
-                                        <div className="text-white/85 text-xs md:text-sm font-bold leading-snug">{item.label}</div>
-                                        <div className="text-white/35 text-[10px] md:text-xs leading-relaxed">{item.sub}</div>
-                                    </motion.div>
+                                    <div key={i} className="rounded-2xl px-4 py-3.5 flex flex-col gap-1.5" style={{ background: item.color, border: `1px solid ${item.border}` }}>
+                                        <div className="font-mono font-black text-[18px] leading-none" style={{ color: item.accent }}>{item.num}</div>
+                                        <div className="text-white/85 text-[11px] font-bold leading-snug">{item.label}</div>
+                                        <div className="text-white/35 text-[9px] leading-relaxed">{item.sub}</div>
+                                    </div>
                                 ))}
+                            </div>
+
+                            {/* 6 Kernresultaten — desktop: Remotion animated player */}
+                            <div className="hidden md:block mb-8">
+                                <PraktijkresultatenAnimation />
                             </div>
 
                             {/* Conclusion quote */}
