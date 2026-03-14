@@ -162,10 +162,30 @@ export default function CucumberClientPage({
                             }} />
                         </div>
 
-                        {/* MOBILE DRAIN: groot beeld, kaartjes links-hoog en rechts-laag */}
-                        <div className="md:hidden relative w-full flex justify-center">
-                            {/* Drain image — zo groot mogelijk */}
-                            <div className="relative" style={{ width: '84vw' }}>
+                        {/* MOBILE DRAIN: kaart boven — groot beeld — kaart onder */}
+                        <div className="md:hidden w-full flex flex-col items-center gap-2 px-3">
+                            {/* Iron card — boven */}
+                            <div
+                                className="w-full px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
+                                onClick={() => setExpandedDrainCard('iron')}
+                            >
+                                <div className="flex items-center gap-1 mb-0.5">
+                                    <div className="w-1 h-1 rounded-full bg-lime-400 flex-shrink-0" />
+                                    <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
+                                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none" className="ml-auto text-lime-400/40 flex-shrink-0">
+                                        <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                                    </svg>
+                                </div>
+                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug mb-0.5">
+                                    {t.sections?.s4?.nodes?.iron?.label}
+                                </div>
+                                <div className="text-white/50 text-[9px] leading-relaxed line-clamp-2">
+                                    {t.sections?.s4?.nodes?.iron?.desc}
+                                </div>
+                            </div>
+
+                            {/* Drain image — 30% groter */}
+                            <div className="relative flex-shrink-0" style={{ width: '90vw' }}>
                                 <img
                                     src="/images/drain1_nobg.png"
                                     alt="PlantiPower drainmeting"
@@ -184,41 +204,19 @@ export default function CucumberClientPage({
                                 </div>
                             </div>
 
-                            {/* Iron card — links, hoger */}
+                            {/* Zinc card — onder */}
                             <div
-                                className="absolute left-2 w-[92px] px-2.5 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70 z-10"
-                                style={{ top: '10%' }}
-                                onClick={() => setExpandedDrainCard('iron')}
-                            >
-                                <div className="flex items-center gap-1 mb-1">
-                                    <div className="w-1 h-1 rounded-full bg-lime-400 flex-shrink-0" />
-                                    <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
-                                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none" className="ml-auto text-lime-400/40 flex-shrink-0">
-                                        <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-                                    </svg>
-                                </div>
-                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug line-clamp-2 mb-0.5">
-                                    {t.sections?.s4?.nodes?.iron?.label}
-                                </div>
-                                <div className="text-white/50 text-[9px] leading-relaxed line-clamp-2">
-                                    {t.sections?.s4?.nodes?.iron?.desc}
-                                </div>
-                            </div>
-
-                            {/* Zinc card — rechts, lager */}
-                            <div
-                                className="absolute right-2 w-[92px] px-2.5 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70 z-10"
-                                style={{ bottom: '14%' }}
+                                className="w-full px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
                                 onClick={() => setExpandedDrainCard('zinc')}
                             >
-                                <div className="flex items-center gap-1 mb-1">
+                                <div className="flex items-center gap-1 mb-0.5">
                                     <div className="w-1 h-1 rounded-full bg-lime-400 flex-shrink-0" />
                                     <span className="text-lime-400 text-[7px] font-black uppercase tracking-wider font-outfit">Node</span>
                                     <svg width="7" height="7" viewBox="0 0 8 8" fill="none" className="ml-auto text-lime-400/40 flex-shrink-0">
                                         <path d="M4 1v6M1 4h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
                                     </svg>
                                 </div>
-                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug line-clamp-2 mb-0.5">
+                                <div className="text-white text-[10px] font-black uppercase tracking-tight font-outfit leading-snug mb-0.5">
                                     {t.sections?.s4?.nodes?.zinc?.label}
                                 </div>
                                 <div className="text-white/50 text-[9px] leading-relaxed line-clamp-2">
