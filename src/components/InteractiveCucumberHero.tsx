@@ -488,7 +488,6 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                                     height: assets.imgHeight,
                                     maxWidth: '100%',
                                     mixBlendMode: 'screen',
-                                    filter: mode === 'plant' ? 'contrast(1.3) brightness(1.15)' : undefined,
                                 }}
                             />
                         )}
