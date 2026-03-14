@@ -153,8 +153,14 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                            className="w-full px-4 py-3 rounded-2xl bg-black/95 backdrop-blur-xl border border-lime-500/40"
+                            className="w-full px-4 py-3 bg-black/95 backdrop-blur-xl relative"
                         >
+                            {/* Corner brackets */}
+                            <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-lime-400/70" />
+                            <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-lime-400/70" />
+                            <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-lime-400/70" />
+                            <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-lime-400/70" />
+
                             <div className="flex items-center gap-1.5 mb-1.5">
                                 <div className="w-1.5 h-1.5 rounded-full bg-lime-400 flex-none" />
                                 <div className="text-lime-400 text-[9px] font-black uppercase tracking-widest font-outfit">Validated Node</div>
