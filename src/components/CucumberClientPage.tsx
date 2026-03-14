@@ -79,7 +79,13 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 2: PLANT (NODES) */}
-                <section id="s2" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always bg-black">
+                <section id="s2" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always" style={{ background: 'linear-gradient(160deg, #040d06 0%, #000000 60%)' }}>
+                    {/* Mobile sectie-header */}
+                    <div className="md:hidden w-full px-6 pt-8 pb-2 flex items-center gap-3">
+                        <span className="text-lime-400/40 text-[10px] font-black uppercase tracking-[0.3em]">02</span>
+                        <div className="h-px flex-1 bg-lime-400/10" />
+                        <span className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">Plant</span>
+                    </div>
                     <div className="w-full md:h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
@@ -90,8 +96,14 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 3: ROOTS (NODES) */}
-                <section id="s3" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always bg-black select-none">
+                <section id="s3" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always select-none" style={{ background: 'linear-gradient(160deg, #000000 0%, #03080a 60%)' }}>
                     <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none hidden md:block" />
+                    {/* Mobile sectie-header */}
+                    <div className="md:hidden w-full px-6 pt-8 pb-2 flex items-center gap-3">
+                        <span className="text-lime-400/40 text-[10px] font-black uppercase tracking-[0.3em]">03</span>
+                        <div className="h-px flex-1 bg-lime-400/10" />
+                        <span className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">Wortels</span>
+                    </div>
                     <div className="w-full md:h-full relative z-10">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
                     </div>
@@ -102,7 +114,13 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 4: CUCUMBER (NODES) */}
-                <section id="s4" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always bg-black select-none">
+                <section id="s4" className="relative md:h-[100dvh] h-auto flex flex-col items-center md:justify-center md:snap-start md:snap-always select-none" style={{ background: 'linear-gradient(160deg, #03080a 0%, #000000 60%)' }}>
+                    {/* Mobile sectie-header */}
+                    <div className="md:hidden w-full px-6 pt-8 pb-2 flex items-center gap-3">
+                        <span className="text-lime-400/40 text-[10px] font-black uppercase tracking-[0.3em]">04</span>
+                        <div className="h-px flex-1 bg-lime-400/10" />
+                        <span className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">Komkommer</span>
+                    </div>
                     <div className="w-full md:h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="cucumber" sectionData={t.sections?.s4} />
                     </div>
@@ -113,7 +131,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 5: ALL12® TECHNOLOGY */}
-                <section id="s5" className="relative md:h-[100dvh] h-auto flex flex-col items-center justify-center md:snap-start md:snap-always py-12 bg-black overflow-hidden">
+                <section id="s5" className="relative md:h-[100dvh] h-auto flex flex-col items-center justify-center md:snap-start md:snap-always py-12 overflow-hidden" style={{ background: 'linear-gradient(160deg, #040d06 0%, #000000 70%)' }}>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(52,255,122,0.05)_0%,transparent_70%)] opacity-50" />
 
                     <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
