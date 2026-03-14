@@ -137,32 +137,32 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                         height: '62%',
                         width: 'auto',
                         objectFit: 'contain',
-                        opacity: 0.13,
-                        maskImage: 'linear-gradient(to bottom, black 0%, transparent 32%)',
-                        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 32%)',
-                        filter: 'blur(2px)',
+                        opacity: 0.28,
+                        maskImage: 'linear-gradient(to bottom, black 0%, transparent 22%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 22%)',
+                        filter: 'blur(3px)',
                         zIndex: 0,
                         pointerEvents: 'none',
                     }}
                 />
-                {/* Floor sheen — thin bright line where plant meets ground */}
+                {/* Floor sheen — bright line where plant meets ground */}
                 <div className="absolute pointer-events-none" style={{
                     bottom: '12px',
-                    left: '18%',
-                    right: '18%',
-                    height: '1px',
-                    background: 'linear-gradient(to right, transparent, rgba(140,255,100,0.18) 25%, rgba(180,255,140,0.30) 50%, rgba(140,255,100,0.18) 75%, transparent)',
+                    left: '10%',
+                    right: '10%',
+                    height: '2px',
+                    background: 'linear-gradient(to right, transparent, rgba(140,255,100,0.28) 20%, rgba(200,255,160,0.55) 50%, rgba(140,255,100,0.28) 80%, transparent)',
                     zIndex: 2,
                 }} />
                 {/* Contact shadow — dark ellipse at base */}
                 <div className="absolute pointer-events-none" style={{
-                    bottom: '10px',
+                    bottom: '8px',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '32%',
-                    height: '18px',
-                    background: 'radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.75) 0%, transparent 100%)',
-                    filter: 'blur(6px)',
+                    width: '38%',
+                    height: '24px',
+                    background: 'radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.90) 0%, transparent 100%)',
+                    filter: 'blur(8px)',
                     zIndex: 3,
                 }} />
                 {/* Green ambient glow at base */}
@@ -170,10 +170,10 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                     bottom: '0px',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '55%',
-                    height: '70px',
-                    background: 'radial-gradient(ellipse at 50% 100%, rgba(80,200,40,0.20) 0%, rgba(40,120,20,0.08) 55%, transparent 100%)',
-                    filter: 'blur(14px)',
+                    width: '70%',
+                    height: '90px',
+                    background: 'radial-gradient(ellipse at 50% 100%, rgba(80,200,40,0.30) 0%, rgba(40,120,20,0.12) 55%, transparent 100%)',
+                    filter: 'blur(16px)',
                     zIndex: 1,
                 }} />
                 <img
