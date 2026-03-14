@@ -104,7 +104,7 @@ export default function CucumberClientPage({
                 </section>
 
                 {/* SECTION 2: PLANT (NODES) */}
-                <section id="s2" className="relative h-[100dvh] snap-start snap-always overflow-hidden" style={{ background: 'linear-gradient(160deg, #040d06 0%, #000000 60%)' }}>
+                <section id="s2" className="relative h-[100dvh] snap-start snap-always overflow-hidden" style={{ background: 'linear-gradient(160deg, #040d06 0%, #010e03 100%)' }}>
                     <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>

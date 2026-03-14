@@ -79,8 +79,8 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
             case 'roots':
                 return {
                     image: "/images/wortels_final.png",
-                    maxWidth: "max-w-[1200px]",
-                    imgHeight: 'calc(88dvh - 40px)',
+                    maxWidth: "max-w-[1600px]",
+                    imgHeight: 'calc(94dvh - 40px)',
                     mask: 'radial-gradient(ellipse 62% 62% at 50% 58%, black 20%, transparent 100%)',
                     gradientTop: '38%',
                     gradientBottom: '22%',
