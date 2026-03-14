@@ -61,7 +61,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 };
             case 'plant':
                 return {
-                    image: "/images/komkommers_plant11.png",
+                    image: "/images/komkommer_final.png",
                     maxWidth: "max-w-[1600px]",
                     imgHeight: 'calc(86dvh - 80px)',
                     mask: 'none',
@@ -78,7 +78,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 };
             case 'roots':
                 return {
-                    image: "/images/komkommers10_roots.png",
+                    image: "/images/wortels_final.png",
                     maxWidth: "max-w-[900px]",
                     imgHeight: 'calc(75dvh - 40px)',
                     mask: 'radial-gradient(ellipse 62% 62% at 50% 58%, black 20%, transparent 100%)',
