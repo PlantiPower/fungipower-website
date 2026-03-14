@@ -8,7 +8,7 @@ import ContactForm from '@/components/ContactForm'
 import ClientLayout from '@/components/ClientLayout'
 import { Locale } from '@/i18n-config'
 
-function ScrollButton({ targetId, bottom = 'bottom-28' }: { targetId: string, bottom?: string }) {
+function ScrollButton({ targetId, bottom = 'bottom-[50px]' }: { targetId: string, bottom?: string }) {
     return (
         <button
             onClick={() => {
@@ -108,7 +108,7 @@ export default function CucumberClientPage({
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
-                    <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
+                    <div className="w-full h-full relative z-10 flex flex-col items-center justify-center pt-16">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
