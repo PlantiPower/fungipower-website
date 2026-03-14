@@ -111,7 +111,7 @@ export default function CucumberClientPage({
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none hidden md:block" />
                     <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none hidden md:block" />
-                    <div className="w-full h-full relative z-10 flex flex-col items-center justify-center pt-16">
+                    <div className="w-full h-full relative z-30 flex flex-col items-center justify-center pt-16">
                         <InteractiveCucumberHero dict={dict} mode="plant" sectionData={t.sections?.s2} />
                     </div>
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
@@ -126,7 +126,7 @@ export default function CucumberClientPage({
                     <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
                     <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none hidden md:block" />
                     <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none hidden md:block" />
-                    <div className="w-full h-full relative z-10 flex flex-col items-center justify-center">
+                    <div className="w-full h-full relative z-30 flex flex-col items-center justify-center">
                         <InteractiveCucumberHero dict={dict} mode="roots" sectionData={t.sections?.s3} />
                     </div>
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
@@ -163,7 +163,7 @@ export default function CucumberClientPage({
                         </div>
 
                         {/* MOBILE DRAIN: kaart boven — groot beeld — kaart onder */}
-                        <div className="md:hidden w-full h-full flex flex-col items-center gap-2 px-3 py-2">
+                        <div className="md:hidden w-full h-full flex flex-col items-center gap-1 px-3">
                             {/* Iron card — boven */}
                             <div
                                 className="w-1/2 px-3 py-2.5 rounded-xl bg-black/92 border border-lime-500/40 cursor-pointer active:border-lime-400/70"
