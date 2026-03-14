@@ -61,7 +61,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                 };
             case 'plant':
                 return {
-                    image: "/images/komkommers10_nobg.png",
+                    image: "/images/komkommers_plant11.png",
                     maxWidth: "max-w-[1600px]",
                     imgHeight: 'calc(86dvh - 80px)',
                     mask: 'none',
