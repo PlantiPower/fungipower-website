@@ -270,7 +270,7 @@ const InteractiveCucumberHero: React.FC<InteractiveCucumberHeroProps> = ({ mode,
                             alt="Technical Analysis"
                             style={{
                                 height: 'auto',
-                                maxHeight: mode === 'roots' ? 'calc(100dvh - 240px)' : '100%',
+                                maxHeight: '100%',
                                 width: 'auto',
                                 maxWidth: '100%',
                                 objectFit: 'contain',
