@@ -527,14 +527,6 @@ export default function CucumberClientPage({
                                 </p>
                             </motion.div>
 
-                            {/* Methodology footer */}
-                            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] text-white/25 uppercase tracking-[0.15em] font-mono">
-                                <span>{t.sections?.['s-rapport']?.methodBase}</span>
-                                <span>·</span>
-                                <span>{t.sections?.['s-rapport']?.methodExclusion}</span>
-                                <span>·</span>
-                                <span>{t.sections?.['s-rapport']?.methodStrong}</span>
-                            </div>
                         </motion.div>
                     </div>
                     <ScrollButton targetId="s-samenvatting" label={nextLabel} />
