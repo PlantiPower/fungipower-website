@@ -274,15 +274,17 @@
     "importantInstructions": "Belangrijke instructies"
   },
   "Cucumbers": {
-    "metaTitle": "Gevalideerde Teeltoptimalisatie | PlantiPower",
+    "metaTitle": "Gevalideerde Teeltoptimalisatie",
     "metaDesc": "Resultaten van praktijkonderzoek bij Van Gog Kwekerijen. Onafhankelijk gevalideerd door Eurofins Agro.",
     "sections": {
       "s1": {
         "badge": "Gevalideerd Onderzoek",
         "title": "ONDERZOEKSRESULTATEN",
         "titleAccent": "KOMKOMMERTEELT",
-        "desc": "Dit rapport presenteert de resultaten van een praktijkproef met PlantiPower bij Van Gog Kwekerijen CV. De dataset omvat 65 onafhankelijke laboratoriummetingen, uitgevoerd door Eurofins Agro Wageningen in de periode september 2025 tot februari 2026.",
-        "footer": "PlantiPower_Praktijkresultaten_2026"
+        "desc": "Dit rapport presenteert de resultaten van een praktijkproef met PlantiPower bij Van Gog Kwekerijen CV. De dataset omvat 65 onafhankelijke laboratoriummetingen, uitgevoerd door Eurofins Agro Wageningen.",
+        "footer": "PlantiPower_Praktijkresultaten_2026",
+        "labMeasurements": "65 laboratoriummetingen",
+        "footerMeasurements": "65 onafhankelijke laboratoriummetingen"
       },
       "s2": {
         "title": "PLANT MET NODES",
@@ -340,19 +342,19 @@
         }
       },
       "s4": {
-        "title": "DRAINWATER",
-        "titleAccent": "ANALYSE",
-        "desc": "65 onafhankelijke Eurofins-metingen tonen aan dat PlantiPower de nutriëntenopname structureel verbetert. De drainsamenstelling bewijst het: minder verlies, betere benutting.",
+        "title": "ONAFHANKELIJK",
+        "titleAccent": "GEMETEN",
+        "desc": "Gietwater, drainwater en plantsap worden gelijktijdig bemonsterd. Drie datapunten per meetmoment — zo berekenen we precies hoeveel de plant opneemt.",
         "footer": "PlantiPower_Praktijkresultaten_2026",
         "nodes": {
           "iron": {
-            "label": "+243% ijzer in drain",
-            "desc": "Fe steeg van 20 naar 69 µmol/l in het drainwater.",
+            "label": "65 onafhankelijke metingen",
+            "desc": "Gietwater, drainwater en plantsap tegelijk bemonsterd — drie datapunten per meetmoment, uitgevoerd door Eurofins Agro Wageningen.",
             "footer": "PlantiPower_Praktijkresultaten_2026"
           },
           "zinc": {
-            "label": "+46% zink in drain",
-            "desc": "Zn steeg van 5,6 naar 8,1 µmol/l in het drainwater.",
+            "label": "Opname-efficiëntie berekend",
+            "desc": "Hoeveel neemt de plant op? (gietwater − drain) ÷ gietwater × 100%. Zo meten we het verschil dat PlantiPower maakt.",
             "footer": "PlantiPower_Praktijkresultaten_2026"
           }
         }
@@ -383,11 +385,30 @@
           }
         }
       },
+      "s-rapport": {
+        "sourceBadge": "Van Gog Kwekerijen CV · Helmond",
+        "title": "Praktijk",
+        "titleHighlight": "resultaten",
+        "desc": "65 onafhankelijke laboratoriummetingen · gietwater-, drainwater- en plantsapanalyses",
+        "quote": "\"De dataset van Van Gog Kwekerijen biedt overtuigend bewijs dat PlantiPower's ALL12® Technology de nutriëntopname van komkommerplanten meetbaar verbetert. De zes kernbevindingen zijn consistent met vier jaar WUR-onderzoek.\"",
+        "methodBase": "Methodologie: opname-efficiëntie = (gietwater − drain) / gietwater × 100%",
+        "methodExclusion": "1 meting uitgesloten (apparaatstoring)",
+        "methodStrong": "Sterkste bewijs: Si, Zn, Cu (gietwater stabiel)",
+        "sourceFooter": "Eurofins Agro · 65 metingen · Van Gog Kwekerijen",
+        "cards": [
+          { "label": "Silicium opname verdubbeld", "sub": "gietwater stabiel" },
+          { "label": "Fosfor opname", "sub": "bij 45% hogere P-gift via gietwater" },
+          { "label": "Molybdeen in oud plantsap", "sub": "direct bewijs ALL12® · bij lagere Mo-gift" },
+          { "label": "IJzer in jong plantsap", "sub": "+17% Fe · sterkere celactiviteit" },
+          { "label": "Zink in oud plantsap", "sub": "+46% Zn · stabiele accumulatie" },
+          { "label": "Selectieve ionen-exclusie", "sub": "Na −42% · Cl −46% in jong blad" }
+        ]
+      },
       "s-samenvatting": {
         "badge": "Samenvatting",
         "title": "CONCLUSIE",
-        "p1": "De bovenstaande resultaten zijn gebaseerd op 65 onafhankelijke laboratoriummetingen uitgevoerd tussen september 2025 en februari 2026 bij Van Gog Kwekerijen (Kas 3, Helmond). Op 12 december 2025 werd overgeschakeld naar PlantiPower, waarna een before/after vergelijking is gemaakt op basis van gietwater-, drainwater- en plantsapanalyses.",
-        "p2": "De resultaten laten zien dat de nutriëntopname van komkommerplanten onder gebruik van PlantiPower meetbaar verbetert. In meerdere elementen wordt een duidelijke stijging in opname-efficiëntie zichtbaar, terwijl het gietwater stabiel bleef.",
+        "p1": "De bovenstaande resultaten zijn gebaseerd op 65 onafhankelijke laboratoriummetingen, uitgevoerd door Eurofins Agro Wageningen bij Van Gog Kwekerijen in Helmond. De dataset omvat gietwater-, drainwater- en plantsapanalyses van komkommerplanten geteeld op steenwolsubstraat.",
+        "p2": "De resultaten laten zien dat de nutriëntopname van komkommerplanten meetbaar verbetert bij gebruik van PlantiPower. Bij meerdere elementen is een sterke stijging in opname-efficiëntie zichtbaar, terwijl het gietwater voor deze elementen stabiel bleef.",
         "p3": "De dataset van Van Gog Kwekerijen biedt daarmee sterk praktijkbewijs voor de werking van PlantiPower's ALL12® Technology.",
         "btnDownload": "Volledig rapport aanvragen"
       },

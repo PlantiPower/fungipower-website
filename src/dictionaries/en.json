@@ -274,15 +274,17 @@
     "importantInstructions": "Important instructions"
   },
   "Cucumbers": {
-    "metaTitle": "Validated Crop Optimization | PlantiPower",
+    "metaTitle": "Validated Crop Optimization",
     "metaDesc": "Practical research results at Van Gog Kwekerijen. Independently validated by Eurofins Agro.",
     "sections": {
       "s1": {
         "badge": "Validated Research",
         "title": "VALIDATED",
         "titleAccent": "CROP OPTIMIZATION",
-        "desc": "This report presents the results of a practical trial with PlantiPower at Van Gog Kwekerijen CV. The dataset includes 65 independent laboratory measurements by Eurofins Agro Wageningen over the period September 2025 to February 2026.",
-        "footer": "PlantiPower_PracticalResults_2026"
+        "desc": "This report presents the results of a practical trial with PlantiPower at Van Gog Kwekerijen CV. The dataset includes 65 independent laboratory measurements by Eurofins Agro Wageningen.",
+        "footer": "PlantiPower_PracticalResults_2026",
+        "labMeasurements": "65 laboratory measurements",
+        "footerMeasurements": "65 independent laboratory measurements"
       },
       "s2": {
         "title": "PLANT WITH NODES",
@@ -322,24 +324,42 @@
       "s3": {
         "title": "ROOTS",
         "nodes": {
-          "iron": {
-            "label": "+243% iron available",
-            "desc": "Fe in the drain increased from 20 to 69 µmol/l.",
-            "footer": "PlantiPower_PracticalResults_2026"
-          },
-          "zinc": {
-            "label": "+46% zinc available",
-            "desc": "Zinc in the drain increased from 5.6 to 8.1 µmol/l.",
-            "footer": "PlantiPower_PracticalResults_2026"
-          },
           "mobilization": {
             "label": "Nutrient mobilization",
-            "desc": "Fulvic acids can mobilize nutrients that are bound to the substrate.",
+            "desc": "Modified fulvic acids mobilize bound nutrients in the substrate, making them available to the root.",
+            "footer": "PlantiPower_PracticalResults_2026"
+          },
+          "uptake": {
+            "label": "Enhanced root uptake",
+            "desc": "Silicon strengthens root cell walls, promoting selective nutrient uptake.",
+            "footer": "PlantiPower_PracticalResults_2026"
+          },
+          "rhizosphere": {
+            "label": "Rhizosphere activation",
+            "desc": "PlantiPower stimulates microbial activity around the root, increasing availability of phosphate and trace elements.",
             "footer": "PlantiPower_PracticalResults_2026"
           }
         }
       },
       "s4": {
+        "title": "INDEPENDENTLY",
+        "titleAccent": "MEASURED",
+        "desc": "Irrigation water, drain water and plant sap are sampled simultaneously. Three data points per measurement — this is how we calculate exactly how much the plant absorbs.",
+        "footer": "PlantiPower_PracticalResults_2026",
+        "nodes": {
+          "iron": {
+            "label": "65 independent measurements",
+            "desc": "Irrigation water, drain water and plant sap sampled simultaneously — three data points per measurement, conducted by Eurofins Agro Wageningen.",
+            "footer": "PlantiPower_PracticalResults_2026"
+          },
+          "zinc": {
+            "label": "Uptake efficiency calculated",
+            "desc": "How much does the plant absorb? (irrigation − drain) ÷ irrigation × 100%. This is how we measure the difference PlantiPower makes.",
+            "footer": "PlantiPower_PracticalResults_2026"
+          }
+        }
+      },
+      "s5": {
         "title": "CUCUMBER",
         "nodes": {
           "brix": {
@@ -364,7 +384,7 @@
           }
         }
       },
-      "s5": {
+      "s6": {
         "title": "ALL12®",
         "titleAccent": "TECHNOLOGY",
         "desc": "PlantiPower is a nutrient transporter based on modified fulvic acids. While standard fulvic acid products transport three to four elements, PlantiPower transports all twelve essential nutrients directly to the roots.",
@@ -384,7 +404,34 @@
           "Fe"
         ]
       },
-      "s6": {
+      "s-rapport": {
+        "sourceBadge": "Van Gog Kwekerijen CV · Helmond",
+        "title": "Field",
+        "titleHighlight": "Results",
+        "desc": "65 independent laboratory measurements · irrigation water, drain water, and plant sap analyses",
+        "quote": "\"The dataset from Van Gog Kwekerijen provides convincing evidence that PlantiPower's ALL12® Technology measurably improves nutrient uptake in cucumber plants. The six key findings are consistent with four years of WUR research.\"",
+        "methodBase": "Methodology: uptake efficiency = (irrigation − drain) / irrigation × 100%",
+        "methodExclusion": "1 measurement excluded (equipment malfunction)",
+        "methodStrong": "Strongest evidence: Si, Zn, Cu (irrigation water stable)",
+        "sourceFooter": "Eurofins Agro · 65 measurements · Van Gog Kwekerijen",
+        "cards": [
+          { "label": "Silicon uptake doubled", "sub": "irrigation water stable" },
+          { "label": "Phosphorus uptake", "sub": "with 45% higher P input via irrigation" },
+          { "label": "Molybdenum in old plant sap", "sub": "direct proof ALL12® · with lower Mo input" },
+          { "label": "Iron in young plant sap", "sub": "+17% Fe · stronger cell activity" },
+          { "label": "Zinc in old plant sap", "sub": "+46% Zn · stable accumulation" },
+          { "label": "Selective ion exclusion", "sub": "Na −42% · Cl −46% in young leaves" }
+        ]
+      },
+      "s-samenvatting": {
+        "badge": "Summary",
+        "title": "CONCLUSION",
+        "p1": "The above results are based on 65 independent laboratory measurements conducted by Eurofins Agro Wageningen at Van Gog Kwekerijen in Helmond, the Netherlands. The dataset includes irrigation water, drain water, and plant sap analyses of cucumber plants grown on rockwool substrate.",
+        "p2": "The results demonstrate that nutrient uptake in cucumber plants measurably improves when using PlantiPower. Multiple elements show a significant increase in uptake efficiency, while irrigation water input for these elements remained stable.",
+        "p3": "The dataset of Van Gog Kwekerijen provides strong practical evidence for the efficacy of PlantiPower's ALL12® Technology.",
+        "btnDownload": "Request the complete report"
+      },
+      "s7": {
         "title": "RESULTS",
         "titleAccent": "IN HAND",
         "desc": "Ready for the next step in crop optimization? Start today with PlantiPower ALL12 and experience the difference in uptake and yield.",

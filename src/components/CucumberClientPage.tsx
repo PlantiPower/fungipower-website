@@ -45,7 +45,7 @@ function CountUp({ to, from = 0, suffix = '', prefix = '', duration = 1.8, delay
     return <span ref={ref}>{prefix}{val}{suffix}</span>
 }
 
-function ScrollButton({ targetId, bottom = 'bottom-[50px]' }: { targetId: string, bottom?: string }) {
+function ScrollButton({ targetId, bottom = 'bottom-[50px]', label = 'Verder' }: { targetId: string, bottom?: string, label?: string }) {
     return (
         <button
             onClick={() => {
@@ -62,7 +62,7 @@ function ScrollButton({ targetId, bottom = 'bottom-[50px]' }: { targetId: string
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                 className="flex flex-col items-center gap-1"
             >
-                <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-outfit font-bold">Verder</span>
+                <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-outfit font-bold">{label}</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-lime-400/70">
                     <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -80,6 +80,7 @@ export default function CucumberClientPage({
     lang: Locale,
     t: any
 }) {
+    const nextLabel = lang === 'de' ? 'Weiter' : lang === 'en' ? 'Continue' : 'Verder'
     const [expandedDrainCard, setExpandedDrainCard] = useState<string | null>(null)
     const drainContainerRef = useRef<HTMLDivElement>(null)
     const ironCardRef = useRef<HTMLDivElement>(null)
@@ -108,7 +109,7 @@ export default function CucumberClientPage({
                             <img src="/images/eurofins_WHITE_nobg.png" alt="Eurofins Agro"
                                 className="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-80" />
                             <div className="hidden md:block w-px h-5 bg-white/20" />
-                            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.25em] text-white/60 uppercase">65 laboratoriummetingen</span>
+                            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.25em] text-white/60 uppercase">{t.sections?.s1?.labMeasurements || '65 laboratoriummetingen'}</span>
                             <div className="hidden md:block w-px h-5 bg-white/20" />
                             <img src="/images/vangog-logo.png" alt="Van Gog Kwekerijen"
                                 className="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-65" />
@@ -126,16 +127,14 @@ export default function CucumberClientPage({
                         </p>
                     </div>
 
-                    <ScrollButton targetId="s2" bottom="bottom-[50px]" />
+                    <ScrollButton targetId="s2" bottom="bottom-[50px]" label={nextLabel} />
 
                     {/* Bronvermelding — volle breedte, bodem sectie 1 */}
                     <div className="absolute bottom-0 inset-x-0 z-30 py-2 px-6">
                         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-0.5 text-[8px] md:text-[9px] text-white/70 uppercase tracking-[0.2em] font-medium">
                             <span>Eurofins Agro Wageningen</span>
                             <span className="text-white/30">|</span>
-                            <span>65 onafhankelijke laboratoriummetingen</span>
-                            <span className="text-white/30">|</span>
-                            <span>sept 2025 – feb 2026</span>
+                            <span>{t.sections?.s1?.footerMeasurements || '65 onafhankelijke laboratoriummetingen'}</span>
                             <span className="text-white/30">|</span>
                             <span>Van Gog Kwekerijen</span>
                         </div>
@@ -154,7 +153,7 @@ export default function CucumberClientPage({
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
                         Plant Results
                     </div>
-                    <ScrollButton targetId="s3" />
+                    <ScrollButton targetId="s3" label={nextLabel} />
                 </section>
 
                 {/* SECTION 3: ROOTS (NODES) */}
@@ -169,7 +168,7 @@ export default function CucumberClientPage({
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
                         Root System
                     </div>
-                    <ScrollButton targetId="s4" />
+                    <ScrollButton targetId="s4" label={nextLabel} />
                 </section>
 
                 {/* SECTION 4: DRAIN */}
@@ -447,7 +446,7 @@ export default function CucumberClientPage({
 
                     {/* Bottom fade — hides section edge on mobile */}
                     <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black to-transparent pointer-events-none z-20 md:hidden" />
-                    <ScrollButton targetId="s5" />
+                    <ScrollButton targetId="s5" label={nextLabel} />
                 </section>
 
                 {/* SECTION 5: CUCUMBER (NODES) */}
@@ -458,7 +457,7 @@ export default function CucumberClientPage({
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/[0.02] pointer-events-none select-none uppercase tracking-tighter hidden md:block">
                         Fruit Data
                     </div>
-                    <ScrollButton targetId="s-rapport" />
+                    <ScrollButton targetId="s-rapport" label={nextLabel} />
                 </section>
 
                 {/* SECTION RAPPORT: VELDONDERZOEK SAMENVATTING */}
@@ -480,27 +479,27 @@ export default function CucumberClientPage({
                             {/* Source label */}
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="h-px w-8 bg-lime-400/40" />
-                                <span className="text-lime-400/60 text-[10px] font-black uppercase tracking-[0.3em] font-outfit">Van Gog Kwekerijen CV · Helmond · 2025–2026</span>
+                                <span className="text-lime-400/60 text-[10px] font-black uppercase tracking-[0.3em] font-outfit">{t.sections?.['s-rapport']?.sourceBadge || 'Van Gog Kwekerijen CV · Helmond'}</span>
                                 <div className="h-px flex-1 bg-lime-400/10" />
                             </div>
 
                             {/* Title */}
                             <h2 className="font-outfit font-black uppercase text-[34px] md:text-[52px] tracking-tight leading-none text-white mb-3">
-                                Praktijk<span className="text-lime-400">resultaten</span>
+                                {t.sections?.['s-rapport']?.title}<span className="text-lime-400">{t.sections?.['s-rapport']?.titleHighlight}</span>
                             </h2>
                             <p className="text-emerald-100/50 text-sm md:text-base font-light mb-8 max-w-2xl leading-relaxed">
-                                65 onafhankelijke laboratoriummetingen · september 2025 – februari 2026 · before/after vergelijking (Kas 3, switch 12 december 2025)
+                                {t.sections?.['s-rapport']?.desc}
                             </p>
 
                             {/* 6 Kernresultaten — mobile: 2-col CountUp grid */}
                             <div className="grid grid-cols-2 gap-3 mb-8 md:hidden">
                                 {[
-                                    { num: <><CountUp from={0} to={48} suffix="%" delay={0.2} />{' → '}<CountUp from={0} to={94} suffix="%" delay={0.2} /></>, label: 'Silicium opname verdubbeld', sub: 'gietwater stabiel', color: 'rgba(132,204,22,0.15)', border: 'rgba(132,204,22,0.3)', accent: '#84cc16' },
-                                    { num: <><CountUp from={0} to={11} suffix="%" delay={0.3} />{' → '}<CountUp from={0} to={86} suffix="%" delay={0.3} /></>, label: 'Fosfor opname', sub: 'bij 45% hogere P-gift via gietwater', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
-                                    { num: <CountUp from={0} to={88} prefix="+" suffix="%" delay={0.4} />, label: 'Molybdeen in oud plantsap', sub: 'direct bewijs ALL12® · bij lagere Mo-gift', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
-                                    { num: <CountUp from={0} to={243} prefix="+" suffix="%" delay={0.5} />, label: 'IJzer beschikbaarheid in drain', sub: '+17% in jong plantsap', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
-                                    { num: <CountUp from={0} to={46} prefix="+" suffix="%" delay={0.6} />, label: 'Zink beschikbaarheid', sub: '+46% in drain · +46% in oud plantsap', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
-                                    { num: <><CountUp from={0} to={42} prefix="−" suffix="%" delay={0.7} />{' / '}<CountUp from={0} to={46} prefix="−" suffix="%" delay={0.7} /></>, label: 'Selectieve ionen-exclusie', sub: 'Na −42% · Cl −46% in jong blad', color: 'rgba(99,102,241,0.08)', border: 'rgba(99,102,241,0.25)', accent: '#818cf8' },
+                                    { num: <><CountUp from={0} to={48} suffix="%" delay={0.2} />{' → '}<CountUp from={0} to={94} suffix="%" delay={0.2} /></>, label: t.sections?.['s-rapport']?.cards?.[0]?.label || 'Silicium opname verdubbeld', sub: t.sections?.['s-rapport']?.cards?.[0]?.sub || 'gietwater stabiel', color: 'rgba(132,204,22,0.15)', border: 'rgba(132,204,22,0.3)', accent: '#84cc16' },
+                                    { num: <><CountUp from={0} to={11} suffix="%" delay={0.3} />{' → '}<CountUp from={0} to={86} suffix="%" delay={0.3} /></>, label: t.sections?.['s-rapport']?.cards?.[1]?.label || 'Fosfor opname', sub: t.sections?.['s-rapport']?.cards?.[1]?.sub || 'bij 45% hogere P-gift via gietwater', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
+                                    { num: <CountUp from={0} to={88} prefix="+" suffix="%" delay={0.4} />, label: t.sections?.['s-rapport']?.cards?.[2]?.label || 'Molybdeen in oud plantsap', sub: t.sections?.['s-rapport']?.cards?.[2]?.sub || 'direct bewijs ALL12®', color: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.25)', accent: '#34d399' },
+                                    { num: <CountUp from={0} to={243} prefix="+" suffix="%" delay={0.5} />, label: t.sections?.['s-rapport']?.cards?.[3]?.label || 'IJzer beschikbaarheid in drain', sub: t.sections?.['s-rapport']?.cards?.[3]?.sub || '+17% in jong plantsap', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
+                                    { num: <CountUp from={0} to={46} prefix="+" suffix="%" delay={0.6} />, label: t.sections?.['s-rapport']?.cards?.[4]?.label || 'Zink beschikbaarheid', sub: t.sections?.['s-rapport']?.cards?.[4]?.sub || '+46% in drain', color: 'rgba(132,204,22,0.08)', border: 'rgba(132,204,22,0.2)', accent: '#84cc16' },
+                                    { num: <><CountUp from={0} to={42} prefix="−" suffix="%" delay={0.7} />{' / '}<CountUp from={0} to={46} prefix="−" suffix="%" delay={0.7} /></>, label: t.sections?.['s-rapport']?.cards?.[5]?.label || 'Selectieve ionen-exclusie', sub: t.sections?.['s-rapport']?.cards?.[5]?.sub || 'Na −42% · Cl −46% in jong blad', color: 'rgba(99,102,241,0.08)', border: 'rgba(99,102,241,0.25)', accent: '#818cf8' },
                                 ].map((item, i) => (
                                     <div key={i} className="rounded-2xl px-4 py-3.5 flex flex-col gap-1.5" style={{ background: item.color, border: `1px solid ${item.border}` }}>
                                         <div className="font-mono font-black text-[18px] leading-none" style={{ color: item.accent }}>{item.num}</div>
@@ -524,21 +523,21 @@ export default function CucumberClientPage({
                                 className="border-l-2 border-lime-400/40 pl-5 mb-6"
                             >
                                 <p className="text-emerald-100/65 text-sm md:text-base leading-relaxed italic">
-                                    "De dataset van Van Gog Kwekerijen biedt overtuigend bewijs dat PlantiPower's ALL12® Technology de nutriëntopname van komkommerplanten meetbaar verbetert. De zes kernbevindingen zijn consistent met vier jaar WUR-onderzoek."
+                                    {t.sections?.['s-rapport']?.quote}
                                 </p>
                             </motion.div>
 
                             {/* Methodology footer */}
                             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] text-white/25 uppercase tracking-[0.15em] font-mono">
-                                <span>Methodologie: opname-efficiëntie = (gietwater − drain) / gietwater × 100%</span>
+                                <span>{t.sections?.['s-rapport']?.methodBase}</span>
                                 <span>·</span>
-                                <span>1 meting uitgesloten (9 feb 2026, apparaatstoring)</span>
+                                <span>{t.sections?.['s-rapport']?.methodExclusion}</span>
                                 <span>·</span>
-                                <span>Sterkste bewijs: Si, Zn, Cu (gietwater stabiel)</span>
+                                <span>{t.sections?.['s-rapport']?.methodStrong}</span>
                             </div>
                         </motion.div>
                     </div>
-                    <ScrollButton targetId="s-samenvatting" />
+                    <ScrollButton targetId="s-samenvatting" label={nextLabel} />
                 </section>
 
                 {/* SECTION SAMENVATTING: CONCLUSIE */}
@@ -591,11 +590,11 @@ export default function CucumberClientPage({
                                     </svg>
                                     {t.sections?.['s-samenvatting']?.btnDownload}
                                 </a>
-                                <span className="text-white/25 text-[11px] font-mono">Eurofins Agro · 65 metingen · Van Gog Kwekerijen</span>
+                                <span className="text-white/25 text-[11px] font-mono">{t.sections?.['s-rapport']?.sourceFooter}</span>
                             </div>
                         </motion.div>
                     </div>
-                    <ScrollButton targetId="s6" />
+                    <ScrollButton targetId="s6" label={nextLabel} />
                 </section>
 
                 {/* SECTION 6: ALL12® TECHNOLOGY */}
@@ -642,12 +641,12 @@ export default function CucumberClientPage({
                                     href={`/${lang}/contact`}
                                     className="px-10 py-5 bg-[#84cc16] text-[#0c0f0f] font-black uppercase tracking-widest text-sm rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105"
                                 >
-                                    Vraag het volledige rapport aan →
+                                    {t.sections?.['s-samenvatting']?.btnDownload || 'Vraag het volledige rapport aan'} →
                                 </a>
                             </div>
                         </motion.div>
                     </div>
-                    <ScrollButton targetId="s7" />
+                    <ScrollButton targetId="s7" label={nextLabel} />
                 </section>
 
                 {/* SECTION 7: PRODUCT CTA */}

@@ -56,7 +56,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ dict, lang }) => {
 
 
   return (
-    <section className="py-24 bg-transparent" id="contact">
+    <section className="py-24 bg-transparent snap-start snap-always" id="contact">
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-emerald-900/40 border border-white/10 rounded-[40px] p-8 md:p-16 text-white overflow-hidden relative backdrop-blur-xl shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-lime-500 rounded-full blur-[100px] opacity-10 -mr-32 -mt-32"></div>

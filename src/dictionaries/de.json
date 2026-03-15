@@ -274,15 +274,17 @@
     "importantInstructions": "Wichtige Anweisungen"
   },
   "Cucumbers": {
-    "metaTitle": "Validierte Anbauoptimierung | PlantiPower",
+    "metaTitle": "Validierte Anbauoptimierung",
     "metaDesc": "Ergebnisse aus der Praxis bei Van Gog Kwekerijen. Unabhängig validiert durch Eurofins Agro.",
     "sections": {
       "s1": {
         "badge": "Validierte Forschung",
         "title": "VALIDIERTE",
         "titleAccent": "ANBAUOPTIMIERUNG",
-        "desc": "Dieser Bericht präsentiert die Ergebnisse eines Praxisversuchs mit PlantiPower bei Van Gog Kwekerijen CV. Der Datensatz umfasst 65 unabhängige Labormessungen von Eurofins Agro Wageningen im Zeitraum von September 2025 bis Februar 2026.",
-        "footer": "PlantiPower_Praxisresultate_2026"
+        "desc": "Dieser Bericht präsentiert die Ergebnisse eines Praxisversuchs mit PlantiPower bei Van Gog Kwekerijen CV. Der Datensatz umfasst 65 unabhängige Labormessungen von Eurofins Agro Wageningen.",
+        "footer": "PlantiPower_Praxisresultate_2026",
+        "labMeasurements": "65 Labormessungen",
+        "footerMeasurements": "65 unabhängige Labormessungen"
       },
       "s2": {
         "title": "PFLANZE MIT NODES",
@@ -322,24 +324,42 @@
       "s3": {
         "title": "WURZELN",
         "nodes": {
-          "iron": {
-            "label": "+243 % Eisen verfügbar",
-            "desc": "Fe im Drain stieg von 20 auf 69 µmol/l.",
-            "footer": "PlantiPower_Praxisresultate_2026"
-          },
-          "zinc": {
-            "label": "+46 % Zink verfügbar",
-            "desc": "Zink im Drain stieg von 5,6 auf 8,1 µmol/l.",
-            "footer": "PlantiPower_Praxisresultate_2026"
-          },
           "mobilization": {
             "label": "Nährstoffmobilisierung",
-            "desc": "Fulvinsäuren können Nährstoffe mobilisieren, die an das Substrat gebunden sind.",
+            "desc": "Modifizierte Fulvinsäuren mobilisieren gebundene Nährstoffe im Substrat und machen sie der Wurzel verfügbar.",
+            "footer": "PlantiPower_Praxisresultate_2026"
+          },
+          "uptake": {
+            "label": "Verbesserte Wurzelaufnahme",
+            "desc": "Silizium stärkt die Zellwände der Wurzel und fördert die selektive Nährstoffaufnahme.",
+            "footer": "PlantiPower_Praxisresultate_2026"
+          },
+          "rhizosphere": {
+            "label": "Rhizosphären-Aktivierung",
+            "desc": "PlantiPower stimuliert die mikrobielle Aktivität um die Wurzel und erhöht die Verfügbarkeit von Phosphat und Spurenelementen.",
             "footer": "PlantiPower_Praxisresultate_2026"
           }
         }
       },
       "s4": {
+        "title": "UNABHÄNGIG",
+        "titleAccent": "GEMESSEN",
+        "desc": "Gießwasser, Drainwasser und Pflanzensaft werden gleichzeitig beprobt. Drei Datenpunkte pro Messung — so berechnen wir genau, wie viel die Pflanze aufnimmt.",
+        "footer": "PlantiPower_Praxisresultate_2026",
+        "nodes": {
+          "iron": {
+            "label": "65 unabhängige Messungen",
+            "desc": "Gießwasser, Drainwasser und Pflanzensaft gleichzeitig beprobt — drei Datenpunkte pro Messung, durchgeführt von Eurofins Agro Wageningen.",
+            "footer": "PlantiPower_Praxisresultate_2026"
+          },
+          "zinc": {
+            "label": "Aufnahmeeffizienz berechnet",
+            "desc": "Wie viel nimmt die Pflanze auf? (Gießwasser − Drain) ÷ Gießwasser × 100%. So messen wir den Unterschied, den PlantiPower macht.",
+            "footer": "PlantiPower_Praxisresultate_2026"
+          }
+        }
+      },
+      "s5": {
         "title": "GURKE",
         "nodes": {
           "brix": {
@@ -364,7 +384,7 @@
           }
         }
       },
-      "s5": {
+      "s6": {
         "title": "ALL12®",
         "titleAccent": "TECHNOLOGIE",
         "desc": "PlantiPower ist ein Nährstofftransporter auf Basis modifizierter Fulvinsäuren. Während Standard-Fulvinsäureprodukte drei bis vier Elemente transportieren, transportiert PlantiPower alle zwölf essenziellen Nährstoffe direkt zu den Wurzeln.",
@@ -384,7 +404,34 @@
           "Fe"
         ]
       },
-      "s6": {
+      "s-rapport": {
+        "sourceBadge": "Van Gog Kwekerijen CV · Helmond",
+        "title": "Praxis",
+        "titleHighlight": "ergebnisse",
+        "desc": "65 unabhängige Labormessungen · Gießwasser-, Drainwasser- und Pflanzensaftanalysen",
+        "quote": "\"Der Datensatz von Van Gog Kwekerijen liefert überzeugende Belege dafür, dass PlantiPower's ALL12® Technologie die Nährstoffaufnahme von Gurkenpflanzen messbar verbessert. Die sechs Kernbefunde stimmen mit vier Jahren WUR-Forschung überein.\"",
+        "methodBase": "Methodik: Aufnahmeeffizienz = (Gießwasser − Drain) / Gießwasser × 100%",
+        "methodExclusion": "1 Messung ausgeschlossen (Gerätefehler)",
+        "methodStrong": "Stärkste Belege: Si, Zn, Cu (Gießwasser stabil)",
+        "sourceFooter": "Eurofins Agro · 65 Messungen · Van Gog Kwekerijen",
+        "cards": [
+          { "label": "Siliziumaufnahme verdoppelt", "sub": "Gießwasser stabil" },
+          { "label": "Phosphoraufnahme", "sub": "bei 45% höherer P-Gabe über Gießwasser" },
+          { "label": "Molybdän im alten Pflanzensaft", "sub": "direkter Beweis ALL12® · bei niedrigerer Mo-Gabe" },
+          { "label": "Eisen im jungen Pflanzensaft", "sub": "+17% Fe · stärkere Zellaktivität" },
+          { "label": "Zink im alten Pflanzensaft", "sub": "+46% Zn · stabile Akkumulation" },
+          { "label": "Selektive Ionen-Exklusion", "sub": "Na −42% · Cl −46% in jungen Blättern" }
+        ]
+      },
+      "s-samenvatting": {
+        "badge": "Zusammenfassung",
+        "title": "FAZIT",
+        "p1": "Die oben genannten Ergebnisse basieren auf 65 unabhängigen Labormessungen, durchgeführt von Eurofins Agro Wageningen bei Van Gog Kwekerijen in Helmond, Niederlande. Der Datensatz umfasst Gießwasser-, Drainwasser- und Pflanzensaftanalysen von Gurkenpflanzen, die auf Steinwollsubstrat angebaut wurden.",
+        "p2": "Die Ergebnisse zeigen, dass die Nährstoffaufnahme von Gurkenpflanzen bei Verwendung von PlantiPower messbar verbessert wird. Bei mehreren Elementen ist eine deutliche Steigerung der Aufnahmeeffizienz sichtbar, während die Gießwasserzufuhr für diese Elemente stabil blieb.",
+        "p3": "Der Datensatz von Van Gog Kwekerijen liefert starke Praxisbelege für die Wirksamkeit der ALL12® Technologie von PlantiPower.",
+        "btnDownload": "Vollständigen Bericht anfordern"
+      },
+      "s7": {
         "title": "ERGEBNIS",
         "titleAccent": "IN DER HAND",
         "desc": "Bereit für den nächsten Schritt in der Anbauoptimierung? Starten Sie noch heute mit PlantiPower ALL12 und erleben Sie den Unterschied in Aufnahme und Ertrag.",
