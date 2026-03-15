@@ -144,8 +144,8 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
                 {card.label}
             </div>
             <div style={{
-                color: 'rgba(255,255,255,0.32)',
-                fontSize: 10,
+                color: 'rgba(255,255,255,0.42)',
+                fontSize: 12,
                 lineHeight: 1.5,
                 fontFamily: "'Outfit', system-ui, sans-serif",
             }}>
@@ -185,7 +185,12 @@ export default function PraktijkresultatenAnimation() {
 
     useEffect(() => {
         const wrapper = wrapperRef.current
+        const player = playerRef.current
         if (!wrapper) return
+
+        // Freeze at last frame when animation ends
+        const onEnded = () => { playerRef.current?.seekTo(DURATION - 1) }
+        player?.addEventListener('ended', onEnded)
 
         // Use the snap container (main) as root so IntersectionObserver
         // correctly detects when this section scrolls into view
@@ -202,7 +207,10 @@ export default function PraktijkresultatenAnimation() {
         )
 
         observer.observe(wrapper)
-        return () => observer.disconnect()
+        return () => {
+            observer.disconnect()
+            player?.removeEventListener('ended', onEnded)
+        }
     }, [])
 
     // compositionWidth/compositionHeight: 900×284 (aspect ≈ 3.17)
@@ -228,8 +236,6 @@ export default function PraktijkresultatenAnimation() {
                         // Start at last frame so static end-state is visible before play
                         initialFrame={DURATION - 1}
                         spaceKeyToPlayOrPause={false}
-                        // Freeze on last frame when done
-                        onEnded={() => playerRef.current?.seekTo(DURATION - 1)}
                     />
                 </div>
             </div>
