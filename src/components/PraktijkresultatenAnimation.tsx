@@ -382,8 +382,8 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
 
             {/* Sub */}
             <div style={{
-                color: 'rgba(255,255,255,0.22)',
-                fontSize: 8,
+                color: 'rgba(255,255,255,0.85)',
+                fontSize: 10,
                 lineHeight: 1.4,
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 letterSpacing: '0.01em',
