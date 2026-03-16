@@ -165,8 +165,8 @@ function RootVisual({ progress, accent }: { progress: number; accent: string }) 
 
 // ─── Visual 3: Leaf deepens in color (Molybdeen +88%) ────────────────────────
 function LeafVisual({ progress, accent }: { progress: number; accent: string }) {
-    const W = 240, H = 36
-    const cx = W / 2, cy = H / 2 + 2
+    const W = 240, H = 44
+    const cx = W / 2, cy = H / 2
     // Leaf opacity/saturation increases with progress
     const baseGreen = `rgba(132,204,22,${0.15 + progress * 0.55})`
     const strokeGreen = `rgba(132,204,22,${0.3 + progress * 0.5})`
@@ -248,77 +248,56 @@ function CellVisual({ progress, accent }: { progress: number; accent: string }) 
     )
 }
 
-// ─── Visual 5: Membrane blocks Na/Cl (Ionen −42%/−46%) ───────────────────────
-function MembraneVisual({ progress, accent }: { progress: number; accent: string }) {
-    const W = 240, H = 36
-    const memX = W / 2
-    const cy = H / 2
-    // Particles: Na from right, Cl from left — slow down and stop near membrane
-    const naParticles  = [{ y: cy - 6, delay: 0 }, { y: cy + 6, delay: 0.25 }, { y: cy,     delay: 0.5 }]
-    const clParticles  = [{ y: cy - 5, delay: 0.1 }, { y: cy + 5, delay: 0.35 }, { y: cy - 1, delay: 0.6 }]
-    const stopDist = 18 // stop this far from membrane
+// ─── Visual 5: Na/Cl downward arrows with values ─────────────────────────────
+function MembraneVisual({ progress }: { progress: number; accent: string }) {
+    const W = 240, H = 52
+    const naX = W * 0.28
+    const clX = W * 0.72
+    // Arrow shaft grows downward
+    const arrowH = easeOutCubic(Math.min(1, progress * 1.2)) * 28
+    const labelOpacity = Math.min(1, progress * 2)
+    const valueOpacity = Math.min(1, Math.max(0, (progress - 0.3) * 2))
 
     return (
         <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
-            {/* Membrane line */}
-            <line x1={memX} y1={4} x2={memX} y2={H - 4}
-                stroke={`${accent}50`} strokeWidth={1.5} strokeLinecap="round"
-                strokeDasharray="3,3" />
-            {/* Membrane label */}
-            <text x={memX} y={H - 1} textAnchor="middle"
-                fill={`${accent}33`} fontSize={6} fontFamily="Outfit,sans-serif">membraan</text>
+            {/* Na⁺ column */}
+            <text x={naX} y={10} textAnchor="middle"
+                fill={`rgba(248,113,113,${labelOpacity})`} fontSize={9}
+                fontWeight={800} fontFamily="Outfit,sans-serif">Na⁺</text>
+            {/* Arrow shaft */}
+            <line x1={naX} y1={14} x2={naX} y2={14 + arrowH}
+                stroke={`rgba(248,113,113,0.7)`} strokeWidth={2} strokeLinecap="round" />
+            {/* Arrow head */}
+            {arrowH > 4 && <>
+                <line x1={naX - 5} y1={14 + arrowH - 6} x2={naX} y2={14 + arrowH}
+                    stroke={`rgba(248,113,113,0.7)`} strokeWidth={2} strokeLinecap="round" />
+                <line x1={naX + 5} y1={14 + arrowH - 6} x2={naX} y2={14 + arrowH}
+                    stroke={`rgba(248,113,113,0.7)`} strokeWidth={2} strokeLinecap="round" />
+            </>}
+            {/* Value */}
+            <text x={naX} y={H - 2} textAnchor="middle"
+                fill={`rgba(248,113,113,${valueOpacity})`} fontSize={11}
+                fontWeight={900} fontFamily="Outfit,sans-serif">−42%</text>
 
-            {/* Na particles (from right → moving left, stopped by membrane) */}
-            {naParticles.map((p, i) => {
-                const pp = Math.max(0, (progress - p.delay / 2) / (1 - p.delay / 2))
-                const startX = W - 14
-                const travelMax = W - 14 - memX - stopDist
-                // Decelerate as approaching membrane
-                const traveled = travelMax * easeOutCubic(Math.min(1, pp * 1.4))
-                const x = startX - traveled
-                const blocked = x < memX + stopDist + 6
-                return (
-                    <g key={i}>
-                        <circle cx={x} cy={p.y} r={5}
-                            fill={`rgba(248,113,113,${pp * 0.18})`}
-                            stroke={`rgba(248,113,113,${pp * 0.5})`} strokeWidth={0.8} />
-                        <text x={x} y={p.y + 3} textAnchor="middle"
-                            fill={`rgba(255,180,180,${pp * 0.85})`} fontSize={6}
-                            fontWeight={800} fontFamily="Outfit,sans-serif">Na</text>
-                        {/* X marker when blocked */}
-                        {blocked && pp > 0.6 && (
-                            <text x={x} y={p.y - 7} textAnchor="middle"
-                                fill={`rgba(248,113,113,${(pp - 0.6) * 2})`}
-                                fontSize={7} fontWeight={900} fontFamily="Outfit,sans-serif">×</text>
-                        )}
-                    </g>
-                )
-            })}
+            {/* Divider */}
+            <line x1={W / 2} y1={8} x2={W / 2} y2={H - 8}
+                stroke={`rgba(255,255,255,0.08)`} strokeWidth={1} />
 
-            {/* Cl particles (from left → moving right, stopped by membrane) */}
-            {clParticles.map((p, i) => {
-                const pp = Math.max(0, (progress - p.delay / 2) / (1 - p.delay / 2))
-                const startX = 14
-                const travelMax = memX - stopDist - 14
-                const traveled = travelMax * easeOutCubic(Math.min(1, pp * 1.4))
-                const x = startX + traveled
-                const blocked = x > memX - stopDist - 6
-                return (
-                    <g key={i}>
-                        <circle cx={x} cy={p.y} r={5}
-                            fill={`rgba(251,146,60,${pp * 0.18})`}
-                            stroke={`rgba(251,146,60,${pp * 0.5})`} strokeWidth={0.8} />
-                        <text x={x} y={p.y + 3} textAnchor="middle"
-                            fill={`rgba(255,200,150,${pp * 0.85})`} fontSize={6}
-                            fontWeight={800} fontFamily="Outfit,sans-serif">Cl</text>
-                        {blocked && pp > 0.6 && (
-                            <text x={x} y={p.y - 7} textAnchor="middle"
-                                fill={`rgba(251,146,60,${(pp - 0.6) * 2})`}
-                                fontSize={7} fontWeight={900} fontFamily="Outfit,sans-serif">×</text>
-                        )}
-                    </g>
-                )
-            })}
+            {/* Cl⁻ column */}
+            <text x={clX} y={10} textAnchor="middle"
+                fill={`rgba(251,146,60,${labelOpacity})`} fontSize={9}
+                fontWeight={800} fontFamily="Outfit,sans-serif">Cl⁻</text>
+            <line x1={clX} y1={14} x2={clX} y2={14 + arrowH}
+                stroke={`rgba(251,146,60,0.7)`} strokeWidth={2} strokeLinecap="round" />
+            {arrowH > 4 && <>
+                <line x1={clX - 5} y1={14 + arrowH - 6} x2={clX} y2={14 + arrowH}
+                    stroke={`rgba(251,146,60,0.7)`} strokeWidth={2} strokeLinecap="round" />
+                <line x1={clX + 5} y1={14 + arrowH - 6} x2={clX} y2={14 + arrowH}
+                    stroke={`rgba(251,146,60,0.7)`} strokeWidth={2} strokeLinecap="round" />
+            </>}
+            <text x={clX} y={H - 2} textAnchor="middle"
+                fill={`rgba(251,146,60,${valueOpacity})`} fontSize={11}
+                fontWeight={900} fontFamily="Outfit,sans-serif">−46%</text>
         </svg>
     )
 }
