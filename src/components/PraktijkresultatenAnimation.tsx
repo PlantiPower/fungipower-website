@@ -3,8 +3,6 @@ import { Player, PlayerRef } from '@remotion/player'
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion'
 import { useRef, useEffect } from 'react'
 
-// ─── Card data ────────────────────────────────────────────────────────────────
-
 type CardData = {
     type: 'range' | 'single' | 'double'
     from1: number; to1: number
@@ -14,163 +12,290 @@ type CardData = {
     label: string; sub: string
     accent: string
     featured?: boolean
-    sparkFrom: string   // label shown bottom-left of sparkline
-    sparkTo: string     // label shown top-right of sparkline
+    visual: 'cucumber' | 'root' | 'leaf' | 'cell' | 'membrane'
 }
 
 const CARDS: CardData[] = [
     {
         type: 'range', from1: 0, to1: 48, from2: 0, to2: 94, suffix: '%',
         label: 'Silicium opname verdubbeld', sub: 'gietwater stabiel',
-        accent: '#84cc16', featured: true,
-        sparkFrom: '48%', sparkTo: '94%',
+        accent: '#84cc16', featured: true, visual: 'cucumber',
     },
     {
         type: 'range', from1: 0, to1: 11, from2: 0, to2: 86, suffix: '%',
         label: 'Fosfor opname', sub: 'bij 45% hogere P-gift via gietwater',
-        accent: '#84cc16',
-        sparkFrom: '11%', sparkTo: '86%',
+        accent: '#84cc16', visual: 'root',
     },
     {
         type: 'single', prefix1: '+', from1: 0, to1: 88, suffix: '%',
         label: 'Molybdeen in oud plantsap', sub: 'direct bewijs ALL12® · bij lagere Mo-gift',
-        accent: '#84cc16',
-        sparkFrom: '0%', sparkTo: '+88%',
+        accent: '#84cc16', visual: 'leaf',
     },
     {
         type: 'single', prefix1: '+', from1: 0, to1: 46, suffix: '%',
         label: 'Zink in oud plantsap', sub: 'Zn · stabiele accumulatie',
-        accent: '#84cc16',
-        sparkFrom: '0%', sparkTo: '+46%',
+        accent: '#84cc16', visual: 'cell',
     },
     {
         type: 'double', prefix1: '−', from1: 0, to1: 42, prefix2: '−', from2: 0, to2: 46, suffix: '%',
         label: 'Selectieve ionen-exclusie', sub: 'Na −42% · Cl −46% in jong blad',
-        accent: '#ffffff',
-        sparkFrom: '0%', sparkTo: '−42%',
+        accent: '#ffffff', visual: 'membrane',
     },
 ]
 
-// Slow stagger — each card is a moment
 const CARD_STAGGER = 52
-const LABEL_HOLD = 12   // frames label is visible before counting starts
+const LABEL_HOLD = 12
 const COUNT_DURATION = 62
 
 function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3) }
-
 function countUp(frame: number, startFrame: number, from: number, to: number) {
     const t = Math.max(0, Math.min(1, (frame - startFrame - LABEL_HOLD) / COUNT_DURATION))
     return Math.round(from + (to - from) * easeOutCubic(t))
 }
 
-// ─── Sparkline — starts bottom-left, ends top-right ──────────────────────────
+// ─── Visual 1: Cucumber fills up (Silicium 48% → 94%) ────────────────────────
+function CucumberVisual({ progress, accent }: { progress: number; accent: string }) {
+    const W = 240, H = 30
+    const fillPct = 48 + progress * 46
+    const fillW = (fillPct / 100) * (W - 4)
+    return (
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none">
+            {/* Track */}
+            <rect x={2} y={4} width={W - 4} height={H - 8} rx={11}
+                fill={`${accent}0d`} stroke={`${accent}22`} strokeWidth={1} />
+            {/* Fill */}
+            <rect x={2} y={4} width={Math.max(0, fillW)} height={H - 8} rx={11}
+                fill={`${accent}30`} />
+            {/* Bright leading edge */}
+            {fillW > 10 && (
+                <rect x={fillW - 6} y={4} width={8} height={H - 8} rx={4}
+                    fill={`${accent}70`} />
+            )}
+            {/* Before label */}
+            <text x={8} y={H / 2 + 3.5} fill={`${accent}44`}
+                fontSize={7.5} fontWeight={700} fontFamily="Outfit,sans-serif">48%</text>
+            {/* Current value label */}
+            <text x={Math.min(fillW - 4, W - 30)} y={H / 2 + 3.5}
+                fill={accent} fontSize={8.5} fontWeight={900} fontFamily="Outfit,sans-serif"
+                textAnchor="end">
+                {Math.round(fillPct)}%
+            </text>
+            {/* After label (target) */}
+            <text x={W - 6} y={H / 2 + 3.5} fill={`${accent}33`}
+                fontSize={7.5} fontWeight={700} fontFamily="Outfit,sans-serif"
+                textAnchor="end">94%</text>
+        </svg>
+    )
+}
 
-function SparkLine({
-    sparkProgress, accent, type, sparkFrom, sparkTo,
-}: {
-    sparkProgress: number; accent: string; type: string; sparkFrom: string; sparkTo: string
-}) {
-    const W = 80, H = 38, N = 30
-    const PAD_X = 2, PAD_Y = 2
+// ─── Visual 2: Root network grows (Fosfor 11% → 86%) ─────────────────────────
+function RootVisual({ progress, accent }: { progress: number; accent: string }) {
+    const W = 240, H = 38
+    const cx = W / 2
+    // Branches: [angle, length, x offset from center]
+    const branches = [
+        { a: 100, l: 28, ox: -70 }, { a: 80,  l: 24, ox: -40 },
+        { a: 90,  l: 32, ox:   0 }, { a: 100, l: 24, ox:  40 },
+        { a: 80,  l: 28, ox:  70 }, { a: 110, l: 18, ox: -55 },
+        { a: 70,  l: 18, ox:  55 }, { a: 95,  l: 20, ox: -20 },
+        { a: 85,  l: 20, ox:  20 },
+    ]
+    const rootY = 6
+    return (
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMin meet">
+            {/* Main stem */}
+            <line x1={cx} y1={rootY} x2={cx} y2={rootY + progress * 10}
+                stroke={accent} strokeWidth={1.5} strokeLinecap="round" opacity={0.8} />
+            {/* Root branches */}
+            {branches.map((b, i) => {
+                const delay = i / branches.length
+                const p = Math.max(0, (progress - delay * 0.5) * 2)
+                const rad = (b.a * Math.PI) / 180
+                const bx = cx + b.ox
+                const by = rootY + 8
+                const ex = bx + Math.cos(rad) * b.l * Math.min(1, p)
+                const ey = by + Math.sin(rad) * b.l * Math.min(1, p)
+                return (
+                    <line key={i} x1={bx} y1={by} x2={ex} y2={ey}
+                        stroke={accent} strokeWidth={Math.max(0.5, 1.2 - i * 0.1)}
+                        strokeLinecap="round" opacity={0.5 + p * 0.4} />
+                )
+            })}
+            {/* Root tip dots */}
+            {branches.map((b, i) => {
+                const delay = i / branches.length
+                const p = Math.max(0, (progress - delay * 0.5) * 2)
+                const rad = (b.a * Math.PI) / 180
+                const bx = cx + b.ox
+                const by = rootY + 8
+                const ex = bx + Math.cos(rad) * b.l * Math.min(1, p)
+                const ey = by + Math.sin(rad) * b.l * Math.min(1, p)
+                return p > 0.3 ? (
+                    <circle key={i} cx={ex} cy={ey} r={1.5}
+                        fill={accent} opacity={0.6 * Math.min(1, p)} />
+                ) : null
+            })}
+        </svg>
+    )
+}
 
-    // For ionen-exclusie (double): descending line (Na/Cl going down = goal achieved)
-    // For all others: ascending curve from bottom-left to top-right
-    const allPts = Array.from({ length: N }, (_, i) => {
-        const t = i / (N - 1)
-        const x = PAD_X + t * (W - PAD_X * 2)
-        const y = type === 'double'
-            ? (H - PAD_Y) - t * (H - PAD_Y * 2)  // top to bottom (reduction = good)
-            : (H - PAD_Y) - Math.pow(t, 0.6) * (H - PAD_Y * 2)  // bottom to top (increase)
-        return { x, y }
-    })
+// ─── Visual 3: Leaf deepens in color (Molybdeen +88%) ────────────────────────
+function LeafVisual({ progress, accent }: { progress: number; accent: string }) {
+    const W = 240, H = 36
+    const cx = W / 2, cy = H / 2 + 2
+    // Leaf opacity/saturation increases with progress
+    const baseGreen = `rgba(132,204,22,${0.15 + progress * 0.55})`
+    const strokeGreen = `rgba(132,204,22,${0.3 + progress * 0.5})`
+    // Leaf path (teardrop pointing right)
+    const lw = 88, lh = 22
+    const path = `M ${cx - lw / 2} ${cy}
+        C ${cx - lw / 2} ${cy - lh * 1.1}, ${cx} ${cy - lh * 1.2}, ${cx + lw / 2} ${cy}
+        C ${cx} ${cy + lh * 1.2}, ${cx - lw / 2} ${cy + lh * 1.1}, ${cx - lw / 2} ${cy} Z`
+    // Midrib line
+    // Floating Mo particles
+    const particles = [
+        { x: cx - 20, y: cy - 5, delay: 0 },
+        { x: cx + 15, y: cy + 4, delay: 0.3 },
+        { x: cx - 5,  y: cy + 7, delay: 0.6 },
+        { x: cx + 30, y: cy - 6, delay: 0.15 },
+    ]
+    return (
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+            {/* Leaf shadow */}
+            <path d={path} fill={`rgba(132,204,22,0.05)`} transform="translate(2,2)" />
+            {/* Leaf body */}
+            <path d={path} fill={baseGreen} stroke={strokeGreen} strokeWidth={1} />
+            {/* Midrib */}
+            <line x1={cx - lw / 2 + 4} y1={cy} x2={cx + lw / 2 - 4} y2={cy}
+                stroke={`rgba(132,204,22,${0.3 + progress * 0.3})`} strokeWidth={0.8} />
+            {/* Mo particles */}
+            {particles.map((p, i) => {
+                const pp = Math.max(0, (progress - p.delay) / (1 - p.delay))
+                return pp > 0 ? (
+                    <g key={i}>
+                        <circle cx={p.x} cy={p.y - pp * 4} r={2.5}
+                            fill={`rgba(132,204,22,${pp * 0.7})`} />
+                        <text x={p.x} y={p.y - pp * 4 + 3.5} textAnchor="middle"
+                            fill={accent} fontSize={5} fontWeight={800}
+                            fontFamily="Outfit,sans-serif" opacity={pp * 0.9}>Mo</text>
+                    </g>
+                ) : null
+            })}
+        </svg>
+    )
+}
 
-    const visibleCount = Math.max(2, Math.round(sparkProgress * N))
-    const visiblePts = allPts.slice(0, visibleCount)
-    const toPoints = (pts: { x: number; y: number }[]) =>
-        pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')
+// ─── Visual 4: Cell fills up (Zink +46%) ────────────────────────────────────
+function CellVisual({ progress, accent }: { progress: number; accent: string }) {
+    const W = 240, H = 36
+    const cx = W / 2, cy = H / 2
+    const r = 14
+    // Fill level rises from bottom
+    const fillHeight = progress * r * 1.85
+    const clipY = cy + r - fillHeight
+    return (
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <clipPath id="cellClip">
+                    <rect x={cx - r} y={clipY} width={r * 2} height={fillHeight + 2} />
+                </clipPath>
+            </defs>
+            {/* Cell outline */}
+            <circle cx={cx} cy={cy} r={r}
+                fill={`${accent}08`} stroke={`${accent}30`} strokeWidth={1} />
+            {/* Cell fill */}
+            <circle cx={cx} cy={cy} r={r - 1}
+                fill={`${accent}30`} clipPath="url(#cellClip)" />
+            {/* Zn labels floating up */}
+            {[cx - 28, cx + 28, cx - 50, cx + 50].map((x, i) => {
+                const delay = i * 0.2
+                const pp = Math.max(0, (progress - delay) / (1 - delay))
+                return pp > 0.1 ? (
+                    <text key={i} x={x} y={cy + 4 - pp * 8}
+                        fill={accent} fontSize={6.5} fontWeight={800}
+                        fontFamily="Outfit,sans-serif" opacity={pp * 0.65}
+                        textAnchor="middle">Zn</text>
+                ) : null
+            })}
+            {/* Nucleus (inner circle) */}
+            <circle cx={cx} cy={cy} r={4}
+                fill={`${accent}18`} stroke={`${accent}40`} strokeWidth={0.8} />
+        </svg>
+    )
+}
 
-    const last = visiblePts[visiblePts.length - 1]
-    const startPt = allPts[0]
-    const endPt = allPts[N - 1]
-
-    // Tiny fill under the curve for depth
-    const fillPath = visiblePts.length > 1
-        ? `M ${visiblePts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' L ')} L ${last.x.toFixed(1)},${(H - PAD_Y).toFixed(1)} L ${startPt.x.toFixed(1)},${(H - PAD_Y).toFixed(1)} Z`
-        : ''
+// ─── Visual 5: Membrane blocks Na/Cl (Ionen −42%/−46%) ───────────────────────
+function MembraneVisual({ progress, accent }: { progress: number; accent: string }) {
+    const W = 240, H = 36
+    const memX = W / 2
+    const cy = H / 2
+    // Particles: Na from right, Cl from left — slow down and stop near membrane
+    const naParticles  = [{ y: cy - 6, delay: 0 }, { y: cy + 6, delay: 0.25 }, { y: cy,     delay: 0.5 }]
+    const clParticles  = [{ y: cy - 5, delay: 0.1 }, { y: cy + 5, delay: 0.35 }, { y: cy - 1, delay: 0.6 }]
+    const stopDist = 18 // stop this far from membrane
 
     return (
-        <div style={{ position: 'relative', flexShrink: 0 }}>
-            <svg width={W} height={H} style={{ display: 'block', overflow: 'visible' }}>
-                {/* Bottom axis line */}
-                <line x1={PAD_X} y1={H - PAD_Y} x2={W - PAD_X} y2={H - PAD_Y}
-                    stroke={`${accent}18`} strokeWidth={1} />
+        <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+            {/* Membrane line */}
+            <line x1={memX} y1={4} x2={memX} y2={H - 4}
+                stroke={`${accent}50`} strokeWidth={1.5} strokeLinecap="round"
+                strokeDasharray="3,3" />
+            {/* Membrane label */}
+            <text x={memX} y={H - 1} textAnchor="middle"
+                fill={`${accent}33`} fontSize={6} fontFamily="Outfit,sans-serif">membraan</text>
 
-                {/* Fill under curve */}
-                {sparkProgress > 0.1 && fillPath && (
-                    <path d={fillPath} fill={`${accent}0a`} />
-                )}
+            {/* Na particles (from right → moving left, stopped by membrane) */}
+            {naParticles.map((p, i) => {
+                const pp = Math.max(0, (progress - p.delay / 2) / (1 - p.delay / 2))
+                const startX = W - 14
+                const travelMax = W - 14 - memX - stopDist
+                // Decelerate as approaching membrane
+                const traveled = travelMax * easeOutCubic(Math.min(1, pp * 1.4))
+                const x = startX - traveled
+                const blocked = x < memX + stopDist + 6
+                return (
+                    <g key={i}>
+                        <circle cx={x} cy={p.y} r={5}
+                            fill={`rgba(248,113,113,${pp * 0.18})`}
+                            stroke={`rgba(248,113,113,${pp * 0.5})`} strokeWidth={0.8} />
+                        <text x={x} y={p.y + 3} textAnchor="middle"
+                            fill={`rgba(255,180,180,${pp * 0.85})`} fontSize={6}
+                            fontWeight={800} fontFamily="Outfit,sans-serif">Na</text>
+                        {/* X marker when blocked */}
+                        {blocked && pp > 0.6 && (
+                            <text x={x} y={p.y - 7} textAnchor="middle"
+                                fill={`rgba(248,113,113,${(pp - 0.6) * 2})`}
+                                fontSize={7} fontWeight={900} fontFamily="Outfit,sans-serif">×</text>
+                        )}
+                    </g>
+                )
+            })}
 
-                {/* Ghost track */}
-                <polyline points={toPoints(allPts)} fill="none"
-                    stroke={`${accent}14`} strokeWidth={1.5}
-                    strokeLinecap="round" strokeLinejoin="round" />
-
-                {/* Animated line */}
-                {sparkProgress > 0.04 && (
-                    <polyline points={toPoints(visiblePts)} fill="none"
-                        stroke={accent} strokeWidth={2}
-                        strokeLinecap="round" strokeLinejoin="round" />
-                )}
-
-                {/* Start dot (static) */}
-                <circle cx={startPt.x} cy={startPt.y} r={2}
-                    fill={`${accent}44`} />
-
-                {/* Animated tip dot */}
-                {sparkProgress > 0.06 && last && (
-                    <>
-                        <circle cx={last.x} cy={last.y} r={4.5} fill={`${accent}18`} />
-                        <circle cx={last.x} cy={last.y} r={2.2} fill={accent}
-                            style={{ filter: `drop-shadow(0 0 3px ${accent}88)` }} />
-                    </>
-                )}
-
-                {/* End dot (ghost, always visible as target) */}
-                <circle cx={endPt.x} cy={endPt.y} r={1.5}
-                    fill={`${accent}22`} />
-            </svg>
-
-            {/* FROM label — bottom-left */}
-            <div style={{
-                position: 'absolute',
-                bottom: -1,
-                left: 0,
-                fontSize: 7,
-                fontWeight: 700,
-                color: `${accent}44`,
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                letterSpacing: '0.05em',
-                lineHeight: 1,
-            }}>
-                {sparkFrom}
-            </div>
-
-            {/* TO label — top-right, appears when line reaches end */}
-            <div style={{
-                position: 'absolute',
-                top: -1,
-                right: 0,
-                fontSize: 7.5,
-                fontWeight: 800,
-                color: sparkProgress > 0.85 ? accent : 'transparent',
-                fontFamily: "'Outfit', system-ui, sans-serif",
-                letterSpacing: '0.03em',
-                lineHeight: 1,
-                transition: 'color 0.3s',
-            }}>
-                {sparkTo}
-            </div>
-        </div>
+            {/* Cl particles (from left → moving right, stopped by membrane) */}
+            {clParticles.map((p, i) => {
+                const pp = Math.max(0, (progress - p.delay / 2) / (1 - p.delay / 2))
+                const startX = 14
+                const travelMax = memX - stopDist - 14
+                const traveled = travelMax * easeOutCubic(Math.min(1, pp * 1.4))
+                const x = startX + traveled
+                const blocked = x > memX - stopDist - 6
+                return (
+                    <g key={i}>
+                        <circle cx={x} cy={p.y} r={5}
+                            fill={`rgba(251,146,60,${pp * 0.18})`}
+                            stroke={`rgba(251,146,60,${pp * 0.5})`} strokeWidth={0.8} />
+                        <text x={x} y={p.y + 3} textAnchor="middle"
+                            fill={`rgba(255,200,150,${pp * 0.85})`} fontSize={6}
+                            fontWeight={800} fontFamily="Outfit,sans-serif">Cl</text>
+                        {blocked && pp > 0.6 && (
+                            <text x={x} y={p.y - 7} textAnchor="middle"
+                                fill={`rgba(251,146,60,${(pp - 0.6) * 2})`}
+                                fontSize={7} fontWeight={900} fontFamily="Outfit,sans-serif">×</text>
+                        )}
+                    </g>
+                )
+            })}
+        </svg>
     )
 }
 
@@ -190,10 +315,8 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
     const opacity = interpolate(frame, [start, start + 18], [0, 1], {
         extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
     })
-    const translateY = interpolate(entranceProgress, [0, 1], [22, 0])
-
-    // Sparkline and number start after label has been readable for LABEL_HOLD frames
-    const sparkProgress = easeOutCubic(
+    const translateY = interpolate(entranceProgress, [0, 1], [20, 0])
+    const visualProgress = easeOutCubic(
         Math.max(0, Math.min(1, (frame - start - LABEL_HOLD) / COUNT_DURATION))
     )
 
@@ -207,6 +330,14 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
 
     const numFontSize = card.type === 'range' ? 23 : 31
 
+    const Visual = () => {
+        if (card.visual === 'cucumber') return <CucumberVisual progress={visualProgress} accent={card.accent} />
+        if (card.visual === 'root')     return <RootVisual     progress={visualProgress} accent={card.accent} />
+        if (card.visual === 'leaf')     return <LeafVisual     progress={visualProgress} accent={card.accent} />
+        if (card.visual === 'cell')     return <CellVisual     progress={visualProgress} accent={card.accent} />
+        return <MembraneVisual progress={visualProgress} accent={card.accent} />
+    }
+
     return (
         <div style={{
             opacity,
@@ -215,17 +346,15 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
             border: `1px solid ${card.featured ? 'rgba(132,204,22,0.2)' : 'rgba(255,255,255,0.06)'}`,
             borderLeft: `2.5px solid ${card.accent}`,
             borderRadius: 10,
-            padding: '13px 14px 13px 13px',
+            padding: '11px 13px 10px 12px',
             display: 'flex',
             flexDirection: 'column',
-            gap: 7,
-            position: 'relative',
-            overflow: 'hidden',
+            gap: 6,
         }}>
-            {/* Label — uppercase, readable, appears first */}
+            {/* Label */}
             <div style={{
                 color: 'rgba(255,255,255,0.92)',
-                fontSize: 10,
+                fontSize: 9.5,
                 fontWeight: 800,
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
@@ -235,37 +364,26 @@ function CardItem({ card, cardIndex }: { card: CardData; cardIndex: number }) {
                 {card.label}
             </div>
 
-            {/* Number + sparkline — animate together after label hold */}
+            {/* Number */}
             <div style={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'space-between',
-                gap: 8,
+                fontFamily: "'Outfit', system-ui, sans-serif",
+                fontWeight: 900,
+                fontSize: numFontSize,
+                color: card.accent,
+                lineHeight: 1.0,
+                letterSpacing: '-0.03em',
+                fontVariantNumeric: 'tabular-nums',
             }}>
-                <div style={{
-                    fontFamily: "'Outfit', system-ui, sans-serif",
-                    fontWeight: 900,
-                    fontSize: numFontSize,
-                    color: card.accent,
-                    lineHeight: 1.0,
-                    letterSpacing: '-0.03em',
-                    fontVariantNumeric: 'tabular-nums',
-                }}>
-                    {numStr}
-                </div>
-                <SparkLine
-                    sparkProgress={sparkProgress}
-                    accent={card.accent}
-                    type={card.type}
-                    sparkFrom={card.sparkFrom}
-                    sparkTo={card.sparkTo}
-                />
+                {numStr}
             </div>
 
-            {/* Sub — muted detail */}
+            {/* Visual — full width */}
+            <Visual />
+
+            {/* Sub */}
             <div style={{
                 color: 'rgba(255,255,255,0.22)',
-                fontSize: 8.5,
+                fontSize: 8,
                 lineHeight: 1.4,
                 fontFamily: "'Outfit', system-ui, sans-serif",
                 letterSpacing: '0.01em',
@@ -295,7 +413,6 @@ function PraktijkComp() {
     )
 }
 
-// Last card starts at 8 + 4*52 = 216, finishes at 216 + 12 + 62 = 290
 const DURATION = 9999
 const FREEZE_FRAME = 295
 
@@ -336,7 +453,7 @@ export default function PraktijkresultatenAnimation() {
     }, [])
 
     const W = 900
-    const H = 284
+    const H = 310
 
     return (
         <div ref={wrapperRef} style={{ width: '100%' }}>
