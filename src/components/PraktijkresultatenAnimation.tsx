@@ -71,7 +71,7 @@ const CARDS: CardData[] = [
     {
         type: 'double', prefix1: '−', from1: 0, to1: 42, prefix2: '−', from2: 0, to2: 46, suffix: '%',
         label: 'Selectieve ionen-exclusie', sub: 'Na −42% · Cl −46% in jong blad',
-        accent: '#ffffff', visual: 'membrane',
+        accent: '#84cc16', visual: 'membrane',
     },
 ]
 
