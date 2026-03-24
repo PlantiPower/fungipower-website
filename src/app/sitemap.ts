@@ -11,24 +11,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
         en: {
             home: '',
             about: 'about-us',
-            all12: 'fungipower-all12',
-            shield: 'fungipower-shield',
+            all12: 'fungipower-start',
+            shield: 'fungipower-boost',
             faq: 'faq',
             contact: 'contact'
         },
         nl: {
             home: '',
             about: 'over-ons',
-            all12: 'fungipower-all12',
-            shield: 'fungipower-shield',
+            all12: 'fungipower-start',
+            shield: 'fungipower-boost',
             faq: 'faq',
             contact: 'contact'
         },
         de: {
             home: '',
             about: 'ueber-uns',
-            all12: 'fungipower-all12',
-            shield: 'fungipower-shield',
+            all12: 'fungipower-start',
+            shield: 'fungipower-boost',
             faq: 'faq',
             contact: 'kontakt'
         }

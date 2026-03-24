@@ -195,7 +195,7 @@ export function generateEmailHtml({ name, crop, otherCrop, cropCategory, unsubsc
                 <div class="product-card" style="${emailStyles.productCard}; border: 1px solid rgba(132, 204, 22, 0.2); margin-right: 10px;">
                     <div style="color:#ffffff; font-size:10px; font-weight:900; margin-bottom:0px; text-transform:uppercase; line-height: 1;">FungiPower</div>
                     <div style="font-size:28px; font-weight:900; margin-bottom:20px; color: #84cc16; line-height: 1;">ALL12</div>
-                    <img src="https://fungipower.com/images/products/fungipower-all12-transparant.png" class="product-image" style="width: 100px; height: auto; margin-bottom: 20px;" />
+                    <img src="https://fungipower.com/images/products/fungipower-start.png" class="product-image" style="width: 100px; height: auto; margin-bottom: 20px;" />
                     <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.5;">
                         Optimaliseert nutriëntenstroom en verbetert opnamecapaciteit.
                     </div>

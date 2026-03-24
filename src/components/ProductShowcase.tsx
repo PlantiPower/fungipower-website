@@ -59,7 +59,7 @@ const ProductShowcase = () => {
             { title: "Efficient growth", desc: "Less waste, more results." }
         ],
         btnLabel: isDE ? "Vollständige ALL12-Spezifikationen" : isNL ? "Volledige ALL12 Specificaties" : "Full ALL12 Specifications",
-        btnPath: isDE ? "/de/products/all12" : isNL ? "/nl/products/all12" : "/en/products/all12"
+        btnPath: isDE ? "/de/products/start" : isNL ? "/nl/products/start" : "/en/products/start"
     };
 
     return (

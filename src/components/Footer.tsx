@@ -48,8 +48,8 @@ const Footer: React.FC<FooterProps> = ({ dict, lang }) => {
                 {[
                   { name: t.links.home, key: "/" },
                   { name: t.links.about, key: "about" },
-                  { name: dict.Header.all12, key: "products/all12" },
-                  { name: dict.Header.shield, key: "products/shield" },
+                  { name: dict.Header.start, key: "products/start" },
+                  { name: dict.Header.boost, key: "products/boost" },
                   { name: t.links.faq, key: "faq" },
                   { name: t.links.contact, key: "contact" }
                 ].map((item) => (

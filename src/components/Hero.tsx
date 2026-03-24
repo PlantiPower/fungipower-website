@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ dict, lang }) => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <Link
-                href={getPath('products/all12', lang)}
+                href={getPath('products/start', lang)}
                 className="btn-standard bg-orange-500 hover:bg-orange-400 text-orange-950 shadow-[0_0_30px_rgba(132,204,22,0.4)] flex-col py-4 leading-tight !h-auto text-center"
               >
                 <span className="text-[10px] mb-1 opacity-70 font-black tracking-[0.3em]">{t.ctaMore}</span>

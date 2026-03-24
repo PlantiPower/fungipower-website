@@ -3,24 +3,24 @@ import { Locale } from '@/i18n-config';
 const slugMap: Record<string, Record<string, string>> = {
     en: {
         'about': 'about-us',
-        'products/all12': 'fungipower-all12',
-        'products/shield': 'fungipower-shield',
+        'products/start': 'fungipower-start',
+        'products/boost': 'fungipower-boost',
         'faq': 'faq',
         'contact': 'contact',
         'cucumbers': 'cucumbers'
     },
     nl: {
         'about': 'over-ons',
-        'products/all12': 'fungipower-all12',
-        'products/shield': 'fungipower-shield',
+        'products/start': 'fungipower-start',
+        'products/boost': 'fungipower-boost',
         'faq': 'faq',
         'contact': 'contact',
         'cucumbers': 'komkommers'
     },
     de: {
         'about': 'ueber-uns',
-        'products/all12': 'fungipower-all12',
-        'products/shield': 'fungipower-shield',
+        'products/start': 'fungipower-start',
+        'products/boost': 'fungipower-boost',
         'faq': 'faq',
         'contact': 'kontakt',
         'cucumbers': 'gurken'

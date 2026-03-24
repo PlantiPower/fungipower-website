@@ -75,7 +75,7 @@ const BenefitsSection = () => {
 
                             <div className="relative transform transition-all duration-700 hover:scale-[1.02] z-10 flex justify-center">
                                 <img
-                                    src="/images/products/fungipower-all12-transparant.png"
+                                    src="/images/products/fungipower-start.png"
                                     alt="ALL12 Full Spectrum Technology"
                                     className="w-full max-w-[400px] h-auto object-contain drop-shadow-[0_20px_100px_rgba(132,204,22,0.4)] floating"
                                 />

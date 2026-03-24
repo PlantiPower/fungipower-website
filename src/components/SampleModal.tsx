@@ -14,7 +14,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
   const isDE = lang === 'de';
 
   const [formData, setFormData] = useState({
-    products: ['all12', 'shield'],
+    products: ['start', 'boost'],
     company: '',
     name: '',
     email: '',
@@ -267,7 +267,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
 
               <div className="flex items-center -space-x-4 pr-4">
                 <div className="relative z-10 filter drop-shadow(0 10px 20px rgba(0,0,0,0.4))">
-                  <img src="/images/products/fungipower-all12-transparant.png" alt="All12" className="h-24 md:h-32 object-contain" />
+                  <img src="/images/products/fungipower-start.png" alt="All12" className="h-24 md:h-32 object-contain" />
                 </div>
                 <div className="relative filter drop-shadow(0 10px 20px rgba(0,0,0,0.4))">
                   <img src="/images/products/fungipower-shield-transparant.png" alt="Shield" className="h-24 md:h-32 object-contain" />

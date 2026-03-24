@@ -6,10 +6,10 @@
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Vraag Sample Aan",
-    "all12": "FungiPower Start",
-    "all12Desc": "Optimale startbasis",
-    "shield": "FungiPower Boost",
-    "shieldDesc": "Maximale groeiboost",
+    "start": "FungiPower Start",
+    "startDesc": "Optimale startbasis",
+    "boost": "FungiPower Boost",
+    "boostDesc": "Maximale groeiboost",
     "aboutLabel": "Over ons"
   },
   "Hero": {
@@ -140,8 +140,8 @@
     "visionDesc": "Jan Klerken groeide op in de champignonwereld. Wat voor anderen een product is, was voor hem dagelijkse realiteit. Door de jaren heen werkte hij in verschillende delen van de keten en zag hij hoe de sector professioneler en technischer werd. Wat daarbij altijd centraal bleef staan, is de rol van de teler. Uiteindelijk draait alles om degene die dagelijks verantwoordelijkheid draagt voor kwaliteit en continuïteit.",
     "coreTitle": "De uitdaging in de sector",
     "coreDesc": "De moderne champignonteelt staat voor grote uitdagingen. Grondstoffen worden schaarser en duurder, terwijl de eisen aan kwaliteit en opbrengst alleen maar toenemen. Kwekers moeten steeds efficiënter werken om rendabel te blijven in een competitieve markt. In die ontwikkeling draait verbetering vaak niet om méér toevoegen, maar om het optimaliseren van wat er al aanwezig is.",
-    "approachTitle": "Ourcelia × PlantiPower",
-    "approachDesc": "FungiPower is het resultaat van een strategische samenwerking tussen PlantiPower en Ourcelia. Deze joint venture combineert twee werelden: de diepgaande biologische expertise van Ourcelia als producent van kwalitatief broed, en de jarenlange sectorervaring van PlantiPower. Door wetenschappelijke validatie te koppelen aan de dagelijkse realiteit van de kwekerij, hebben we een biostimulant ontwikkeld die écht impact heeft waar het telt: in de teeltcel.",
+    "approachTitle": "Ourcelia × FungiPower",
+    "approachDesc": "FungiPower is het resultaat van een strategische samenwerking tussen FungiPower en Ourcelia. Deze joint venture combineert twee werelden: de diepgaande biologische expertise van Ourcelia als producent van kwalitatief broed, en de jarenlange sectorervaring van FungiPower. Door wetenschappelijke validatie te koppelen aan de dagelijkse realiteit van de kwekerij, hebben we een biostimulant ontwikkeld die écht impact heeft waar het telt: in de teeltcel.",
     "values": [
       {
         "title": "Ourcelia",
@@ -149,7 +149,7 @@
         "icon": "Leaf"
       },
       {
-        "title": "PlantiPower",
+        "title": "FungiPower",
         "desc": "Sectorervaring & praktijkkennis.",
         "icon": "Zap"
       },

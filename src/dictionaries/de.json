@@ -6,10 +6,10 @@
     "faq": "FAQ",
     "contact": "Kontakt",
     "cta": "Probe anfordern",
-    "all12": "FungiPower Start",
-    "all12Desc": "Optimale Startbasis",
-    "shield": "FungiPower Boost",
-    "shieldDesc": "Maximaler Wachstumsboost",
+    "start": "FungiPower Start",
+    "startDesc": "Optimale Startbasis",
+    "boost": "FungiPower Boost",
+    "boostDesc": "Maximaler Wachstumsboost",
     "aboutLabel": "Über uns"
   },
   "Hero": {
@@ -140,8 +140,8 @@
     "visionDesc": "Jan Klerken wuchs in der Pilzwelt auf. Was für andere ein Produkt ist, war für ihn tägliche Realität. Im Laufe der Jahre arbeitete er in verschiedenen Teilen der Kette und sah, wie die Branche professioneller und technischer wurde. Was dabei immer im Mittelpunkt stand, ist die Rolle des Erzeugers — letztendlich dreht sich alles um denjenigen, der täglich Verantwortung für Qualität und Kontinuität trägt.",
     "coreTitle": "Die Herausforderung in der Branche",
     "coreDesc": "Der moderne Pilzanbau steht vor großen Herausforderungen. Rohstoffe werden knapper und teurer, während die Anforderungen an Qualität und Ertrag weiter steigen. Erzeuger müssen immer effizienter arbeiten, um in einem wettbewerbsintensiven Markt rentabel zu bleiben. In dieser Entwicklung geht es bei Verbesserungen oft nicht darum, mehr hinzuzufügen, sondern das Vorhandene zu optimieren.",
-    "approachTitle": "Ourcelia × PlantiPower",
-    "approachDesc": "FungiPower ist das Ergebnis einer strategischen Zusammenarbeit zwischen PlantiPower und Ourcelia. Dieses Joint Venture kombiniert zwei Welten: das tiefgreifende biologische Fachwissen von Ourcelia als Produzent von hochwertigem Substrat und die langjährige Branchenerfahrung von PlantiPower. Durch die Verknüpfung wissenschaftlicher Validierung mit dem täglichen Betrieb des Anbaubetriebs haben wir einen Biostimulans entwickelt, der dort wirklich Wirkung zeigt, wo es darauf ankommt: in der Anbaukammer.",
+    "approachTitle": "Ourcelia × FungiPower",
+    "approachDesc": "FungiPower ist das Ergebnis einer strategischen Zusammenarbeit zwischen FungiPower und Ourcelia. Dieses Joint Venture kombiniert zwei Welten: das tiefgreifende biologische Fachwissen von Ourcelia als Produzent von hochwertigem Substrat und die langjährige Branchenerfahrung von FungiPower. Durch die Verknüpfung wissenschaftlicher Validierung mit dem täglichen Betrieb des Anbaubetriebs haben wir einen Biostimulans entwickelt, der dort wirklich Wirkung zeigt, wo es darauf ankommt: in der Anbaukammer.",
     "values": [
       {
         "title": "Ourcelia",
@@ -149,7 +149,7 @@
         "icon": "Leaf"
       },
       {
-        "title": "PlantiPower",
+        "title": "FungiPower",
         "desc": "Branchenerfahrung & Praxiswissen.",
         "icon": "Zap"
       },

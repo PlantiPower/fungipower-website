@@ -78,19 +78,19 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onClose, onOpenSample, dict, la
                 <div className="flex flex-col gap-4">
                     <div className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em] mb-2">{isDE ? "Produkte" : isNL ? "Producten" : "Products"}</div>
                     <Link
-                        href={getPath('products/all12', lang)}
+                        href={getPath('products/start', lang)}
                         onClick={onClose}
-                        className={`flex items-center justify-between p-5 rounded-xl border ${isActive('products/all12') ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-white/5 border-white/5 text-white active:bg-white/10'}`}
+                        className={`flex items-center justify-between p-5 rounded-xl border ${isActive('products/start') ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-white/5 border-white/5 text-white active:bg-white/10'}`}
                     >
-                        <span className="text-xl font-bold uppercase tracking-widest">{t?.all12 || "FungiPower All12"}</span>
+                        <span className="text-xl font-bold uppercase tracking-widest">{t?.start || "FungiPower All12"}</span>
                         <ChevronRight className="w-5 h-5 opacity-30" />
                     </Link>
                     <Link
-                        href={getPath('products/shield', lang)}
+                        href={getPath('products/boost', lang)}
                         onClick={onClose}
-                        className={`flex items-center justify-between p-5 rounded-xl border ${isActive('products/shield') ? 'bg-blue-900/20 border-blue-500/30 text-blue-400' : 'bg-white/5 border-white/5 text-white active:bg-white/10'}`}
+                        className={`flex items-center justify-between p-5 rounded-xl border ${isActive('products/boost') ? 'bg-blue-900/20 border-blue-500/30 text-blue-400' : 'bg-white/5 border-white/5 text-white active:bg-white/10'}`}
                     >
-                        <span className="text-xl font-bold uppercase tracking-widest">{t?.shield || "FungiPower Shield"}</span>
+                        <span className="text-xl font-bold uppercase tracking-widest">{t?.boost || "FungiPower Shield"}</span>
                         <ChevronRight className="w-5 h-5 opacity-30" />
                     </Link>
                 </div>

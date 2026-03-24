@@ -6,10 +6,10 @@
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Request Sample",
-    "all12": "FungiPower Start",
-    "all12Desc": "Optimal starting base",
-    "shield": "FungiPower Boost",
-    "shieldDesc": "Maximum growth boost",
+    "start": "FungiPower Start",
+    "startDesc": "Optimal starting base",
+    "boost": "FungiPower Boost",
+    "boostDesc": "Maximum growth boost",
     "aboutLabel": "About"
   },
   "Hero": {
@@ -140,8 +140,8 @@
     "visionDesc": "Jan Klerken grew up in the mushroom world. What for others is a product was his daily reality. Over the years he worked in various parts of the chain and saw how the sector became more professional and technical. What always remained central is the role of the grower — ultimately everything revolves around the person who bears daily responsibility for quality and continuity.",
     "coreTitle": "The challenge in the sector",
     "coreDesc": "Modern mushroom cultivation faces major challenges. Raw materials are becoming scarcer and more expensive, while demands on quality and yield only increase. Growers must work increasingly efficiently to remain profitable in a competitive market. In this development, improvement is often not about adding more, but about optimising what is already present.",
-    "approachTitle": "Ourcelia × PlantiPower",
-    "approachDesc": "FungiPower is the result of a strategic collaboration between PlantiPower and Ourcelia. This joint venture combines two worlds: Ourcelia's in-depth biological expertise as a producer of quality spawn, and PlantiPower's years of sector experience. By linking scientific validation to the daily reality of the growing facility, we have developed a biostimulant that truly makes an impact where it counts: in the growing cell.",
+    "approachTitle": "Ourcelia × FungiPower",
+    "approachDesc": "FungiPower is the result of a strategic collaboration between FungiPower and Ourcelia. This joint venture combines two worlds: Ourcelia's in-depth biological expertise as a producer of quality spawn, and FungiPower's years of sector experience. By linking scientific validation to the daily reality of the growing facility, we have developed a biostimulant that truly makes an impact where it counts: in the growing cell.",
     "values": [
       {
         "title": "Ourcelia",
@@ -149,7 +149,7 @@
         "icon": "Leaf"
       },
       {
-        "title": "PlantiPower",
+        "title": "FungiPower",
         "desc": "Sector experience & practical knowledge.",
         "icon": "Zap"
       },

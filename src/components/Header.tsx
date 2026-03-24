@@ -71,14 +71,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
 
               <div className="absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 pt-4 w-72 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 transform scale-95 group-hover/dropdown:scale-100 pointer-events-none group-hover/dropdown:pointer-events-auto">
                 <div className="bg-orange-950/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-2">
-                  <Link href={getPath('products/all12', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/all12', lang)) ? 'bg-white/5' : ''}`}>
-                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/all12', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.all12}</span>
-                    <span className="text-[10px] tracking-widest text-orange-100/40 mt-1 uppercase font-medium">{t.all12Desc}</span>
+                  <Link href={getPath('products/start', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/start', lang)) ? 'bg-white/5' : ''}`}>
+                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/start', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.start}</span>
+                    <span className="text-[10px] tracking-widest text-orange-100/40 mt-1 uppercase font-medium">{t.startDesc}</span>
                   </Link>
                   <div className="h-px bg-white/5 mx-2 my-1"></div>
-                  <Link href={getPath('products/shield', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/shield', lang)) ? 'bg-white/5' : ''}`}>
-                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/shield', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.shield}</span>
-                    <span className="text-[10px] tracking-widest text-orange-100/40 mt-1 uppercase font-medium">{t.shieldDesc}</span>
+                  <Link href={getPath('products/boost', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/boost', lang)) ? 'bg-white/5' : ''}`}>
+                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/boost', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.shield}</span>
+                    <span className="text-[10px] tracking-widest text-orange-100/40 mt-1 uppercase font-medium">{t.boostDesc}</span>
                   </Link>
                 </div>
               </div>
