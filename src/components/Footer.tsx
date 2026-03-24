@@ -101,15 +101,6 @@ const Footer: React.FC<FooterProps> = ({ dict, lang }) => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col items-center gap-3">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[9px] md:text-[10px] text-white/55 uppercase tracking-[0.2em] font-medium">
-            <span>Eurofins Agro Wageningen</span>
-            <span className="text-white/20">|</span>
-            <span>65 onafhankelijke laboratoriummetingen</span>
-            <span className="text-white/20">|</span>
-            <span>sept 2025 – feb 2026</span>
-            <span className="text-white/20">|</span>
-            <span>Van Gog Kwekerijen</span>
-          </div>
           <div className="text-orange-100/40 text-sm font-medium">© 2026 {t.rights} | FungiPower</div>
         </div>
       </div>
