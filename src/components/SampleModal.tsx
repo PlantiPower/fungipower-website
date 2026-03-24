@@ -104,11 +104,11 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
 
   const content = isDE ? {
     title: "PROBEPAKET BESTELLEN",
-    subtitle: "Sie erhalten 1x 1 Liter FungiPower All12 und 1x 60ml FungiPower Shield für €29,95 (zzgl. MwSt.) inklusive Versandkosten.",
-    product1: { name: "FungiPower All12 (1L)", sub: "NÄHRSTOFFTRANSPORT" },
-    product2: { name: "FungiPower Shield (60ml)", sub: "BESSERE WIDERSTANDSKRAFT" },
+    subtitle: "Sie erhalten 1x 1 Liter FungiPower Start und 1x 60ml FungiPower Boost für €29,95 (zzgl. MwSt.) inklusive Versandkosten.",
+    product1: { name: "FungiPower Start (1L)", sub: "NÄHRSTOFFTRANSPORT" },
+    product2: { name: "FungiPower Boost (60ml)", sub: "BESSERE WIDERSTANDSKRAFT" },
     bundleTitle: "AUSGEWÄHLTER TEST",
-    bundleSub: "2X PRODUKTE (ALL12 + SHIELD)",
+    bundleSub: "2X PRODUKTE (START + BOOST)",
     price: "€29,95",
     shipping: "INKL. VERSAND | ZZGL. MWST",
     labelCompany: "UNTERNEHMENSNAME",
@@ -137,11 +137,11 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     successMsg: "Ihre Anfrage wurde erfolgreich versendet."
   } : isNL ? {
     title: "BESTEL HIER JE PROEFPAKKET",
-    subtitle: "Je ontvangt 1x 1 liter FungiPower All12 en 1x 60ml FungiPower Shield voor €29,95 (excl. BTW) inclusief verzendkosten.",
-    product1: { name: "FungiPower All12 (1L)", sub: "VOEDING TRANSPORTEREN" },
-    product2: { name: "FungiPower Shield (60ml)", sub: "BETERE WEERBAARHEID" },
+    subtitle: "Je ontvangt 1x 1 liter FungiPower Start en 1x 60ml FungiPower Boost voor €29,95 (excl. BTW) inclusief verzendkosten.",
+    product1: { name: "FungiPower Start (1L)", sub: "VOEDING TRANSPORTEREN" },
+    product2: { name: "FungiPower Boost (60ml)", sub: "BETERE WEERBAARHEID" },
     bundleTitle: "GESELECTEERDE TEST",
-    bundleSub: "2X PRODUCTEN (ALL12 + SHIELD)",
+    bundleSub: "2X PRODUCTEN (START + BOOST)",
     price: "€29,95",
     shipping: "INCL. VERZENDING | EXCL. BTW",
     labelCompany: "BEDRIJFSNAAM",
@@ -170,11 +170,11 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     successMsg: "Je aanvraag is succesvol verzonden."
   } : {
     title: "ORDER YOUR SAMPLE PACK HERE",
-    subtitle: "You receive 1x 1 liter FungiPower All12 and 1x 60ml FungiPower Shield for €29.95 (excl. VAT) including shipping.",
-    product1: { name: "FungiPower All12 (1L)", sub: "TRANSPORT NUTRIENTS" },
-    product2: { name: "FungiPower Shield (60ml)", sub: "BETERE RESILIENCE" },
+    subtitle: "You receive 1x 1 liter FungiPower Start and 1x 60ml FungiPower Boost for €29.95 (excl. VAT) including shipping.",
+    product1: { name: "FungiPower Start (1L)", sub: "TRANSPORT NUTRIENTS" },
+    product2: { name: "FungiPower Boost (60ml)", sub: "BETERE RESILIENCE" },
     bundleTitle: "SELECTED TEST",
-    bundleSub: "2X PRODUCTS (ALL12 + SHIELD)",
+    bundleSub: "2X PRODUCTS (START + BOOST)",
     price: "€29.95",
     shipping: "INCL. SHIPPING | EXCL. VAT",
     labelCompany: "COMPANY NAME",
@@ -270,7 +270,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
                   <img src="/images/products/fungipower-start.png" alt="All12" className="h-24 md:h-32 object-contain" />
                 </div>
                 <div className="relative filter drop-shadow(0 10px 20px rgba(0,0,0,0.4))">
-                  <img src="/images/products/fungipower-shield-transparant.png" alt="Shield" className="h-24 md:h-32 object-contain" />
+                  <img src="/images/products/fungipower-boost.png" alt="Shield" className="h-24 md:h-32 object-contain" />
                 </div>
               </div>
             </div>

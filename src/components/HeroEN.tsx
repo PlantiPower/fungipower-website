@@ -35,7 +35,7 @@ const HeroEN = () => {
                         <div className="relative py-2 text-left mb-12 max-w-xl mx-auto lg:mx-0">
                             <p className="text-lg text-orange-100/80 leading-relaxed font-medium">
                                 Part of the nutrition you apply always remains in the soil or substrate. Result: the plant doesn't use its full potential.<br /><br />
-                                FungiPower ALL12 transports all 12 essential nutrients to the root, making the plant more vital and growing more efficiently.
+                                FungiPower Start transports all 12 essential nutrients to the root, making the plant more vital and growing more efficiently.
                             </p>
                         </div>
 
@@ -46,7 +46,7 @@ const HeroEN = () => {
                                 className="btn-standard bg-orange-500 hover:bg-orange-400 text-orange-950 shadow-[0_0_30px_rgba(132,204,22,0.4)] flex-col py-4 leading-tight !h-auto"
                             >
                                 <span className="text-[10px] mb-1 opacity-70 font-black tracking-[0.3em]">More about</span>
-                                <span className="text-sm">FungiPower ALL12</span>
+                                <span className="text-sm">FungiPower Start</span>
                             </button>
                             <button
                                 onClick={() => document.getElementById('crop-results')?.scrollIntoView({ behavior: 'smooth' })}

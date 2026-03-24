@@ -65,7 +65,7 @@ const ShieldShowcase = () => {
                                 {/* Foreground: The REAL Shield product jerseycan (the one from 'FungiPower Shield.png') */}
                                 <div className="relative z-10 p-12">
                                     <img
-                                        src="/images/products/fungipower-shield-transparant.png"
+                                        src="/images/products/fungipower-boost.png"
                                         alt="FungiPower Shield"
                                         className="w-full h-auto object-contain max-h-[480px] drop-shadow-[0_20px_60px_rgba(6,182,212,0.4)] transform transition-transform duration-700 group-hover:scale-105"
                                     />

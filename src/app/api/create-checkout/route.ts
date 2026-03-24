@@ -31,10 +31,10 @@ export async function POST(request: Request) {
                         product_data: {
                             name: locale === 'de' ? 'FungiPower Probepaket' : locale === 'nl' ? 'FungiPower Proefpakket' : 'FungiPower Sample Pack',
                             description: locale === 'de'
-                                ? '1x 1L All12 + 1x 60ml Shield (inkl. Versandkosten)'
+                                ? '1x 1L Start + 1x 60ml Boost (inkl. Versandkosten)'
                                 : locale === 'nl'
-                                    ? '1x 1L All12 + 1x 60ml Shield (incl. verzendkosten)'
-                                    : '1x 1L All12 + 1x 60ml Shield (incl. shipping)',
+                                    ? '1x 1L Start + 1x 60ml Boost (incl. verzendkosten)'
+                                    : '1x 1L Start + 1x 60ml Boost (incl. shipping)',
                         },
                         unit_amount: 2995, // €29.95
                     },

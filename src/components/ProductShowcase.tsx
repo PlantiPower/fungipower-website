@@ -13,16 +13,16 @@ const ProductShowcase = () => {
     const content = {
         badge: isDE ? "Absorptionsverstärkung" : isNL ? "Opnameversterking" : "Absorption Enhancement",
         title1: "FungiPower ",
-        title1Small: "ALL12",
+        title1Small: "START",
         title2: isDE ? " ist kein Nährstoff, " : isNL ? " is geen voeding, " : " is not a nutrient, ",
         title3: isDE ? "sondern ein " : isNL ? "maar een " : "but an ",
         titleAccent: isDE ? "Aufnahmeverstärker." : isNL ? "opnameversterker." : "absorption booster.",
         description: isDE
-            ? "Die ALL12-Technologie sorgt dafür, dass Pflanzen mehr aus den bereits verabreichten Nährstoffen herausholen."
+            ? "Die FungiPower-Technologie sorgt dafür, dass Pflanzen mehr aus den bereits verabreichten Nährstoffen herausholen."
             : isNL
-            ? "ALL12 Technology zorgt ervoor dat planten meer halen uit de voeding die al wordt gegeven."
-            : "ALL12 Technology ensures that plants get more out of the nutrients already being applied.",
-        leftCardTitle: isDE ? "Anbau ohne ALL12" : isNL ? "Kweken zonder ALL12" : "Growing without ALL12",
+            ? "FungiPower Technology zorgt ervoor dat planten meer halen uit de voeding die al wordt gegeven."
+            : "FungiPower Technology ensures that plants get more out of the nutrients already being applied.",
+        leftCardTitle: isDE ? "Anbau ohne FungiPower Start" : isNL ? "Kweken zonder FungiPower Start" : "Growing without FungiPower Start",
         leftCardDesc: isDE ? "Natürliche Aufnahmegrenzen" : isNL ? "Natuurlijke opnamebeperkingen" : "Natural absorption limits",
         leftFeatures: isDE ? [
             { title: "Passive Aufnahme", desc: "Nährstoffe müssen die Wurzel selbstständig erreichen." },
@@ -40,7 +40,7 @@ const ProductShowcase = () => {
             { title: "Loss in transit", desc: "Part of the nutrients remain unused." },
             { title: "Higher energy demand", desc: "The plant must work harder for growth." }
         ],
-        rightCardTitle: isDE ? "Anbau mit FungiPower ALL12" : isNL ? "Kweken met FungiPower ALL12" : "Growing with FungiPower ALL12",
+        rightCardTitle: isDE ? "Anbau mit FungiPower Start" : isNL ? "Kweken met FungiPower Start" : "Growing with FungiPower Start",
         rightCardDesc: isDE ? "Verbesserte Aufnahme bestehender Nährstoffe" : isNL ? "Versterkte opname van bestaande voeding" : "Enhanced absorption of existing nutrients",
         rightFeatures: isDE ? [
             { title: "Aktiver Transport", desc: "Nährstoffe werden direkt zur Zelle gebracht." },
@@ -58,7 +58,7 @@ const ProductShowcase = () => {
             { title: "Maximum utilization", desc: "More effect from the same nutrients." },
             { title: "Efficient growth", desc: "Less waste, more results." }
         ],
-        btnLabel: isDE ? "Vollständige ALL12-Spezifikationen" : isNL ? "Volledige ALL12 Specificaties" : "Full ALL12 Specifications",
+        btnLabel: isDE ? "Vollständige Start-Spezifikationen" : isNL ? "Volledige Start Specificaties" : "Full Start Specifications",
         btnPath: isDE ? "/de/products/start" : isNL ? "/nl/products/start" : "/en/products/start"
     };
 
