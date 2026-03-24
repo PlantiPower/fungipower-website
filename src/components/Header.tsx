@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
                   </Link>
                   <div className="h-px bg-white/5 mx-2 my-1"></div>
                   <Link href={getPath('products/boost', lang)} className={`flex flex-col px-5 py-4 rounded-xl hover:bg-white/5 transition-colors group/item ${isActive(getPath('products/boost', lang)) ? 'bg-white/5' : ''}`}>
-                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/boost', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.shield}</span>
+                    <span className={`transition-colors tracking-[0.2em] font-bold ${isActive(getPath('products/boost', lang)) ? 'text-orange-400' : 'text-white group-hover/item:text-orange-400'}`}>{t.boost}</span>
                     <span className="text-[10px] tracking-widest text-orange-100/40 mt-1 uppercase font-medium">{t.boostDesc}</span>
                   </Link>
                 </div>
