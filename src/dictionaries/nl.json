@@ -182,7 +182,7 @@
   "Contact": {
     "title": "Neem contact op",
     "titleAccent": "vandaag nog",
-    "desc": "Wil je jouw teelt optimaliseren en meer rendement uit jouw gewassen halen? Vraag een monster aan of neem contact met ons op voor persoonlijk advies.",
+    "desc": "Wil je jouw champignonteelt optimaliseren en meer rendement per teeltcyclus halen? Vraag een monster aan of neem contact met ons op voor persoonlijk advies.",
     "labelName": "Naam",
     "labelCompany": "Bedrijf",
     "labelEmail": "E-mail",
@@ -217,7 +217,7 @@
       },
       {
         "q": "Hoe vaak moet ik FungiPower toepassen?",
-        "a": "Voor optimale resultaten adviseren wij een maandelijkse toepassing. Raadpleeg de productinformatie voor specifieke doseringen per gewas."
+        "a": "Voor optimale resultaten adviseren wij toepassing per teeltcyclus. Raadpleeg de productinformatie voor specifieke doseringen per teeltfase."
       },
       {
         "q": "Is FungiPower een meststof?",
@@ -236,8 +236,8 @@
         "a": "FungiPower Start is verkrijgbaar in 1 liter, 10 liter en 1000 liter. FungiPower Boost is verkrijgbaar in 1 liter en 5 liter. Afwijkende hoeveelheden/verpakkingen in overleg."
       },
       {
-        "q": "Voor welke gewassen is FungiPower geschikt?",
-        "a": "Het is effectief voor een breed scala aan gewassen, waaronder champignonteelt en andere substraatgeteelde gewassen."
+        "q": "Voor welke teelten is FungiPower geschikt?",
+        "a": "FungiPower is specifiek ontwikkeld voor de champignonteelt, waaronder Agaricus, Pleurotus en Shiitake op substraat."
       },
       {
         "q": "Is FungiPower veilig te gebruiken in de teelt?",

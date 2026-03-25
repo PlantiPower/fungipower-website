@@ -182,7 +182,7 @@
   "Contact": {
     "title": "Nehmen Sie Kontakt auf,",
     "titleAccent": "noch heute",
-    "desc": "Möchten Sie Ihren Anbau optimieren und mehr Ertrag aus Ihren Kulturen herausholen? Fordern Sie eine Probe an oder kontaktieren Sie uns für eine persönliche Beratung.",
+    "desc": "Möchten Sie Ihren Pilzanbau optimieren und mehr Ertrag pro Anbauzyklus erzielen? Fordern Sie eine Probe an oder kontaktieren Sie uns für eine persönliche Beratung.",
     "labelName": "Name",
     "labelCompany": "Unternehmen",
     "labelEmail": "E-Mail",
@@ -217,7 +217,7 @@
       },
       {
         "q": "Wie oft sollte ich FungiPower anwenden?",
-        "a": "Für optimale Ergebnisse empfehlen wir eine monatliche Anwendung. Konsultieren Sie die Produktinformationen für spezifische Dosierungen pro Kultur."
+        "a": "Für optimale Ergebnisse empfehlen wir die Anwendung pro Anbauzyklus. Konsultieren Sie die Produktinformationen für spezifische Dosierungen pro Anbauphase."
       },
       {
         "q": "Ist FungiPower ein Dünger?",
@@ -236,8 +236,8 @@
         "a": "FungiPower Start ist in 1 Liter, 10 Liter und 1000 Liter erhältlich. FungiPower Boost ist in 1 Liter und 5 Liter erhältlich. Abweichende Mengen/Verpackungen auf Anfrage."
       },
       {
-        "q": "Für welche Kulturen ist FungiPower geeignet?",
-        "a": "Es ist effektiv für eine breite Palette von Kulturen, darunter Pilzanbau und andere substratgezogene Kulturen."
+        "q": "Für welchen Anbau ist FungiPower geeignet?",
+        "a": "FungiPower wurde speziell für den Pilzanbau entwickelt, darunter Agaricus, Pleurotus und Shiitake auf Substrat."
       },
       {
         "q": "Ist FungiPower im Anbau sicher zu verwenden?",

@@ -182,7 +182,7 @@
   "Contact": {
     "title": "Get in touch",
     "titleAccent": "today",
-    "desc": "Do you want to optimize your cultivation and get more yield from your crops? Request a sample or contact us for personalized advice.",
+    "desc": "Do you want to optimize your mushroom cultivation and get more yield per growing cycle? Request a sample or contact us for personalized advice.",
     "labelName": "Name",
     "labelCompany": "Company",
     "labelEmail": "E-mail",
@@ -217,7 +217,7 @@
       },
       {
         "q": "How often should I apply FungiPower?",
-        "a": "For optimal results, we recommend monthly application. Consult product information for specific dosages per crop."
+        "a": "For optimal results, we recommend application per growing cycle. Consult product information for specific dosages per growing phase."
       },
       {
         "q": "Is FungiPower a fertilizer?",
