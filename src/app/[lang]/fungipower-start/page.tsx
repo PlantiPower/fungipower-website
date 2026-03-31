@@ -265,13 +265,13 @@ export default async function ProductStart({
 
                 {/* GUIDE & EXPERT ADVICE */}
                 <div id="guide" className="py-24 bg-[#011a14] relative">
-                    <div className="max-w-6xl mx-auto px-6">
+                    <div className="max-w-7xl mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
                             <div className="glass-panel p-12 rounded-[3rem] bg-white/[0.02] border-white/5 overflow-hidden relative">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 blur-[80px] rounded-full"></div>
                                 <div className="relative z-10">
                                     <div className="mb-10">
-                                        <div className="bg-orange-900/50 text-orange-200 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest inline-block mb-6 border border-white/10">
+                                        <div className="bg-orange-900/50 text-orange-200 px-3 py-1 rounded text-sm font-bold uppercase tracking-widest inline-block mb-6 border border-white/10">
                                             {content.guideBadge}
                                         </div>
                                         <h2 className="text-4xl md:text-5xl font-black text-white font-outfit leading-tight">{content.guideTitle}</h2>
@@ -282,7 +282,7 @@ export default async function ProductStart({
                                                 <div className="text-4xl font-black text-orange-500 font-outfit">0{i + 1}</div>
                                                 <div>
                                                     <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
-                                                    <p className="text-orange-100/50 leading-relaxed font-medium">{item.desc}</p>
+                                                    <p className="text-orange-100/60 text-base leading-relaxed font-medium">{item.desc}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -298,7 +298,7 @@ export default async function ProductStart({
                                                 <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0 mt-1">
                                                     <span className="text-orange-400 text-xs font-bold">!</span>
                                                 </div>
-                                                <p className="text-orange-100/70 leading-relaxed">
+                                                <p className="text-orange-100/70 text-base leading-relaxed">
                                                     <strong className="text-white">{item.label}:</strong> {item.text}
                                                 </p>
                                             </div>
@@ -306,7 +306,7 @@ export default async function ProductStart({
                                     </div>
                                 </div>
                                 <div className="glass-panel p-8 rounded-[2rem] bg-white/[0.02] border-white/5">
-                                    <p className="text-orange-100/40 text-sm leading-relaxed italic">"{content.disclaimer}"</p>
+                                    <p className="text-orange-100/40 text-base leading-relaxed italic">"{content.disclaimer}"</p>
                                 </div>
                             </div>
                         </div>
