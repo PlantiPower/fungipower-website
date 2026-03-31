@@ -48,10 +48,10 @@ export default async function ProductBoost({
     const content = {
         heroBadge: isDE ? 'Fruchtungsphase' : isNL ? 'Vluchtfase' : 'Flush Phase',
         heroTitle: isDE
-            ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">MAXIMUM ERTRAG</span></>
+            ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">MAXIMUM ERTRAG</span></>
             : isNL
-                ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">MAXIMALE OPBRENGST</span></>
-                : <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">MAXIMUM YIELD</span></>,
+                ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">MAXIMALE OPBRENGST</span></>
+                : <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">MAXIMUM YIELD</span></>,
         heroDesc: isDE
             ? 'FungiPower Boost aktiviert das Myzel in der entscheidenden Fruchtungsphase. Das Ergebnis: gleichmäßigere Vluchten, höhere Erträge und eine bessere Qualität pro Ernte.'
             : isNL
@@ -60,7 +60,7 @@ export default async function ProductBoost({
         ctaDiscover: isDE ? 'MEHR ERFAHREN' : isNL ? 'MEER ONTDEKKEN' : 'DISCOVER MORE',
         validated: isDE ? 'VALIDIERT' : isNL ? 'GEVALIDEERD' : 'VALIDATED',
         coreSystem: isDE ? 'KERNSYSTEM' : isNL ? 'KERNSYSTEEM' : 'CORE SYSTEM',
-        efficiencyTitle: isDE ? <>Maximaler <span className="text-orange-400">Ertrag</span></> : isNL ? <>Maximale <span className="text-orange-400">opbrengst</span></> : <>Maximum <span className="text-orange-400">yield</span></>,
+        efficiencyTitle: isDE ? <>Maximaler <span className="text-blue-400">Ertrag</span></> : isNL ? <>Maximale <span className="text-blue-400">opbrengst</span></> : <>Maximum <span className="text-blue-400">yield</span></>,
         cards: [
             {
                 title: isDE ? 'Gleichmäßige Vluchten' : isNL ? 'Gelijkmatige vluchten' : 'Uniform Flushes',
@@ -88,7 +88,7 @@ export default async function ProductBoost({
             }
         ],
         advantageBadge: isDE ? 'VORTEILE' : isNL ? 'VOORDELEN' : 'ADVANTAGES',
-        advantageTitle: isDE ? <>Mehr aus jeder <br /><span className="text-orange-500">Vlucht</span></> : isNL ? <>Meer uit elke <br /><span className="text-orange-500">vlucht</span></> : <>More from every <br /><span className="text-orange-500">flush</span></>,
+        advantageTitle: isDE ? <>Mehr aus jeder <br /><span className="text-blue-500">Vlucht</span></> : isNL ? <>Meer uit elke <br /><span className="text-blue-500">vlucht</span></> : <>More from every <br /><span className="text-blue-500">flush</span></>,
         advantageDesc: isDE
             ? 'FungiPower Boost is speziell für die Fruchtungsphase entwickelt und liefert dem Myzel genau die Nährstoffe, die es in diesem entscheidenden Moment braucht. Das Resultat sind mehr Pilze pro Vlucht, eine höhere Uniformität und eine verbesserte Gesamtqualität.'
             : isNL
@@ -106,7 +106,7 @@ export default async function ProductBoost({
         fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
         tags: isDE ? 'Fruchtungsphase • Ertragssteigerung • Biologisch' : isNL ? 'Vluchtfase • Opbrengstverhoging • Biologisch' : 'Flush phase • Yield booster • Biological',
         guideBadge: isDE ? 'Anwendungsguide' : isNL ? 'Toepassingsgids' : 'Application Guide',
-        guideTitle: isDE ? <>Einfache <br /><span className="text-orange-500">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-orange-500">toepassing</span></> : <>Simple <br /><span className="text-orange-500">application</span></>,
+        guideTitle: isDE ? <>Einfache <br /><span className="text-blue-500">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-blue-500">toepassing</span></> : <>Simple <br /><span className="text-blue-500">application</span></>,
         steps: [
             {
                 step: '01',
@@ -154,7 +154,7 @@ export default async function ProductBoost({
 
     return (
         <ClientLayout dict={dict} lang={lang}>
-            <div className="bg-[#011410] text-orange-50 font-sans selection:bg-orange-500/30">
+            <div className="bg-[#011410] text-blue-50 font-sans selection:bg-blue-500/30">
                 {/* HERO */}
                 <div className="relative pt-24 md:pt-32 pb-16">
                     <div className="absolute top-0 right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_70%)] blur-[120px] pointer-events-none"></div>
@@ -162,30 +162,30 @@ export default async function ProductBoost({
                         <div className="grid lg:grid-cols-2 gap-20 items-center">
                             <div className="lg:pt-6">
                                 <div className="mb-8">
-                                    <div className="inline-flex items-center px-4 py-2 bg-[#0d1f12] border border-orange-900/50 rounded-sm">
-                                        <div className="w-2 h-2 rounded-full bg-orange-500 mr-3 animate-pulse"></div>
-                                        <span className="text-[11px] font-black uppercase tracking-[0.25em] text-orange-500 font-outfit">{content.heroBadge}</span>
+                                    <div className="inline-flex items-center px-4 py-2 bg-[#0d1f12] border border-blue-900/50 rounded-sm">
+                                        <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 animate-pulse"></div>
+                                        <span className="text-[11px] font-black uppercase tracking-[0.25em] text-blue-500 font-outfit">{content.heroBadge}</span>
                                     </div>
                                 </div>
                                 <h1 className="font-outfit font-bold uppercase text-[42px] md:text-[56px] lg:text-[68px] tracking-tight leading-[0.9] text-white text-left mb-6">
                                     {content.heroTitle}
                                 </h1>
-                                <p className="text-lg md:text-xl text-orange-100/60 leading-relaxed max-w-xl font-light mb-8">
+                                <p className="text-lg md:text-xl text-blue-100/60 leading-relaxed max-w-xl font-light mb-8">
                                     {content.heroDesc}
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <a href="#guide" className="h-14 px-8 bg-orange-500 hover:bg-orange-400 text-[#011a14] font-black tracking-widest uppercase text-xs rounded-sm transition-all flex items-center justify-center gap-2 group min-w-[180px]">
+                                    <a href="#guide" className="h-14 px-8 bg-blue-500 hover:bg-blue-400 text-[#011a14] font-black tracking-widest uppercase text-xs rounded-sm transition-all flex items-center justify-center gap-2 group min-w-[180px]">
                                         {content.ctaDiscover}
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </a>
                                     <div className="h-14 px-8 border border-white/10 rounded-sm bg-[#061a12] flex items-center justify-center gap-3 min-w-[180px]">
-                                        <Shield className="w-4 h-4 text-orange-400" />
+                                        <Shield className="w-4 h-4 text-blue-400" />
                                         <span className="text-white font-bold text-xs tracking-widest uppercase">{content.validated}</span>
                                     </div>
                                 </div>
                             </div>
                             <div className="relative flex items-center justify-center">
-                                <div className="absolute inset-0 bg-orange-500/15 blur-[120px] rounded-full opacity-40"></div>
+                                <div className="absolute inset-0 bg-blue-500/15 blur-[120px] rounded-full opacity-40"></div>
                                 <img
                                     src={content.heroImage}
                                     alt="FungiPower Boost"
@@ -200,17 +200,17 @@ export default async function ProductBoost({
                 <div className="py-24 bg-[#011410] relative overflow-hidden">
                     <div className="max-w-7xl mx-auto px-6 relative z-10">
                         <div className="mb-16 max-w-2xl">
-                            <div className="text-orange-400 font-black text-[10px] uppercase tracking-[0.4em] mb-4">{content.coreSystem}</div>
+                            <div className="text-blue-400 font-black text-[10px] uppercase tracking-[0.4em] mb-4">{content.coreSystem}</div>
                             <h2 className="section-title !text-4xl md:!text-5xl font-outfit">{content.efficiencyTitle}</h2>
                         </div>
                         <div className="grid lg:grid-cols-3 gap-8">
                             {content.cards.map((item, i) => (
                                 <div key={i} className="group glass-panel px-8 py-12 rounded-[2rem] hover-lift border-white/5 bg-white/[0.02] transition-all duration-500 hover:bg-white/[0.05]">
-                                    <div className="mb-10 w-16 h-16 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20 group-hover:scale-110 transition-all duration-500">
-                                        {i === 0 ? <BarChart3 className="w-8 h-8 text-orange-400" /> : i === 1 ? <TrendingUp className="w-8 h-8 text-orange-400" /> : <Sparkles className="w-8 h-8 text-orange-400" />}
+                                    <div className="mb-10 w-16 h-16 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
+                                        {i === 0 ? <BarChart3 className="w-8 h-8 text-blue-400" /> : i === 1 ? <TrendingUp className="w-8 h-8 text-blue-400" /> : <Sparkles className="w-8 h-8 text-blue-400" />}
                                     </div>
                                     <h3 className="section-title !text-2xl mb-6 tracking-tight font-outfit text-white">{item.title}</h3>
-                                    <p className="text-orange-100/50 leading-relaxed font-light group-hover:text-orange-100/70 transition-colors">{item.desc}</p>
+                                    <p className="text-blue-100/50 leading-relaxed font-light group-hover:text-blue-100/70 transition-colors">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -222,16 +222,16 @@ export default async function ProductBoost({
                     <div className="max-w-7xl mx-auto px-6 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-24 items-start">
                             <div>
-                                <div className="bg-orange-500/10 text-orange-400 px-4 py-1.5 rounded-sm text-[10px] font-black uppercase tracking-[0.4em] inline-block mb-8 border border-orange-500/20">
+                                <div className="bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-sm text-[10px] font-black uppercase tracking-[0.4em] inline-block mb-8 border border-blue-500/20">
                                     {content.advantageBadge}
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-black text-white mb-8 font-outfit leading-tight">{content.advantageTitle}</h2>
-                                <p className="text-orange-100/60 text-lg font-light leading-relaxed mb-12">{content.advantageDesc}</p>
+                                <p className="text-blue-100/60 text-lg font-light leading-relaxed mb-12">{content.advantageDesc}</p>
                                 <div className="space-y-6">
                                     {content.usps.map((item, i) => (
                                         <div key={i} className="flex items-center gap-5 group">
-                                            <div className="w-8 h-8 rounded-full border border-orange-500/30 flex items-center justify-center group-hover:bg-orange-500 group-hover:border-orange-500 transition-all">
-                                                <CheckCircle2 className="w-4 h-4 text-orange-400 group-hover:text-orange-950" />
+                                            <div className="w-8 h-8 rounded-full border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500 group-hover:border-blue-500 transition-all">
+                                                <CheckCircle2 className="w-4 h-4 text-blue-400 group-hover:text-blue-950" />
                                             </div>
                                             <span className="text-lg text-white font-medium tracking-tight">{item}</span>
                                         </div>
@@ -240,23 +240,23 @@ export default async function ProductBoost({
                             </div>
                             <div className="glass-panel rounded-[2rem] p-10 bg-white/[0.02] border-white/5">
                                 <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 bg-orange-500/10 rounded-lg border border-orange-500/20 text-orange-400">
+                                    <div className="p-3 bg-blue-500/10 rounded-lg border border-blue-500/20 text-blue-400">
                                         <Zap className="w-6 h-6" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-outfit">{content.compositionTitle}</h3>
                                 </div>
                                 <div className="space-y-6">
-                                    <div className="p-5 rounded-xl bg-orange-900/30 border border-orange-500/10 hover:border-orange-500/30 transition-colors">
-                                        <div className="text-orange-400 text-xs font-black uppercase tracking-widest mb-1">{content.humus}</div>
+                                    <div className="p-5 rounded-xl bg-blue-900/30 border border-blue-500/10 hover:border-blue-500/30 transition-colors">
+                                        <div className="text-blue-400 text-xs font-black uppercase tracking-widest mb-1">{content.humus}</div>
                                         <p className="text-white font-medium text-lg">{content.humusDesc}</p>
                                     </div>
-                                    <div className="p-5 rounded-xl bg-orange-900/30 border border-orange-500/10 hover:border-orange-500/30 transition-colors">
-                                        <div className="text-orange-400 text-xs font-black uppercase tracking-widest mb-1">{content.fulvic}</div>
+                                    <div className="p-5 rounded-xl bg-blue-900/30 border border-blue-500/10 hover:border-blue-500/30 transition-colors">
+                                        <div className="text-blue-400 text-xs font-black uppercase tracking-widest mb-1">{content.fulvic}</div>
                                         <p className="text-white font-medium text-lg">{content.fulvicDesc}</p>
                                     </div>
                                 </div>
                                 <div className="pt-6 mt-6 border-t border-white/5">
-                                    <div className="text-orange-100/40 text-sm italic font-medium">{content.tags}</div>
+                                    <div className="text-blue-100/40 text-sm italic font-medium">{content.tags}</div>
                                 </div>
                             </div>
                         </div>
@@ -268,10 +268,10 @@ export default async function ProductBoost({
                     <div className="max-w-6xl mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
                             <div className="glass-panel p-12 rounded-[3rem] bg-white/[0.02] border-white/5 overflow-hidden relative">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 blur-[80px] rounded-full"></div>
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[80px] rounded-full"></div>
                                 <div className="relative z-10">
                                     <div className="mb-10">
-                                        <div className="bg-orange-900/50 text-orange-200 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest inline-block mb-6 border border-white/10">
+                                        <div className="bg-blue-900/50 text-blue-200 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest inline-block mb-6 border border-white/10">
                                             {content.guideBadge}
                                         </div>
                                         <h2 className="text-4xl md:text-5xl font-black text-white font-outfit leading-tight">{content.guideTitle}</h2>
@@ -279,10 +279,10 @@ export default async function ProductBoost({
                                     <div className="space-y-10">
                                         {content.steps.map((item, i) => (
                                             <div key={i} className="flex gap-6">
-                                                <div className="text-4xl font-black text-orange-500 font-outfit">0{i + 1}</div>
+                                                <div className="text-4xl font-black text-blue-500 font-outfit">0{i + 1}</div>
                                                 <div>
                                                     <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
-                                                    <p className="text-orange-100/50 leading-relaxed font-medium">{item.desc}</p>
+                                                    <p className="text-blue-100/50 leading-relaxed font-medium">{item.desc}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -290,15 +290,15 @@ export default async function ProductBoost({
                                 </div>
                             </div>
                             <div className="flex flex-col gap-8">
-                                <div className="glass-panel p-10 rounded-[2rem] bg-orange-900/10 border-orange-500/20 flex-grow">
+                                <div className="glass-panel p-10 rounded-[2rem] bg-blue-900/10 border-blue-500/20 flex-grow">
                                     <h3 className="text-2xl font-bold text-white mb-8 font-outfit">{content.expertAdvice}</h3>
                                     <div className="space-y-6">
                                         {content.expertItems.map((item, i) => (
                                             <div key={i} className="flex gap-4 items-start">
-                                                <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0 mt-1">
-                                                    <span className="text-orange-400 text-xs font-bold">!</span>
+                                                <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-1">
+                                                    <span className="text-blue-400 text-xs font-bold">!</span>
                                                 </div>
-                                                <p className="text-orange-100/70 leading-relaxed">
+                                                <p className="text-blue-100/70 leading-relaxed">
                                                     <strong className="text-white">{item.label}:</strong> {item.text}
                                                 </p>
                                             </div>
@@ -306,7 +306,7 @@ export default async function ProductBoost({
                                     </div>
                                 </div>
                                 <div className="glass-panel p-8 rounded-[2rem] bg-white/[0.02] border-white/5">
-                                    <p className="text-orange-100/40 text-sm leading-relaxed italic">"{content.disclaimer}"</p>
+                                    <p className="text-blue-100/40 text-sm leading-relaxed italic">"{content.disclaimer}"</p>
                                 </div>
                             </div>
                         </div>
@@ -319,22 +319,22 @@ export default async function ProductBoost({
                         <div className="max-w-3xl mx-auto">
                             <div className="mb-12">
                                 <h2 className="text-3xl font-bold text-white mb-4 font-outfit">{content.technicalTitle}</h2>
-                                <p className="text-orange-100/50 text-lg font-light leading-relaxed">{content.technicalDesc}</p>
+                                <p className="text-blue-100/50 text-lg font-light leading-relaxed">{content.technicalDesc}</p>
                             </div>
                             <a
                                 href={content.sdsLink}
-                                className="group glass-panel p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-orange-500/40 transition-all duration-500 flex items-center justify-between"
+                                className="group glass-panel p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-blue-500/40 transition-all duration-500 flex items-center justify-between"
                             >
                                 <div className="flex items-center gap-6">
-                                    <div className="w-16 h-16 bg-orange-900/40 rounded-xl flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
-                                        <FileText className="text-orange-400 w-8 h-8" />
+                                    <div className="w-16 h-16 bg-blue-900/40 rounded-xl flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
+                                        <FileText className="text-blue-400 w-8 h-8" />
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors font-outfit uppercase tracking-tight">{content.sdsLabel}</h4>
-                                        <p className="text-xs text-orange-500/50 font-black tracking-widest uppercase mt-1">{content.sdsMeta}</p>
+                                        <h4 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors font-outfit uppercase tracking-tight">{content.sdsLabel}</h4>
+                                        <p className="text-xs text-blue-500/50 font-black tracking-widest uppercase mt-1">{content.sdsMeta}</p>
                                     </div>
                                 </div>
-                                <Download className="w-6 h-6 text-orange-100/20 group-hover:text-orange-400 transition-all transform group-hover:-translate-y-2" />
+                                <Download className="w-6 h-6 text-blue-100/20 group-hover:text-blue-400 transition-all transform group-hover:-translate-y-2" />
                             </a>
                         </div>
                     </div>
