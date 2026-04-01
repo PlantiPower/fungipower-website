@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-10-8g-docstext.googleusercontent.com)",
+      "Bash(__NEW_LINE_807f320192303f03__ cp:*)",
+      "Bash(__NEW_LINE_807f320192303f03__ python3 -c \":*)"
+    ],
+    "additionalDirectories": [
+      "/Users/hadad/Documents/AntiGravity/FungiPower next/src/app/[lang]"
+    ]
+  }
+}

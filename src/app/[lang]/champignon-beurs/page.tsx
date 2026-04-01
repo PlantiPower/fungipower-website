@@ -139,7 +139,7 @@ export default function ChampignonBeurs() {
           </div>
 
           {status === 'error' && (
-            <p className="text-red-400 text-sm">Something went wrong. Please try again or email us at info@fungipower.com.</p>
+            <p className="text-red-400 text-sm">Something went wrong. Please try again or email us at info@fungipower.bio.</p>
           )}
 
           <button
