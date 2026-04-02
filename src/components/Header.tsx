@@ -64,10 +64,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
             </Link>
 
             <div className="relative group/dropdown py-4 shrink-0">
-              <button className={`flex items-center gap-2 hover:text-orange-400 transition-all tracking-[0.3em] xl:tracking-[0.4em] uppercase whitespace-nowrap ${pathname.includes('products') || pathname.includes('fungipower-') ? 'text-orange-400' : ''}`}>
+              <Link href={getPath('products', lang)} className={`flex items-center gap-2 hover:text-orange-400 transition-all tracking-[0.3em] xl:tracking-[0.4em] uppercase whitespace-nowrap ${pathname.includes('producten') || pathname.includes('fungipower-') ? 'text-orange-400' : ''}`}>
                 {t.products.replace(/ /g, '\u00A0')}
                 <ChevronDown className="w-3 h-3 opacity-50 transition-transform duration-300 group-hover/dropdown:rotate-180" />
-              </button>
+              </Link>
 
               <div className="absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 pt-4 w-72 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 transform scale-95 group-hover/dropdown:scale-100 pointer-events-none group-hover/dropdown:pointer-events-auto">
                 <div className="bg-orange-950/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-2">

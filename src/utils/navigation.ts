@@ -3,6 +3,7 @@ import { Locale } from '@/i18n-config';
 const slugMap: Record<string, Record<string, string>> = {
     en: {
         'about': 'about-us',
+        'products': 'producten',
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
@@ -10,6 +11,7 @@ const slugMap: Record<string, Record<string, string>> = {
     },
     nl: {
         'about': 'over-ons',
+        'products': 'producten',
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
@@ -17,6 +19,7 @@ const slugMap: Record<string, Record<string, string>> = {
     },
     de: {
         'about': 'ueber-uns',
+        'products': 'producten',
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
