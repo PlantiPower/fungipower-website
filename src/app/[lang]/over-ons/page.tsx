@@ -83,13 +83,13 @@ export default async function AboutPage({
                                 <div className="relative rounded-[2rem] overflow-hidden aspect-[3/4]">
                                     <img
                                         src="/images/jan-klerken.jpg"
-                                        alt="Jan Klerken – Oprichter FungiPower"
+                                        alt="Jan Klerken – Co-Founder FungiPower"
                                         className="w-full h-full object-cover object-top"
                                     />
                                     {/* Naam overlay onderaan */}
                                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-8 pt-20">
                                         <p className="text-white font-black text-2xl font-outfit">Jan Klerken</p>
-                                        <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.25em] mt-1">Oprichter FungiPower</p>
+                                        <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.25em] mt-1">Co-Founder FungiPower</p>
                                         <blockquote className="mt-4 text-orange-100/80 text-sm leading-relaxed italic border-l-2 border-orange-500 pl-4">
                                             {t.missionDesc}
                                         </blockquote>

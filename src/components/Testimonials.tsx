@@ -10,6 +10,8 @@ const Testimonials: React.FC<TestimonialsProps> = ({ dict }) => {
   const t = dict.Testimonials;
   const reviews = t.reviews;
 
+  if (!reviews || reviews.length === 0) return null;
+
   return (
     <section className="py-12 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">

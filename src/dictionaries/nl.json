@@ -15,7 +15,7 @@
   "Hero": {
     "titleLine1": "Snellere oogst,",
     "titleLine2": "Meer opbrengst,",
-    "titleLine3": "Uniforme groei.",
+    "titleLine3": "Uniformere groei.",
     "uspsPart1": "BIOLOGISCHE VERSTERKING",
     "uspsPart2": "MEER OPBRENGST",
     "uspsPart3": "GETEST IN COMMERCIËLE TEELT",
@@ -106,18 +106,7 @@
   "Testimonials": {
     "title": "De Ervaring van Kwekers",
     "average": "GEMIDDELD",
-    "reviews": [
-      {
-        "name": "Champignonkweker",
-        "role": "Noord-Brabant",
-        "text": "Sinds we FungiPower toevoegen aan ons teeltschema, zien we duidelijk verschil: uniformere vruchtlichamen (paddenstoelen), snellere vluchten en hogere opbrengst per m². En dat zonder iets te veranderen in ons substraat of aan onze teeltwijze."
-      },
-      {
-        "name": "Champignonkweker",
-        "role": "Limburg",
-        "text": "Wat mij aanspreekt is dat FungiPower niet alleen resultaat geeft, maar het mycelium echt versterkt. Minder uitval, betere opname en 100% natuurlijk. Precies wat de sector nodig heeft."
-      }
-    ]
+    "reviews": []
   },
   "ProblemSection": {
     "badge": "DE UITDAGING",
