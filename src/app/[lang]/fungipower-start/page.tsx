@@ -115,8 +115,8 @@ export default async function ProductStart({
             },
             {
                 step: '02',
-                title: isDE ? 'Dosierung bei der Inokulation' : isNL ? 'Dosering bij de inoculatie' : 'Dosage at inoculation',
-                desc: isDE ? 'Mischen Sie 5 ml FungiPower Start pro 1 Liter Wasser und fügen Sie dies dem Substrat bei der Inokulationsphase hinzu.' : isNL ? 'Meng 5 ml FungiPower Start per 1 liter water en voeg dit toe aan het substraat bij de inoculatiefase.' : 'Mix 5 ml FungiPower Start per 1 litre of water and add to substrate at inoculation phase.'
+                title: isDE ? 'Dosierung beim Befüllen' : isNL ? 'Dosering bij het vullen' : 'Dosage when filling',
+                desc: isDE ? 'Mischen Sie 5 ml FungiPower Start pro 1 Liter Wasser und fügen Sie dies dem Substrat beim Befüllen des Anbaubetriebs hinzu.' : isNL ? 'Meng 5 ml FungiPower Start per 1 liter water en voeg dit toe aan het substraat tijdens het vullen van de kwekerij.' : 'Mix 5 ml FungiPower Start per 1 litre of water and add to the substrate when filling the growing room.'
             },
             {
                 step: '03',

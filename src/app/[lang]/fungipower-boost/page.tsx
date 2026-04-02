@@ -111,12 +111,12 @@ export default async function ProductBoost({
             {
                 step: '01',
                 title: isDE ? 'Gut schütteln' : isNL ? 'Goed schudden' : 'Shake well',
-                desc: isDE ? 'Kräftig schütteln vor Gebrauch für eine homogene Mischung.' : isNL ? 'Schud de jerrycan goed voor gebruik voor een homogeen mengsel.' : 'Shake the jerrycan well before use for a homogeneous mixture.'
+                desc: isDE ? 'Vor Gebrauch gut schütteln.' : isNL ? 'Schud goed voor gebruik.' : 'Shake well before use.'
             },
             {
                 step: '02',
-                title: isDE ? 'Dosierung vor der Vlucht' : isNL ? 'Dosering voor de vlucht' : 'Dosage before flush',
-                desc: isDE ? 'Mischen Sie 5 ml FungiPower Boost pro 1 Liter Wasser und bewässern Sie das Substrat 2–3 Tage vor der erwarteten Fruchtbildung.' : isNL ? 'Meng 5 ml FungiPower Boost per 1 liter water en bewater het substraat 2–3 dagen voor de verwachte vlucht.' : 'Mix 5 ml FungiPower Boost per 1 litre of water and water the substrate 2–3 days before the expected flush.'
+                title: isDE ? 'Dosierung nach der Vlucht' : isNL ? 'Dosering na de vlucht' : 'Dosage after flush',
+                desc: isDE ? 'Geben Sie 3 ml FungiPower Boost pro 1 Liter Wasser pro 1 m² nach jeder Vlucht hinzu (nach der 1. & 2. Vlucht).' : isNL ? 'Voeg 3 ml FungiPower Boost per 1 liter water per 1 m² toe na elke vlucht (na de 1e & 2e vlucht).' : 'Add 3 ml of FungiPower Boost per 1 liter of water per 1 m² after each flush (after the 1st & 2nd flush).'
             },
             {
                 step: '03',
