@@ -44,10 +44,10 @@ export default async function ProductsOverview({
     const content = {
         badge: isDE ? 'Unsere Produkte' : isNL ? 'Onze producten' : 'Our products',
         title: isDE
-            ? <><span className="text-white">ZUSAMMEN</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">STARK</span></>
+            ? <><span className="text-white">ZUSAMMEN </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">STARK</span></>
             : isNL
-                ? <><span className="text-white">SAMEN</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">STERK</span></>
-                : <><span className="text-white">STRONGER</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">TOGETHER</span></>,
+                ? <><span className="text-white">SAMEN </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">STERK</span></>
+                : <><span className="text-white">STRONGER </span><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">TOGETHER</span></>,
         subtitle: isDE
             ? 'Unsere Produkte sind einzeln einsetzbar, aber zusammen stärker.'
             : isNL
@@ -135,23 +135,23 @@ export default async function ProductsOverview({
                                 </h2>
 
                                 {/* Description */}
-                                <p className="text-white/50 text-base leading-relaxed mb-8">
+                                <p className="text-white/60 text-lg leading-relaxed mb-8">
                                     {content.startDesc}
                                 </p>
 
                                 {/* Features */}
-                                <ul className="space-y-3 mb-8">
+                                <ul className="space-y-3.5 mb-8">
                                     {content.startFeatures.map((f, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                                        <li key={i} className="flex items-center gap-3 text-base text-white/80">
+                                            <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
                                             {f}
                                         </li>
                                     ))}
                                 </ul>
 
                                 {/* Composition pill */}
-                                <div className="text-[10px] font-bold tracking-[0.2em] text-orange-300/60 uppercase mb-8">
-                                    {content.composition}: <span className="text-orange-300/80">{content.compositionValue}</span>
+                                <div className="text-sm font-bold tracking-[0.15em] text-orange-300/70 uppercase mb-8">
+                                    {content.composition}: <span className="text-orange-300/90">{content.compositionValue}</span>
                                 </div>
 
                                 {/* CTA */}
@@ -189,23 +189,23 @@ export default async function ProductsOverview({
                                 </h2>
 
                                 {/* Description */}
-                                <p className="text-white/50 text-base leading-relaxed mb-8">
+                                <p className="text-white/60 text-lg leading-relaxed mb-8">
                                     {content.boostDesc}
                                 </p>
 
                                 {/* Features */}
-                                <ul className="space-y-3 mb-8">
+                                <ul className="space-y-3.5 mb-8">
                                     {content.boostFeatures.map((f, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                                        <li key={i} className="flex items-center gap-3 text-base text-white/80">
+                                            <span className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
                                             {f}
                                         </li>
                                     ))}
                                 </ul>
 
                                 {/* Composition pill */}
-                                <div className="text-[10px] font-bold tracking-[0.2em] text-blue-300/60 uppercase mb-8">
-                                    {content.composition}: <span className="text-blue-300/80">{content.compositionValue}</span>
+                                <div className="text-sm font-bold tracking-[0.15em] text-blue-300/70 uppercase mb-8">
+                                    {content.composition}: <span className="text-blue-300/90">{content.compositionValue}</span>
                                 </div>
 
                                 {/* CTA */}
