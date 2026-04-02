@@ -24,10 +24,10 @@ export async function generateMetadata(
     return {
         title: isDE ? 'FungiPower Produkte' : isNL ? 'FungiPower Producten' : 'FungiPower Products',
         description: isDE
-            ? 'Entdecken Sie FungiPower Start und Boost — biologische Lösungen für maximalen Ertrag in der Pilzzucht.'
+            ? 'Entdecken Sie FungiPower Start und Boost. Biologische Lösungen für maximalen Ertrag in der Pilzzucht.'
             : isNL
-                ? 'Ontdek FungiPower Start en Boost — biologische oplossingen voor maximale opbrengst in de champignonteelt.'
-                : 'Discover FungiPower Start and Boost — biological solutions for maximum yield in mushroom cultivation.',
+                ? 'Ontdek FungiPower Start en Boost. Biologische oplossingen voor maximale opbrengst in de champignonteelt.'
+                : 'Discover FungiPower Start and Boost. Biological solutions for maximum yield in mushroom cultivation.',
     }
 }
 
@@ -56,10 +56,10 @@ export default async function ProductsOverview({
         startPhase: isDE ? 'Kolonisierungsphase' : isNL ? 'Kolonisatiefase' : 'Colonisation Phase',
         startTitle: 'FUNGIPOWER START',
         startDesc: isDE
-            ? 'FungiPower Start stimuliert die frühe Myzel-Entwicklung und sorgt für eine gleichmäßige, starke Kolonisierung des Substrats — die Grundlage jeder erfolgreichen Ernte.'
+            ? 'FungiPower Start stimuliert die frühe Myzel-Entwicklung und sorgt für eine gleichmäßige, starke Kolonisierung des Substrats. Die Grundlage jeder erfolgreichen Ernte.'
             : isNL
-                ? 'FungiPower Start stimuleert de vroege myceliumontwikkeling en zorgt voor een gelijkmatige, sterke kolonisatie van het substraat — de basis van elke succesvolle vlucht.'
-                : 'FungiPower Start stimulates early mycelium development and ensures uniform, strong substrate colonisation — the foundation of every successful flush.',
+                ? 'FungiPower Start stimuleert de vroege myceliumontwikkeling en zorgt voor een gelijkmatige, sterke kolonisatie van het substraat. De basis van elke succesvolle vlucht.'
+                : 'FungiPower Start stimulates early mycelium development and ensures uniform, strong substrate colonisation. The foundation of every successful flush.',
         startFeatures: isDE
             ? ['Gleichmäßige Kolonisierung', 'Weniger schwache Stellen', 'Kürzere Kolonisierungszeit', '100% biologisch']
             : isNL
