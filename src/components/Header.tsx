@@ -14,7 +14,7 @@ interface HeaderProps {
   lang: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang }) => {
+const Header: React.FC<HeaderProps> = ({ onOpenMenu, dict, lang }) => {
   const pathname = usePathname();
 
 
@@ -97,12 +97,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
 
           {/* RIGHT: CTA & LANG SWITCHER */}
           <div className="flex-1 lg:flex-none flex justify-end items-center gap-3 relative z-10 min-w-0 lg:pl-4">
-            <button
-              onClick={onOpenSample}
+            <Link
+              href={getPath('contact', lang)}
               className="bg-orange-500 text-orange-950 hover:bg-white font-bold h-11 rounded-xl transition-all text-[11px] xl:text-xs uppercase tracking-[0.1em] lg:tracking-[0.15em] hidden sm:flex items-center justify-center flex-none w-[190px] xl:w-[220px] shadow-[0_0_20px_rgba(132,204,22,0.2)] hover:shadow-[0_0_30px_rgba(132,204,22,0.4)]"
             >
               <span className="truncate px-1 block">{t.cta}</span>
-            </button>
+            </Link>
 
             {/* Premium Dropdown Language Switcher */}
             <div className="hidden md:block relative group/lang py-4">

@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ dict, lang }) => {
               <img
                 src="/images/fungipower-logo.png"
                 alt="FungiPower"
-                className="h-36 w-auto opacity-100"
+                className="h-52 w-auto opacity-100"
               />
             </div>
             <p className="text-orange-100/60 text-sm leading-relaxed mb-10 font-medium">
