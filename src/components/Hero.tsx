@@ -1,9 +1,7 @@
 'use client'
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { getPath } from '../utils/navigation';
 
 // cx/cy = start deep in mycelium, tx/ty = soil surface (fade out before mushroom)
 const myceliumPulses = [
@@ -32,7 +30,7 @@ interface HeroProps {
   lang: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ dict, lang }) => {
+const Hero: React.FC<HeroProps> = ({ dict }) => {
   const t = dict.Hero;
 
   return (
@@ -80,13 +78,15 @@ const Hero: React.FC<HeroProps> = ({ dict, lang }) => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
-              <Link
-                href={getPath('products', lang)}
+              <a
+                href="https://ourcelia.maxom.nl/products"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-standard bg-orange-500 hover:bg-orange-400 text-orange-950 shadow-[0_0_30px_rgba(132,204,22,0.4)] flex-col py-4 leading-tight !h-auto text-center"
               >
                 <span className="text-[10px] mb-1 opacity-70 font-black tracking-[0.3em]">{t.ctaMore}</span>
                 <span className="text-sm">{t.ctaProduct}</span>
-              </Link>
+              </a>
               <button
                 onClick={() => document.getElementById('crop-results')?.scrollIntoView({ behavior: 'smooth' })}
                 className="btn-standard bg-white/5 border border-white/10 text-white hover:bg-white/10 backdrop-blur-sm flex-col py-4 leading-tight !h-auto"
