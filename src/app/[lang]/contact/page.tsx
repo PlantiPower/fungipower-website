@@ -33,7 +33,7 @@ export default async function ContactPage({
 
     return (
         <ClientLayout dict={dict} lang={lang}>
-            <div className="relative pt-32 md:pt-40 pb-20 bg-[#011410]">
+            <div className="relative pt-24 md:pt-28 pb-20 bg-[#011410]">
                 <div className="container mx-auto px-6 text-center mb-12">
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter font-outfit">
                         {content.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-400">{content.titleAccent}</span>
