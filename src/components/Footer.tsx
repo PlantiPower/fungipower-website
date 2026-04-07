@@ -67,13 +67,13 @@ const Footer: React.FC<FooterProps> = ({ dict, lang }) => {
           <div>
             <h4 className="text-[10px] font-bold uppercase tracking-[0.4rem] text-orange-400 mb-8">{t.contactTitle}</h4>
             <div className="space-y-4">
-              <a href="tel:+31772086033" className="flex items-center gap-4 text-orange-50 hover:text-orange-400 transition-colors group">
+              <a href="tel:+31773031660" className="flex items-center gap-4 text-orange-50 hover:text-orange-400 transition-colors group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-orange-950 transition-all duration-300">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <span className="font-medium tracking-wide">+31 (0)77 208 6033</span>
+                <span className="font-medium tracking-wide">+31 77 303 1660</span>
               </a>
               <a href="mailto:info@fungipower.bio" className="flex items-center gap-4 text-orange-50 hover:text-orange-400 transition-colors group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-orange-950 transition-all duration-300">
