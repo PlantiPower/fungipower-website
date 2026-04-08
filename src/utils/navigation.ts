@@ -7,7 +7,9 @@ const slugMap: Record<string, Record<string, string>> = {
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
-        'contact': 'contact'
+        'contact': 'contact',
+        'privacy': 'privacy-policy',
+        'terms': 'terms'
     },
     nl: {
         'about': 'over-ons',
@@ -15,7 +17,9 @@ const slugMap: Record<string, Record<string, string>> = {
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
-        'contact': 'contact'
+        'contact': 'contact',
+        'privacy': 'privacy-policy',
+        'terms': 'algemene-voorwaarden'
     },
     de: {
         'about': 'ueber-uns',
@@ -23,7 +27,9 @@ const slugMap: Record<string, Record<string, string>> = {
         'products/start': 'fungipower-start',
         'products/boost': 'fungipower-boost',
         'faq': 'faq',
-        'contact': 'kontakt'
+        'contact': 'kontakt',
+        'privacy': 'datenschutzerklaerung',
+        'terms': 'agb'
     }
 };
 

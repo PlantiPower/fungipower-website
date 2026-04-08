@@ -82,8 +82,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ dict, lang }) => {
                 <div className="flex items-start gap-6 group">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:bg-orange-500/10 transition-all shadow-inner shrink-0">📍</div>
                   <div className="text-orange-100/70 leading-relaxed font-medium pt-1">
-                    L.J. Costerstraat 48<br />
-                    5916 PS Venlo<br />
+                    Van Heemskerckweg 26<br />
+                    5928 LL Venlo<br />
                     {isDE ? 'Niederlande' : isNL ? 'Nederland' : 'The Netherlands'}
                   </div>
                 </div>

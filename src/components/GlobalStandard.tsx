@@ -102,7 +102,7 @@ const GlobalStandard: React.FC<GlobalStandardProps> = ({ dict }) => {
 
                         <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                             <img
-                                src="/images/fungipower-world-tech.png"
+                                src="/images/plantipower-world-tech.png"
                                 alt="FungiPower Global Standard"
                                 className="w-full h-auto object-cover transform transition-transform duration-[1.5s] group-hover:scale-105"
                             />

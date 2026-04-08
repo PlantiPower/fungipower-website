@@ -116,19 +116,7 @@ export default async function ProductsOverview({
                         {/* START CARD */}
                         <div className="group relative bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden hover:border-orange-500/40 transition-all duration-500 hover:bg-white/[0.05] flex flex-col">
                             <div className="absolute inset-0 bg-gradient-to-br from-orange-950/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            {/* Jerrycan */}
-                            <div className="absolute bottom-0 right-4 w-36 z-10 pointer-events-none select-none">
-                                <div className="relative">
-                                    <div className="absolute inset-x-0 bottom-0 h-10 bg-orange-500/20 blur-2xl rounded-full" />
-                                    <img
-                                        src="/images/products/fungipower-start.png"
-                                        alt="FungiPower Start"
-                                        className="w-full drop-shadow-[0_20px_30px_rgba(249,115,22,0.35)] group-hover:scale-105 transition-transform duration-500 -rotate-3"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="p-8 md:p-10 flex flex-col flex-1 relative z-10 pr-32">
+                            <div className="p-8 md:p-10 flex flex-col flex-1 relative z-10">
                                 {/* Badge */}
                                 <div className="mb-8">
                                     <span className="text-[10px] font-bold tracking-[0.3em] text-orange-400/80 uppercase border border-orange-400/20 px-3 py-1.5 rounded-full">
@@ -158,8 +146,8 @@ export default async function ProductsOverview({
                                 </ul>
 
                                 {/* Composition */}
-                                <div className="text-sm font-bold tracking-[0.15em] text-orange-300/70 uppercase mb-8">
-                                    {content.composition}: <span className="text-orange-300/90">{content.compositionValue}</span>
+                                <div className="text-sm font-black tracking-[0.15em] text-orange-300/70 uppercase mb-8">
+                                    {content.composition}: <span className="text-orange-300/90 font-bold">{content.compositionValue}</span>
                                 </div>
 
                                 {/* CTA */}
@@ -178,19 +166,7 @@ export default async function ProductsOverview({
                         {/* BOOST CARD */}
                         <div className="group relative bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden hover:border-blue-500/40 transition-all duration-500 hover:bg-white/[0.05] flex flex-col">
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            {/* Jerrycan */}
-                            <div className="absolute bottom-0 right-4 w-36 z-10 pointer-events-none select-none">
-                                <div className="relative">
-                                    <div className="absolute inset-x-0 bottom-0 h-10 bg-blue-500/20 blur-2xl rounded-full" />
-                                    <img
-                                        src="/images/products/fungipower-boost.png"
-                                        alt="FungiPower Boost"
-                                        className="w-full drop-shadow-[0_20px_30px_rgba(59,130,246,0.35)] group-hover:scale-105 transition-transform duration-500 rotate-3"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="p-8 md:p-10 flex flex-col flex-1 relative z-10 pr-32">
+                            <div className="p-8 md:p-10 flex flex-col flex-1 relative z-10">
                                 {/* Badge */}
                                 <div className="mb-8">
                                     <span className="text-[10px] font-bold tracking-[0.3em] text-blue-400/80 uppercase border border-blue-400/20 px-3 py-1.5 rounded-full">
@@ -220,8 +196,8 @@ export default async function ProductsOverview({
                                 </ul>
 
                                 {/* Composition */}
-                                <div className="text-sm font-bold tracking-[0.15em] text-blue-300/70 uppercase mb-8">
-                                    {content.composition}: <span className="text-blue-300/90">{content.compositionValue}</span>
+                                <div className="text-sm font-black tracking-[0.15em] text-blue-300/70 uppercase mb-8">
+                                    {content.composition}: <span className="text-blue-300/90 font-bold">{content.compositionValue}</span>
                                 </div>
 
                                 {/* CTA */}

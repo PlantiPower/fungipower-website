@@ -272,7 +272,9 @@
       "about": "Über uns",
       "products": "Produkte",
       "faq": "Häufig gestellte Fragen",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "privacy": "Datenschutzerklärung",
+      "terms": "AGB"
     },
     "contactTitle": "Kontakt",
     "rights": "Alle Rechte vorbehalten",

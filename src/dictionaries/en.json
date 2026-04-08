@@ -272,7 +272,9 @@
       "about": "About",
       "products": "Products",
       "faq": "FAQ",
-      "contact": "Contact"
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
     "contactTitle": "Contact",
     "rights": "All rights reserved",

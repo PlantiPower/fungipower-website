@@ -102,6 +102,14 @@ const Footer: React.FC<FooterProps> = ({ dict, lang }) => {
 
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col items-center gap-3">
           <div className="text-orange-100/40 text-sm font-medium">© 2026 {t.rights} | FungiPower</div>
+          <div className="flex gap-6">
+            <Link href={getPath('privacy', lang)} className="text-[10px] text-orange-100/30 hover:text-orange-400 uppercase tracking-widest transition-colors">
+              {t.links.privacy}
+            </Link>
+            <Link href={getPath('terms', lang)} className="text-[10px] text-orange-100/30 hover:text-orange-400 uppercase tracking-widest transition-colors">
+              {t.links.terms}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
