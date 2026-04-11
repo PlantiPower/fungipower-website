@@ -89,12 +89,12 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
 
   const content = isDE ? {
     title: "PROBEPAKET BESTELLEN",
-    subtitle: "Sie erhalten 1x 1 Liter FungiPower Start und 1x 1 Liter FungiPower Boost für €29,95 (zzgl. MwSt.) inklusive Versandkosten.",
+    subtitle: "Sie erhalten 1x 1 Liter FungiPower Start und 1x 1 Liter FungiPower Boost für €49,95 (zzgl. MwSt.) inklusive Versandkosten.",
     product1: { name: "FungiPower Start (1L)", sub: "NÄHRSTOFFTRANSPORT" },
     product2: { name: "FungiPower Boost (1L)", sub: "BESSERE WIDERSTANDSKRAFT" },
     bundleTitle: "AUSGEWÄHLTER TEST",
     bundleSub: "2X PRODUKTE (START + BOOST)",
-    price: "€29,95",
+    price: "€49,95",
     shipping: "INKL. VERSAND | ZZGL. MWST",
     labelCompany: "UNTERNEHMENSNAME",
     placeholderCompany: "Ihre Gärtnerei",
@@ -122,12 +122,12 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     successMsg: "Ihre Anfrage wurde erfolgreich versendet."
   } : isNL ? {
     title: "BESTEL HIER JE PROEFPAKKET",
-    subtitle: "Je ontvangt 1x 1 liter FungiPower Start en 1x 1 liter FungiPower Boost voor €29,95 (excl. BTW) inclusief verzendkosten.",
+    subtitle: "Je ontvangt 1x 1 liter FungiPower Start en 1x 1 liter FungiPower Boost voor €49,95 (excl. BTW) inclusief verzendkosten.",
     product1: { name: "FungiPower Start (1L)", sub: "VOEDING TRANSPORTEREN" },
     product2: { name: "FungiPower Boost (1L)", sub: "BETERE WEERBAARHEID" },
     bundleTitle: "GESELECTEERDE TEST",
     bundleSub: "2X PRODUCTEN (START + BOOST)",
-    price: "€29,95",
+    price: "€49,95",
     shipping: "INCL. VERZENDING | EXCL. BTW",
     labelCompany: "BEDRIJFSNAAM",
     placeholderCompany: "Je Kwekerij",
@@ -155,12 +155,12 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     successMsg: "Je aanvraag is succesvol verzonden."
   } : {
     title: "ORDER YOUR SAMPLE PACK HERE",
-    subtitle: "You receive 1x 1 liter FungiPower Start and 1x 1 liter FungiPower Boost for €29.95 (excl. VAT) including shipping.",
+    subtitle: "You receive 1x 1 liter FungiPower Start and 1x 1 liter FungiPower Boost for €49.95 (excl. VAT) including shipping.",
     product1: { name: "FungiPower Start (1L)", sub: "TRANSPORT NUTRIENTS" },
     product2: { name: "FungiPower Boost (1L)", sub: "BETERE RESILIENCE" },
     bundleTitle: "SELECTED TEST",
     bundleSub: "2X PRODUCTS (START + BOOST)",
-    price: "€29.95",
+    price: "€49.95",
     shipping: "INCL. SHIPPING | EXCL. VAT",
     labelCompany: "COMPANY NAME",
     placeholderCompany: "Your Nursery",

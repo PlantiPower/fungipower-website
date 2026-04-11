@@ -148,7 +148,7 @@ export default async function ProductBoost({
         technicalDesc: isDE ? 'Zugang zur offiziellen Dokumentation von FungiPower Boost.' : isNL ? 'Toegang tot de officiële documentatie van FungiPower Boost.' : 'Access to official FungiPower Boost documentation.',
         sdsLabel: isDE ? 'Sicherheitsdatenblatt' : isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
         sdsMeta: isDE ? 'SDS DE • pdf' : isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
-        sdsLink: '#',
+        sdsLink: isDE ? '/docs/fungipower-boost-sds-de.pdf' : isNL ? '/docs/fungipower-boost-sds-nl.pdf' : '/docs/fungipower-boost-sds-en.pdf',
         heroImage: '/images/products/fungipower-boost.svg',
     };
 

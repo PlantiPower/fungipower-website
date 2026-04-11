@@ -116,8 +116,8 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 51 | Prijs: €29,95 → €49,95 (excl. BTW) incl. verzendkosten + verpakkingsformaat invullen | ⏳ | |
-| 52 | Stripe betaalkoppeling nog niet actief → activeren op FungiPower account | ⏳ | |
+| 51 | Prijs: €29,95 → €49,95 (excl. BTW) incl. verzendkosten + verpakkingsformaat invullen | ✅ | SampleModal: €29,95 → €49,95 (NL/DE/EN). Formaat: 1x 1L Start + 1x 1L Boost. |
+| 52 | Stripe betaalkoppeling nog niet actief → activeren op FungiPower account | ❌ | Externe accountinstelling, niet via code op te lossen. |
 
 ---
 
@@ -125,7 +125,7 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 53 | "Wil je partner worden?" → "Heb je vragen over onze producten of wil je een proef op jouw bedrijf?" | ⏳ | |
+| 53 | "Wil je partner worden?" → "Heb je vragen over onze producten of wil je een proef op jouw bedrijf?" | ✅ | nl.json Contact description aangepast. |
 | 54 | Contactgegevens → behouden | ✅ | Geen aanpassing nodig |
 
 ---
@@ -134,7 +134,8 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 55 | Heading overlapt afbeelding → layout-bug fixen | ⏳ | |
+| 55 | Heading overlapt afbeelding → layout-bug fixen | ✅ | ueber-uns/page.tsx: translate-y-12 verwijderd van image div. |
+| 33 | SDS links Start werkt niet → werkend PDF uploaden en linken | ✅ | 6 SDS PDFs gekopieerd naar public/docs, links in Start + Boost pagina gekoppeld (NL/DE/EN). |
 | 56 | Alle NL-correcties doorvoeren in DE-versie | ⏳ | Na afronding NL |
 
 ---

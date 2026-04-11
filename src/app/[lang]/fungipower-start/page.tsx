@@ -148,7 +148,7 @@ export default async function ProductStart({
         technicalDesc: isDE ? 'Zugang zur offiziellen Dokumentation von FungiPower Start.' : isNL ? 'Toegang tot de officiële documentatie van FungiPower Start.' : 'Access to official FungiPower Start documentation.',
         sdsLabel: isDE ? 'Sicherheitsdatenblatt' : isNL ? 'Veiligheidsblad' : 'Safety Data Sheet',
         sdsMeta: isDE ? 'SDS DE • pdf' : isNL ? 'SDS NL • pdf' : 'SDS EN • pdf',
-        sdsLink: '#',
+        sdsLink: isDE ? '/docs/fungipower-start-sds-de.pdf' : isNL ? '/docs/fungipower-start-sds-nl.pdf' : '/docs/fungipower-start-sds-en.pdf',
         heroImage: '/images/products/fungipower-start.svg',
     };
 

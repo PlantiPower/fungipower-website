@@ -85,7 +85,7 @@ export default async function AboutPage({
                             </div>
 
                             {/* Root Sketch Visual - High-end Calm Flow */}
-                            <div className="hidden lg:block relative translate-y-12">
+                            <div className="hidden lg:block relative">
                                 {/* Ambient Brand Glow - Stronger and larger */}
                                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 bg-orange-500/10 blur-[180px] h-[500px] w-[500px] left-1/2 -translate-x-1/2 rounded-full scale-150"></div>
 
