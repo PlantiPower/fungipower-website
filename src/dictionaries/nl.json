@@ -143,8 +143,8 @@
         "icon": "Zap"
       },
       {
-        "title": "Data & Biologie",
-        "desc": "Wetenschappelijke validatie van nutriëntenopname en de biologische cyclus van mycelium.",
+        "title": "Data & Praktijk",
+        "desc": "Validatie door 20 praktijkproeven bij professionele kwekerijen met een gemiddelde opbrengstverhoging van 14%.",
         "icon": "Target"
       },
       {
@@ -157,16 +157,16 @@
     "whoWeAreAccent": "Is Helder",
     "whoWeAreDesc": "\"Een vitalere teelt en een stabielere vlucht, met uiteindelijk een hogere opbrengst per teeltcyclus. Niet door het systeem te veranderen, maar door het beter te laten functioneren.\"",
     "productionBadge": "Moderne Champignonteelt",
-    "productionTitle": "Onderbouwd door wetenschap.",
+    "productionTitle": "Onderbouwd door uitgebreide praktijkproeven.",
     "productionDesc": "Wij geloven dat vooruitgang logisch moet voelen. Als technologie goed aansluit op het vak, versterkt ze het werk van de teler in plaats van het te vervangen. Dat is waar FungiPower voor staat.",
     "productionPoints": [
       "Sector Realiteit: begrip van de werkvloer en dagelijks teeltmanagement",
-      "Data & Biologie: wetenschappelijke validatie van de biologische cyclus van mycelium",
+      "Data & Praktijk: validatie door 20 praktijkproeven bij professionele kwekerijen met gemiddeld 14% meer opbrengst",
       "Stabiel Resultaat: bewezen resultaten van de nutriënten transporteur die rendement verhoogt",
       "100% ontwikkeld vanuit de praktijk van kwekers"
     ],
     "missionTitle": "Onze Missie",
-    "missionDesc": "\"Verbetering draait niet om méér toevoegen, maar om beter benutten van de natuurlijke kracht van de teelt.\" — John Geenen"
+    "missionDesc": "\"Verbetering draait niet om méér toevoegen, maar om beter benutten van de natuurlijke kracht van de teelt.\" — Jan Klerken"
   },
   "Contact": {
     "title": "Neem contact op",

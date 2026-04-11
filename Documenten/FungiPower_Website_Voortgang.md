@@ -57,12 +57,12 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 20 | Quote John Geenen (2x) → Jan Klerken (1x bovenaan bij foto) | ⏳ | |
-| 21 | Link PlantiPower.com ontbreekt → toevoegen naast OurCelia link | ⏳ | |
-| 22 | "biostimulant ontwikkeld" → "nutriënten transporteur ontwikkeld" | ⏳ | |
-| 23 | "Onderbouwd door wetenschap" → "Onderbouwd door uitgebreide praktijkproeven" | ⏳ | |
-| 24 | "Data & Biologie: wetenschappelijke validatie" → "Data & Praktijk: validatie door 20 praktijkproeven..." | ⏳ | |
-| 25 | Onderaan missie-quote John Geenen (dubbel) → verwijderen of vervangen | ⏳ | |
+| 20 | Quote John Geenen (2x) → Jan Klerken (1x bovenaan bij foto) | ✅ | nl.json missionDesc: "John Geenen" → "Jan Klerken". |
+| 21 | Link PlantiPower.com ontbreekt → toevoegen naast OurCelia link | ✅ | over-ons/page.tsx: PlantiPower.com link toegevoegd naast OurCelia.com. |
+| 22 | "biostimulant ontwikkeld" → "nutriënten transporteur ontwikkeld" | ✅ | Al gedaan in Algemeen-pass (approachDesc). |
+| 23 | "Onderbouwd door wetenschap" → "Onderbouwd door uitgebreide praktijkproeven" | ✅ | nl.json productionTitle aangepast. |
+| 24 | "Data & Biologie: wetenschappelijke validatie" → "Data & Praktijk: validatie door 20 praktijkproeven..." | ✅ | nl.json values[2] + productionPoints[1] aangepast. |
+| 25 | Onderaan missie-quote John Geenen (dubbel) → verwijderen of vervangen | ✅ | Mission Footer sectie verwijderd uit over-ons/page.tsx. Quote staat 1x bij foto. |
 
 ---
 

@@ -126,14 +126,24 @@ export default async function AboutPage({
                                 <p className="text-lg text-orange-100/70 leading-relaxed">
                                     {t.approachDesc}
                                 </p>
-                                <a
-                                    href="https://www.ourcelia.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 mt-6 text-orange-400 font-bold text-sm uppercase tracking-widest hover:text-orange-300 transition-colors"
-                                >
-                                    Bezoek OurCelia.com →
-                                </a>
+                                <div className="flex flex-wrap gap-6 mt-6">
+                                    <a
+                                        href="https://www.ourcelia.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-orange-400 font-bold text-sm uppercase tracking-widest hover:text-orange-300 transition-colors"
+                                    >
+                                        Bezoek OurCelia.com →
+                                    </a>
+                                    <a
+                                        href="https://www.plantipower.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-orange-400 font-bold text-sm uppercase tracking-widest hover:text-orange-300 transition-colors"
+                                    >
+                                        Bezoek PlantiPower.com →
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -185,21 +195,6 @@ export default async function AboutPage({
                                     <span className="text-white font-medium text-lg leading-snug">{text}</span>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Mission Footer */}
-                <section className="py-24 bg-white/[0.02]">
-                    <div className="container mx-auto px-6">
-                        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-                            <div className="w-16 h-16 rounded-3xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-8 border border-orange-500/20">
-                                <Microscope className="w-10 h-10" />
-                            </div>
-                            <h2 className="text-4xl font-black text-white mb-6">{t.missionTitle}</h2>
-                            <p className="text-2xl text-orange-100/80 leading-relaxed font-light italic">
-                                {t.missionDesc}
-                            </p>
                         </div>
                     </div>
                 </section>
