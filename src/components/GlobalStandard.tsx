@@ -12,14 +12,10 @@ const GlobalStandard: React.FC<GlobalStandardProps> = ({ dict }) => {
     const t = dict.GlobalStandard;
 
     return (
-        <section className="relative py-12 bg-[#021814] overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#021814] via-[#05201c] to-[#021814]"></div>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-orange-900/10 blur-[120px] rounded-full"></div>
-
-            {/* Transition Gradients */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent opacity-40 z-20"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent opacity-40 z-20"></div>
+        <section className="relative py-12 bg-black overflow-hidden">
+            {/* Background elements — matches the near-black + orange glow of the product image */}
+            <div className="absolute inset-0 bg-black"></div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 blur-[140px] rounded-full pointer-events-none"></div>
 
             <div className="relative z-10 max-w-6xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -97,18 +93,11 @@ const GlobalStandard: React.FC<GlobalStandardProps> = ({ dict }) => {
                         transition={{ duration: 0.8 }}
                         className="relative group"
                     >
-                        {/* Glow behind image */}
-                        <div className="absolute inset-0 bg-orange-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                            <img
-                                src="/images/fungipower-start1.png"
-                                alt="FungiPower Global Standard"
-                                className="w-full h-auto object-cover transform transition-transform duration-[1.5s] group-hover:scale-105"
-                            />
-                            {/* Inner vignette */}
-                            <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl pointer-events-none"></div>
-                        </div>
+                        <img
+                            src="/images/fungipower-start1.png"
+                            alt="FungiPower Global Standard"
+                            className="w-full h-auto object-contain"
+                        />
                     </motion.div>
 
                 </div>
