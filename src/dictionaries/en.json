@@ -141,7 +141,7 @@
     "coreTitle": "The challenge in the sector",
     "coreDesc": "Modern mushroom cultivation faces major challenges. Raw materials are becoming scarcer and more expensive, while demands on quality and yield only increase. Growers must work increasingly efficiently to remain profitable in a competitive market. In this development, improvement is often not about adding more, but about optimising what is already present.",
     "approachTitle": "Ourcelia × FungiPower",
-    "approachDesc": "FungiPower is the result of a strategic collaboration between FungiPower and Ourcelia. This joint venture combines two worlds: Ourcelia's in-depth biological expertise as a producer of quality spawn, and FungiPower's years of sector experience. By linking scientific validation to the daily reality of the growing facility, we have developed a biostimulant that truly makes an impact where it counts: in the growing cell.",
+    "approachDesc": "FungiPower is the result of a strategic collaboration between FungiPower and Ourcelia. This joint venture combines two worlds: Ourcelia's in-depth biological expertise as a producer of quality spawn, and FungiPower's years of sector experience. By linking practical validation to the daily reality of the growing facility, we have developed a nutrient transporter that truly makes an impact where it counts: in the growing cell.",
     "values": [
       {
         "title": "Ourcelia",
@@ -154,13 +154,13 @@
         "icon": "Zap"
       },
       {
-        "title": "Data & Biology",
-        "desc": "Scientific validation of nutrient uptake and the biological cycle of mycelium.",
+        "title": "Data & Practice",
+        "desc": "Validated through 20 field trials in commercial mushroom cultivation.",
         "icon": "Target"
       },
       {
         "title": "Stable Results",
-        "desc": "Proven biostimulants that increase yield without disrupting cultivation.",
+        "desc": "Proven effectiveness that increases yield without disrupting cultivation.",
         "icon": "ShieldCheck"
       }
     ],
@@ -168,12 +168,12 @@
     "whoWeAreAccent": "Is Clear",
     "whoWeAreDesc": "\"A more vital cultivation and a more stable flush, ultimately resulting in higher yield per growing cycle. Not by changing the system, but by making it function better.\"",
     "productionBadge": "Modern Mushroom Cultivation",
-    "productionTitle": "Backed by science.",
+    "productionTitle": "Backed by extensive field trials.",
     "productionDesc": "We believe that progress should feel logical. When technology aligns well with the craft, it strengthens the grower's work rather than replacing it. That is what FungiPower stands for.",
     "productionPoints": [
       "Sector Reality: understanding of the work floor and daily cultivation management",
-      "Data & Biology: scientific validation of the biological cycle of mycelium",
-      "Stable Results: proven biostimulants that increase yield",
+      "Data & Practice: validated through 20 field trials in commercial mushroom cultivation",
+      "Stable Results: proven effectiveness that increases yield without disrupting cultivation",
       "100% developed from the practice of growers"
     ],
     "missionTitle": "Our Mission",
