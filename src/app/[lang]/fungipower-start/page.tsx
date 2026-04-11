@@ -53,30 +53,30 @@ export default async function ProductStart({
                 ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">START</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">KOLONISATIE</span></>
                 : <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">START</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">COLONISATION</span></>,
         heroDesc: isDE
-            ? 'FungiPower Start stimuliert die frühe Myzel-Entwicklung und sorgt für eine gleichmäßige, starke Kolonisierung des Substrats — die Grundlage jeder erfolgreichen Ernte.'
+            ? 'FungiPower Start sorgt dafür, dass das Myzel ab Tag 1 alle verfügbaren Nährstoffe im Substrat optimal nutzen kann. Dies legt die Grundlage für eine gleichmäßige, starke Kolonisierung.'
             : isNL
-                ? 'FungiPower Start stimuleert de vroege myceliumontwikkeling en zorgt voor een gelijkmatige, sterke kolonisatie van het substraat — de basis van elke succesvolle vlucht.'
-                : 'FungiPower Start stimulates early mycelium development and ensures uniform, strong substrate colonisation — the foundation of every successful flush.',
+                ? 'FungiPower Start zorgt ervoor dat het mycelium vanaf dag 1 alle beschikbare nutriënten in het substraat optimaal kan benutten. Dit legt de basis voor een gelijkmatige, sterke kolonisatie.'
+                : 'FungiPower Start ensures that the mycelium can optimally utilise all available nutrients in the substrate from day 1. This lays the foundation for uniform, strong colonisation.',
         ctaDiscover: isDE ? 'MEHR ERFAHREN' : isNL ? 'MEER ONTDEKKEN' : 'DISCOVER MORE',
         validated: isDE ? 'VALIDIERT' : isNL ? 'GEVALIDEERD' : 'VALIDATED',
         coreSystem: isDE ? 'KERNSYSTEM' : isNL ? 'KERNSYSTEEM' : 'CORE SYSTEM',
         efficiencyTitle: isDE ? <>Stärkere <span className="text-orange-400">Kolonisierung</span></> : isNL ? <>Sterkere <span className="text-orange-400">kolonisatie</span></> : <>Stronger <span className="text-orange-400">colonisation</span></>,
         cards: [
             {
-                title: isDE ? 'Myzel-Aktivierung' : isNL ? 'Mycelium-activatie' : 'Mycelium Activation',
+                title: isDE ? 'Nährstoffverfügbarkeit' : isNL ? 'Nutriëntenbeschikbaarheid' : 'Nutrient Availability',
                 desc: isDE
-                    ? 'FungiPower Start liefert die essentiellen Mikronährstoffe, die das Myzel in der kritischen Kolonisierungsphase benötigt, um schnell und gleichmäßig durch das Substrat zu wachsen.'
+                    ? 'FungiPower Start macht die im Substrat vorhandenen Nährstoffe direkt für das Myzel verfügbar, damit es schnell und gleichmäßig durch das Substrat wachsen kann.'
                     : isNL
-                        ? 'FungiPower Start levert de essentiële micronutriënten die het mycelium nodig heeft in de kritieke kolonisatiefase om snel en gelijkmatig door het substraat te groeien.'
-                        : 'FungiPower Start delivers the essential micronutrients that mycelium needs during the critical colonisation phase to grow quickly and evenly through the substrate.'
+                        ? 'FungiPower Start maakt de aanwezige nutriënten in het substraat direct beschikbaar voor het mycelium, zodat het snel en gelijkmatig door het substraat kan groeien.'
+                        : 'FungiPower Start makes the nutrients present in the substrate directly available to the mycelium, so it can grow quickly and evenly through the substrate.'
             },
             {
-                title: isDE ? 'Substrat-Vorbereitung' : isNL ? 'Substraat-conditioning' : 'Substrate Conditioning',
+                title: isDE ? 'Substrat-Optimierung' : isNL ? 'Substraat-optimalisatie' : 'Substrate Optimisation',
                 desc: isDE
-                    ? 'Durch die Aktivierung der biologischen Prozesse im Substrat schafft FungiPower Start optimale Bedingungen für eine homogene Myzel-Durchdringung und reduziert Schwachstellen.'
+                    ? 'Durch die Verbesserung der Nährstoffverfügbarkeit im Substrat schafft FungiPower Start optimale Bedingungen für eine homogene Myzel-Durchdringung.'
                     : isNL
-                        ? 'Door biologische processen in het substraat te activeren, creëert FungiPower Start optimale omstandigheden voor homogene myceliumdoorgroei en vermindert zwakke plekken.'
-                        : 'By activating biological processes in the substrate, FungiPower Start creates optimal conditions for homogeneous mycelium penetration and reduces weak spots.'
+                        ? 'Door de nutriëntenbeschikbaarheid in het substraat te verbeteren, creëert FungiPower Start optimale omstandigheden voor homogene myceliumdoorgroei.'
+                        : 'By improving nutrient availability in the substrate, FungiPower Start creates optimal conditions for homogeneous mycelium penetration.'
             },
             {
                 title: isDE ? 'Fundament für Ertrag' : isNL ? 'Basis voor opbrengst' : 'Foundation for Yield',
@@ -90,21 +90,21 @@ export default async function ProductStart({
         advantageBadge: isDE ? 'VORTEILE' : isNL ? 'VOORDELEN' : 'ADVANTAGES',
         advantageTitle: isDE ? <>Optimale <br /><span className="text-orange-500">Startbedingungen</span></> : isNL ? <>Optimale <br /><span className="text-orange-500">startcondities</span></> : <>Optimal <br /><span className="text-orange-500">start conditions</span></>,
         advantageDesc: isDE
-            ? 'FungiPower Start ist speziell für die Kolonisierungsphase entwickelt. Die Biostimulanzien unterstützen das Myzel dabei, alle verfügbaren Nährstoffe aus dem Substrat aufzunehmen und eine robuste Basis für die Fruchtbildung zu schaffen.'
+            ? 'FungiPower Start ist speziell für die Kolonisierungsphase entwickelt. Der Nährstofftransporter unterstützt das Myzel dabei, alle verfügbaren Nährstoffe aus dem Substrat aufzunehmen und eine robuste Basis für die Fruchtbildung zu schaffen.'
             : isNL
-                ? 'FungiPower Start is speciaal ontwikkeld voor de kolonisatiefase. De biostimulanten ondersteunen het mycelium bij het opnemen van alle beschikbare voedingsstoffen uit het substraat en het vormen van een robuuste basis voor de vruchtvorming.'
-                : 'FungiPower Start is specially developed for the colonisation phase. The biostimulants support mycelium in absorbing all available nutrients from the substrate and forming a robust base for fruiting.',
+                ? 'FungiPower Start is speciaal ontwikkeld voor de kolonisatiefase. De nutriënten transporteur ondersteunt het mycelium bij het opnemen van alle beschikbare voedingsstoffen uit het substraat en het vormen van een robuuste basis voor de vruchtvorming.'
+                : 'FungiPower Start is specially developed for the colonisation phase. The nutrient transporter supports mycelium in absorbing all available nutrients from the substrate and forming a robust base for fruiting.',
         usps: isDE
-            ? ['Gelijkmatige myceliumdoorgroei', 'Minder zwakke plekken in het substraat', 'Kortere kolonisatietijd', '100% biologisch en residu-vrij']
+            ? ['Gleichmäßige Myzel-Durchdringung', 'Weniger Schwachstellen im Substrat', 'Stärkere Basis für höheren Ertrag', '100% natürlich und rückstandsfrei']
             : isNL
-                ? ['Gelijkmatige myceliumdoorgroei', 'Minder zwakke plekken in het substraat', 'Kortere kolonisatietijd', '100% biologisch en residu-vrij']
-                : ['Uniform mycelium penetration', 'Fewer weak spots in the substrate', 'Shorter colonisation time', '100% biological and residue-free'],
+                ? ['Gelijkmatige myceliumdoorgroei', 'Minder zwakke plekken in het substraat', 'Sterkere basis voor hogere opbrengst', '100% natuurlijk en residu-vrij']
+                : ['Uniform mycelium penetration', 'Fewer weak spots in the substrate', 'Stronger foundation for higher yield', '100% natural and residue-free'],
         compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
         humus: isDE ? 'Huminsäuren' : isNL ? 'Humuszuren' : 'Humic Acids',
         humusDesc: isDE ? '5% Aktivextrakt' : isNL ? '5% Actief extract' : '5% Active extract',
         fulvic: isDE ? 'Fulvinsäuren' : isNL ? 'Fulvinezuren' : 'Fulvic Acids',
         fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
-        tags: isDE ? 'Kolonisierungsphase • Myzel-Aktivator • Biologisch' : isNL ? 'Kolonisatiefase • Mycelium-activator • Biologisch' : 'Colonisation phase • Mycelium activator • Biological',
+        tags: isDE ? 'Kolonisierungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Kolonisatiefase • Nutriënten transporteur • 100% natuurlijk' : 'Colonisation phase • Nutrient transporter • 100% natural',
         guideBadge: isDE ? 'Anwendungsguide' : isNL ? 'Toepassingsgids' : 'Application Guide',
         guideTitle: isDE ? <>Einfache <br /><span className="text-orange-500">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-orange-500">toepassing</span></> : <>Simple <br /><span className="text-orange-500">application</span></>,
         steps: [
@@ -120,19 +120,19 @@ export default async function ProductStart({
             },
             {
                 step: '03',
-                title: isDE ? 'Während der Kolonisierung' : isNL ? 'Tijdens de kolonisatie' : 'During colonisation',
-                desc: isDE ? 'Wenden Sie FungiPower Start einmal zu Beginn der Kolonisierungsphase an. Eine Wiederholung nach 7 Tagen ist bei träger Myzelentwicklung empfohlen.' : isNL ? 'Pas FungiPower Start eenmalig toe aan het begin van de kolonisatiefase. Herhaling na 7 dagen is aanbevolen bij trage myceliumontwikkeling.' : 'Apply FungiPower Start once at the start of the colonisation phase. Repeat after 7 days if mycelium development is slow.'
+                title: isDE ? 'Anwendung Tag 1' : isNL ? 'Toepassing dag 1' : 'Application day 1',
+                desc: isDE ? 'FungiPower Start einmalig am Tag 1 des Anbau-Zyklus auf das Substrat auftragen. Dosierung: 5 ml pro Liter Wasser pro m² Substrat.' : isNL ? 'Pas FungiPower Start eenmalig toe op dag 1 van de teeltcyclus. Dosering: 5 ml per liter water per m² substraat.' : 'Apply FungiPower Start once on day 1 of the cultivation cycle. Dosage: 5 ml per litre of water per m² of substrate.'
             }
         ],
-        expertAdvice: isDE ? 'Expertenhinweise' : isNL ? 'Expertentips' : 'Expert Tips',
+        expertAdvice: isDE ? 'Tipps von Experten' : isNL ? 'Tips van Experts' : 'Expert Tips',
         expertItems: [
             {
                 label: isDE ? 'Timing' : isNL ? 'Timing' : 'Timing',
-                text: isDE ? 'FungiPower Start ist am effektivsten, wenn es direkt bei der Inokulationsphase eingesetzt wird.' : isNL ? 'FungiPower Start is het meest effectief wanneer het direct bij de inoculatiefase wordt ingezet.' : 'FungiPower Start is most effective when applied directly at the inoculation phase.'
+                text: isDE ? 'FungiPower Start einmalig am Tag 1 des Anbau-Zyklus anwenden. Eine einmalige Anwendung ist ausreichend.' : isNL ? 'Pas FungiPower Start toe op dag 1 bij de start van de teeltcyclus. Eénmalige toepassing is voldoende.' : 'Apply FungiPower Start on day 1 at the start of the cultivation cycle. A single application is sufficient.'
             },
             {
                 label: isDE ? 'Kombination' : isNL ? 'Combinatie' : 'Combination',
-                text: isDE ? 'Für maximale Ergebnisse FungiPower Start mit FungiPower Boost kombinieren: Start für die Kolonisierung, Boost für die Fruchtphase.' : isNL ? 'Combineer FungiPower Start met FungiPower Boost voor maximale resultaten: Start voor de kolonisatie, Boost voor de vluchtfase.' : 'Combine FungiPower Start with FungiPower Boost for maximum results: Start for colonisation, Boost for the flush phase.'
+                text: isDE ? 'FungiPower Start mit FungiPower Boost kombinieren für maximale Ergebnisse. Start am Tag 1 für die Kolonisierung, Boost nach jeder Ernte für höheren Ertrag.' : isNL ? 'Combineer FungiPower Start met FungiPower Boost voor maximale resultaten. Start op dag 1 voor de kolonisatie, Boost na elke vlucht voor hogere opbrengst.' : 'Combine FungiPower Start with FungiPower Boost for maximum results. Start on day 1 for colonisation, Boost after each flush for higher yield.'
             },
             {
                 label: isDE ? 'Aufbewahrung' : isNL ? 'Bewaaradvies' : 'Storage',

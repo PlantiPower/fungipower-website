@@ -70,14 +70,14 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 26 | "stimuleert de vroege myceliumontwikkeling" → nieuwe tekst nutriëntenbeschikbaarheid | ⏳ | |
-| 27 | "Mycelium-activatie. FungiPower Start levert essentiële micronutriënten..." → "Nutriëntenbeschikbaarheid. FungiPower Start maakt aanwezige nutriënten beschikbaar..." | ⏳ | |
-| 28 | "Substraat-conditioning. Door biologische processen te activeren..." → "Substraat-optimalisatie..." | ⏳ | |
-| 29 | "Kortere kolonisatietijd" → verwijderen, vervangen door "Sterkere basis voor hogere opbrengst" | ⏳ | |
-| 30 | "De biostimulanten ondersteunen het mycelium..." → "De nutriënten transporteur ondersteunt het mycelium..." | ⏳ | |
-| 31 | Stap 03: herhaling na 7 dagen → eenmalig dag 1, 5 ml/L/m² | ⏳ | |
-| 32 | "Expertentips" → "Tips van Experts" + correcte inhoud | ⏳ | |
-| 33 | SDS link werkt niet → werkend PDF uploaden en linken | ⏳ | |
+| 26 | "stimuleert de vroege myceliumontwikkeling" → nieuwe tekst nutriëntenbeschikbaarheid | ✅ | heroDesc herschreven: dag 1 / beschikbare nutriënten benutten. Middenstreepje verwijderd. |
+| 27 | "Mycelium-activatie. FungiPower Start levert essentiële micronutriënten..." → "Nutriëntenbeschikbaarheid..." | ✅ | cards[0] titel + desc aangepast (NL/DE/EN). |
+| 28 | "Substraat-conditioning. Door biologische processen te activeren..." → "Substraat-optimalisatie..." | ✅ | cards[1] titel + desc aangepast (NL/DE/EN). |
+| 29 | "Kortere kolonisatietijd" → "Sterkere basis voor hogere opbrengst" | ✅ | usps[] aangepast (NL/DE/EN). Ook "100% biologisch" → "100% natuurlijk". |
+| 30 | "De biostimulanten ondersteunen het mycelium..." → "De nutriënten transporteur ondersteunt het mycelium..." | ✅ | advantageDesc aangepast (NL/DE/EN). |
+| 31 | Stap 03: herhaling na 7 dagen → eenmalig dag 1, 5 ml/L/m² | ✅ | steps[2] titel + desc herschreven (NL/DE/EN). |
+| 32 | "Expertentips" → "Tips van Experts" + correcte inhoud | ✅ | expertAdvice + expertItems[0] timing herschreven. Combinatie-tekst gecorrigeerd. |
+| 33 | SDS link werkt niet → werkend PDF uploaden en linken | ❌ | PDF aanleveren. Link staat nu op '#'. |
 
 ---
 
