@@ -53,34 +53,32 @@ export default async function ProductsOverview({
             : isNL
                 ? 'Onze producten zijn individueel te gebruiken maar samen sterker.'
                 : 'Our products can be used individually but are stronger together.',
-        startPhase: isDE ? 'Kolonisierungsphase' : isNL ? 'Kolonisatiefase' : 'Colonisation Phase',
+        startPhase: isDE ? 'Kolonisierungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Kolonisatiefase • Nutriënten transporteur • 100% natuurlijk' : 'Colonisation phase • Nutrient transporter • 100% natural',
         startTitle: 'FUNGIPOWER START',
         startDesc: isDE
-            ? 'FungiPower Start stimuliert die frühe Myzel-Entwicklung und sorgt für eine gleichmäßige, starke Kolonisierung des Substrats. Die Grundlage jeder erfolgreichen Ernte.'
+            ? 'FungiPower Start macht alle verfügbaren Nährstoffe im Substrat direkt für das Myzel verfügbar. Dies legt die Grundlage für eine gleichmäßige, starke Kolonisierung und jeden erfolgreichen Schub.'
             : isNL
-                ? 'FungiPower Start stimuleert de vroege myceliumontwikkeling en zorgt voor een gelijkmatige, sterke kolonisatie van het substraat. De basis van elke succesvolle vlucht.'
-                : 'FungiPower Start stimulates early mycelium development and ensures uniform, strong substrate colonisation. The foundation of every successful flush.',
+                ? 'FungiPower Start maakt alle beschikbare nutriënten in het substraat direct beschikbaar voor het mycelium. Dit legt de basis voor een gelijkmatige, sterke kolonisatie en elke succesvolle vlucht.'
+                : 'FungiPower Start makes all available nutrients in the substrate directly available to the mycelium. This lays the foundation for uniform, strong colonisation and every successful flush.',
         startFeatures: isDE
-            ? ['Gleichmäßige Kolonisierung', 'Weniger schwache Stellen', 'Kürzere Kolonisierungszeit', '100% biologisch']
+            ? ['Gleichmäßige Kolonisierung', 'Weniger schwache Stellen im Substrat', 'Stärkere Basis für höheren Ertrag', '100% natürlich und rückstandsfrei']
             : isNL
-                ? ['Gelijkmatige kolonisatie', 'Minder zwakke plekken', 'Kortere kolonisatietijd', '100% biologisch']
-                : ['Uniform colonisation', 'Fewer weak spots', 'Shorter colonisation time', '100% biological'],
+                ? ['Gelijkmatige kolonisatie', 'Minder zwakke plekken in het substraat', 'Sterkere basis voor hogere opbrengst', '100% natuurlijk en residu-vrij']
+                : ['Uniform colonisation', 'Fewer weak spots in the substrate', 'Stronger foundation for higher yield', '100% natural and residue-free'],
         startCta: isDE ? 'MEHR ZU START' : isNL ? 'MEER OVER START' : 'MORE ABOUT START',
-        boostPhase: isDE ? 'Fruchtungsphase' : isNL ? 'Vluchtfase' : 'Flush Phase',
+        boostPhase: isDE ? 'Fruchtungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Vluchtfase • Nutriënten transporteur • 100% natuurlijk' : 'Flush phase • Nutrient transporter • 100% natural',
         boostTitle: 'FUNGIPOWER BOOST',
         boostDesc: isDE
-            ? 'FungiPower Boost aktiviert das Myzel in der entscheidenden Fruchtungsphase. Das Ergebnis: gleichmäßigere Vluchten, höhere Erträge und bessere Qualität pro Ernte.'
+            ? 'FungiPower Boost macht alle verfügbaren Nährstoffe im Substrat während der Fruchtungsphase optimal für das Myzel verfügbar. Das Ergebnis: gleichmäßigere Vluchten und höhere Erträge pro Ernte.'
             : isNL
-                ? 'FungiPower Boost activeert het mycelium in de beslissende vluchtfase. Het resultaat: gelijkmatigere vluchten, hogere opbrengsten en betere kwaliteit per oogst.'
-                : 'FungiPower Boost activates mycelium during the decisive flush phase. The result: more uniform flushes, higher yields and better quality per harvest.',
+                ? 'FungiPower Boost maakt alle beschikbare nutriënten in het substraat optimaal beschikbaar voor het mycelium tijdens de vluchtfase. Het resultaat: uniformere vluchten en hogere opbrengsten per oogst.'
+                : 'FungiPower Boost makes all available nutrients in the substrate optimally available to the mycelium during the flush phase. The result: more uniform flushes and higher yields per harvest.',
         boostFeatures: isDE
-            ? ['Mehr Pilze pro Vlucht', 'Gleichmäßige Fruchtbildung', 'Bessere Festigkeit & Farbe', '100% biologisch']
+            ? ['Mehr Pilze pro Vlucht', 'Gleichmäßigere Fruchtbildung', '100% Score auf der 3. Vlucht', '100% natürlich und rückstandsfrei']
             : isNL
-                ? ['Meer champignons per vlucht', 'Gelijkmatige vruchtvorming', 'Betere stevigheid & kleur', '100% biologisch']
-                : ['More mushrooms per flush', 'Uniform fruiting', 'Better firmness & colour', '100% biological'],
+                ? ['Meer champignons per vlucht', 'Gelijkmatigere vruchtvorming', '100% score op de 3e vlucht', '100% natuurlijk en residu-vrij']
+                : ['More mushrooms per flush', 'More uniform fruiting', '100% score on the 3rd flush', '100% natural and residue-free'],
         boostCta: isDE ? 'MEHR ZU BOOST' : isNL ? 'MEER OVER BOOST' : 'MORE ABOUT BOOST',
-        composition: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
-        compositionValue: '5% Humuszuren + 3% Fulvozuren',
         together: isDE ? 'ZUSAMMEN STÄRKER' : isNL ? 'SAMEN STERKER' : 'STRONGER TOGETHER',
         togetherDesc: isDE
             ? 'Unsere Produkte sind einzeln einsetzbar, aber zusammen stärker.'
@@ -145,11 +143,6 @@ export default async function ProductsOverview({
                                     ))}
                                 </ul>
 
-                                {/* Composition */}
-                                <div className="text-sm font-black tracking-[0.15em] text-orange-300/70 uppercase mb-8">
-                                    {content.composition}: <span className="text-orange-300/90 font-bold">{content.compositionValue}</span>
-                                </div>
-
                                 {/* CTA */}
                                 <div className="mt-auto">
                                     <Link
@@ -194,11 +187,6 @@ export default async function ProductsOverview({
                                         </li>
                                     ))}
                                 </ul>
-
-                                {/* Composition */}
-                                <div className="text-sm font-black tracking-[0.15em] text-blue-300/70 uppercase mb-8">
-                                    {content.composition}: <span className="text-blue-300/90 font-bold">{content.compositionValue}</span>
-                                </div>
 
                                 {/* CTA */}
                                 <div className="mt-auto">

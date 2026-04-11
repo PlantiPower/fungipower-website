@@ -99,11 +99,6 @@ export default async function ProductStart({
             : isNL
                 ? ['Gelijkmatige myceliumdoorgroei', 'Minder zwakke plekken in het substraat', 'Sterkere basis voor hogere opbrengst', '100% natuurlijk en residu-vrij']
                 : ['Uniform mycelium penetration', 'Fewer weak spots in the substrate', 'Stronger foundation for higher yield', '100% natural and residue-free'],
-        compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
-        humus: isDE ? 'Huminsäuren' : isNL ? 'Humuszuren' : 'Humic Acids',
-        humusDesc: isDE ? '5% Aktivextrakt' : isNL ? '5% Actief extract' : '5% Active extract',
-        fulvic: isDE ? 'Fulvinsäuren' : isNL ? 'Fulvinezuren' : 'Fulvic Acids',
-        fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
         tags: isDE ? 'Kolonisierungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Kolonisatiefase • Nutriënten transporteur • 100% natuurlijk' : 'Colonisation phase • Nutrient transporter • 100% natural',
         guideBadge: isDE ? 'Anwendungsguide' : isNL ? 'Toepassingsgids' : 'Application Guide',
         guideTitle: isDE ? <>Einfache <br /><span className="text-orange-500">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-orange-500">toepassing</span></> : <>Simple <br /><span className="text-orange-500">application</span></>,
@@ -217,10 +212,10 @@ export default async function ProductStart({
                     </div>
                 </div>
 
-                {/* ADVANTAGE & COMPOSITION */}
+                {/* ADVANTAGE */}
                 <div className="relative py-20 border-y border-white/5 bg-[#011a14]">
                     <div className="max-w-7xl mx-auto px-6 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-24 items-start">
+                        <div className="max-w-3xl">
                             <div>
                                 <div className="bg-orange-500/10 text-orange-400 px-4 py-1.5 rounded-sm text-[10px] font-black uppercase tracking-[0.4em] inline-block mb-8 border border-orange-500/20">
                                     {content.advantageBadge}
@@ -236,27 +231,6 @@ export default async function ProductStart({
                                             <span className="text-lg text-white font-medium tracking-tight">{item}</span>
                                         </div>
                                     ))}
-                                </div>
-                            </div>
-                            <div className="glass-panel rounded-[2rem] p-10 bg-white/[0.02] border-white/5">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 bg-orange-500/10 rounded-lg border border-orange-500/20 text-orange-400">
-                                        <Zap className="w-6 h-6" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-outfit">{content.compositionTitle}</h3>
-                                </div>
-                                <div className="space-y-6">
-                                    <div className="p-5 rounded-xl bg-orange-900/30 border border-orange-500/10 hover:border-orange-500/30 transition-colors">
-                                        <div className="text-orange-400 text-xs font-black uppercase tracking-widest mb-1">{content.humus}</div>
-                                        <p className="text-white font-medium text-lg">{content.humusDesc}</p>
-                                    </div>
-                                    <div className="p-5 rounded-xl bg-orange-900/30 border border-orange-500/10 hover:border-orange-500/30 transition-colors">
-                                        <div className="text-orange-400 text-xs font-black uppercase tracking-widest mb-1">{content.fulvic}</div>
-                                        <p className="text-white font-medium text-lg">{content.fulvicDesc}</p>
-                                    </div>
-                                </div>
-                                <div className="pt-6 mt-6 border-t border-white/5">
-                                    <div className="text-orange-100/40 text-sm italic font-medium">{content.tags}</div>
                                 </div>
                             </div>
                         </div>

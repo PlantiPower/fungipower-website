@@ -99,11 +99,6 @@ export default async function ProductBoost({
             : isNL
                 ? ['Meer champignons per vlucht', 'Gelijkmatigere vruchtvorming', '100% score op de 3e vlucht', '100% natuurlijk en residu-vrij']
                 : ['More mushrooms per flush', 'More uniform fruiting', '100% score on the 3rd flush', '100% natural and residue-free'],
-        compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
-        humus: isDE ? 'Huminsäuren' : isNL ? 'Humuszuren' : 'Humic Acids',
-        humusDesc: isDE ? '5% Aktivextrakt' : isNL ? '5% Actief extract' : '5% Active extract',
-        fulvic: isDE ? 'Fulvinsäuren' : isNL ? 'Fulvinezuren' : 'Fulvic Acids',
-        fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
         tags: isDE ? 'Fruchtungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Vluchtfase • Nutriënten transporteur • 100% natuurlijk' : 'Flush phase • Nutrient transporter • 100% natural',
         guideBadge: isDE ? 'Anwendungsguide' : isNL ? 'Toepassingsgids' : 'Application Guide',
         guideTitle: isDE ? <>Einfache <br /><span className="text-blue-400/80">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-blue-400/80">toepassing</span></> : <>Simple <br /><span className="text-blue-400/80">application</span></>,
@@ -196,6 +191,42 @@ export default async function ProductBoost({
                     </div>
                 </div>
 
+                {/* KPI STRIP */}
+                <div className="py-12 bg-[#020f0a] border-y border-white/5">
+                    <div className="max-w-6xl mx-auto px-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            {[
+                                {
+                                    value: '+14%',
+                                    label: isDE ? 'Durchschnittlicher Mehrertrag' : isNL ? 'Gemiddelde opbrengstverhoging' : 'Average yield increase',
+                                    detail: isDE ? 'bei 3 ml/L nach jeder Vlucht' : isNL ? 'bij 3 ml/L na elke vlucht' : 'at 3 ml/L after each flush',
+                                },
+                                {
+                                    value: '20',
+                                    label: isDE ? 'Praxisversuche' : isNL ? 'Praktijkproeven' : 'Field trials',
+                                    detail: isDE ? 'bei professionellen Betrieben' : isNL ? 'bij professionele kwekerijen' : 'at professional growers',
+                                },
+                                {
+                                    value: '77%',
+                                    label: isDE ? 'Positives Ergebnis' : isNL ? 'Positief resultaat' : 'Positive result',
+                                    detail: isDE ? 'bei empfohlener Dosierung' : isNL ? 'bij aanbevolen dosering' : 'at recommended dosage',
+                                },
+                                {
+                                    value: '100%',
+                                    label: isDE ? 'Score auf der 3. Vlucht' : isNL ? 'Score op de 3e vlucht' : 'Score on 3rd flush',
+                                    detail: isDE ? 'alle Messungen positiv' : isNL ? 'alle metingen positief' : 'all measurements positive',
+                                },
+                            ].map((kpi, i) => (
+                                <div key={i} className="glass-panel p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                                    <div className="text-4xl md:text-5xl font-black text-blue-400 font-outfit leading-none mb-2">{kpi.value}</div>
+                                    <div className="text-white font-bold text-sm uppercase tracking-widest mb-1">{kpi.label}</div>
+                                    <div className="text-blue-100/40 text-xs leading-snug">{kpi.detail}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
                 {/* CORE SYSTEM */}
                 <div className="py-24 bg-[#011410] relative overflow-hidden">
                     <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -217,10 +248,10 @@ export default async function ProductBoost({
                     </div>
                 </div>
 
-                {/* ADVANTAGE & COMPOSITION */}
+                {/* ADVANTAGE */}
                 <div className="relative py-20 border-y border-white/5 bg-[#011a14]">
                     <div className="max-w-7xl mx-auto px-6 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-24 items-start">
+                        <div className="max-w-3xl">
                             <div>
                                 <div className="bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-sm text-[10px] font-black uppercase tracking-[0.4em] inline-block mb-8 border border-blue-500/20">
                                     {content.advantageBadge}
@@ -236,27 +267,6 @@ export default async function ProductBoost({
                                             <span className="text-lg text-white font-medium tracking-tight">{item}</span>
                                         </div>
                                     ))}
-                                </div>
-                            </div>
-                            <div className="glass-panel rounded-[2rem] p-10 bg-white/[0.02] border-white/5">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 bg-blue-500/10 rounded-lg border border-blue-500/20 text-blue-400">
-                                        <Zap className="w-6 h-6" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-outfit">{content.compositionTitle}</h3>
-                                </div>
-                                <div className="space-y-6">
-                                    <div className="p-5 rounded-xl bg-blue-900/30 border border-blue-500/10 hover:border-blue-500/30 transition-colors">
-                                        <div className="text-blue-400 text-xs font-black uppercase tracking-widest mb-1">{content.humus}</div>
-                                        <p className="text-white font-medium text-lg">{content.humusDesc}</p>
-                                    </div>
-                                    <div className="p-5 rounded-xl bg-blue-900/30 border border-blue-500/10 hover:border-blue-500/30 transition-colors">
-                                        <div className="text-blue-400 text-xs font-black uppercase tracking-widest mb-1">{content.fulvic}</div>
-                                        <p className="text-white font-medium text-lg">{content.fulvicDesc}</p>
-                                    </div>
-                                </div>
-                                <div className="pt-6 mt-6 border-t border-white/5">
-                                    <div className="text-blue-100/40 text-sm italic font-medium">{content.tags}</div>
                                 </div>
                             </div>
                         </div>
