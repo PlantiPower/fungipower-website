@@ -1,143 +1,118 @@
 # FungiPower Website – Voortgang Feedback v3
 Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
+Legenda: GEDAAN / OPEN / TODO
+
 ---
 
 ## Algemeen (alle pagina's)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 1 | Titel tag: "Efficiënte plantengroei & hogere opbrengst" → FungiPower \| Nutriënten Transporteur voor de champignonteelt | ✅ | NL/DE/EN title + description aangepast in `src/app/[lang]/page.tsx`. "plantengroei" → "champignonteelt", "biostimulant" → "nutriënten transporteur" in meta descriptions. |
-| 2 | Middenstreepjes om zinnen op te delen (meerdere pagina's) → vervangen door punten in lopende tekst | ✅ | nl.json r121: `Jan Klerken — een diep begrip` → punt. Boost page r70: `uniformiteit — dat betekent` → punt. Quote-attributies (— Jan Klerken) intact gelaten. |
-| 3 | Terminologie wisselt: biostimulant, biologische versterking, mycelium-activatie → overal vervangen door "nutriënten transporteur" | ✅ | nl.json: "BIOLOGISCHE VERSTERKING" → "NUTRIËNTEN TRANSPORTEUR" (hero USP). 5x "biostimulant" vervangen door "nutriënten transporteur" of "productontwikkeling". FAQ-antwoorden (volledige herschrijving) bewaard voor FAQ-sectie. |
+1. GEDAAN – Titel tag aangepast: "plantengroei" → "champignonteelt", "biostimulant" → "nutriënten transporteur" in NL/DE/EN meta titles + descriptions (page.tsx + layout.tsx).
+2. GEDAAN – Middenstreepjes → punten in lopende tekst. Quote-attributies (— Jan Klerken) intact gelaten.
+3. GEDAAN – Terminologie: "biostimulant / biologische versterking / mycelium-activatie" → overal "nutriënten transporteur". FAQ herschreven.
 
 ---
 
 ## 1. Homepage (/nl)
 
-### Hero sectie
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 4 | Titel-animatie: "Snellere oogst, Meer opbrengst, Uniformere groei" → Hogere opbrengst. (oranje) Uniformere groei. Langer productief substraat. | ✅ | nl.json: titleLine1/2/3 herschreven. Oranje gradient staat al op titleLine2. |
-| 5 | Foto jerrycan toont PlantiPower → vervangen door FungiPower Start & Boost jerrycans | ❌ | Afbeelding ontbreekt. Aanleveren door gebruiker. |
-| 6 | Hero beschrijvingstekst (sporenelementen/snellere oogst) → nieuwe tekst nutriënten transporteur | ✅ | nl.json description Hero: volledig herschreven conform feedbackdoc. |
-| 7 | Labels: "BIOLOGISCHE VERSTERKING \| MEER OPBRENGST \| GETEST IN COMMERCIËLE TEELT" → "NUTRIËNTEN TRANSPORTEUR \| MEER OPBRENGST \| GEVALIDEERD IN 20 PRAKTIJKPROEVEN" | ✅ | uspsPart1 al gedaan (Algemeen). uspsPart3: "GETEST" → "GEVALIDEERD IN 20 PRAKTIJKPROEVEN". |
+### Hero
+4. GEDAAN – Titels: "Snellere oogst, Meer opbrengst, Uniformere groei" → "Uniformere groei. / Hogere opbrengst. / Langer productief substraat."
+5. OPEN – Jerrycan foto toont PlantiPower → vervangen door FungiPower Start & Boost. Afbeelding aanleveren door gebruiker.
+6. GEDAAN – Hero beschrijvingstekst volledig herschreven naar nutriënten transporteur.
+7. GEDAAN – Labels: "BIOLOGISCHE VERSTERKING" → "NUTRIËNTEN TRANSPORTEUR" | "GEVALIDEERD IN 20 PRAKTIJKPROEVEN".
 
-### De Filosofie sectie
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 8 | "biologische ondersteuning voor stabiele myceliumontwikkeling" → nieuwe tekst | ✅ | nl.json GrowerFocus description: "biologische ondersteuning" → "maakt aanwezige nutriënten beter beschikbaar". |
-| 9 | "Direct zichtbaar resultaat. Een vitaler mycelium betekent uniformere vruchtlichamen en een snellere flush." → nieuwe tekst | ✅ | nl.json usps[1].desc: "snellere flush" → "hogere opbrengst per flush". |
-| 10 | "Jouw methode van telen blijft leidend..." → behouden | ✅ | Geen aanpassing nodig |
-| 11 | "Versterkt de biologische cyclus op de achtergrond" → "optimaliseert de nutriëntenbeschikbaarheid op de achtergrond" | ✅ | nl.json usps[2].desc aangepast. |
+### De Filosofie
+8. GEDAAN – "biologische ondersteuning" → "maakt aanwezige nutriënten beter beschikbaar".
+9. GEDAAN – "snellere flush" → "hogere opbrengst per flush".
+10. GEDAAN – "Jouw methode van telen blijft leidend" ongewijzigd.
+11. GEDAAN – "biologische cyclus op de achtergrond" → "optimaliseert de nutriëntenbeschikbaarheid op de achtergrond".
 
-### De Uitdaging sectie
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 12 | Quote Jan Klerken → behouden | ✅ | Geen aanpassing nodig |
-| 13 | "Door de biologische cyclus van het mycelium te versterken" → "Door de nutriëntenopname van het mycelium te verbeteren" | ✅ | nl.json ProblemSection closing aangepast. |
+### De Uitdaging
+12. GEDAAN – Quote Jan Klerken behouden.
+13. GEDAAN – "biologische cyclus van het mycelium te versterken" → "nutriëntenopname van het mycelium te verbeteren".
 
-### Het Resultaat sectie
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 14 | "maximaliseert de opnamecapaciteit" → "verbetert de nutriëntenopname... gemiddeld 14% meer opbrengst" | ✅ | nl.json CropResults description aangepast. |
-| 15 | "geoptimaliseerde myceliumactiviteit" → "verbeterde nutriëntenopname" | ✅ | nl.json crops[0].stats_0_desc aangepast. |
-| 16 | "Kortere cyclustijd. Snellere primordiumvorming..." → "Langer productief substraat. 100% positief resultaat op de 3e vlucht." | ✅ | nl.json crops[0].stats_1_title + desc volledig herschreven. |
-| 17 | "Hogere opbrengst per m²..." → toevoegen 14% + 20 praktijkproeven | ✅ | nl.json crops[1].stats_0_desc: 14% + 20 proeven toegevoegd. |
-| 18 | "Minder uitval. Uniformere kolonisatie..." → "Minder variatie. Doordat het mycelium alle nutriënten beter opneemt..." | ✅ | nl.json crops[1].stats_1_title + desc aangepast. |
+### Het Resultaat
+14. GEDAAN – "maximaliseert de opnamecapaciteit" → "verbetert de nutriëntenopname... gemiddeld 14% meer opbrengst".
+15. GEDAAN – "geoptimaliseerde myceliumactiviteit" → "verbeterde nutriëntenopname".
+16. GEDAAN – "Kortere cyclustijd / Snellere primordiumvorming" → "Langer productief substraat / 100% positief resultaat op de 3e vlucht".
+17. GEDAAN – Opbrengst: 14% + 20 praktijkproeven toegevoegd.
+18. GEDAAN – "Minder uitval / Uniformere kolonisatie" → "Minder variatie / betere nutriëntenopname".
 
-### Industriële Uitmuntendheid sectie
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 19 | "Klaar voor Export" / "Wereldwijde Logistiek" → "Gereed voor opschaling" / "Beschikbaar voor de Europese markt" | ✅ | nl.json GlobalStandard exportReady + logistics aangepast. |
+### Industriële Uitmuntendheid
+19. GEDAAN – "Klaar voor Export" → "Gereed voor opschaling" | "Wereldwijde Logistiek" → "Beschikbaar voor de Europese markt".
 
 ---
 
 ## 2. Over Ons (/nl/over-ons)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 20 | Quote John Geenen (2x) → Jan Klerken (1x bovenaan bij foto) | ✅ | nl.json missionDesc: "John Geenen" → "Jan Klerken". |
-| 21 | Link PlantiPower.com ontbreekt → toevoegen naast OurCelia link | ✅ | over-ons/page.tsx: PlantiPower.com link toegevoegd naast OurCelia.com. |
-| 22 | "biostimulant ontwikkeld" → "nutriënten transporteur ontwikkeld" | ✅ | Al gedaan in Algemeen-pass (approachDesc). |
-| 23 | "Onderbouwd door wetenschap" → "Onderbouwd door uitgebreide praktijkproeven" | ✅ | nl.json productionTitle aangepast. |
-| 24 | "Data & Biologie: wetenschappelijke validatie" → "Data & Praktijk: validatie door 20 praktijkproeven..." | ✅ | nl.json values[2] + productionPoints[1] aangepast. |
-| 25 | Onderaan missie-quote John Geenen (dubbel) → verwijderen of vervangen | ✅ | Mission Footer sectie verwijderd uit over-ons/page.tsx. Quote staat 1x bij foto. |
+20. GEDAAN – Quote "John Geenen" → "Jan Klerken".
+21. GEDAAN – PlantiPower.com link toegevoegd naast OurCelia.com.
+22. GEDAAN – "biostimulant ontwikkeld" → "nutriënten transporteur ontwikkeld".
+23. GEDAAN – "Onderbouwd door wetenschap" → "Onderbouwd door uitgebreide praktijkproeven".
+24. GEDAAN – "Data & Biologie: wetenschappelijke validatie" → "Data & Praktijk: validatie door 20 praktijkproeven".
+25. GEDAAN – Dubbele mission-quote (John Geenen) verwijderd uit footer van over-ons.
 
 ---
 
 ## 3. FungiPower Start (/nl/fungipower-start)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 26 | "stimuleert de vroege myceliumontwikkeling" → nieuwe tekst nutriëntenbeschikbaarheid | ✅ | heroDesc herschreven: dag 1 / beschikbare nutriënten benutten. Middenstreepje verwijderd. |
-| 27 | "Mycelium-activatie. FungiPower Start levert essentiële micronutriënten..." → "Nutriëntenbeschikbaarheid..." | ✅ | cards[0] titel + desc aangepast (NL/DE/EN). |
-| 28 | "Substraat-conditioning. Door biologische processen te activeren..." → "Substraat-optimalisatie..." | ✅ | cards[1] titel + desc aangepast (NL/DE/EN). |
-| 29 | "Kortere kolonisatietijd" → "Sterkere basis voor hogere opbrengst" | ✅ | usps[] aangepast (NL/DE/EN). Ook "100% biologisch" → "100% natuurlijk". |
-| 30 | "De biostimulanten ondersteunen het mycelium..." → "De nutriënten transporteur ondersteunt het mycelium..." | ✅ | advantageDesc aangepast (NL/DE/EN). |
-| 31 | Stap 03: herhaling na 7 dagen → eenmalig dag 1, 5 ml/L/m² | ✅ | steps[2] titel + desc herschreven (NL/DE/EN). |
-| 32 | "Expertentips" → "Tips van Experts" + correcte inhoud | ✅ | expertAdvice + expertItems[0] timing herschreven. Combinatie-tekst gecorrigeerd. |
-| 33 | SDS link werkt niet → werkend PDF uploaden en linken | ❌ | PDF aanleveren. Link staat nu op '#'. |
+26. GEDAAN – heroDesc herschreven: dag 1 / beschikbare nutriënten benutten.
+27. GEDAAN – "Mycelium-activatie" → "Nutriëntenbeschikbaarheid" (titel + desc, NL/DE/EN).
+28. GEDAAN – "Substraat-conditioning" → "Substraat-optimalisatie" (titel + desc, NL/DE/EN).
+29. GEDAAN – USPs: "Kortere kolonisatietijd" → "Sterkere basis voor hogere opbrengst" | "100% biologisch" → "100% natuurlijk".
+30. GEDAAN – advantageDesc: "biostimulanten" → "nutriënten transporteur".
+31. GEDAAN – Stap 03: herhaling na 7 dagen → eenmalig dag 1, 5 ml/L/m².
+32. GEDAAN – "Expertentips" → "Tips van Experts" + timing gecorrigeerd.
+33. GEDAAN – SDS links: 6 PDFs gekopieerd naar public/docs. Links in Start + Boost gekoppeld (NL/DE/EN). Openen in nieuw tabblad (target="_blank").
 
 ---
 
 ## 4. FungiPower Boost (/nl/fungipower-boost)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 34 | "activeert het mycelium in de beslissende vluchtfase" → nieuwe tekst | ✅ | heroDesc herschreven: nutriënten beschikbaar maken voor mycelium. |
-| 35 | "Gelijkmatige vluchten. stimuleert synchrone vruchtvorming..." → nieuwe tekst | ✅ | cards[0]: "stimuleert" → "door verbeterde nutriëntenopname groeit mycelium uniformer". |
-| 36 | "Hogere opbrengsten. biobeschikbare micronutriënten..." → nieuwe tekst + 14% + 20 proeven | ✅ | cards[1] herschreven met 14% + 20 praktijkproeven. |
-| 37 | "Betere kwaliteit. stevigheid, kleur en gewicht..." → zonder stevigheid/kleur | ✅ | cards[2]: "uniformer in formaat en gewicht". |
-| 38 | "Stevigheid en kleur" → verwijderen, "100% biologisch" → "100% natuurlijk", "100% score op 3e vlucht" toegevoegd | ✅ | usps[] volledig bijgewerkt. |
-| 39 | Stap 02: "Na de 1e & 2e vlucht" → "direct na het oogsten van elke vlucht" | ✅ | steps[1] desc aangepast. |
-| 40 | Stap 03: "voor elke vlucht" → "na elke vlucht" | ✅ | steps[2] titel + desc aangepast. |
-| 41 | "Expertentips" → "Tips van Experts" + timing: 2-3 dagen voor → na de oogst | ✅ | expertAdvice + expertItems[0] gecorrigeerd. |
-| 42 | Geen KPI's op pagina → resultaten-sectie toevoegen | ❌ | Grotere toevoeging, apart aanpakken. |
-| 43 | SDS link werkt niet → werkend PDF uploaden en linken | ❌ | PDF aanleveren. |
+34. GEDAAN – heroDesc herschreven: nutriënten beschikbaar maken voor mycelium.
+35. GEDAAN – "stimuleert synchrone vruchtvorming" → "verbeterde nutriëntenopname → uniformer groei".
+36. GEDAAN – cards[1]: 14% + 20 praktijkproeven toegevoegd.
+37. GEDAAN – "stevigheid en kleur" verwijderd → "uniformer in formaat en gewicht".
+38. GEDAAN – USPs: "stevigheid/kleur" weg | "100% biologisch" → "100% natuurlijk" | "100% score op 3e vlucht" toegevoegd.
+39. GEDAAN – Stap 02: "na de 1e & 2e vlucht" → "direct na het oogsten van elke vlucht".
+40. GEDAAN – Stap 03: "voor elke vlucht" → "na elke vlucht".
+41. GEDAAN – "Expertentips" → "Tips van Experts" + timing: 2-3 dagen voor → na de oogst.
+42. OPEN – KPI-sectie toevoegen aan Boost pagina. Grotere toevoeging, apart aanpakken.
+43. GEDAAN – Zie item 33.
 
 ---
 
 ## 5. FAQ (/nl/faq)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 44 | "Wat is FungiPower? biostimulant / sporenelementen / snellere vluchten" → volledige nieuwe tekst | ✅ | Al gedaan in eerdere pass. |
-| 45 | "Hoe werkt FungiPower? versterkt de activiteit..." → nieuwe tekst | ✅ | nl.json FAQ herschreven: nutriënten transporteur + opname + resultaat. |
-| 46 | "Is FungiPower een meststof? biostimulant en transportmiddel" → "nutriënten transporteur" | ✅ | nl.json FAQ aangepast. |
-| 47 | "Verpakkingen: Start 1L, 10L, 1000L. Boost 1L, 5L" → alleen 10L en 1000L (IBC) | ✅ | nl.json FAQ aangepast. |
-| 48 | "Via bewateringssysteem" → correcte dosering per product | ✅ | nl.json FAQ: Start 5ml/dag1, Boost 3ml/na vlucht. |
-| 49 | "Voordelen: snellere vluchten" → verwijderen, toevoegen 14% / 3e vlucht score | ✅ | Al gedaan in eerdere pass. |
-| 50 | "Wat maakt FungiPower uniek? biologische cyclus" → "nutriënten transporteur" + proeven | ✅ | nl.json FAQ herschreven: 20 proeven + 14%. |
+44. GEDAAN – "Wat is FungiPower?" volledig herschreven naar nutriënten transporteur.
+45. GEDAAN – "Hoe werkt FungiPower?" → nutriënten transporteur + opname + resultaat.
+46. GEDAAN – "Is FungiPower een meststof?" → "nutriënten transporteur".
+47. GEDAAN – Verpakkingen: alleen 10L en 1000L (IBC).
+48. GEDAAN – Dosering: Start 5ml/dag1, Boost 3ml/na vlucht.
+49. GEDAAN – "snellere vluchten" verwijderd → 14% / 3e vlucht score.
+50. GEDAAN – "Wat maakt FungiPower uniek?" → nutriënten transporteur + 20 proeven + 14%.
 
 ---
 
 ## 6. Sample Aanvragen (popup)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 51 | Prijs: €29,95 → €49,95 (excl. BTW) incl. verzendkosten + verpakkingsformaat invullen | ✅ | SampleModal: €29,95 → €49,95 (NL/DE/EN). Formaat: 1x 1L Start + 1x 1L Boost. |
-| 52 | Stripe betaalkoppeling nog niet actief → activeren op FungiPower account | ❌ | Externe accountinstelling, niet via code op te lossen. |
+51. GEDAAN – Prijs: €29,95 → €49,95 (excl. BTW). Formaat: 1x 1L Start + 1x 1L Boost (NL/DE/EN).
+52. OPEN – Stripe betaalkoppeling activeren op FungiPower account. Externe instelling.
 
 ---
 
 ## 7. Contact (/nl/contact)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 53 | "Wil je partner worden?" → "Heb je vragen over onze producten of wil je een proef op jouw bedrijf?" | ✅ | nl.json Contact description aangepast. |
-| 54 | Contactgegevens → behouden | ✅ | Geen aanpassing nodig |
+53. GEDAAN – Beschrijving: "Wil je partner worden?" → "Heb je vragen over onze producten of wil je een proef op jouw bedrijf?"
+54. GEDAAN – Contactgegevens ongewijzigd.
 
 ---
 
 ## 8. Duitse versie (/de)
 
-| # | Punt (origineel) | Status | Wat gedaan |
-|---|---|---|---|
-| 55 | Heading overlapt afbeelding → layout-bug fixen | ✅ | ueber-uns/page.tsx: translate-y-12 verwijderd van image div. |
-| 33 | SDS links Start werkt niet → werkend PDF uploaden en linken | ✅ | 6 SDS PDFs gekopieerd naar public/docs, links in Start + Boost pagina gekoppeld (NL/DE/EN). |
-| 56 | Alle NL-correcties doorvoeren in DE-versie | ⏳ | Na afronding NL |
+55. GEDAAN – Layout-bug: heading overlapt afbeelding. translate-y-12 verwijderd uit ueber-uns/page.tsx.
+56. GEDAAN – de.json volledig bijgewerkt: Hero (titels, USPs, beschrijving), GrowerFocus, CropResults (14% + 3e vlucht), GlobalStandard, ProblemSection, About (Biostimulans→Nährstofftransporter, Daten&Biologie→Daten&Praxis, productionTitle, productionPoints), FAQ (Was ist / Dünger / Wie funktioniert / Verpackungen / Vorteile / Einzigartig), ContactPage beschrijving.
 
 ---
 
-*Legenda: ✅ Gedaan | ❌ Niet gedaan / bewuste keuze | ⏳ Nog te doen*
+*Nog open: item 5 (jerrycan foto), item 42 (KPI Boost), item 52 (Stripe).*

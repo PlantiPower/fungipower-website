@@ -13,13 +13,13 @@
     "aboutLabel": "Über uns"
   },
   "Hero": {
-    "titleLine1": "Schnellere Ernte,",
-    "titleLine2": "Mehr Ertrag,",
-    "titleLine3": "Gleichmäßiges Wachstum.",
-    "uspsPart1": "BIOLOGISCHE VERSTÄRKUNG",
+    "titleLine1": "Gleichmäßiges Wachstum.",
+    "titleLine2": "Höherer Ertrag.",
+    "titleLine3": "Länger produktives Substrat.",
+    "uspsPart1": "NÄHRSTOFFTRANSPORTER",
     "uspsPart2": "MEHR ERTRAG PRO SCHUB",
-    "uspsPart3": "GETESTET IM KOMMERZIELLEN ANBAU",
-    "description": "FungiPower stärkt den natürlichen Kreislauf des Myzels. Über das Myzelnetzwerk werden Spurenelemente effizient zu den Fruchtkörpern transportiert, was zu gleichmäßigem Wachstum, schnellerer Ernte und höherem Ertrag pro m² führt. Entwickelt und validiert im kommerziellen Pilzanbau.",
+    "uspsPart3": "VALIDIERT IN 20 PRAXISVERSUCHEN",
+    "description": "FungiPower ist ein Nährstofftransporter, der die Verfügbarkeit von Nährstoffen im Substrat verbessert. Das Myzel nimmt vorhandene Nährstoffe effizienter auf, was zu gleichmäßigeren Fruchtkörpern, höherem Ertrag und länger produktivem Substrat führt. Validiert in 20 Praxisversuchen im kommerziellen Pilzanbau.",
     "ctaMore": "ANSEHEN",
     "ctaProduct": "Produkte ansehen",
     "ctaView": "ANSEHEN",
@@ -29,7 +29,7 @@
     "badge": "DIE PHILOSOPHIE",
     "title": "Wir ändern nichts",
     "titleAccent": "Sie optimieren alles",
-    "description": "Ihr Anbauprozess ist das Fundament Ihres Erfolgs. FungiPower wurde entwickelt, um dieses Fundament zu stärken, nicht zu ersetzen. Wir bieten biologische Unterstützung für eine stabile Myzelentwicklung und konsistente Schübe in jeder Phase des Anbauzyklus.",
+    "description": "Ihr Anbauprozess ist das Fundament Ihres Erfolgs. FungiPower wurde entwickelt, um dieses Fundament zu stärken, nicht zu ersetzen. FungiPower macht vorhandene Nährstoffe im Substrat besser verfügbar, sodass das Myzel effizienter arbeiten kann.",
     "usps": [
       {
         "title": "Ihre Methode bleibt führend",
@@ -37,11 +37,11 @@
       },
       {
         "title": "Sofort sichtbares Ergebnis",
-        "desc": "Ein vitaleres Myzel bedeutet gleichmäßige Fruchtkörper und einen schnelleren Schub."
+        "desc": "Ein vitaleres Myzel bedeutet gleichmäßige Fruchtkörper und höheren Ertrag pro Schub."
       },
       {
         "title": "Machen Sie weiter wie bisher",
-        "desc": "FungiPower stärkt den biologischen Kreislauf im Hintergrund."
+        "desc": "FungiPower optimiert die Nährstoffverfügbarkeit im Hintergrund."
       }
     ],
     "cta": "Probe anfordern"
@@ -51,23 +51,23 @@
     "title": "Validierte",
     "titleHighlight": "Praxisresultate",
     "validated": "Validiert",
-    "description": "Vom ersten Schub bis zum vollständigen Anbauzyklus: FungiPower maximiert die Aufnahmekapazität des Myzels in jedem professionellen Betrieb.",
+    "description": "Vom ersten Schub bis zum vollständigen Anbauzyklus: FungiPower verbessert die Nährstoffaufnahme des Myzels und liefert durchschnittlich 14% mehr Ertrag in 20 Praxisversuchen.",
     "crops": [
       {
         "name": "Erster Schub",
         "image": "/images/champignon-kweker.png",
         "stats_0_title": "Gleichmäßige Fruchtkörper",
-        "stats_0_desc": "Konsistente Größe und Gewicht durch optimierte Myzelaktivität.",
-        "stats_1_title": "Kürzere Zykluszeit",
-        "stats_1_desc": "Schnellere Primordienbildung bei aktivem und vitalem Myzel."
+        "stats_0_desc": "Konsistente Größe und Gewicht durch verbesserte Nährstoffaufnahme.",
+        "stats_1_title": "Länger produktives Substrat",
+        "stats_1_desc": "100% positives Ergebnis beim 3. Schub. Das Substrat wird effizienter bis zum Ende des Zyklus genutzt."
       },
       {
         "name": "Anbauzyklus",
         "image": "/images/fungipower-hero-plant.png",
         "stats_0_title": "Höherer Ertrag pro m²",
-        "stats_0_desc": "Effizientere Nutzung des Substrats pro Anbauzyklus.",
-        "stats_1_title": "Weniger Ausschuss",
-        "stats_1_desc": "Gleichmäßigere Kolonisierung reduziert unverkäufliche Pilze."
+        "stats_0_desc": "Durchschnittlich 14% mehr Ertrag, validiert in 20 Praxisversuchen.",
+        "stats_1_title": "Weniger Variation",
+        "stats_1_desc": "Da das Myzel alle Nährstoffe besser aufnimmt, wachsen Fruchtkörper gleichmäßiger in Größe und Gewicht."
       }
     ],
     "animationCards": [
@@ -76,8 +76,8 @@
         "sub": "konsistente Größe pro Flush"
       },
       {
-        "label": "Schnellere Primordienbildung",
-        "sub": "vitaleres Myzel · kürzere Zykluszeit"
+        "label": "14% mehr Ertrag",
+        "sub": "validiert in 20 Praxisversuchen"
       },
       {
         "label": "Höherer Ertrag pro m²",
@@ -100,8 +100,8 @@
     "desc": "Begonnen im agrarischen Herzen von Venlo, Niederlande, gewachsen zu einer Lösung für professionelle Erzeuger weltweit.",
     "dutchMade": "100% Niederländisches Fabrikat",
     "premiumQuality": "Premium Qualität",
-    "exportReady": "Bereit für den Export",
-    "logistics": "Weltweite Logistik"
+    "exportReady": "Bereit für die Skalierung",
+    "logistics": "Verfügbar für den europäischen Markt"
   },
   "Testimonials": {
     "title": "Die Erfahrung der Erzeuger",
@@ -125,7 +125,7 @@
     "titleAccent": "Pilzanbau",
     "description": "Im idealen Anbauzyklus kolonisiert das Myzel vollständig und alle Nährstoffe im Substrat werden optimal genutzt. Die Realität sieht anders aus. Ungleichmäßige Kolonisierung, langsame Schübe und ungleichmäßige Fruchtkörper führen zu Verschwendung und niedrigerem Ertrag pro Zyklus.",
     "quote": "\"Nicht das Substrat ist das Problem, sondern die Effizienz, mit der das Myzel die verfügbaren Nährstoffe aufnimmt und nutzt.\"",
-    "closing": "Indem FungiPower den biologischen Kreislauf des Myzels stärkt, erzielen Sie mehr Ertrag aus jedem Substratblock."
+    "closing": "Indem FungiPower die Nährstoffaufnahme des Myzels verbessert, erzielen Sie mehr Ertrag aus jedem Substratblock."
   },
   "About": {
     "metaTitle": "Über Uns | FungiPower",
@@ -141,7 +141,7 @@
     "coreTitle": "Die Herausforderung in der Branche",
     "coreDesc": "Der moderne Pilzanbau steht vor großen Herausforderungen. Rohstoffe werden knapper und teurer, während die Anforderungen an Qualität und Ertrag weiter steigen. Erzeuger müssen immer effizienter arbeiten, um in einem wettbewerbsintensiven Markt rentabel zu bleiben. In dieser Entwicklung geht es bei Verbesserungen oft nicht darum, mehr hinzuzufügen, sondern das Vorhandene zu optimieren.",
     "approachTitle": "Ourcelia × FungiPower",
-    "approachDesc": "FungiPower ist das Ergebnis einer strategischen Zusammenarbeit zwischen FungiPower und Ourcelia. Dieses Joint Venture kombiniert zwei Welten: das tiefgreifende biologische Fachwissen von Ourcelia als Produzent von hochwertigem Substrat und die langjährige Branchenerfahrung von FungiPower. Durch die Verknüpfung wissenschaftlicher Validierung mit dem täglichen Betrieb des Anbaubetriebs haben wir einen Biostimulans entwickelt, der dort wirklich Wirkung zeigt, wo es darauf ankommt: in der Anbaukammer.",
+    "approachDesc": "FungiPower ist das Ergebnis einer strategischen Zusammenarbeit zwischen FungiPower und Ourcelia. Dieses Joint Venture kombiniert zwei Welten: das tiefgreifende biologische Fachwissen von Ourcelia als Produzent von hochwertigem Substrat und die langjährige Branchenerfahrung von FungiPower. Durch die Verknüpfung von Praxisvalidierung mit dem täglichen Betrieb des Anbaubetriebs haben wir einen Nährstofftransporter entwickelt, der dort wirklich Wirkung zeigt, wo es darauf ankommt: in der Anbaukammer.",
     "values": [
       {
         "title": "Ourcelia",
@@ -154,13 +154,13 @@
         "icon": "Zap"
       },
       {
-        "title": "Daten & Biologie",
-        "desc": "Wissenschaftliche Validierung der Nährstoffaufnahme und des biologischen Kreislaufs des Myzels.",
+        "title": "Daten & Praxis",
+        "desc": "Validierung durch 20 Praxisversuche im kommerziellen Pilzanbau.",
         "icon": "Target"
       },
       {
         "title": "Stabiles Ergebnis",
-        "desc": "Bewährte Biostimulanzien, die den Ertrag steigern, ohne den Anbau zu stören.",
+        "desc": "Bewährte Wirksamkeit, die den Ertrag steigert, ohne den Anbau zu stören.",
         "icon": "ShieldCheck"
       }
     ],
@@ -168,12 +168,12 @@
     "whoWeAreAccent": "Ist Klar",
     "whoWeAreDesc": "\"Ein vitalerer Anbau und ein stabilerer Schub, was letztendlich zu einem höheren Ertrag pro Anbauzykus führt. Nicht durch Änderung des Systems, sondern durch besseres Funktionieren.\"",
     "productionBadge": "Moderner Pilzanbau",
-    "productionTitle": "Wissenschaftlich fundiert.",
+    "productionTitle": "Fundiert durch umfangreiche Praxisversuche.",
     "productionDesc": "Wir glauben, dass Fortschritt logisch erscheinen sollte. Wenn Technologie gut zum Handwerk passt, stärkt sie die Arbeit des Erzeugers, anstatt sie zu ersetzen. Dafür steht FungiPower.",
     "productionPoints": [
       "Branchenrealität: Verständnis des Arbeitsplatzes und des täglichen Anbaumanagements",
-      "Daten & Biologie: wissenschaftliche Validierung des biologischen Kreislaufs des Myzels",
-      "Stabiles Ergebnis: bewährte Biostimulanzien zur Ertragssteigerung",
+      "Daten & Praxis: Validierung durch 20 Praxisversuche im kommerziellen Pilzanbau",
+      "Stabiles Ergebnis: bewährte Wirksamkeit zur Ertragssteigerung ohne Eingriff in den Anbau",
       "100% aus der Praxis der Erzeuger entwickelt"
     ],
     "missionTitle": "Unsere Mission",
@@ -201,7 +201,7 @@
   "ContactPage": {
     "title": "Nehmen Sie",
     "titleAccent": "Kontakt auf",
-    "description": "Haben Sie Fragen zu unseren Produkten oder möchten Sie Partner werden? Wir sind für Sie da.",
+    "description": "Haben Sie Fragen zu unseren Produkten oder möchten Sie einen Versuch in Ihrem Betrieb durchführen? Wir sind für Sie da.",
     "metaTitle": "Kontakt | FungiPower",
     "metaDesc": "Kontaktieren Sie FungiPower. Fragen zu Produkten, Partnerschaften oder Vertrieb? Wir helfen Ihnen gerne weiter."
   },
@@ -209,11 +209,11 @@
     "title": "HÄUFIG GESTELLTE",
     "titleAccent": " FRAGEN",
     "metaTitle": "Häufig gestellte Fragen | FungiPower",
-    "metaDesc": "Häufig gestellte Fragen zu FungiPower Biostimulanzien.",
+    "metaDesc": "Häufig gestellte Fragen zu FungiPower, dem Nährstofftransporter für den Pilzanbau.",
     "items": [
       {
         "q": "Was ist FungiPower?",
-        "a": "FungiPower ist ein natürlicher Biostimulans, der den biologischen Kreislauf des Myzels stärkt. Er fördert die Aufnahme von Spurenelementen über das Myzelnetzwerk, was zu gleichmäßigen Fruchtkörpern, schnelleren Schüben und höherem Ertrag pro m² führt."
+        "a": "FungiPower ist ein Nährstofftransporter, der die Verfügbarkeit von Nährstoffen im Substrat verbessert. Das Myzel nimmt vorhandene Nährstoffe effizienter auf, was zu gleichmäßigeren Fruchtkörpern, höherem Ertrag pro m² und länger produktivem Substrat führt. Validiert in 20 Praxisversuchen im kommerziellen Pilzanbau."
       },
       {
         "q": "Wie oft sollte ich FungiPower anwenden?",
@@ -221,7 +221,7 @@
       },
       {
         "q": "Ist FungiPower ein Dünger?",
-        "a": "Nein, FungiPower ist kein Dünger, sondern ein Biostimulans und Transportmittel, das die Wirkung Ihrer bestehenden Düngemittel verstärkt."
+        "a": "Nein, FungiPower ist kein Dünger, sondern ein Nährstofftransporter. Er verbessert die Verfügbarkeit von Nährstoffen, die bereits im Substrat vorhanden sind, sodass das Myzel diese effizienter aufnehmen kann."
       },
       {
         "q": "Kann ich es mit anderen Düngemitteln verwenden?",
@@ -229,11 +229,11 @@
       },
       {
         "q": "Wie funktioniert FungiPower?",
-        "a": "FungiPower stärkt die Aktivität des Myzelnetzwerks und fördert die Aufnahme wesentlicher Nährstoffe im Substrat. Das Ergebnis ist vitaleres Myzel, gleichmäßigere Kolonisierung und stabilere Schübe."
+        "a": "FungiPower verbessert die Verfügbarkeit von Nährstoffen im Substrat, sodass das Myzel diese besser aufnehmen kann. Das führt zu gleichmäßigeren Fruchtkörpern, höherem Ertrag pro Schub und länger produktivem Substrat."
       },
       {
         "q": "Welche Verpackungsgrößen gibt es?",
-        "a": "FungiPower Start ist in 1 Liter, 10 Liter und 1000 Liter erhältlich. FungiPower Boost ist in 1 Liter und 5 Liter erhältlich. Abweichende Mengen/Verpackungen auf Anfrage."
+        "a": "FungiPower Start und FungiPower Boost sind jeweils in 10 Liter und 1000 Liter (IBC) erhältlich. Abweichende Mengen auf Anfrage."
       },
       {
         "q": "Für welchen Anbau ist FungiPower geeignet?",
@@ -245,7 +245,7 @@
       },
       {
         "q": "Was sind die Vorteile von FungiPower?",
-        "a": "Höherer Ertrag pro m², gleichmäßigere Fruchtkörper, schnellere Schübe, weniger Ausschuss und effizientere Nutzung des Substrats."
+        "a": "Durchschnittlich 14% mehr Ertrag, gleichmäßigere Fruchtkörper, 100% positives Ergebnis beim 3. Schub und effizientere Nutzung des Substrats pro Anbauzyklus."
       },
       {
         "q": "Funktioniert FungiPower auf allen Substrattypen?",
@@ -257,7 +257,7 @@
       },
       {
         "q": "Was macht FungiPower einzigartig?",
-        "a": "Die einzigartige Formulierung, die den biologischen Kreislauf des Myzels aktiv unterstützt und die Aufnahme aller wesentlichen Nährstoffe für einen stabileren und produktiveren Anbau verbessert."
+        "a": "FungiPower ist ein speziell für den Pilzanbau entwickelter Nährstofftransporter, validiert in 20 Praxisversuchen. Mit durchschnittlich 14% mehr Ertrag und 100% positivem Ergebnis beim 3. Schub ist FungiPower das einzige Produkt dieser Art, das im kommerziellen Pilzanbau umfangreich geprüft wurde."
       },
       {
         "q": "Wie verwende ich FungiPower?",

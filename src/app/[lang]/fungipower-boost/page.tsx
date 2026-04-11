@@ -323,6 +323,8 @@ export default async function ProductBoost({
                             </div>
                             <a
                                 href={content.sdsLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group glass-panel p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-blue-500/40 transition-all duration-500 flex items-center justify-between"
                             >
                                 <div className="flex items-center gap-6">
