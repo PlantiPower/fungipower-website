@@ -31,7 +31,7 @@ export async function generateMetadata(
 
     return {
         title: isDE ? 'FungiPower Boost | Maximaler Ertrag' : isNL ? 'FungiPower Boost | Maximale Opbrengst' : 'FungiPower Boost | Maximum Yield',
-        description: isDE ? 'FungiPower Boost maximiert den Ertrag in der Fruchtphase und sorgt für eine gleichmäßige, hochwertige Ernte.' : isNL ? 'FungiPower Boost maximaliseert de opbrengst in de vluchtfase en zorgt voor een gelijkmatige, hoogwaardige oogst.' : 'FungiPower Boost maximises yield during the flush phase and ensures a uniform, high-quality harvest.',
+        description: isDE ? 'FungiPower Boost verbessert die Nährstoffaufnahme des Myzels in der Fruchtphase für gleichmäßigere Vluchten und höheren Ertrag.' : isNL ? 'FungiPower Boost verbetert de nutriëntenopname van het mycelium in de vluchtfase voor gelijkmatigere vluchten en hogere opbrengst.' : 'FungiPower Boost improves mycelium nutrient uptake during the flush phase for more uniform flushes and higher yield.',
     }
 }
 
@@ -53,10 +53,10 @@ export default async function ProductBoost({
                 ? <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">MAXIMALE</span> <span className="text-white">OPBRENGST</span></>
                 : <><span className="text-white">FUNGIPOWER</span><br /><span className="text-white">BOOST</span><br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">MAXIMUM</span> <span className="text-white">YIELD</span></>,
         heroDesc: isDE
-            ? 'FungiPower Boost aktiviert das Myzel in der entscheidenden Fruchtungsphase. Das Ergebnis: gleichmäßigere Vluchten, höhere Erträge und eine bessere Qualität pro Ernte.'
+            ? 'FungiPower Boost macht alle verfügbaren Nährstoffe im Substrat optimal verfügbar für das Myzel während der Fruchtungsphase. Das Ergebnis: gleichmäßigere Vluchten und höhere Erträge.'
             : isNL
-                ? 'FungiPower Boost activeert het mycelium in de beslissende vluchtfase. Het resultaat: gelijkmatigere vluchten, hogere opbrengsten en betere kwaliteit per oogst.'
-                : 'FungiPower Boost activates mycelium during the decisive flush phase. The result: more uniform flushes, higher yields and better quality per harvest.',
+                ? 'FungiPower Boost maakt alle beschikbare nutriënten in het substraat optimaal beschikbaar voor het mycelium tijdens de vluchtfase. Het resultaat: gelijkmatigere vluchten en hogere opbrengsten.'
+                : 'FungiPower Boost makes all available nutrients in the substrate optimally available to mycelium during the flush phase. The result: more uniform flushes and higher yields.',
         ctaDiscover: isDE ? 'MEHR ERFAHREN' : isNL ? 'MEER ONTDEKKEN' : 'DISCOVER MORE',
         validated: isDE ? 'VALIDIERT' : isNL ? 'GEVALIDEERD' : 'VALIDATED',
         coreSystem: isDE ? 'KERNSYSTEM' : isNL ? 'KERNSYSTEEM' : 'CORE SYSTEM',
@@ -65,46 +65,46 @@ export default async function ProductBoost({
             {
                 title: isDE ? 'Gleichmäßige Vluchten' : isNL ? 'Gelijkmatige vluchten' : 'Uniform Flushes',
                 desc: isDE
-                    ? 'FungiPower Boost stimuliert eine synchrone Fruchtbildung über das gesamte Substrat. Weniger Ausreißer, mehr Gleichmäßigkeit. Das bedeutet effizienter Oogsten und bessere Ergebnisse.'
+                    ? 'Durch verbesserte Nährstoffaufnahme wächst das Myzel gleichmäßiger über das gesamte Substrat. Weniger Ausreißer, mehr Gleichmäßigkeit. Das bedeutet effizienter ernten und bessere Ergebnisse.'
                     : isNL
-                        ? 'FungiPower Boost stimuleert een synchrone vruchtvorming over het gehele substraat. Minder uitschieters, meer uniformiteit. Dat betekent efficiënter oogsten en betere resultaten.'
-                        : 'FungiPower Boost stimulates synchronous fruiting across the entire substrate. Less variation, more uniformity. That means more efficient harvesting and better results.'
+                        ? 'Door verbeterde nutriëntenopname groeit het mycelium uniformer over het gehele substraat. Minder uitschieters, meer uniformiteit. Dat betekent efficiënter oogsten en betere resultaten.'
+                        : 'Through improved nutrient uptake, mycelium grows more uniformly across the entire substrate. Less variation, more uniformity. That means more efficient harvesting and better results.'
             },
             {
                 title: isDE ? 'Höhere Erträge' : isNL ? 'Hogere opbrengsten' : 'Higher Yields',
                 desc: isDE
-                    ? 'Durch die gezielte Versorgung des Myzels mit bioverfügbaren Mikronährstoffen in der Fruchtungsphase steigert FungiPower Boost das Potenzial jeder Ernte messbar.'
+                    ? 'Weil das Myzel alle vorhandenen Nährstoffe im Substrat besser aufnehmen kann, steigt der Ertrag pro Vlucht messbar. Durchschnittlich 14% mehr Ertrag, bewiesen in 20 Praxisversuchen.'
                     : isNL
-                        ? 'Door het mycelium gericht te voorzien van biobeschikbare micronutriënten in de vluchtfase, verhoogt FungiPower Boost het potentieel van elke oogst meetbaar.'
-                        : 'By targeted delivery of bioavailable micronutrients to mycelium during the flush phase, FungiPower Boost measurably increases the potential of every harvest.'
+                        ? 'Doordat het mycelium alle aanwezige nutriënten in het substraat beter kan opnemen, stijgt de opbrengst per vlucht meetbaar. Gemiddeld 14% meer opbrengst, bewezen in 20 praktijkproeven.'
+                        : 'Because mycelium can better absorb all available nutrients in the substrate, yield per flush increases measurably. Average 14% higher yield, proven in 20 field trials.'
             },
             {
                 title: isDE ? 'Bessere Qualität' : isNL ? 'Betere kwaliteit' : 'Better Quality',
                 desc: isDE
-                    ? 'Nicht nur mehr, sondern besser: FungiPower Boost verbessert die Festigkeit, Farbe und das Gewicht der Pilze — und damit auch die Vermarktbarkeit Ihrer Ernte.'
+                    ? 'Durch verbesserte Nährstoffaufnahme werden Pilze gleichmäßiger in Format und Gewicht. Das kommt der Vermarktbarkeit Ihrer Ernte zugute.'
                     : isNL
-                        ? 'Niet alleen meer, maar ook beter: FungiPower Boost verbetert de stevigheid, kleur en het gewicht van de champignons — en daarmee ook de vermarktbaarheid van uw oogst.'
-                        : 'Not just more, but better: FungiPower Boost improves the firmness, colour and weight of mushrooms — and with it the marketability of your harvest.'
+                        ? 'Door verbeterde nutriëntenopname worden champignons uniformer in formaat en gewicht. Dit komt de vermarktbaarheid van uw oogst ten goede.'
+                        : 'Through improved nutrient uptake, mushrooms become more uniform in size and weight. This benefits the marketability of your harvest.'
             }
         ],
         advantageBadge: isDE ? 'VORTEILE' : isNL ? 'VOORDELEN' : 'ADVANTAGES',
         advantageTitle: isDE ? <>Mehr aus jeder <br /><span className="text-blue-400/80">Vlucht</span></> : isNL ? <>Meer uit elke <br /><span className="text-blue-400/80">vlucht</span></> : <>More from every <br /><span className="text-blue-400/80">flush</span></>,
         advantageDesc: isDE
-            ? 'FungiPower Boost is speziell für die Fruchtungsphase entwickelt und liefert dem Myzel genau die Nährstoffe, die es in diesem entscheidenden Moment braucht. Das Resultat sind mehr Pilze pro Vlucht, eine höhere Uniformität und eine verbesserte Gesamtqualität.'
+            ? 'FungiPower Boost ist speziell für die Fruchtungsphase entwickelt. Der Nährstofftransporter verbessert die Aufnahme der vorhandenen Nährstoffe im Substrat durch das Myzel. Das Resultat sind mehr Pilze pro Vlucht, höhere Uniformität und bessere Vermarktbarkeit.'
             : isNL
-                ? 'FungiPower Boost is speciaal ontwikkeld voor de vluchtfase en levert het mycelium exact de nutriënten die het op dit beslissende moment nodig heeft. Het resultaat zijn meer champignons per vlucht, een hogere uniformiteit en verbeterde totaalkwaliteit.'
-                : 'FungiPower Boost is specially developed for the flush phase and delivers exactly the nutrients mycelium needs at this decisive moment. The result is more mushrooms per flush, higher uniformity and improved overall quality.',
+                ? 'FungiPower Boost is speciaal ontwikkeld voor de vluchtfase. De nutriënten transporteur verbetert de opname van de aanwezige nutriënten in het substraat door het mycelium. Het resultaat: meer champignons per vlucht, hogere uniformiteit en betere vermarktbaarheid.'
+                : 'FungiPower Boost is specially developed for the flush phase. The nutrient transporter improves the uptake of existing nutrients in the substrate by the mycelium. The result: more mushrooms per flush, higher uniformity and better marketability.',
         usps: isDE
-            ? ['Mehr Pilze per Vlucht', 'Gleichmäßigere Fruchtbildung', 'Bessere Festigkeit und Farbe', '100% biologisch und residu-vrij']
+            ? ['Mehr Pilze per Vlucht', 'Gleichmäßigere Fruchtbildung', '100% Score auf der 3. Vlucht', '100% natürlich und rückstandsfrei']
             : isNL
-                ? ['Meer champignons per vlucht', 'Gelijkmatigere vruchtvorming', 'Betere stevigheid en kleur', '100% biologisch en residu-vrij']
-                : ['More mushrooms per flush', 'More uniform fruiting', 'Better firmness and colour', '100% biological and residue-free'],
+                ? ['Meer champignons per vlucht', 'Gelijkmatigere vruchtvorming', '100% score op de 3e vlucht', '100% natuurlijk en residu-vrij']
+                : ['More mushrooms per flush', 'More uniform fruiting', '100% score on the 3rd flush', '100% natural and residue-free'],
         compositionTitle: isDE ? 'Zusammensetzung' : isNL ? 'Samenstelling' : 'Composition',
         humus: isDE ? 'Huminsäuren' : isNL ? 'Humuszuren' : 'Humic Acids',
         humusDesc: isDE ? '5% Aktivextrakt' : isNL ? '5% Actief extract' : '5% Active extract',
         fulvic: isDE ? 'Fulvinsäuren' : isNL ? 'Fulvinezuren' : 'Fulvic Acids',
         fulvicDesc: isDE ? '3% Konzentriert' : isNL ? '3% Geconcentreerd' : '3% Concentrated',
-        tags: isDE ? 'Fruchtungsphase • Ertragssteigerung • Biologisch' : isNL ? 'Vluchtfase • Opbrengstverhoging • Biologisch' : 'Flush phase • Yield booster • Biological',
+        tags: isDE ? 'Fruchtungsphase • Nährstofftransporter • 100% natürlich' : isNL ? 'Vluchtfase • Nutriënten transporteur • 100% natuurlijk' : 'Flush phase • Nutrient transporter • 100% natural',
         guideBadge: isDE ? 'Anwendungsguide' : isNL ? 'Toepassingsgids' : 'Application Guide',
         guideTitle: isDE ? <>Einfache <br /><span className="text-blue-400/80">Anwendung</span></> : isNL ? <>Eenvoudige <br /><span className="text-blue-400/80">toepassing</span></> : <>Simple <br /><span className="text-blue-400/80">application</span></>,
         steps: [
@@ -116,23 +116,23 @@ export default async function ProductBoost({
             {
                 step: '02',
                 title: isDE ? 'Dosierung nach der Vlucht' : isNL ? 'Dosering na de vlucht' : 'Dosage after flush',
-                desc: isDE ? 'Geben Sie 3 ml FungiPower Boost pro 1 Liter Wasser pro 1 m² nach jeder Vlucht hinzu (nach der 1. & 2. Vlucht).' : isNL ? 'Voeg 3 ml FungiPower Boost per 1 liter water per 1 m² toe na elke vlucht (na de 1e & 2e vlucht).' : 'Add 3 ml of FungiPower Boost per 1 liter of water per 1 m² after each flush (after the 1st & 2nd flush).'
+                desc: isDE ? 'Geben Sie 3 ml FungiPower Boost pro 1 Liter Wasser pro 1 m² hinzu. Gleichmäßig auf das Substrat auftragen direkt nach der Ernte jeder Vlucht.' : isNL ? 'Voeg 3 ml FungiPower Boost per 1 liter water per 1 m² toe. Breng aan op het substraat direct na het oogsten van elke vlucht.' : 'Add 3 ml of FungiPower Boost per 1 litre of water per 1 m². Apply evenly to the substrate directly after harvesting each flush.'
             },
             {
                 step: '03',
-                title: isDE ? 'Pro Vlucht wiederholen' : isNL ? 'Herhaal per vlucht' : 'Repeat per flush',
-                desc: isDE ? 'Wenden Sie FungiPower Boost vor jeder Vlucht an, um den maximalen Ertrag über den gesamten Erntezyklus hinweg zu erzielen.' : isNL ? 'Pas FungiPower Boost toe voor elke vlucht om de maximale opbrengst gedurende de gehele teeltcyclus te behalen.' : 'Apply FungiPower Boost before each flush to achieve maximum yield throughout the entire cultivation cycle.'
+                title: isDE ? 'Na jeder Vlucht wiederholen' : isNL ? 'Herhaal na elke vlucht' : 'Repeat after each flush',
+                desc: isDE ? 'Nach der Ernte jeder Vlucht wiederholen für maximalen Ertrag über den gesamten Erntezyklus.' : isNL ? 'Herhaal na het oogsten van elke vlucht voor maximale opbrengst gedurende de gehele teeltcyclus.' : 'Repeat after harvesting each flush for maximum yield throughout the entire cultivation cycle.'
             }
         ],
-        expertAdvice: isDE ? 'Expertenhinweise' : isNL ? 'Expertentips' : 'Expert Tips',
+        expertAdvice: isDE ? 'Tipps von Experten' : isNL ? 'Tips van Experts' : 'Expert Tips',
         expertItems: [
             {
                 label: isDE ? 'Timing' : isNL ? 'Timing' : 'Timing',
-                text: isDE ? 'Am wirkungsvollsten 2–3 Tage vor der Fruchtbildung einsetzen, wenn das Myzel in die Fruchtungsphase wechselt.' : isNL ? 'Meest effectief 2–3 dagen voor de vruchtvorming toepassen, wanneer het mycelium overschakelt naar de vluchtfase.' : 'Most effective when applied 2–3 days before fruiting, when mycelium transitions into the flush phase.'
+                text: isDE ? 'FungiPower Boost direkt nach der Ernte jeder Vlucht auftragen. Gleichmäßig über das Substrat verteilen.' : isNL ? 'Pas FungiPower Boost toe direct na het oogsten van elke vlucht. Verdeel de oplossing gelijkmatig over het substraat.' : 'Apply FungiPower Boost directly after harvesting each flush. Distribute the solution evenly over the substrate.'
             },
             {
                 label: isDE ? 'Kombination' : isNL ? 'Combinatie' : 'Combination',
-                text: isDE ? 'FungiPower Boost arbeitet optimal zusammen mit FungiPower Start: Start für die Kolonisierung, Boost für maximale Erträge in jeder Vlucht.' : isNL ? 'FungiPower Boost werkt optimaal samen met FungiPower Start: Start voor de kolonisatie, Boost voor maximale opbrengsten in elke vlucht.' : 'FungiPower Boost works optimally together with FungiPower Start: Start for colonisation, Boost for maximum yields in every flush.'
+                text: isDE ? 'FungiPower Boost arbeitet optimal zusammen mit FungiPower Start. Start am Tag 1 für die Kolonisierung, Boost nach jeder Vlucht für maximalen Ertrag.' : isNL ? 'FungiPower Boost werkt optimaal samen met FungiPower Start. Start op dag 1 voor de kolonisatie, Boost na elke vlucht voor maximale opbrengst.' : 'FungiPower Boost works optimally together with FungiPower Start. Start on day 1 for colonisation, Boost after each flush for maximum yield.'
             },
             {
                 label: isDE ? 'Aufbewahrung' : isNL ? 'Bewaaradvies' : 'Storage',

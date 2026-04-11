@@ -85,16 +85,16 @@ Datum: 11 april 2026 | Werksessie Ramzi + Claude
 
 | # | Punt (origineel) | Status | Wat gedaan |
 |---|---|---|---|
-| 34 | "activeert het mycelium in de beslissende vluchtfase" → nieuwe tekst | ⏳ | |
-| 35 | "Gelijkmatige vluchten. stimuleert synchrone vruchtvorming..." → nieuwe tekst zonder middenstreepje | ⏳ | |
-| 36 | "Hogere opbrengsten. Door het mycelium gericht te voorzien van biobeschikbare micronutriënten..." → nieuwe tekst + 14% + 20 proeven | ⏳ | |
-| 37 | "Betere kwaliteit. stevigheid, kleur en gewicht..." → nieuwe tekst zonder stevigheid/kleur | ⏳ | |
-| 38 | Voordelen: "Stevigheid en kleur" → verwijderen, "100% biologisch" → "100% natuurlijk en residu-vrij" | ⏳ | |
-| 39 | Stap 02: "Na de 1e & 2e vlucht" → "direct na het oogsten van elke vlucht" | ⏳ | |
-| 40 | Stap 03: "voor elke vlucht" → "na elke vlucht" | ⏳ | |
-| 41 | "Expertentips" → "Tips van Experts" + correcte inhoud | ⏳ | |
-| 42 | Geen KPI's op pagina → resultaten-sectie toevoegen | ⏳ | |
-| 43 | SDS link werkt niet → werkend PDF uploaden en linken | ⏳ | |
+| 34 | "activeert het mycelium in de beslissende vluchtfase" → nieuwe tekst | ✅ | heroDesc herschreven: nutriënten beschikbaar maken voor mycelium. |
+| 35 | "Gelijkmatige vluchten. stimuleert synchrone vruchtvorming..." → nieuwe tekst | ✅ | cards[0]: "stimuleert" → "door verbeterde nutriëntenopname groeit mycelium uniformer". |
+| 36 | "Hogere opbrengsten. biobeschikbare micronutriënten..." → nieuwe tekst + 14% + 20 proeven | ✅ | cards[1] herschreven met 14% + 20 praktijkproeven. |
+| 37 | "Betere kwaliteit. stevigheid, kleur en gewicht..." → zonder stevigheid/kleur | ✅ | cards[2]: "uniformer in formaat en gewicht". |
+| 38 | "Stevigheid en kleur" → verwijderen, "100% biologisch" → "100% natuurlijk", "100% score op 3e vlucht" toegevoegd | ✅ | usps[] volledig bijgewerkt. |
+| 39 | Stap 02: "Na de 1e & 2e vlucht" → "direct na het oogsten van elke vlucht" | ✅ | steps[1] desc aangepast. |
+| 40 | Stap 03: "voor elke vlucht" → "na elke vlucht" | ✅ | steps[2] titel + desc aangepast. |
+| 41 | "Expertentips" → "Tips van Experts" + timing: 2-3 dagen voor → na de oogst | ✅ | expertAdvice + expertItems[0] gecorrigeerd. |
+| 42 | Geen KPI's op pagina → resultaten-sectie toevoegen | ❌ | Grotere toevoeging, apart aanpakken. |
+| 43 | SDS link werkt niet → werkend PDF uploaden en linken | ❌ | PDF aanleveren. |
 
 ---
 
