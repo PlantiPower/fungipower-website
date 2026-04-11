@@ -13,13 +13,13 @@
     "aboutLabel": "Over ons"
   },
   "Hero": {
-    "titleLine1": "Snellere oogst,",
-    "titleLine2": "Meer opbrengst,",
-    "titleLine3": "Uniformere groei.",
+    "titleLine1": "Uniformere groei.",
+    "titleLine2": "Hogere opbrengst.",
+    "titleLine3": "Langer productief substraat.",
     "uspsPart1": "NUTRIËNTEN TRANSPORTEUR",
     "uspsPart2": "MEER OPBRENGST",
-    "uspsPart3": "GETEST IN COMMERCIËLE TEELT",
-    "description": "FungiPower versterkt de natuurlijke groeicyclus van het mycelium. Via het myceliumnetwerk worden sporenelementen efficiënt getransporteerd naar de vruchtlichamen, wat resulteert in een uniformere groei, snellere oogst en hogere opbrengst per m². Ontwikkeld en gevalideerd in de commerciële champignonteelt.",
+    "uspsPart3": "GEVALIDEERD IN 20 PRAKTIJKPROEVEN",
+    "description": "FungiPower is een nutriënten transporteur die alle beschikbare nutriënten in het substraat beter aanbiedt aan het mycelium. Door deze verbeterde opname worden champignons weerbaarder, groeit het mycelium uniformer en stijgt de opbrengst per m². Ontwikkeld en gevalideerd in 20 praktijkproeven bij professionele kwekerijen.",
     "ctaMore": "BEKIJK",
     "ctaProduct": "Bekijk Producten",
     "ctaView": "BEKIJK",
@@ -29,7 +29,7 @@
     "badge": "DE FILOSOFIE",
     "title": "Wij veranderen niets",
     "titleAccent": "Jij optimaliseert alles",
-    "description": "Jouw teeltproces is het fundament van jouw succes. FungiPower is ontwikkeld om dit fundament te versterken, niet te vervangen. Wij bieden biologische ondersteuning voor stabiele myceliumontwikkeling en consistente vluchten, in elke fase van de teeltcyclus.",
+    "description": "Jouw teeltproces is het fundament van jouw succes. FungiPower is ontwikkeld om dit fundament te versterken, niet te vervangen. FungiPower maakt de aanwezige nutriënten in het substraat beter beschikbaar voor het mycelium. Dit ondersteunt een stabiele myceliumontwikkeling en consistente vluchten in elke fase van de teeltcyclus.",
     "usps": [
       {
         "title": "Jouw methode van telen blijft leidend",
@@ -37,11 +37,11 @@
       },
       {
         "title": "Direct zichtbaar resultaat",
-        "desc": "Een vitaler mycelium betekent uniformere vruchtlichamen en een snellere flush."
+        "desc": "Een betere nutriëntenopname betekent uniformere vruchtlichamen en een hogere opbrengst per flush."
       },
       {
         "title": "Blijf doen waar je goed in bent",
-        "desc": "FungiPower versterkt de biologische cyclus op de achtergrond."
+        "desc": "FungiPower optimaliseert de nutriëntenbeschikbaarheid op de achtergrond."
       }
     ],
     "cta": "Vraag Sample Aan"
@@ -51,23 +51,23 @@
     "title": "Gevalideerde",
     "titleHighlight": "praktijkresultaten",
     "validated": "Gevalideerd",
-    "description": "Van eerste vlucht tot complete teeltcyclus: FungiPower maximaliseert de opnamecapaciteit van het mycelium in elke professionele kwekerij.",
+    "description": "Van eerste vlucht tot complete teeltcyclus: FungiPower verbetert de nutriëntenopname van het mycelium. Gevalideerd bij professionele kwekerijen met gemiddeld 14% meer opbrengst.",
     "crops": [
       {
         "name": "Eerste vlucht",
         "image": "/images/champignon-kweker.png",
         "stats_0_title": "Uniformere vruchtlichamen",
-        "stats_0_desc": "Consistent formaat en gewicht door geoptimaliseerde myceliumactiviteit.",
-        "stats_1_title": "Kortere cyclustijd",
-        "stats_1_desc": "Snellere primordiumvorming bij actief en vitaal mycelium."
+        "stats_0_desc": "Consistent formaat en gewicht door verbeterde nutriëntenopname.",
+        "stats_1_title": "Langer productief substraat",
+        "stats_1_desc": "100% positief resultaat op de 3e vlucht. Het substraat blijft aantoonbaar langer productief na behandeling met FungiPower."
       },
       {
         "name": "Teeltcyclus",
         "image": "/images/fungipower-hero-plant.png",
         "stats_0_title": "Hogere opbrengst per m²",
-        "stats_0_desc": "Efficiëntere benutting van de voedingsstoffen uit het substraat per teeltcyclus.",
-        "stats_1_title": "Minder uitval",
-        "stats_1_desc": "Uniformere kolonisatie vermindert onverkoopbare champignons."
+        "stats_0_desc": "Gemiddeld 14% meer opbrengst door efficiëntere benutting van de voedingsstoffen in het substraat. Bewezen in 20 praktijkproeven.",
+        "stats_1_title": "Minder variatie",
+        "stats_1_desc": "Doordat het mycelium alle nutriënten beter opneemt, ontstaat een uniformer groeipatroon met minder onderlinge variatie."
       }
     ],
     "animationCards": [
@@ -100,8 +100,8 @@
     "desc": "Begonnen in het agrarische hart van Venlo, Nederland, uitgegroeid tot een oplossing voor professionele telers wereldwijd.",
     "dutchMade": "100% Nederlands Fabricaat",
     "premiumQuality": "Premium Kwaliteit",
-    "exportReady": "Klaar voor Export",
-    "logistics": "Wereldwijde Logistiek"
+    "exportReady": "Gereed voor opschaling",
+    "logistics": "Beschikbaar voor de Europese markt"
   },
   "Testimonials": {
     "title": "De Ervaring van Kwekers",
@@ -114,7 +114,7 @@
     "titleAccent": "de champignonteelt",
     "description": "In een ideale teelt koloniseert het mycelium zich volledig en worden alle voedingsstoffen in het substraat optimaal benut. De realiteit is anders. Ongelijkmatige kolonisatie, trage vluchten en variatie in vruchtlichamen zorgen voor verspilling en een lager rendement per teeltcyclus.",
     "quote": "\"Niet het substraat is het probleem, maar de efficiëntie waarmee het mycelium de beschikbare voedingsstoffen opneemt en benut.\" — Jan Klerken",
-    "closing": "Door de biologische cyclus van het mycelium te versterken met FungiPower, haal je meer rendement uit het gevulde substraat."
+    "closing": "Door de nutriëntenopname van het mycelium te verbeteren met FungiPower, haal je meer rendement uit het gevulde substraat."
   },
   "About": {
     "metaTitle": "Over Ons | FungiPower",
