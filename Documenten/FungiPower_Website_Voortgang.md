@@ -77,7 +77,7 @@ Legenda: GEDAAN / OPEN / TODO
 39. GEDAAN – Stap 02: "na de 1e & 2e vlucht" → "direct na het oogsten van elke vlucht".
 40. GEDAAN – Stap 03: "voor elke vlucht" → "na elke vlucht".
 41. GEDAAN – "Expertentips" → "Tips van Experts" + timing: 2-3 dagen voor → na de oogst.
-42. OPEN – KPI-sectie toevoegen aan Boost pagina. Grotere toevoeging, apart aanpakken.
+42. GEDAAN – KPI's verwerkt in de inhoudkaarten van de Boost pagina: 14% meer opbrengst, 20 praktijkproeven, 100% score op de 3e vlucht (NL/DE/EN).
 43. GEDAAN – Zie item 33.
 
 ---
@@ -115,4 +115,4 @@ Legenda: GEDAAN / OPEN / TODO
 
 ---
 
-*Nog open: item 5 (jerrycan foto), item 42 (KPI Boost), item 52 (Stripe).*
+*Nog open: item 5 (jerrycan foto), item 52 (Stripe).*
