@@ -39,13 +39,13 @@ export function middleware(request: NextRequest) {
         return NextResponse.next()
     }
 
-    // Password protection check
-    const accessCookie = request.cookies.get('fp_access')
-    if (!accessCookie || accessCookie.value !== 'granted') {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/login'
-        return NextResponse.redirect(loginUrl)
-    }
+    // Password protection check (TEMPORARILY DISABLED)
+    // const accessCookie = request.cookies.get('fp_access')
+    // if (!accessCookie || accessCookie.value !== 'granted') {
+    //     const loginUrl = request.nextUrl.clone()
+    //     loginUrl.pathname = '/login'
+    //     return NextResponse.redirect(loginUrl)
+    // }
 
     const pathnameHasLocale = i18n.locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
