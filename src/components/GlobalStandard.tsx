@@ -12,13 +12,13 @@ const GlobalStandard: React.FC<GlobalStandardProps> = ({ dict }) => {
     const t = dict.GlobalStandard;
 
     return (
-        <section className="relative py-12 bg-black overflow-hidden">
+        <section className="relative pt-12 pb-0 bg-black overflow-hidden">
             {/* Background elements — matches the near-black + orange glow of the product image */}
             <div className="absolute inset-0 bg-black"></div>
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 blur-[140px] rounded-full pointer-events-none"></div>
 
             <div className="relative z-10 max-w-6xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
 
                     {/* Left Column: Content */}
                     <div>
