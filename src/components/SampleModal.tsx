@@ -30,6 +30,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -206,10 +207,10 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
       if (response.ok && data.success) {
         setIsSuccess(true);
       } else {
-        alert(isDE ? `Etwas ist schief gelaufen: ${data.error || 'Fehler beim Senden'}` : isNL ? `Er is iets misgegaan: ${data.error || 'Fout bij verzenden'}` : `Something went wrong: ${data.error || 'Error sending'}`);
+        setErrorMsg(data.error || 'Onbekende fout');
       }
     } catch (error: any) {
-      alert(isDE ? `Ein Fehler ist aufgetreten: ${error.message}` : isNL ? `Er is een fout opgetreden: ${error.message}` : `An error occurred: ${error.message}`);
+      setErrorMsg(error.message || 'Netwerkfout');
     } finally {
       setIsSubmitting(false);
     }
@@ -378,7 +379,10 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
                 >
                   {isSubmitting ? "..." : content.btnSubmit}
                 </button>
-                <p className="text-center mt-4 text-[10px] text-orange-100/30 uppercase tracking-widest font-bold">{content.footerNote}</p>
+                {errorMsg && (
+                  <p className="text-center mt-3 text-sm text-red-400 font-medium">{errorMsg}</p>
+                )}
+                <p className="text-center mt-4 text-[10px] text-orange-100/60 uppercase tracking-widest font-bold">{content.footerNote}</p>
               </div>
             </form>
           </div>
