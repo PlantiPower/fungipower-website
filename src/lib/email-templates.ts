@@ -86,23 +86,8 @@ export function getPluralCrop(crop: string, otherCrop: string, category: string)
   return cropPlurals[crop] || crop || 'je gewas';
 }
 
-export function generateEmailHtml({ name, crop, otherCrop, cropCategory, unsubscribeUrl }: { name: string, crop: string, otherCrop: string, cropCategory: string, unsubscribeUrl?: string }) {
-  const quote = "Wat FungiPower bij jou laat zien, is bepalend.";
+export function generateEmailHtml({ name, unsubscribeUrl }: { name: string, crop?: string, otherCrop?: string, cropCategory?: string, unsubscribeUrl?: string }) {
   const firstName = getFirstName(name);
-  const pluralCrop = getPluralCrop(crop, otherCrop, cropCategory).toLowerCase();
-
-  const headerImage = 'https://fungipower-new.vercel.app/images/email/header.jpg';
-
-  let selectedTemplate = templates['algemeen'];
-  if (templates[cropCategory]) {
-    selectedTemplate = templates[cropCategory];
-  } else if (cropCategory === 'anders') {
-    selectedTemplate = templates['anders'];
-  }
-
-  const bodyContent = selectedTemplate
-    .replace(/{{voornaam}}/g, firstName)
-    .replace(/{{gewas_meervoud}}/g, pluralCrop);
 
   return `
     <html>
@@ -110,182 +95,58 @@ export function generateEmailHtml({ name, crop, otherCrop, cropCategory, unsubsc
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
           @media only screen and (max-width: 480px) {
-            .mobile-container { width: 100% !important; min-width: 100% !important; }
-            .hero-section { height: 420px !important; }
-            .hero-title { font-size: 32px !important; line-height: 1.0 !important; }
-            .body-area { padding: 35px 25px !important; }
-            .profile-section { padding: 30px 25px !important; }
-            .quote-text { font-size: 17px !important; }
-            .signature-img { height: 80px !important; width: auto !important; max-width: 200px !important; }
-            .product-col { 
-              display: block !important; 
-              width: 100% !important; 
-              margin: 0 0 20px 0 !important;
-            }
-            .product-card {
-              margin: 0 !important;
-              padding: 25px !important;
-              border-radius: 28px !important;
-            }
-            .product-image {
-              width: 90px !important;
-              height: auto !important;
-            }
-            .section-title { font-size: 19px !important; margin-bottom: 20px !important; }
+            .mobile-container { width: 100% !important; }
+            .body-area { padding: 30px 20px !important; }
+            .product-col { display: block !important; width: 100% !important; margin: 0 0 16px 0 !important; }
           }
         </style>
       </head>
       <body style="margin: 0; padding: 0; background-color: #000;">
         <div class="mobile-container" style="${emailStyles.container}">
           
-          <div class="hero-section" style="position: relative; width: 100%; height: 480px; background-color: #011410; overflow: hidden;">
-            <img src="${headerImage}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(1,20,16,0) 0%, rgba(1,20,16,1) 95%); z-index: 1;"></div>
-            
-            <div style="position: absolute; top: 30px; right: 40px; text-align: right; z-index: 10;">
-                <div style="font-size: 10px; font-weight: 900; color: #84cc16; text-transform: uppercase; letter-spacing: 2px;">Phase 01</div>
-                <div style="font-size: 13px; font-weight: 300; color: #ffffff; opacity: 0.5;">Mail 1 van 3</div>
-            </div>
-
-            <div style="position: absolute; bottom: 40px; left: 40px; right: 40px; z-index: 10;">
-              <div style="${emailStyles.tag}">Welkom en bedankt!</div>
-              <div class="hero-title" style="${emailStyles.heroTitle}">WIJ GAAN JE <br /><span style="${emailStyles.heroAccent}">PROEFPAKKET</span> KLAARMAKEN.</div>
-            </div>
+          <!-- HEADER -->
+          <div style="background-color: #011410; padding: 40px 40px 30px 40px;">
+            <div style="font-size: 11px; font-weight: 900; color: #f97316; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px;">Proefpakket bevestiging</div>
+            <div style="font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.1; text-transform: uppercase; letter-spacing: -1px;">Je bestelling is<br/><span style="color: #f97316;">ontvangen.</span></div>
           </div>
 
-           <!-- PREMIUM FOUNDER SECTION - CIRCLE -->
-          <div class="profile-section" style="${emailStyles.profileSection}">
-            <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="85" valign="top">
-                        <div style="width: 85px; height: 85px;">
-                            <img src="https://fungipower.com/images/email/John.jpeg" style="${emailStyles.profilePic}" />
-                        </div>
-                    </td>
-                    <td valign="top" style="padding-left: 25px;">
-                        <div style="font-size: 40px; color: #84cc16; opacity: 0.1; line-height: 1; margin-top: -10px; margin-bottom: -20px; font-family: Georgia, serif;">"</div>
-                        <div style="${emailStyles.quoteText}" class="quote-text">${quote}</div>
-                        <div style="${emailStyles.founderLabel}">John Geenen, mede-oprichter</div>
-                    </td>
-                </tr>
-            </table>
-          </div>
-
-          <!-- MAIN BRIEF SECTION -->
-          <div class="body-area" style="${emailStyles.bodyArea}; padding-bottom: 20px;">
+          <!-- BODY -->
+          <div class="body-area" style="${emailStyles.bodyArea}">
             <div style="${emailStyles.greeting}">Beste ${firstName},</div>
             <div style="${emailStyles.bodyText}">
-              ${bodyContent}
+              Bedankt voor je bestelling van het FungiPower proefpakket. We gaan het voor je klaarmaken. De factuur ontvang je per e-mail.
             </div>
-            
-            <!-- SIGNATURE BLOCK -->
-            <div style="margin-top: 30px; margin-bottom: 40px;">
-              <div style="font-size: 16px; font-weight: 400; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 10px;">Groet,</div>
-              <img src="https://fungipower.com/images/email/handtekening_john_scribble_white.png" class="signature-img" style="height: 85px; width: auto; max-width: 220px; object-fit: contain; margin-bottom: 5px;" />
-              <div style="font-size: 14px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">John Geenen</div>
-            </div>
-          </div>
 
-          <!-- PROEFPAKKET HIGHLIGHT -->
-          <div class="body-area" style="${emailStyles.bodyArea}; padding-top: 0;">
-            <span class="section-title" style="${emailStyles.sectionTitle}; margin-bottom: 25px !important;">Je proefpakket <span style="color:#84cc16;">bestaat uit:</span></span>
-            <div style="height: 40px;">&nbsp;</div>
-            <div style="text-align: center; font-size: 0;">
-              <div class="product-col" style="display: inline-block; width: 250px; vertical-align: top; margin-bottom: 20px; text-align: left;">
-                <div class="product-card" style="${emailStyles.productCard}; border: 1px solid rgba(132, 204, 22, 0.2); margin-right: 10px;">
-                    <div style="color:#ffffff; font-size:10px; font-weight:900; margin-bottom:0px; text-transform:uppercase; line-height: 1;">FungiPower</div>
-                    <div style="font-size:28px; font-weight:900; margin-bottom:20px; color: #84cc16; line-height: 1;">ALL12</div>
-                    <img src="https://fungipower.com/images/products/fungipower-start.png" class="product-image" style="width: 100px; height: auto; margin-bottom: 20px;" />
-                    <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.5;">
-                        Optimaliseert nutriëntenstroom en verbetert opnamecapaciteit.
-                    </div>
+            <!-- PRODUCTEN -->
+            <div style="font-size: 13px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">Je proefpakket bestaat uit:</div>
+            <div style="font-size: 0;">
+              <div class="product-col" style="display: inline-block; width: 48%; vertical-align: top; margin-right: 2%; margin-bottom: 16px;">
+                <div style="${emailStyles.productCard}; border: 1px solid rgba(249,115,22,0.3);">
+                  <div style="font-size: 10px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">FungiPower</div>
+                  <div style="font-size: 22px; font-weight: 900; color: #f97316; line-height: 1.1; margin-bottom: 12px;">START</div>
+                  <div style="color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.5;">Ondersteunt het mycelium bij de kolonisatie en legt de basis voor een sterke, gezonde vlucht.</div>
                 </div>
               </div>
-              <div class="product-col" style="display: inline-block; width: 250px; vertical-align: top; margin-bottom: 20px; text-align: left;">
-                <div class="product-card" style="${emailStyles.productCard}; border: 1px solid rgba(56, 189, 248, 0.2); margin-left: 10px;">
-                    <div style="color:#ffffff; font-size:10px; font-weight:900; margin-bottom:0px; text-transform:uppercase; line-height: 1;">FungiPower</div>
-                    <div style="font-size:28px; font-weight:900; margin-bottom:20px; color: #38bdf8; line-height: 1;">SHIELD</div>
-                    <img src="https://fungipower.com/images/products/fungipower-boost.png" class="product-image" style="width: 100px; height: auto; margin-bottom: 20px;" />
-                    <div style="color:rgba(255,255,255,0.5); font-size:13px; line-height:1.5;">
-                        Versterkt natuurlijke weerbaarheid en celstructuur.
-                    </div>
+              <div class="product-col" style="display: inline-block; width: 48%; vertical-align: top; margin-bottom: 16px;">
+                <div style="${emailStyles.productCard}; border: 1px solid rgba(249,115,22,0.3);">
+                  <div style="font-size: 10px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 1px;">FungiPower</div>
+                  <div style="font-size: 22px; font-weight: 900; color: #f97316; line-height: 1.1; margin-bottom: 12px;">BOOST</div>
+                  <div style="color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.5;">Verbetert de nutriëntenopname van het mycelium in de vluchtfase voor gelijkmatigere vluchten en hogere opbrengst.</div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- REVIEWS -->
-          <div class="body-area" style="${emailStyles.bodyArea}; padding-top: 0;">
-            <span class="section-title" style="${emailStyles.sectionTitle}">Ervaring van <span style="color:#84cc16;">kwekers:</span></span>
-            <div style="${emailStyles.reviewCard}">
-                <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Egalere wortels en betere opname."</div>
-            </div>
-            <div style="${emailStyles.reviewCard}; border-left-color: #38bdf8;">
-                <div style="color: rgba(255,255,255,0.6); font-size: 13px; font-style: italic;">"Absoluut minder gewasstress."</div>
+            <!-- SIGNATURE -->
+            <div style="margin-top: 32px;">
+              <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 6px;">Met vriendelijke groet,</div>
+              <div style="font-size: 15px; font-weight: 700; color: #ffffff;">Eric</div>
+              <div style="font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px;">FungiPower</div>
             </div>
           </div>
 
-          <!-- TRACKER -->
-          <div style="background-color: #011d17; padding: 60px 30px; border-top: 1px solid rgba(255,255,255,0.05);">
-            <div style="text-align: center; margin-bottom: 40px;">
-              <h3 style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: #84cc16; margin-bottom: 10px;">PACKAGE JOURNEY</h3>
-              <div style="font-size: 18px; font-weight: 900; color: #ffffff;">Live status: <span style="color: #84cc16;">In voorbereiding</span></div>
-            </div>
-
-            <div style="position: relative; padding: 20px 0;">
-              <div style="position: absolute; top: 34px; left: 45px; right: 45px; height: 1px; background-color: rgba(255,255,255,0.1); z-index: 1;"></div>
-              <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; position: relative; z-index: 5;">
-                <tr>
-                  <td align="center">
-                    <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block; border: 4px solid #011d17;">
-                       <img src="https://img.icons8.com/material-rounded/24/011410/checkmark--v1.png" style="width: 14px; margin-top: 7px;" />
-                    </div>
-                    <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #84cc16; margin-top: 10px;">Ontvangen</div>
-                  </td>
-                  <td align="center">
-                    <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #84cc16; display: inline-block; border: 4px solid #011d17; box-shadow: 0 0 15px rgba(132, 204, 22, 0.3);">
-                       <div style="width: 6px; height: 6px; border-radius: 3px; background-color: #011410; display: inline-block; margin-top: 11px;"></div>
-                    </div>
-                    <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: #ffffff; margin-top: 10px;">Klaarmaken</div>
-                  </td>
-                  <td align="center">
-                    <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                       <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
-                    </div>
-                    <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px;">Ingepakt</div>
-                  </td>
-                  <td align="center">
-                    <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                       <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
-                    </div>
-                    <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px;">Onderweg</div>
-                  </td>
-                  <td align="center">
-                    <div style="width: 28px; height: 28px; border-radius: 14px; background-color: #011d17; display: inline-block; border: 1px solid rgba(255,255,255,0.1);">
-                       <div style="width: 4px; height: 4px; border-radius: 2px; background-color: rgba(255,255,255,0.1); display: inline-block; margin-top: 12px;"></div>
-                    </div>
-                    <div style="font-size: 8px; font-weight: 900; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 10px;">Afgeleverd</div>
-                  </td>
-                </tr>
-              </table>
-              <div style="position: absolute; top: 34px; left: 45px; width: 25%; height: 1px; background-color: #84cc16; z-index: 3;"></div>
-            </div>
-          </div>
-
-          <div style="padding: 0 40px 40px 40px; background-color: #011410;">
-              <div style="padding: 25px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 24px; text-align: center;">
-                  <div style="color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.6;">
-                      In de volgende update van ons vertellen we meer over ons bedrijf en wie de kweker was die ons inspireerde.
-                  </div>
-              </div>
-          </div>
-
-          <div style="background: #000; padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-            <div style="color: rgba(255,255,255,0.2); font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 20px;">Venlo, Nederland  |  FUNGIPOWER.COM</div>
-            <div style="color: rgba(255,255,255,0.3); font-size: 11px; line-height: 1.6;">
-              Liever geen updates van ons ontvangen?<br />
-              <a href="${unsubscribeUrl || '#'}" style="color: #84cc16; text-decoration: underline;">Klik hier om je af te melden.</a>
-            </div>
+          <!-- FOOTER -->
+          <div style="background: #000; padding: 30px 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+            <div style="color: rgba(255,255,255,0.2); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Venlo, Nederland · fungipower.bio</div>
           </div>
 
         </div>
