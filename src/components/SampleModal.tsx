@@ -89,13 +89,13 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
 
   const content = isDE ? {
     title: "PROBEPAKET BESTELLEN",
-    subtitle: "Sie erhalten 1x 1 Liter FungiPower Start und 1x 1 Liter FungiPower Boost für €49,95 (zzgl. MwSt.) inklusive Versandkosten.",
+    subtitle: "Sie erhalten 1x 1 Liter FungiPower Start und 1x 1 Liter FungiPower Boost für €49,95 (inkl. MwSt., inkl. Versand in Benelux). Außerhalb der Benelux können Versandkosten anfallen – Sie erhalten vorab eine Bestätigung. Die Rechnung folgt nach der Bestellung.",
     product1: { name: "FungiPower Start (1L)", sub: "NÄHRSTOFFTRANSPORT" },
     product2: { name: "FungiPower Boost (1L)", sub: "BESSERE WIDERSTANDSKRAFT" },
     bundleTitle: "AUSGEWÄHLTER TEST",
     bundleSub: "2X PRODUKTE (START + BOOST)",
     price: "€49,95",
-    shipping: "INKL. VERSAND | ZZGL. MWST",
+    shipping: "INKL. VERSAND (BENELUX) | INKL. MWST",
     labelCompany: "UNTERNEHMENSNAME",
     placeholderCompany: "Ihre Gärtnerei",
     labelName: "KONTAKTPERSON",
@@ -116,19 +116,19 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     subtextOtherCrop: "Nennen Sie die Pilzart, auf die Sie den Test anwenden möchten.",
     labelComments: "ANMERKUNGEN ODER SPEZIFISCHE FRAGEN",
     placeholderComments: "Haben Sie spezifische Herausforderungen?",
-    btnSubmit: "Bestellen & Bezahlen",
-    footerNote: "Sichere Zahlung über Stripe.",
+    btnSubmit: "Bestellung abschließen",
+    footerNote: "Versand inkl. in Benelux. Außerhalb wird ein Angebot vorab gesendet.",
     thankYou: "Vielen Dank!",
-    successMsg: "Ihre Anfrage wurde erfolgreich versendet."
+    successMsg: "Ihre Bestellung wurde erfolgreich empfangen. Die Rechnung folgt per E-Mail."
   } : isNL ? {
     title: "BESTEL HIER JE PROEFPAKKET",
-    subtitle: "Je ontvangt 1x 1 liter FungiPower Start en 1x 1 liter FungiPower Boost voor €49,95 (excl. BTW) inclusief verzendkosten.",
+    subtitle: "Je ontvangt 1x 1 liter FungiPower Start en 1x 1 liter FungiPower Boost voor €49,95 (incl. BTW, incl. verzending binnen de Benelux). Buiten de Benelux kunnen extra verzendkosten gelden — je ontvangt vooraf bericht ter akkoord. Factuur volgt na bestelling.",
     product1: { name: "FungiPower Start (1L)", sub: "VOEDING TRANSPORTEREN" },
     product2: { name: "FungiPower Boost (1L)", sub: "BETERE WEERBAARHEID" },
     bundleTitle: "GESELECTEERDE TEST",
     bundleSub: "2X PRODUCTEN (START + BOOST)",
     price: "€49,95",
-    shipping: "INCL. VERZENDING | EXCL. BTW",
+    shipping: "INCL. VERZENDING (BENELUX) | INCL. BTW",
     labelCompany: "BEDRIJFSNAAM",
     placeholderCompany: "Je Kwekerij",
     labelName: "CONTACTPERSOON",
@@ -149,19 +149,19 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     subtextOtherCrop: "Vermeld de champignonsoort waarop je de proef wilt toepassen.",
     labelComments: "OPMERKINGEN ODER SPECIFIEKE VRAGEN",
     placeholderComments: "Heb je specifieke uitdagingen?",
-    btnSubmit: "Bestellen & Betalen",
-    footerNote: "Veilige betaling via Stripe.",
+    btnSubmit: "Bestelling Afronden",
+    footerNote: "Verzending incl. in Benelux. Buiten Benelux ontvang je eerst een prijsopgave.",
     thankYou: "Bedankt!",
-    successMsg: "Je aanvraag is succesvol verzonden."
+    successMsg: "Je bestelling is succesvol ontvangen. De factuur volgt per e-mail."
   } : {
     title: "ORDER YOUR SAMPLE PACK HERE",
-    subtitle: "You receive 1x 1 liter FungiPower Start and 1x 1 liter FungiPower Boost for €49.95 (excl. VAT) including shipping.",
+    subtitle: "You receive 1x 1 liter FungiPower Start and 1x 1 liter FungiPower Boost for €49.95 (incl. VAT, incl. shipping within Benelux). Outside Benelux, additional shipping costs may apply — you will be notified in advance for approval. Invoice follows after order.",
     product1: { name: "FungiPower Start (1L)", sub: "TRANSPORT NUTRIENTS" },
     product2: { name: "FungiPower Boost (1L)", sub: "BETERE RESILIENCE" },
     bundleTitle: "SELECTED TEST",
     bundleSub: "2X PRODUCTS (START + BOOST)",
     price: "€49.95",
-    shipping: "INCL. SHIPPING | EXCL. VAT",
+    shipping: "INCL. SHIPPING (BENELUX) | INCL. VAT",
     labelCompany: "COMPANY NAME",
     placeholderCompany: "Your Nursery",
     labelName: "CONTACT PERSON",
@@ -182,10 +182,10 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     subtextOtherCrop: "Mention the species you want to apply the test to.",
     labelComments: "COMMENTS OR SPECIFIC QUESTIONS",
     placeholderComments: "Do you have specific challenges?",
-    btnSubmit: "Order & Pay",
-    footerNote: "Secure payment via Stripe.",
+    btnSubmit: "Complete Order",
+    footerNote: "Shipping included in Benelux. Outside Benelux, you'll receive a quote first.",
     thankYou: "Thank You!",
-    successMsg: "Your request has been successfully sent."
+    successMsg: "Your order has been successfully received. The invoice will follow by email."
   };
 
   if (!isOpen) return null;
@@ -195,7 +195,7 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/create-checkout', {
+      const response = await fetch('/api/place-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, locale: lang }),
@@ -203,10 +203,10 @@ const SampleModal: React.FC<SampleModalProps> = ({ isOpen, onClose, lang }) => {
 
       const data = await response.json();
 
-      if (response.ok && data.url) {
-        window.location.href = data.url;
+      if (response.ok && data.success) {
+        setIsSuccess(true);
       } else {
-        alert(isDE ? `Etwas ist schief gelaufen: ${data.error || 'Keine URL erhalten'}` : isNL ? `Er is iets misgegaan: ${data.error || 'Er is geen URL ontvangen'}` : `Something went wrong: ${data.error || 'No URL received'}`);
+        alert(isDE ? `Etwas ist schief gelaufen: ${data.error || 'Fehler beim Senden'}` : isNL ? `Er is iets misgegaan: ${data.error || 'Fout bij verzenden'}` : `Something went wrong: ${data.error || 'Error sending'}`);
       }
     } catch (error: any) {
       alert(isDE ? `Ein Fehler ist aufgetreten: ${error.message}` : isNL ? `Er is een fout opgetreden: ${error.message}` : `An error occurred: ${error.message}`);

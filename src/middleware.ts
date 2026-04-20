@@ -24,10 +24,9 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
 
-    // Skip for static files, assets, api, and login page itself
+    // Skip for static files, assets, api
     if (
         pathname.includes('.') ||
-        pathname.startsWith('/login') ||
         pathname.startsWith('/api/') ||
         pathname.startsWith('/theroadto') ||
         pathname.startsWith('/images/') ||
@@ -37,14 +36,6 @@ export function middleware(request: NextRequest) {
         pathname === '/sitemap.xml'
     ) {
         return NextResponse.next()
-    }
-
-    // Password protection check
-    const accessCookie = request.cookies.get('fp_access')
-    if (!accessCookie || accessCookie.value !== 'granted') {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/login'
-        return NextResponse.redirect(loginUrl)
     }
 
     const pathnameHasLocale = i18n.locales.some(
