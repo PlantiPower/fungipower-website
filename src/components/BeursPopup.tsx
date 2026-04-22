@@ -105,6 +105,8 @@ export default function BeursPopup() {
                 <option value="French">French</option>
                 <option value="Spanish">Spanish</option>
                 <option value="Polish">Polish</option>
+                <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                <option value="Chinese (Traditional)">Chinese (Traditional)</option>
               </select>
 
               <label className="flex items-center gap-3 cursor-pointer py-1">
