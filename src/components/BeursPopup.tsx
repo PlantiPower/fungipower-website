@@ -10,10 +10,8 @@ export default function BeursPopup() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   useEffect(() => {
-    if (searchParams.get('ref') === 'champignondagen') {
-      setTimeout(() => setOpen(true), 800)
-    }
-  }, [searchParams])
+    setTimeout(() => setOpen(true), 800)
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target
