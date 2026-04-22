@@ -74,12 +74,12 @@ export default function BeursPopup() {
         ) : (
           <>
             {/* Big headline */}
-            <div className="text-center max-w-2xl mb-12">
+            <div className="text-center max-w-lg mb-12">
               <h1 className="text-5xl md:text-6xl font-black leading-tight mb-4">
                 It was nice<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">to meet you!</span>
               </h1>
-              <p className="text-white/50 text-lg leading-relaxed">
+              <p className="text-white/50 text-lg leading-relaxed text-left">
                 Leave your details and we'll keep you posted on what FungiPower can do for your cultivation. We'll also send you field trial reports when we think they're relevant for you.
               </p>
             </div>
