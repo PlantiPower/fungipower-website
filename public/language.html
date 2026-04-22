@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FungiPower – Choose your language</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(ellipse at 60% 20%, #7a2d0a 0%, #3d1505 35%, #0d0601 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      color: white;
+    }
+    img { height: 44px; margin-bottom: 48px; }
+    h1 { font-size: 14px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 40px; }
+    .langs { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 320px; }
+    a {
+      display: block;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    a:hover { background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.4); color: #f97316; }
+  </style>
+</head>
+<body>
+  <img src="/images/fungipower-logo.png" alt="FungiPower" />
+  <h1>Choose your language</h1>
+  <div class="langs">
+    <a href="/english">🇬🇧 English</a>
+    <a href="/spanish">🇪🇸 Español</a>
+    <a href="/italian">🇮🇹 Italiano</a>
+    <a href="/polish">🇵🇱 Polski</a>
+    <a href="/french">🇫🇷 Français</a>
+    <a href="/german">🇩🇪 Deutsch</a>
+  </div>
+</body>
+</html>

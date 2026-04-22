@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FungiPower – Higher Yield in Mushroom Cultivation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', sans-serif; background: #0d0601; color: white; }
+    .hero {
+      background: radial-gradient(ellipse at 60% 20%, #7a2d0a 0%, #3d1505 40%, #0d0601 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .logo { height: 40px; margin-bottom: 40px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); border-radius: 999px; margin-bottom: 32px; }
+    .badge span { font-size: 10px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: #f97316; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #f97316; }
+    h1 { font-size: clamp(32px, 6vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+    h1 .orange { color: #f97316; }
+    .tagline { font-size: 18px; color: rgba(255,255,255,0.5); font-style: italic; margin-bottom: 40px; }
+    .smoothie { height: 280px; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 12px 40px rgba(249,115,22,0.5)); }
+    section { max-width: 680px; margin: 0 auto; padding: 60px 24px; }
+    .label { font-size: 10px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #f97316; margin-bottom: 16px; }
+    h2 { font-size: 28px; font-weight: 900; margin-bottom: 16px; }
+    p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 16px; }
+    ul { list-style: none; padding: 0; margin: 16px 0; }
+    ul li { font-size: 16px; color: rgba(255,255,255,0.65); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
+    ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #f97316; flex-shrink: 0; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); }
+    .products { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .product { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; }
+    .product-name { font-size: 13px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #f97316; margin-bottom: 8px; }
+    .product p { font-size: 15px; margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; margin-top: 24px; }
+    .stat { background: #0d0601; padding: 24px 16px; text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 900; color: #f97316; line-height: 1; }
+    .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 6px; }
+    .cta { background: radial-gradient(ellipse at 50% 0%, #7a2d0a 0%, #0d0601 70%); padding: 80px 24px; text-align: center; }
+    .cta h2 { font-size: 36px; font-weight: 900; margin-bottom: 16px; }
+    .cta p { font-size: 17px; color: rgba(255,255,255,0.5); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn { display: inline-block; padding: 16px 40px; background: #f97316; color: #3d1505; font-weight: 900; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn:hover { background: #fb923c; }
+    .btn-ghost { display: inline-block; padding: 16px 40px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border-radius: 8px; text-decoration: none; margin-left: 16px; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; }
+    footer { text-align: center; padding: 32px 24px; font-size: 13px; color: rgba(255,255,255,0.2); }
+    @media (max-width: 480px) { .products { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr; } .btn-ghost { margin-left: 0; margin-top: 12px; } }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="/images/fungipower-logo.png" alt="FungiPower" class="logo" />
+    <div class="badge"><div class="badge-dot"></div><span>Nutrient Transporter</span></div>
+    <h1>The substrate is full of nutrients.<br/><span class="orange">But the mycelium can't access them all.</span></h1>
+    <p class="tagline">It's like drinking a smoothie with a straw that's too short.</p>
+    <img src="/images/smoothie-fungipower.png" alt="FungiPower" class="smoothie" />
+  </div>
+
+  <section>
+    <div class="label">The Problem</div>
+    <h2>Nutrients are there. Not all of them reach the mycelium.</h2>
+    <p>In an ideal growing cycle, the mycelium absorbs all available nutrients in the substrate. In reality, a significant part remains unused.</p>
+    <p>This leads to:</p>
+    <ul>
+      <li>Uneven colonisation</li>
+      <li>Slower flushes</li>
+      <li>Inconsistent yields</li>
+      <li>Unnecessary nutrient waste</li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <section>
+    <div class="label">The Solution</div>
+    <h2>FungiPower improves nutrient availability.</h2>
+    <p>FungiPower is a nutrient transporter. It helps the mycelium access more of what is already in the substrate — leading to better uptake, less waste, and stronger performance.</p>
+    <p>No changes to your current cultivation process needed.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section>
+    <div class="label">Products</div>
+    <h2>Two products. One complete system.</h2>
+    <div class="products">
+      <div class="product">
+        <div class="product-name">FungiPower Start</div>
+        <p>Supports strong and even colonisation from day one.</p>
+      </div>
+      <div class="product">
+        <div class="product-name">FungiPower Boost</div>
+        <p>Enhances nutrient uptake during the flush phase for better results.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section>
+    <div class="label">Results</div>
+    <h2>What you can expect.</h2>
+    <ul>
+      <li>More nutrient uptake</li>
+      <li>Less waste per cycle</li>
+      <li>More uniform growth</li>
+      <li>Higher yield per flush</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">+14%</div><div class="stat-label">Higher yield</div></div>
+      <div class="stat"><div class="stat-num">20</div><div class="stat-label">Field trials</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural</div></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Ready to get more out of your substrate?</h2>
+    <p>Request a free sample or get in touch. We'll show you what FungiPower can do for your cultivation.</p>
+    <a href="/en/fungipower-start#sample" class="btn">Request a free sample</a>
+    <a href="/en/contact" class="btn-ghost">Get in touch</a>
+  </div>
+
+  <footer>fungipower.bio &nbsp;·&nbsp; info@fungipower.bio</footer>
+
+</body>
+</html>
