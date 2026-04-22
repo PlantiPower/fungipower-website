@@ -7,7 +7,9 @@ import ProblemSection from '@/components/ProblemSection'
 import CropResults from '@/components/CropResults'
 import GlobalStandard from '@/components/GlobalStandard'
 import Testimonials from '@/components/Testimonials'
+import BeursPopup from '@/components/BeursPopup'
 import { Metadata, ResolvingMetadata } from 'next'
+import { Suspense } from 'react'
 
 export async function generateMetadata(
   props: { params: Promise<{ lang: Locale }> },
@@ -65,6 +67,9 @@ export default async function Page({
 
   return (
     <ClientLayout dict={dict} lang={lang}>
+      <Suspense fallback={null}>
+        <BeursPopup />
+      </Suspense>
       <div className="bg-[#011410]">
         <Hero dict={dict} lang={lang} />
         <GrowerFocus dict={dict} />
