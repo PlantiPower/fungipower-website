@@ -1,4 +1,4 @@
-import { Inter, Outfit } from 'next/font/google'
+import { Inter, Outfit, Cairo } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -13,13 +13,19 @@ const outfit = Outfit({
   display: 'swap',
 })
 
+const cairo = Cairo({
+  variable: '--font-cairo',
+  subsets: ['arabic', 'latin'],
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html className={`${inter.variable} ${outfit.variable}`}>
+    <html className={`${inter.variable} ${outfit.variable} ${cairo.variable}`}>
       <body className="antialiased font-inter bg-[#02211b] text-white">
         {children}
       </body>
