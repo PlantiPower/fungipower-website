@@ -125,6 +125,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ open, onClose, onOpenSample, dict, la
                             <Link href={getLocalizedPath(pathname, 'nl')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'nl' ? 'text-orange-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>NL</Link>
                             <span className="opacity-30">|</span>
                             <Link href={getLocalizedPath(pathname, 'de')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'de' ? 'text-orange-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>DE</Link>
+                            <span className="opacity-30">|</span>
+                            <Link href={getLocalizedPath(pathname, 'ar')} onClick={onClose} className={`transition-all hover:text-white ${lang === 'ar' ? 'text-orange-400 scale-110 drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]' : ''}`}>AR</Link>
                         </div>
                     </div>
                     <button
