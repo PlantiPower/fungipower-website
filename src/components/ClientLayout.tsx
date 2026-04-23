@@ -6,6 +6,7 @@ import Header from './Header'
 import MobileMenu from './MobileMenu'
 import SampleModal from './SampleModal'
 import Footer from './Footer'
+import AnnouncementBar from './AnnouncementBar'
 
 import { ModalProvider, useModals } from '../context/ModalContext'
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -41,6 +42,7 @@ function LayoutContent({
 
     return (
         <>
+            <AnnouncementBar lang={lang} />
             <div className="site-header-wrapper">
                 <Header
                     dict={dict}
