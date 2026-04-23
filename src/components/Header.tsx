@@ -33,6 +33,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
     if (lang === 'nl') return 'NL';
     if (lang === 'de') return 'DE';
     if (lang === 'ar') return 'AR';
+    if (lang === 'bg') return 'BG';
     return 'EN';
   };
 
@@ -119,6 +120,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSample, onOpenMenu, dict, lang })
                   <Link href={getLocalizedPath(pathname, 'nl')} className={`flex items-center px-4 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs font-bold tracking-widest uppercase ${lang === 'nl' ? 'text-orange-400 bg-white/5' : 'text-white/70 hover:text-white'}`}>Nederlands</Link>
                   <Link href={getLocalizedPath(pathname, 'de')} className={`flex items-center px-4 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs font-bold tracking-widest uppercase ${lang === 'de' ? 'text-orange-400 bg-white/5' : 'text-white/70 hover:text-white'}`}>Deutsch</Link>
                   <Link href={getLocalizedPath(pathname, 'ar')} className={`flex items-center px-4 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs font-bold tracking-widest uppercase ${lang === 'ar' ? 'text-orange-400 bg-white/5' : 'text-white/70 hover:text-white'}`}>عربي</Link>
+                  <Link href={getLocalizedPath(pathname, 'bg')} className={`flex items-center px-4 py-2.5 rounded-xl hover:bg-white/5 transition-colors text-xs font-bold tracking-widest uppercase ${lang === 'bg' ? 'text-orange-400 bg-white/5' : 'text-white/70 hover:text-white'}`}>Български</Link>
                 </div>
               </div>
             </div>
